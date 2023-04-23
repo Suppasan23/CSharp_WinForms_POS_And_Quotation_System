@@ -70,7 +70,7 @@
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(180, 22);
+            exitToolStripMenuItem.Size = new Size(93, 22);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
@@ -117,6 +117,7 @@
             ProductManagementToolStripButton.Size = new Size(131, 133);
             ProductManagementToolStripButton.Text = "จัดการสินค้า";
             ProductManagementToolStripButton.TextImageRelation = TextImageRelation.ImageAboveText;
+            ProductManagementToolStripButton.Click += ProductManagementToolStripButton_Click;
             // 
             // toolStripSeparator1
             // 
@@ -134,6 +135,7 @@
             PointOfSaleToolStripButton.Size = new Size(131, 133);
             PointOfSaleToolStripButton.Text = "ขายสินค้า";
             PointOfSaleToolStripButton.TextImageRelation = TextImageRelation.ImageAboveText;
+            PointOfSaleToolStripButton.Click += PointOfSaleToolStripButton_Click;
             // 
             // toolStripSeparator2
             // 
@@ -151,6 +153,7 @@
             CreateQuotationToolStripButton.Size = new Size(131, 133);
             CreateQuotationToolStripButton.Text = "สร้างใบเสนอราคา";
             CreateQuotationToolStripButton.TextImageRelation = TextImageRelation.ImageAboveText;
+            CreateQuotationToolStripButton.Click += CreateQuotationToolStripButton_Click;
             // 
             // toolStripSeparator3
             // 
@@ -168,6 +171,7 @@
             ArchiveQuotationToolStripButton.Size = new Size(131, 133);
             ArchiveQuotationToolStripButton.Text = "ที่เก็บใบเสนอราคา";
             ArchiveQuotationToolStripButton.TextImageRelation = TextImageRelation.ImageAboveText;
+            ArchiveQuotationToolStripButton.Click += ArchiveQuotationToolStripButton_Click;
             // 
             // toolStripSeparator4
             // 
