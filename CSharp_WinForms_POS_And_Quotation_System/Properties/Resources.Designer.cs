@@ -63,6 +63,16 @@ namespace CSharp_WinForms_POS_And_Quotation_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap barcode_redline48x36 {
+            get {
+                object obj = ResourceManager.GetObject("barcode-redline48x36", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cabinet_110 {
             get {
                 object obj = ResourceManager.GetObject("cabinet-110", resourceCulture);
@@ -126,6 +136,16 @@ namespace CSharp_WinForms_POS_And_Quotation_System.Properties {
         internal static System.Drawing.Bitmap refresh_2_16 {
             get {
                 object obj = ResourceManager.GetObject("refresh-2-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap save_24 {
+            get {
+                object obj = ResourceManager.GetObject("save-24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
