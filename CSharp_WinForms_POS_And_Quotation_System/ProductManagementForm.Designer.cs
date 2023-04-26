@@ -56,9 +56,9 @@
             label1.Location = new Point(8, 8);
             label1.Margin = new Padding(0);
             label1.Name = "label1";
-            label1.Size = new Size(179, 39);
+            label1.Size = new Size(195, 39);
             label1.TabIndex = 0;
-            label1.Text = "จัดการสินค้า";
+            label1.Text = "จัดการสินค้าา";
             // 
             // statusStrip1
             // 
