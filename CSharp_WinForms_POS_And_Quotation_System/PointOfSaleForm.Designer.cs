@@ -263,31 +263,31 @@
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 4;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 26F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 10F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 27F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 10F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel3.Size = new Size(904, 70);
             tableLayoutPanel3.TabIndex = 14;
             // 
             // ProductIDLabel
             // 
+            ProductIDLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             ProductIDLabel.AutoSize = true;
-            ProductIDLabel.Dock = DockStyle.Right;
             ProductIDLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             ProductIDLabel.ForeColor = Color.Black;
-            ProductIDLabel.Location = new Point(9, 0);
+            ProductIDLabel.Location = new Point(0, 4);
             ProductIDLabel.Margin = new Padding(0);
             ProductIDLabel.Name = "ProductIDLabel";
-            ProductIDLabel.Size = new Size(81, 26);
+            ProductIDLabel.Size = new Size(90, 18);
             ProductIDLabel.TabIndex = 0;
             ProductIDLabel.Text = "เลขที่สินค้า:";
             ProductIDLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Dock = DockStyle.Fill;
+            numericUpDown1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             numericUpDown1.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            numericUpDown1.Location = new Point(792, 36);
+            numericUpDown1.Location = new Point(792, 34);
             numericUpDown1.Margin = new Padding(0);
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(112, 27);
@@ -295,7 +295,7 @@
             // 
             // ProductNumberTextBox
             // 
-            ProductNumberTextBox.Dock = DockStyle.Fill;
+            ProductNumberTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             ProductNumberTextBox.Location = new Point(90, 0);
             ProductNumberTextBox.Margin = new Padding(0);
             ProductNumberTextBox.Name = "ProductNumberTextBox";
@@ -305,36 +305,36 @@
             // 
             // SellingUnitLabel
             // 
+            SellingUnitLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             SellingUnitLabel.AutoSize = true;
-            SellingUnitLabel.Dock = DockStyle.Right;
             SellingUnitLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             SellingUnitLabel.ForeColor = Color.Black;
-            SellingUnitLabel.Location = new Point(703, 36);
+            SellingUnitLabel.Location = new Point(662, 38);
             SellingUnitLabel.Margin = new Padding(0);
             SellingUnitLabel.Name = "SellingUnitLabel";
-            SellingUnitLabel.Size = new Size(89, 27);
+            SellingUnitLabel.Size = new Size(130, 18);
             SellingUnitLabel.TabIndex = 13;
             SellingUnitLabel.Text = "จำนวนที่ขาย:";
             SellingUnitLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
             // ProductNameLabel
             // 
+            ProductNameLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             ProductNameLabel.AutoSize = true;
-            ProductNameLabel.Dock = DockStyle.Right;
             ProductNameLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             ProductNameLabel.ForeColor = Color.Black;
-            ProductNameLabel.Location = new Point(376, 0);
+            ProductNameLabel.Location = new Point(311, 4);
             ProductNameLabel.Margin = new Padding(0);
             ProductNameLabel.Name = "ProductNameLabel";
-            ProductNameLabel.Size = new Size(65, 26);
+            ProductNameLabel.Size = new Size(130, 18);
             ProductNameLabel.TabIndex = 7;
             ProductNameLabel.Text = "ชื่อสินค้า:";
             ProductNameLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
             // UnitInStockTextBox
             // 
-            UnitInStockTextBox.Dock = DockStyle.Bottom;
-            UnitInStockTextBox.Location = new Point(441, 37);
+            UnitInStockTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            UnitInStockTextBox.Location = new Point(441, 34);
             UnitInStockTextBox.Margin = new Padding(0);
             UnitInStockTextBox.Name = "UnitInStockTextBox";
             UnitInStockTextBox.ReadOnly = true;
@@ -343,7 +343,7 @@
             // 
             // ProductNameTextBox
             // 
-            ProductNameTextBox.Dock = DockStyle.Fill;
+            ProductNameTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             ProductNameTextBox.Location = new Point(441, 0);
             ProductNameTextBox.Margin = new Padding(0);
             ProductNameTextBox.Name = "ProductNameTextBox";
@@ -353,35 +353,35 @@
             // 
             // SellingPriceLabel
             // 
+            SellingPriceLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             SellingPriceLabel.AutoSize = true;
-            SellingPriceLabel.Dock = DockStyle.Right;
             SellingPriceLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             SellingPriceLabel.ForeColor = Color.Black;
-            SellingPriceLabel.Location = new Point(725, 0);
+            SellingPriceLabel.Location = new Point(662, 4);
             SellingPriceLabel.Margin = new Padding(0);
             SellingPriceLabel.Name = "SellingPriceLabel";
-            SellingPriceLabel.Size = new Size(67, 26);
+            SellingPriceLabel.Size = new Size(130, 18);
             SellingPriceLabel.TabIndex = 9;
             SellingPriceLabel.Text = "ราคาขาย:";
             SellingPriceLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
             // UnitInStockLabel
             // 
+            UnitInStockLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             UnitInStockLabel.AutoSize = true;
-            UnitInStockLabel.Dock = DockStyle.Right;
             UnitInStockLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             UnitInStockLabel.ForeColor = Color.Black;
-            UnitInStockLabel.Location = new Point(336, 36);
+            UnitInStockLabel.Location = new Point(311, 38);
             UnitInStockLabel.Margin = new Padding(0);
             UnitInStockLabel.Name = "UnitInStockLabel";
-            UnitInStockLabel.Size = new Size(105, 27);
+            UnitInStockLabel.Size = new Size(130, 18);
             UnitInStockLabel.TabIndex = 11;
             UnitInStockLabel.Text = "จำนวนในสต๊อก:";
             UnitInStockLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
             // SellingPriceTextBox
             // 
-            SellingPriceTextBox.Dock = DockStyle.Fill;
+            SellingPriceTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             SellingPriceTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             SellingPriceTextBox.Location = new Point(792, 0);
             SellingPriceTextBox.Margin = new Padding(0);
@@ -392,8 +392,8 @@
             // 
             // BarcodeTextBox2
             // 
-            BarcodeTextBox2.Dock = DockStyle.Bottom;
-            BarcodeTextBox2.Location = new Point(90, 37);
+            BarcodeTextBox2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            BarcodeTextBox2.Location = new Point(90, 34);
             BarcodeTextBox2.Margin = new Padding(0);
             BarcodeTextBox2.Name = "BarcodeTextBox2";
             BarcodeTextBox2.ReadOnly = true;
@@ -402,14 +402,14 @@
             // 
             // BarcodeLabel2
             // 
+            BarcodeLabel2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             BarcodeLabel2.AutoSize = true;
-            BarcodeLabel2.Dock = DockStyle.Right;
             BarcodeLabel2.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             BarcodeLabel2.ForeColor = Color.Black;
-            BarcodeLabel2.Location = new Point(30, 36);
+            BarcodeLabel2.Location = new Point(0, 38);
             BarcodeLabel2.Margin = new Padding(0);
             BarcodeLabel2.Name = "BarcodeLabel2";
-            BarcodeLabel2.Size = new Size(60, 27);
+            BarcodeLabel2.Size = new Size(90, 18);
             BarcodeLabel2.TabIndex = 5;
             BarcodeLabel2.Text = "บาร์โค้ด:";
             BarcodeLabel2.TextAlign = ContentAlignment.MiddleRight;
@@ -421,12 +421,12 @@
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.BackgroundColor = SystemColors.ControlLight;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(6, 105);
+            dataGridView1.Location = new Point(6, 100);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(904, 842);
+            dataGridView1.Size = new Size(904, 847);
             dataGridView1.TabIndex = 10;
             // 
             // TransactionGroupBox
@@ -468,23 +468,23 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Dock = DockStyle.Fill;
             label2.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(586, 0);
+            label2.Location = new Point(586, 4);
             label2.Margin = new Padding(0);
             label2.Name = "label2";
-            label2.Size = new Size(120, 26);
+            label2.Size = new Size(120, 18);
             label2.TabIndex = 8;
             label2.Text = "ดูใบเสร็จล่าสุด:";
             label2.TextAlign = ContentAlignment.MiddleRight;
             // 
             // comboBox1
             // 
-            comboBox1.Dock = DockStyle.Fill;
+            comboBox1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(706, 0);
+            comboBox1.Location = new Point(706, 1);
             comboBox1.Margin = new Padding(0);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(198, 26);
@@ -492,21 +492,21 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label3.AutoSize = true;
-            label3.Dock = DockStyle.Fill;
             label3.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(0, 0);
+            label3.Location = new Point(0, 4);
             label3.Margin = new Padding(0);
             label3.Name = "label3";
-            label3.Size = new Size(70, 26);
+            label3.Size = new Size(70, 18);
             label3.TabIndex = 1;
             label3.Text = "วันที่เวลา:";
             label3.TextAlign = ContentAlignment.MiddleRight;
             // 
             // CurrentDateTextBox
             // 
-            CurrentDateTextBox.Dock = DockStyle.Fill;
+            CurrentDateTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             CurrentDateTextBox.Location = new Point(70, 0);
             CurrentDateTextBox.Margin = new Padding(0);
             CurrentDateTextBox.Name = "CurrentDateTextBox";
@@ -516,21 +516,21 @@
             // 
             // TransactionIDLabel
             // 
+            TransactionIDLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             TransactionIDLabel.AutoSize = true;
-            TransactionIDLabel.Dock = DockStyle.Fill;
             TransactionIDLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             TransactionIDLabel.ForeColor = Color.Black;
-            TransactionIDLabel.Location = new Point(268, 0);
+            TransactionIDLabel.Location = new Point(268, 4);
             TransactionIDLabel.Margin = new Padding(0);
             TransactionIDLabel.Name = "TransactionIDLabel";
-            TransactionIDLabel.Size = new Size(120, 26);
+            TransactionIDLabel.Size = new Size(120, 18);
             TransactionIDLabel.TabIndex = 5;
             TransactionIDLabel.Text = "เลขที่ใบเสร็จ:";
             TransactionIDLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
             // TransactionIDTextBox
             // 
-            TransactionIDTextBox.Dock = DockStyle.Fill;
+            TransactionIDTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             TransactionIDTextBox.Location = new Point(388, 0);
             TransactionIDTextBox.Margin = new Padding(0);
             TransactionIDTextBox.Name = "TransactionIDTextBox";
@@ -570,7 +570,7 @@
             // 
             // BarcodeTextBox1
             // 
-            BarcodeTextBox1.Dock = DockStyle.Fill;
+            BarcodeTextBox1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             BarcodeTextBox1.Font = new Font("Tahoma", 18F, FontStyle.Regular, GraphicsUnit.Point);
             BarcodeTextBox1.Location = new Point(52, 0);
             BarcodeTextBox1.Margin = new Padding(0);
@@ -581,7 +581,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Dock = DockStyle.Fill;
+            pictureBox1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             pictureBox1.Image = Properties.Resources.barcode_redline48x36;
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Margin = new Padding(0);
