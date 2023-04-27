@@ -23,5 +23,10 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         {
 
         }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
