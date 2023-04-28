@@ -64,7 +64,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             PointOfSaleForm childForm = new PointOfSaleForm();
             childForm.StartPosition = FormStartPosition.Manual;
             childForm.Top = 0;
-            childForm.Left = 600;
+            childForm.Left = 800;
             openChildForms(childForm);
         }
 
@@ -72,8 +72,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         {
             CreateQuotationForm childForm = new CreateQuotationForm();
             childForm.StartPosition = FormStartPosition.Manual;
-            childForm.Top = 100;
-            childForm.Left = 0;
+            childForm.Top = 0;
+            childForm.Left = 200;
             openChildForms(childForm);
         }
 
@@ -81,8 +81,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         {
             ArchiveQuotationForm childForm = new ArchiveQuotationForm();
             childForm.StartPosition = FormStartPosition.Manual;
-            childForm.Top = 100;
-            childForm.Left = 600;
+            childForm.Top = 0;
+            childForm.Left = 1000;
             openChildForms(childForm);
         }
 

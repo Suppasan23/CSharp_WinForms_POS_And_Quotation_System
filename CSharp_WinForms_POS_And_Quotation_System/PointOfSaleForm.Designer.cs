@@ -46,13 +46,13 @@
             ProductNumberTextBox = new TextBox();
             SellingUnitLabel = new Label();
             ProductNameLabel = new Label();
-            UnitInStockTextBox = new TextBox();
             ProductNameTextBox = new TextBox();
             SellingPriceLabel = new Label();
             UnitInStockLabel = new Label();
             SellingPriceTextBox = new TextBox();
             BarcodeTextBox2 = new TextBox();
             BarcodeLabel2 = new Label();
+            UnitInStockTextBox = new TextBox();
             dataGridView1 = new DataGridView();
             TransactionGroupBox = new GroupBox();
             tableLayoutPanel1 = new TableLayoutPanel();
@@ -240,6 +240,7 @@
             // tableLayoutPanel3
             // 
             tableLayoutPanel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel3.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             tableLayoutPanel3.ColumnCount = 6;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 90F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
@@ -252,19 +253,19 @@
             tableLayoutPanel3.Controls.Add(ProductNumberTextBox, 1, 0);
             tableLayoutPanel3.Controls.Add(SellingUnitLabel, 4, 2);
             tableLayoutPanel3.Controls.Add(ProductNameLabel, 2, 0);
-            tableLayoutPanel3.Controls.Add(UnitInStockTextBox, 3, 2);
             tableLayoutPanel3.Controls.Add(ProductNameTextBox, 3, 0);
             tableLayoutPanel3.Controls.Add(SellingPriceLabel, 4, 0);
             tableLayoutPanel3.Controls.Add(UnitInStockLabel, 2, 2);
             tableLayoutPanel3.Controls.Add(SellingPriceTextBox, 5, 0);
             tableLayoutPanel3.Controls.Add(BarcodeTextBox2, 1, 2);
             tableLayoutPanel3.Controls.Add(BarcodeLabel2, 0, 2);
-            tableLayoutPanel3.Location = new Point(6, 29);
+            tableLayoutPanel3.Controls.Add(UnitInStockTextBox, 3, 2);
+            tableLayoutPanel3.Location = new Point(6, 25);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 4;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 26F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 27F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 26F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel3.Size = new Size(1004, 70);
             tableLayoutPanel3.TabIndex = 14;
@@ -275,7 +276,7 @@
             ProductIDLabel.AutoSize = true;
             ProductIDLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             ProductIDLabel.ForeColor = Color.Black;
-            ProductIDLabel.Location = new Point(0, 4);
+            ProductIDLabel.Location = new Point(1, 5);
             ProductIDLabel.Margin = new Padding(0);
             ProductIDLabel.Name = "ProductIDLabel";
             ProductIDLabel.Size = new Size(90, 18);
@@ -286,21 +287,21 @@
             // numericUpDown1
             // 
             numericUpDown1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            numericUpDown1.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            numericUpDown1.Location = new Point(872, 34);
+            numericUpDown1.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            numericUpDown1.Location = new Point(872, 35);
             numericUpDown1.Margin = new Padding(0);
             numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(132, 27);
+            numericUpDown1.Size = new Size(131, 26);
             numericUpDown1.TabIndex = 6;
             // 
             // ProductNumberTextBox
             // 
             ProductNumberTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            ProductNumberTextBox.Location = new Point(90, 0);
+            ProductNumberTextBox.Location = new Point(92, 1);
             ProductNumberTextBox.Margin = new Padding(0);
             ProductNumberTextBox.Name = "ProductNumberTextBox";
             ProductNumberTextBox.ReadOnly = true;
-            ProductNumberTextBox.Size = new Size(261, 26);
+            ProductNumberTextBox.Size = new Size(258, 26);
             ProductNumberTextBox.TabIndex = 1;
             // 
             // SellingUnitLabel
@@ -309,7 +310,7 @@
             SellingUnitLabel.AutoSize = true;
             SellingUnitLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             SellingUnitLabel.ForeColor = Color.Black;
-            SellingUnitLabel.Location = new Point(742, 38);
+            SellingUnitLabel.Location = new Point(741, 39);
             SellingUnitLabel.Margin = new Padding(0);
             SellingUnitLabel.Name = "SellingUnitLabel";
             SellingUnitLabel.Size = new Size(130, 18);
@@ -323,7 +324,7 @@
             ProductNameLabel.AutoSize = true;
             ProductNameLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             ProductNameLabel.ForeColor = Color.Black;
-            ProductNameLabel.Location = new Point(351, 4);
+            ProductNameLabel.Location = new Point(351, 5);
             ProductNameLabel.Margin = new Padding(0);
             ProductNameLabel.Name = "ProductNameLabel";
             ProductNameLabel.Size = new Size(130, 18);
@@ -331,24 +332,14 @@
             ProductNameLabel.Text = "ชื่อสินค้า:";
             ProductNameLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // UnitInStockTextBox
-            // 
-            UnitInStockTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            UnitInStockTextBox.Location = new Point(481, 34);
-            UnitInStockTextBox.Margin = new Padding(0);
-            UnitInStockTextBox.Name = "UnitInStockTextBox";
-            UnitInStockTextBox.ReadOnly = true;
-            UnitInStockTextBox.Size = new Size(261, 26);
-            UnitInStockTextBox.TabIndex = 12;
-            // 
             // ProductNameTextBox
             // 
             ProductNameTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            ProductNameTextBox.Location = new Point(481, 0);
+            ProductNameTextBox.Location = new Point(482, 1);
             ProductNameTextBox.Margin = new Padding(0);
             ProductNameTextBox.Name = "ProductNameTextBox";
             ProductNameTextBox.ReadOnly = true;
-            ProductNameTextBox.Size = new Size(261, 26);
+            ProductNameTextBox.Size = new Size(258, 26);
             ProductNameTextBox.TabIndex = 8;
             // 
             // SellingPriceLabel
@@ -357,7 +348,7 @@
             SellingPriceLabel.AutoSize = true;
             SellingPriceLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             SellingPriceLabel.ForeColor = Color.Black;
-            SellingPriceLabel.Location = new Point(742, 4);
+            SellingPriceLabel.Location = new Point(741, 5);
             SellingPriceLabel.Margin = new Padding(0);
             SellingPriceLabel.Name = "SellingPriceLabel";
             SellingPriceLabel.Size = new Size(130, 18);
@@ -371,7 +362,7 @@
             UnitInStockLabel.AutoSize = true;
             UnitInStockLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             UnitInStockLabel.ForeColor = Color.Black;
-            UnitInStockLabel.Location = new Point(351, 38);
+            UnitInStockLabel.Location = new Point(351, 39);
             UnitInStockLabel.Margin = new Padding(0);
             UnitInStockLabel.Name = "UnitInStockLabel";
             UnitInStockLabel.Size = new Size(130, 18);
@@ -383,21 +374,21 @@
             // 
             SellingPriceTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             SellingPriceTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            SellingPriceTextBox.Location = new Point(872, 0);
+            SellingPriceTextBox.Location = new Point(872, 1);
             SellingPriceTextBox.Margin = new Padding(0);
             SellingPriceTextBox.Name = "SellingPriceTextBox";
             SellingPriceTextBox.ReadOnly = true;
-            SellingPriceTextBox.Size = new Size(132, 26);
+            SellingPriceTextBox.Size = new Size(131, 26);
             SellingPriceTextBox.TabIndex = 10;
             // 
             // BarcodeTextBox2
             // 
             BarcodeTextBox2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            BarcodeTextBox2.Location = new Point(90, 34);
+            BarcodeTextBox2.Location = new Point(92, 35);
             BarcodeTextBox2.Margin = new Padding(0);
             BarcodeTextBox2.Name = "BarcodeTextBox2";
             BarcodeTextBox2.ReadOnly = true;
-            BarcodeTextBox2.Size = new Size(261, 26);
+            BarcodeTextBox2.Size = new Size(258, 26);
             BarcodeTextBox2.TabIndex = 6;
             // 
             // BarcodeLabel2
@@ -406,13 +397,23 @@
             BarcodeLabel2.AutoSize = true;
             BarcodeLabel2.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             BarcodeLabel2.ForeColor = Color.Black;
-            BarcodeLabel2.Location = new Point(0, 38);
+            BarcodeLabel2.Location = new Point(1, 39);
             BarcodeLabel2.Margin = new Padding(0);
             BarcodeLabel2.Name = "BarcodeLabel2";
             BarcodeLabel2.Size = new Size(90, 18);
             BarcodeLabel2.TabIndex = 5;
             BarcodeLabel2.Text = "บาร์โค้ด:";
             BarcodeLabel2.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // UnitInStockTextBox
+            // 
+            UnitInStockTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            UnitInStockTextBox.Location = new Point(482, 35);
+            UnitInStockTextBox.Margin = new Padding(0);
+            UnitInStockTextBox.Name = "UnitInStockTextBox";
+            UnitInStockTextBox.ReadOnly = true;
+            UnitInStockTextBox.Size = new Size(258, 26);
+            UnitInStockTextBox.TabIndex = 12;
             // 
             // dataGridView1
             // 
@@ -421,12 +422,12 @@
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.BackgroundColor = SystemColors.ControlLight;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(6, 100);
+            dataGridView1.Location = new Point(6, 94);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(1004, 947);
+            dataGridView1.Size = new Size(1004, 953);
             dataGridView1.TabIndex = 10;
             // 
             // TransactionGroupBox
@@ -446,6 +447,7 @@
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             tableLayoutPanel1.ColumnCount = 6;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 70F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333359F));
@@ -459,11 +461,11 @@
             tableLayoutPanel1.Controls.Add(CurrentDateTextBox, 1, 0);
             tableLayoutPanel1.Controls.Add(TransactionIDLabel, 2, 0);
             tableLayoutPanel1.Controls.Add(TransactionIDTextBox, 3, 0);
-            tableLayoutPanel1.Location = new Point(6, 29);
+            tableLayoutPanel1.Location = new Point(7, 23);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1004, 26);
+            tableLayoutPanel1.Size = new Size(1004, 40);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // label2
@@ -472,7 +474,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(652, 4);
+            label2.Location = new Point(653, 11);
             label2.Margin = new Padding(0);
             label2.Name = "label2";
             label2.Size = new Size(120, 18);
@@ -484,10 +486,10 @@
             // 
             comboBox1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(772, 1);
+            comboBox1.Location = new Point(774, 8);
             comboBox1.Margin = new Padding(0);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(232, 26);
+            comboBox1.Size = new Size(229, 26);
             comboBox1.TabIndex = 7;
             // 
             // label3
@@ -496,7 +498,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(0, 4);
+            label3.Location = new Point(1, 11);
             label3.Margin = new Padding(0);
             label3.Name = "label3";
             label3.Size = new Size(70, 18);
@@ -507,11 +509,11 @@
             // CurrentDateTextBox
             // 
             CurrentDateTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            CurrentDateTextBox.Location = new Point(70, 0);
+            CurrentDateTextBox.Location = new Point(72, 7);
             CurrentDateTextBox.Margin = new Padding(0);
             CurrentDateTextBox.Name = "CurrentDateTextBox";
             CurrentDateTextBox.ReadOnly = true;
-            CurrentDateTextBox.Size = new Size(231, 26);
+            CurrentDateTextBox.Size = new Size(229, 26);
             CurrentDateTextBox.TabIndex = 1;
             // 
             // TransactionIDLabel
@@ -520,7 +522,7 @@
             TransactionIDLabel.AutoSize = true;
             TransactionIDLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             TransactionIDLabel.ForeColor = Color.Black;
-            TransactionIDLabel.Location = new Point(301, 4);
+            TransactionIDLabel.Location = new Point(302, 11);
             TransactionIDLabel.Margin = new Padding(0);
             TransactionIDLabel.Name = "TransactionIDLabel";
             TransactionIDLabel.Size = new Size(120, 18);
@@ -531,11 +533,11 @@
             // TransactionIDTextBox
             // 
             TransactionIDTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            TransactionIDTextBox.Location = new Point(421, 0);
+            TransactionIDTextBox.Location = new Point(423, 7);
             TransactionIDTextBox.Margin = new Padding(0);
             TransactionIDTextBox.Name = "TransactionIDTextBox";
             TransactionIDTextBox.ReadOnly = true;
-            TransactionIDTextBox.Size = new Size(231, 26);
+            TransactionIDTextBox.Size = new Size(229, 26);
             TransactionIDTextBox.TabIndex = 6;
             // 
             // AddNewSubjectButton

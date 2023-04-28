@@ -179,6 +179,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // 
             // pictureBox1
             // 
+            pictureBox1.BackColor = Color.White;
+            pictureBox1.BorderStyle = BorderStyle.FixedSingle;
             pictureBox1.Location = new Point(6, 19);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(214, 79);
