@@ -30,6 +30,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panel1 = new Panel();
             panel3 = new Panel();
             button6 = new Button();
@@ -38,6 +39,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             button7 = new Button();
             pictureBox1 = new PictureBox();
             groupBox4 = new GroupBox();
+            dataGridView1 = new DataGridView();
+            button8 = new Button();
             groupBox3 = new GroupBox();
             tableLayoutPanel10 = new TableLayoutPanel();
             tableLayoutPanel8 = new TableLayoutPanel();
@@ -87,10 +90,15 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             tableLayoutPanel2 = new TableLayoutPanel();
             textBox6 = new TextBox();
             label7 = new Label();
+            ที่ = new DataGridViewTextBoxColumn();
+            name = new DataGridViewTextBoxColumn();
+            price = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox3.SuspendLayout();
             tableLayoutPanel10.SuspendLayout();
             tableLayoutPanel8.SuspendLayout();
@@ -189,6 +197,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // 
             // groupBox4
             // 
+            groupBox4.Controls.Add(dataGridView1);
+            groupBox4.Controls.Add(button8);
             groupBox4.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox4.ForeColor = Color.Crimson;
             groupBox4.Location = new Point(8, 366);
@@ -197,6 +207,37 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             groupBox4.TabIndex = 6;
             groupBox4.TabStop = false;
             groupBox4.Text = "รายการสินค้า";
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ที่, name, price });
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.Crimson;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridView1.Location = new Point(11, 57);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(1148, 277);
+            dataGridView1.TabIndex = 2;
+            // 
+            // button8
+            // 
+            button8.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button8.ForeColor = Color.ForestGreen;
+            button8.Location = new Point(1084, 25);
+            button8.Name = "button8";
+            button8.Size = new Size(75, 26);
+            button8.TabIndex = 1;
+            button8.Text = "Add";
+            button8.UseVisualStyleBackColor = true;
+            button8.Click += button8_Click;
             // 
             // groupBox3
             // 
@@ -805,6 +846,25 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             label7.Text = "ชื่อบริษัท:";
             label7.TextAlign = ContentAlignment.MiddleRight;
             // 
+            // ที่
+            // 
+            ที่.HeaderText = "ที่";
+            ที่.Name = "ที่";
+            ที่.ReadOnly = true;
+            // 
+            // name
+            // 
+            name.HeaderText = "ชื่อ";
+            name.Name = "name";
+            name.ReadOnly = true;
+            name.Width = 500;
+            // 
+            // price
+            // 
+            price.HeaderText = "ราคา";
+            price.Name = "price";
+            price.ReadOnly = true;
+            // 
             // CreateQuotationForm
             // 
             AutoScaleDimensions = new SizeF(8F, 18F);
@@ -820,6 +880,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             panel3.ResumeLayout(false);
             groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox3.ResumeLayout(false);
             tableLayoutPanel10.ResumeLayout(false);
             tableLayoutPanel8.ResumeLayout(false);
@@ -904,5 +966,10 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         private Button button5;
         private Button button7;
         private PictureBox pictureBox1;
+        private Button button8;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn ที่;
+        private DataGridViewTextBoxColumn name;
+        private DataGridViewTextBoxColumn price;
     }
 }
