@@ -32,17 +32,38 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         {
             panel1 = new Panel();
             panel3 = new Panel();
+            button6 = new Button();
+            button5 = new Button();
+            groupBox5 = new GroupBox();
+            button7 = new Button();
+            pictureBox1 = new PictureBox();
+            groupBox4 = new GroupBox();
+            groupBox3 = new GroupBox();
+            tableLayoutPanel10 = new TableLayoutPanel();
+            tableLayoutPanel8 = new TableLayoutPanel();
+            dateTimePicker2 = new DateTimePicker();
+            label14 = new Label();
+            tableLayoutPanel5 = new TableLayoutPanel();
+            tableLayoutPanel6 = new TableLayoutPanel();
+            label12 = new Label();
+            textBox7 = new TextBox();
+            tableLayoutPanel9 = new TableLayoutPanel();
+            tableLayoutPanel7 = new TableLayoutPanel();
+            label13 = new Label();
+            dateTimePicker1 = new DateTimePicker();
             groupBox2 = new GroupBox();
+            button4 = new Button();
             button3 = new Button();
             tableLayoutPanel4 = new TableLayoutPanel();
-            comboBox1 = new ComboBox();
             label8 = new Label();
-            textBox7 = new TextBox();
-            textBox9 = new TextBox();
             label9 = new Label();
             label10 = new Label();
-            label11 = new Label();
             textBox8 = new TextBox();
+            label11 = new Label();
+            textBox9 = new TextBox();
+            textBox10 = new TextBox();
+            comboBox1 = new ComboBox();
+            button2 = new Button();
             CompanyDetailGroupBox = new GroupBox();
             tableLayoutPanel1 = new TableLayoutPanel();
             label4 = new Label();
@@ -68,6 +89,15 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             label7 = new Label();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
+            groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            groupBox3.SuspendLayout();
+            tableLayoutPanel10.SuspendLayout();
+            tableLayoutPanel8.SuspendLayout();
+            tableLayoutPanel5.SuspendLayout();
+            tableLayoutPanel6.SuspendLayout();
+            tableLayoutPanel9.SuspendLayout();
+            tableLayoutPanel7.SuspendLayout();
             groupBox2.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
             CompanyDetailGroupBox.SuspendLayout();
@@ -85,79 +115,318 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1084, 1161);
+            panel1.Size = new Size(1184, 1261);
             panel1.TabIndex = 0;
             // 
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(250, 253, 236);
+            panel3.Controls.Add(button6);
+            panel3.Controls.Add(button5);
+            panel3.Controls.Add(groupBox5);
+            panel3.Controls.Add(groupBox4);
+            panel3.Controls.Add(groupBox3);
             panel3.Controls.Add(groupBox2);
             panel3.Controls.Add(CompanyDetailGroupBox);
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(0, 60);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1082, 1099);
+            panel3.Size = new Size(1182, 1199);
             panel3.TabIndex = 2;
+            panel3.Paint += panel3_Paint_1;
+            // 
+            // button6
+            // 
+            button6.Location = new Point(1053, 1159);
+            button6.Name = "button6";
+            button6.Size = new Size(120, 35);
+            button6.TabIndex = 9;
+            button6.Text = "ยกเลิก";
+            button6.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(926, 1159);
+            button5.Name = "button5";
+            button5.Size = new Size(120, 35);
+            button5.TabIndex = 8;
+            button5.Text = "ยืนยัน";
+            button5.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            groupBox5.Controls.Add(button7);
+            groupBox5.Controls.Add(pictureBox1);
+            groupBox5.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            groupBox5.ForeColor = Color.DarkOrange;
+            groupBox5.Location = new Point(866, 256);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Size = new Size(307, 104);
+            groupBox5.TabIndex = 7;
+            groupBox5.TabStop = false;
+            groupBox5.Text = "ลายเซ็น";
+            // 
+            // button7
+            // 
+            button7.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button7.ForeColor = SystemColors.WindowText;
+            button7.Location = new Point(226, 68);
+            button7.Name = "button7";
+            button7.Size = new Size(75, 30);
+            button7.TabIndex = 1;
+            button7.Text = "แก้ไข";
+            button7.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(6, 19);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(214, 79);
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
+            // groupBox4
+            // 
+            groupBox4.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            groupBox4.ForeColor = Color.Crimson;
+            groupBox4.Location = new Point(8, 366);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(1165, 789);
+            groupBox4.TabIndex = 6;
+            groupBox4.TabStop = false;
+            groupBox4.Text = "รายการสินค้า";
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(tableLayoutPanel10);
+            groupBox3.Controls.Add(tableLayoutPanel5);
+            groupBox3.Controls.Add(tableLayoutPanel9);
+            groupBox3.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            groupBox3.ForeColor = Color.Green;
+            groupBox3.Location = new Point(866, 6);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(307, 245);
+            groupBox3.TabIndex = 5;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "เลขที่/วันที่ใบเสนอราคา";
+            // 
+            // tableLayoutPanel10
+            // 
+            tableLayoutPanel10.CellBorderStyle = TableLayoutPanelCellBorderStyle.Inset;
+            tableLayoutPanel10.ColumnCount = 1;
+            tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel10.Controls.Add(tableLayoutPanel8, 0, 0);
+            tableLayoutPanel10.Location = new Point(6, 165);
+            tableLayoutPanel10.Name = "tableLayoutPanel10";
+            tableLayoutPanel10.RowCount = 1;
+            tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel10.Size = new Size(295, 70);
+            tableLayoutPanel10.TabIndex = 7;
+            // 
+            // tableLayoutPanel8
+            // 
+            tableLayoutPanel8.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel8.ColumnCount = 1;
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel8.Controls.Add(dateTimePicker2, 0, 1);
+            tableLayoutPanel8.Controls.Add(label14, 0, 0);
+            tableLayoutPanel8.Location = new Point(3, 3);
+            tableLayoutPanel8.Margin = new Padding(1);
+            tableLayoutPanel8.Name = "tableLayoutPanel8";
+            tableLayoutPanel8.RowCount = 2;
+            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel8.Size = new Size(289, 63);
+            tableLayoutPanel8.TabIndex = 2;
+            // 
+            // dateTimePicker2
+            // 
+            dateTimePicker2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            dateTimePicker2.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dateTimePicker2.Location = new Point(3, 34);
+            dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.Size = new Size(283, 26);
+            dateTimePicker2.TabIndex = 6;
+            // 
+            // label14
+            // 
+            label14.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            label14.AutoSize = true;
+            label14.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label14.ForeColor = SystemColors.WindowText;
+            label14.Location = new Point(209, 13);
+            label14.Name = "label14";
+            label14.Size = new Size(77, 18);
+            label14.TabIndex = 0;
+            label14.Text = "วันหมดอายุ";
+            label14.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // tableLayoutPanel5
+            // 
+            tableLayoutPanel5.CellBorderStyle = TableLayoutPanelCellBorderStyle.Inset;
+            tableLayoutPanel5.ColumnCount = 1;
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel5.Controls.Add(tableLayoutPanel6, 0, 0);
+            tableLayoutPanel5.Location = new Point(6, 25);
+            tableLayoutPanel5.Name = "tableLayoutPanel5";
+            tableLayoutPanel5.RowCount = 1;
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel5.Size = new Size(295, 70);
+            tableLayoutPanel5.TabIndex = 0;
+            // 
+            // tableLayoutPanel6
+            // 
+            tableLayoutPanel6.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel6.ColumnCount = 1;
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel6.Controls.Add(label12, 0, 0);
+            tableLayoutPanel6.Controls.Add(textBox7, 0, 1);
+            tableLayoutPanel6.Location = new Point(3, 4);
+            tableLayoutPanel6.Margin = new Padding(1);
+            tableLayoutPanel6.Name = "tableLayoutPanel6";
+            tableLayoutPanel6.RowCount = 2;
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel6.Size = new Size(289, 61);
+            tableLayoutPanel6.TabIndex = 0;
+            // 
+            // label12
+            // 
+            label12.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            label12.AutoSize = true;
+            label12.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label12.ForeColor = SystemColors.WindowText;
+            label12.Location = new Point(167, 12);
+            label12.Name = "label12";
+            label12.Size = new Size(119, 18);
+            label12.TabIndex = 0;
+            label12.Text = "เลขที่ใบเสนอราคา";
+            label12.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // textBox7
+            // 
+            textBox7.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            textBox7.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox7.Location = new Point(3, 33);
+            textBox7.Name = "textBox7";
+            textBox7.ReadOnly = true;
+            textBox7.Size = new Size(283, 26);
+            textBox7.TabIndex = 1;
+            // 
+            // tableLayoutPanel9
+            // 
+            tableLayoutPanel9.CellBorderStyle = TableLayoutPanelCellBorderStyle.Inset;
+            tableLayoutPanel9.ColumnCount = 1;
+            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel9.Controls.Add(tableLayoutPanel7, 0, 0);
+            tableLayoutPanel9.Location = new Point(6, 95);
+            tableLayoutPanel9.Name = "tableLayoutPanel9";
+            tableLayoutPanel9.RowCount = 1;
+            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel9.Size = new Size(295, 70);
+            tableLayoutPanel9.TabIndex = 6;
+            // 
+            // tableLayoutPanel7
+            // 
+            tableLayoutPanel7.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel7.ColumnCount = 1;
+            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel7.Controls.Add(label13, 0, 0);
+            tableLayoutPanel7.Controls.Add(dateTimePicker1, 0, 1);
+            tableLayoutPanel7.Location = new Point(3, 4);
+            tableLayoutPanel7.Margin = new Padding(1);
+            tableLayoutPanel7.Name = "tableLayoutPanel7";
+            tableLayoutPanel7.RowCount = 2;
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel7.Size = new Size(289, 61);
+            tableLayoutPanel7.TabIndex = 1;
+            // 
+            // label13
+            // 
+            label13.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            label13.AutoSize = true;
+            label13.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label13.ForeColor = SystemColors.WindowText;
+            label13.Location = new Point(147, 12);
+            label13.Name = "label13";
+            label13.Size = new Size(139, 18);
+            label13.TabIndex = 0;
+            label13.Text = "วันที่ออกใบเสนอราคา";
+            label13.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            dateTimePicker1.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dateTimePicker1.Location = new Point(3, 33);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(283, 26);
+            dateTimePicker1.TabIndex = 6;
             // 
             // groupBox2
             // 
             groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox2.Controls.Add(button4);
             groupBox2.Controls.Add(button3);
             groupBox2.Controls.Add(tableLayoutPanel4);
+            groupBox2.Controls.Add(button2);
             groupBox2.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox2.ForeColor = Color.Green;
-            groupBox2.Location = new Point(11, 186);
+            groupBox2.ForeColor = Color.Purple;
+            groupBox2.Location = new Point(8, 186);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(595, 232);
+            groupBox2.Size = new Size(852, 174);
             groupBox2.TabIndex = 4;
             groupBox2.TabStop = false;
             groupBox2.Text = "ชื่อ/ที่อยู่ลูกค้า";
             // 
+            // button4
+            // 
+            button4.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button4.ForeColor = SystemColors.WindowText;
+            button4.Location = new Point(741, 138);
+            button4.Name = "button4";
+            button4.Size = new Size(105, 30);
+            button4.TabIndex = 7;
+            button4.Text = "ลบ";
+            button4.UseVisualStyleBackColor = true;
+            // 
             // button3
             // 
-            button3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button3.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             button3.ForeColor = SystemColors.WindowText;
-            button3.Location = new Point(486, 196);
+            button3.Location = new Point(630, 138);
             button3.Name = "button3";
-            button3.Size = new Size(103, 30);
-            button3.TabIndex = 5;
-            button3.Text = "แก้ไข";
+            button3.Size = new Size(105, 30);
+            button3.TabIndex = 6;
+            button3.Text = "เพิ่ม";
             button3.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel4
             // 
+            tableLayoutPanel4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel4.CellBorderStyle = TableLayoutPanelCellBorderStyle.Inset;
-            tableLayoutPanel4.ColumnCount = 2;
+            tableLayoutPanel4.ColumnCount = 4;
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 160F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 79F));
-            tableLayoutPanel4.Controls.Add(comboBox1, 1, 0);
-            tableLayoutPanel4.Controls.Add(label8, 0, 3);
-            tableLayoutPanel4.Controls.Add(textBox7, 1, 1);
-            tableLayoutPanel4.Controls.Add(textBox9, 1, 3);
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 150F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel4.Controls.Add(label8, 2, 2);
             tableLayoutPanel4.Controls.Add(label9, 0, 0);
             tableLayoutPanel4.Controls.Add(label10, 0, 1);
+            tableLayoutPanel4.Controls.Add(textBox8, 1, 1);
             tableLayoutPanel4.Controls.Add(label11, 0, 2);
-            tableLayoutPanel4.Controls.Add(textBox8, 1, 2);
+            tableLayoutPanel4.Controls.Add(textBox9, 1, 2);
+            tableLayoutPanel4.Controls.Add(textBox10, 3, 2);
+            tableLayoutPanel4.Controls.Add(comboBox1, 1, 0);
             tableLayoutPanel4.Location = new Point(6, 25);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
-            tableLayoutPanel4.RowCount = 4;
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 21F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 37F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 21F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 21F));
-            tableLayoutPanel4.Size = new Size(583, 168);
-            tableLayoutPanel4.TabIndex = 0;
-            // 
-            // comboBox1
-            // 
-            comboBox1.Dock = DockStyle.Top;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.ItemHeight = 18;
-            comboBox1.Location = new Point(167, 5);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(411, 26);
-            comboBox1.TabIndex = 16;
+            tableLayoutPanel4.RowCount = 3;
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 33.33333F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 33.33334F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel4.Size = new Size(840, 110);
+            tableLayoutPanel4.TabIndex = 3;
             // 
             // label8
             // 
@@ -165,29 +434,12 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             label8.AutoSize = true;
             label8.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label8.ForeColor = SystemColors.WindowText;
-            label8.Location = new Point(5, 140);
+            label8.Location = new Point(429, 81);
             label8.Name = "label8";
-            label8.Size = new Size(154, 18);
+            label8.Size = new Size(144, 18);
             label8.TabIndex = 7;
             label8.Text = "เบอร์โทรศัพท์:";
             label8.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // textBox7
-            // 
-            textBox7.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            textBox7.Location = new Point(167, 40);
-            textBox7.Multiline = true;
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(411, 52);
-            textBox7.TabIndex = 16;
-            // 
-            // textBox9
-            // 
-            textBox9.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            textBox9.Location = new Point(167, 136);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(411, 26);
-            textBox9.TabIndex = 18;
             // 
             // label9
             // 
@@ -208,12 +460,23 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             label10.AutoSize = true;
             label10.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label10.ForeColor = SystemColors.WindowText;
-            label10.Location = new Point(5, 57);
+            label10.Location = new Point(5, 45);
             label10.Name = "label10";
             label10.Size = new Size(154, 18);
             label10.TabIndex = 6;
             label10.Text = "ที่อยู่:";
             label10.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // textBox8
+            // 
+            textBox8.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel4.SetColumnSpan(textBox8, 3);
+            textBox8.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox8.ForeColor = Color.Blue;
+            textBox8.Location = new Point(167, 41);
+            textBox8.Name = "textBox8";
+            textBox8.Size = new Size(668, 26);
+            textBox8.TabIndex = 14;
             // 
             // label11
             // 
@@ -221,20 +484,54 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             label11.AutoSize = true;
             label11.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label11.ForeColor = SystemColors.WindowText;
-            label11.Location = new Point(5, 104);
+            label11.Location = new Point(5, 81);
             label11.Name = "label11";
             label11.Size = new Size(154, 18);
             label11.TabIndex = 11;
             label11.Text = "เลขประจำตัวผู้เสียภาษี:";
             label11.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // textBox8
+            // textBox9
             // 
-            textBox8.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            textBox8.Location = new Point(167, 100);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(411, 26);
-            textBox8.TabIndex = 17;
+            textBox9.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            textBox9.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox9.ForeColor = Color.Blue;
+            textBox9.Location = new Point(167, 77);
+            textBox9.Name = "textBox9";
+            textBox9.Size = new Size(254, 26);
+            textBox9.TabIndex = 13;
+            // 
+            // textBox10
+            // 
+            textBox10.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            textBox10.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox10.ForeColor = Color.Blue;
+            textBox10.Location = new Point(581, 77);
+            textBox10.Name = "textBox10";
+            textBox10.Size = new Size(254, 26);
+            textBox10.TabIndex = 15;
+            // 
+            // comboBox1
+            // 
+            tableLayoutPanel4.SetColumnSpan(comboBox1, 3);
+            comboBox1.Dock = DockStyle.Top;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(167, 5);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(668, 26);
+            comboBox1.TabIndex = 16;
+            // 
+            // button2
+            // 
+            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button2.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button2.ForeColor = SystemColors.WindowText;
+            button2.Location = new Point(1358, 212);
+            button2.Name = "button2";
+            button2.Size = new Size(103, 30);
+            button2.TabIndex = 2;
+            button2.Text = "แก้ไข";
+            button2.UseVisualStyleBackColor = true;
             // 
             // CompanyDetailGroupBox
             // 
@@ -243,9 +540,9 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CompanyDetailGroupBox.Controls.Add(CompanyNameEditButton);
             CompanyDetailGroupBox.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             CompanyDetailGroupBox.ForeColor = Color.Blue;
-            CompanyDetailGroupBox.Location = new Point(11, 6);
+            CompanyDetailGroupBox.Location = new Point(8, 6);
             CompanyDetailGroupBox.Name = "CompanyDetailGroupBox";
-            CompanyDetailGroupBox.Size = new Size(1060, 174);
+            CompanyDetailGroupBox.Size = new Size(852, 174);
             CompanyDetailGroupBox.TabIndex = 3;
             CompanyDetailGroupBox.TabStop = false;
             CompanyDetailGroupBox.Text = "ชื่อ/ที่อยู่บริษัท";
@@ -273,7 +570,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.33333F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.33334F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel1.Size = new Size(1048, 110);
+            tableLayoutPanel1.Size = new Size(840, 107);
             tableLayoutPanel1.TabIndex = 3;
             // 
             // label4
@@ -282,7 +579,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             label4.AutoSize = true;
             label4.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = SystemColors.WindowText;
-            label4.Location = new Point(533, 81);
+            label4.Location = new Point(429, 79);
             label4.Name = "label4";
             label4.Size = new Size(144, 18);
             label4.TabIndex = 7;
@@ -310,7 +607,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             textBox1.ForeColor = Color.Blue;
             textBox1.Location = new Point(167, 5);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(876, 26);
+            textBox1.Size = new Size(668, 26);
             textBox1.TabIndex = 12;
             // 
             // label3
@@ -319,7 +616,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             label3.AutoSize = true;
             label3.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = SystemColors.WindowText;
-            label3.Location = new Point(5, 45);
+            label3.Location = new Point(5, 43);
             label3.Name = "label3";
             label3.Size = new Size(154, 18);
             label3.TabIndex = 6;
@@ -332,9 +629,9 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             tableLayoutPanel1.SetColumnSpan(textBox3, 3);
             textBox3.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             textBox3.ForeColor = Color.Blue;
-            textBox3.Location = new Point(167, 41);
+            textBox3.Location = new Point(167, 39);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(876, 26);
+            textBox3.Size = new Size(668, 26);
             textBox3.TabIndex = 14;
             // 
             // label5
@@ -343,7 +640,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             label5.AutoSize = true;
             label5.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = SystemColors.WindowText;
-            label5.Location = new Point(5, 81);
+            label5.Location = new Point(5, 79);
             label5.Name = "label5";
             label5.Size = new Size(154, 18);
             label5.TabIndex = 11;
@@ -355,9 +652,9 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             textBox2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             textBox2.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             textBox2.ForeColor = Color.Blue;
-            textBox2.Location = new Point(167, 77);
+            textBox2.Location = new Point(167, 75);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(358, 26);
+            textBox2.Size = new Size(254, 26);
             textBox2.TabIndex = 13;
             // 
             // textBox4
@@ -365,9 +662,9 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             textBox4.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             textBox4.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             textBox4.ForeColor = Color.Blue;
-            textBox4.Location = new Point(685, 77);
+            textBox4.Location = new Point(581, 75);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(358, 26);
+            textBox4.Size = new Size(254, 26);
             textBox4.TabIndex = 15;
             // 
             // CompanyNameEditButton
@@ -375,9 +672,9 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CompanyNameEditButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             CompanyNameEditButton.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             CompanyNameEditButton.ForeColor = SystemColors.WindowText;
-            CompanyNameEditButton.Location = new Point(951, 138);
+            CompanyNameEditButton.Location = new Point(741, 137);
             CompanyNameEditButton.Name = "CompanyNameEditButton";
-            CompanyNameEditButton.Size = new Size(103, 30);
+            CompanyNameEditButton.Size = new Size(105, 30);
             CompanyNameEditButton.TabIndex = 2;
             CompanyNameEditButton.Text = "แก้ไข";
             CompanyNameEditButton.UseVisualStyleBackColor = true;
@@ -389,7 +686,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1082, 60);
+            panel2.Size = new Size(1182, 60);
             panel2.TabIndex = 1;
             // 
             // label1
@@ -510,7 +807,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // 
             AutoScaleDimensions = new SizeF(8F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1084, 1161);
+            ClientSize = new Size(1184, 1261);
             Controls.Add(panel1);
             Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(3, 4, 3, 4);
@@ -519,6 +816,18 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             Load += CreateQuotationForm_Load;
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
+            groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            groupBox3.ResumeLayout(false);
+            tableLayoutPanel10.ResumeLayout(false);
+            tableLayoutPanel8.ResumeLayout(false);
+            tableLayoutPanel8.PerformLayout();
+            tableLayoutPanel5.ResumeLayout(false);
+            tableLayoutPanel6.ResumeLayout(false);
+            tableLayoutPanel6.PerformLayout();
+            tableLayoutPanel9.ResumeLayout(false);
+            tableLayoutPanel7.ResumeLayout(false);
+            tableLayoutPanel7.PerformLayout();
             groupBox2.ResumeLayout(false);
             tableLayoutPanel4.ResumeLayout(false);
             tableLayoutPanel4.PerformLayout();
@@ -561,16 +870,37 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         private TableLayoutPanel tableLayoutPanel2;
         private TextBox textBox6;
         private Label label7;
+        private GroupBox groupBox3;
         private GroupBox groupBox2;
+        private Button button4;
         private Button button3;
+        private TableLayoutPanel tableLayoutPanel4;
         private Label label8;
         private Label label9;
         private Label label10;
-        private Label label11;
-        private ComboBox comboBox1;
         private TextBox textBox8;
+        private Label label11;
         private TextBox textBox9;
-        private TableLayoutPanel tableLayoutPanel4;
+        private TextBox textBox10;
+        private ComboBox comboBox1;
+        private Button button2;
+        private TableLayoutPanel tableLayoutPanel5;
+        private TableLayoutPanel tableLayoutPanel8;
+        private Label label14;
+        private TableLayoutPanel tableLayoutPanel7;
+        private Label label13;
+        private TableLayoutPanel tableLayoutPanel6;
+        private Label label12;
         private TextBox textBox7;
+        private DateTimePicker dateTimePicker2;
+        private DateTimePicker dateTimePicker1;
+        private TableLayoutPanel tableLayoutPanel10;
+        private TableLayoutPanel tableLayoutPanel9;
+        private GroupBox groupBox5;
+        private GroupBox groupBox4;
+        private Button button6;
+        private Button button5;
+        private Button button7;
+        private PictureBox pictureBox1;
     }
 }
