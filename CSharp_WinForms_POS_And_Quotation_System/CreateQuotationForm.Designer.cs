@@ -47,6 +47,22 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             button7 = new Button();
             pictureBox1 = new PictureBox();
             groupBox4 = new GroupBox();
+            tableLayoutPanel11 = new TableLayoutPanel();
+            textBox11 = new TextBox();
+            textBox12 = new TextBox();
+            textBox13 = new TextBox();
+            textBox14 = new TextBox();
+            label15 = new Label();
+            tableLayoutPanel12 = new TableLayoutPanel();
+            checkBox1 = new CheckBox();
+            numericUpDown1 = new NumericUpDown();
+            label16 = new Label();
+            label18 = new Label();
+            label17 = new Label();
+            label19 = new Label();
+            textBox15 = new TextBox();
+            tableLayoutPanel13 = new TableLayoutPanel();
+            label20 = new Label();
             dataGridView1 = new DataGridView();
             number = new DataGridViewTextBoxColumn();
             detail = new DataGridViewTextBoxColumn();
@@ -108,6 +124,9 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBox4.SuspendLayout();
+            tableLayoutPanel11.SuspendLayout();
+            tableLayoutPanel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox3.SuspendLayout();
             tableLayoutPanel10.SuspendLayout();
@@ -208,6 +227,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // 
             // groupBox4
             // 
+            groupBox4.Controls.Add(tableLayoutPanel11);
             groupBox4.Controls.Add(dataGridView1);
             groupBox4.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox4.ForeColor = Color.Crimson;
@@ -217,6 +237,218 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             groupBox4.TabIndex = 6;
             groupBox4.TabStop = false;
             groupBox4.Text = "รายการสินค้า";
+            // 
+            // tableLayoutPanel11
+            // 
+            tableLayoutPanel11.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
+            tableLayoutPanel11.ColumnCount = 3;
+            tableLayoutPanel11.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 75F));
+            tableLayoutPanel11.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
+            tableLayoutPanel11.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            tableLayoutPanel11.Controls.Add(textBox11, 2, 0);
+            tableLayoutPanel11.Controls.Add(textBox12, 2, 1);
+            tableLayoutPanel11.Controls.Add(textBox13, 2, 2);
+            tableLayoutPanel11.Controls.Add(textBox14, 2, 3);
+            tableLayoutPanel11.Controls.Add(label15, 1, 0);
+            tableLayoutPanel11.Controls.Add(tableLayoutPanel12, 1, 1);
+            tableLayoutPanel11.Controls.Add(label18, 1, 3);
+            tableLayoutPanel11.Controls.Add(label17, 1, 2);
+            tableLayoutPanel11.Controls.Add(label19, 1, 4);
+            tableLayoutPanel11.Controls.Add(textBox15, 2, 4);
+            tableLayoutPanel11.Controls.Add(tableLayoutPanel13, 0, 0);
+            tableLayoutPanel11.Controls.Add(label20, 0, 4);
+            tableLayoutPanel11.Location = new Point(6, 609);
+            tableLayoutPanel11.Name = "tableLayoutPanel11";
+            tableLayoutPanel11.RowCount = 5;
+            tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel11.Size = new Size(1153, 174);
+            tableLayoutPanel11.TabIndex = 3;
+            // 
+            // textBox11
+            // 
+            textBox11.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            textBox11.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox11.Location = new Point(1039, 4);
+            textBox11.Name = "textBox11";
+            textBox11.ReadOnly = true;
+            textBox11.Size = new Size(110, 26);
+            textBox11.TabIndex = 0;
+            // 
+            // textBox12
+            // 
+            textBox12.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            textBox12.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox12.Location = new Point(1039, 38);
+            textBox12.Name = "textBox12";
+            textBox12.ReadOnly = true;
+            textBox12.Size = new Size(110, 26);
+            textBox12.TabIndex = 1;
+            // 
+            // textBox13
+            // 
+            textBox13.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            textBox13.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox13.Location = new Point(1039, 72);
+            textBox13.Name = "textBox13";
+            textBox13.ReadOnly = true;
+            textBox13.Size = new Size(110, 26);
+            textBox13.TabIndex = 2;
+            // 
+            // textBox14
+            // 
+            textBox14.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            textBox14.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox14.Location = new Point(1039, 106);
+            textBox14.Name = "textBox14";
+            textBox14.ReadOnly = true;
+            textBox14.Size = new Size(110, 26);
+            textBox14.TabIndex = 3;
+            // 
+            // label15
+            // 
+            label15.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            label15.AutoSize = true;
+            label15.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label15.ForeColor = SystemColors.WindowText;
+            label15.Location = new Point(866, 8);
+            label15.Name = "label15";
+            label15.Size = new Size(166, 18);
+            label15.TabIndex = 4;
+            label15.Text = "รวมเป็นเงิน";
+            label15.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // tableLayoutPanel12
+            // 
+            tableLayoutPanel12.ColumnCount = 3;
+            tableLayoutPanel12.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel12.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+            tableLayoutPanel12.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel12.Controls.Add(checkBox1, 0, 0);
+            tableLayoutPanel12.Controls.Add(numericUpDown1, 1, 0);
+            tableLayoutPanel12.Controls.Add(label16, 2, 0);
+            tableLayoutPanel12.Dock = DockStyle.Fill;
+            tableLayoutPanel12.Location = new Point(863, 35);
+            tableLayoutPanel12.Margin = new Padding(0);
+            tableLayoutPanel12.Name = "tableLayoutPanel12";
+            tableLayoutPanel12.RowCount = 1;
+            tableLayoutPanel12.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel12.Size = new Size(172, 33);
+            tableLayoutPanel12.TabIndex = 5;
+            // 
+            // checkBox1
+            // 
+            checkBox1.Anchor = AnchorStyles.Right;
+            checkBox1.AutoSize = true;
+            checkBox1.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            checkBox1.ForeColor = SystemColors.WindowText;
+            checkBox1.Location = new Point(16, 5);
+            checkBox1.Margin = new Padding(3, 3, 0, 3);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(70, 22);
+            checkBox1.TabIndex = 0;
+            checkBox1.Text = "ส่วนลด";
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            numericUpDown1.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            numericUpDown1.Location = new Point(89, 3);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(45, 26);
+            numericUpDown1.TabIndex = 1;
+            // 
+            // label16
+            // 
+            label16.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            label16.AutoSize = true;
+            label16.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label16.ForeColor = SystemColors.WindowText;
+            label16.Location = new Point(140, 7);
+            label16.Name = "label16";
+            label16.Size = new Size(29, 18);
+            label16.TabIndex = 2;
+            label16.Text = "%";
+            label16.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // label18
+            // 
+            label18.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            label18.AutoSize = true;
+            label18.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label18.ForeColor = SystemColors.WindowText;
+            label18.Location = new Point(866, 110);
+            label18.Name = "label18";
+            label18.Size = new Size(166, 18);
+            label18.TabIndex = 7;
+            label18.Text = "ภาษีมูลค่าเพิ่ม 7 %";
+            label18.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // label17
+            // 
+            label17.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            label17.AutoSize = true;
+            label17.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label17.ForeColor = SystemColors.WindowText;
+            label17.Location = new Point(866, 76);
+            label17.Name = "label17";
+            label17.Size = new Size(166, 18);
+            label17.TabIndex = 8;
+            label17.Text = "จำนวนเงินหลังหักส่วนลด";
+            label17.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // label19
+            // 
+            label19.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            label19.AutoSize = true;
+            label19.ForeColor = SystemColors.WindowText;
+            label19.Location = new Point(866, 146);
+            label19.Name = "label19";
+            label19.Size = new Size(166, 18);
+            label19.TabIndex = 9;
+            label19.Text = "จำนวนเงินทั้งสิน";
+            label19.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // textBox15
+            // 
+            textBox15.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            textBox15.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            textBox15.Location = new Point(1039, 142);
+            textBox15.Name = "textBox15";
+            textBox15.ReadOnly = true;
+            textBox15.Size = new Size(110, 26);
+            textBox15.TabIndex = 3;
+            // 
+            // tableLayoutPanel13
+            // 
+            tableLayoutPanel13.ColumnCount = 1;
+            tableLayoutPanel13.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel13.Dock = DockStyle.Fill;
+            tableLayoutPanel13.Location = new Point(1, 1);
+            tableLayoutPanel13.Margin = new Padding(0);
+            tableLayoutPanel13.Name = "tableLayoutPanel13";
+            tableLayoutPanel13.RowCount = 1;
+            tableLayoutPanel11.SetRowSpan(tableLayoutPanel13, 4);
+            tableLayoutPanel13.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel13.Size = new Size(861, 135);
+            tableLayoutPanel13.TabIndex = 10;
+            // 
+            // label20
+            // 
+            label20.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            label20.AutoSize = true;
+            label20.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label20.ForeColor = SystemColors.WindowText;
+            label20.Location = new Point(4, 146);
+            label20.Name = "label20";
+            label20.Size = new Size(855, 18);
+            label20.TabIndex = 11;
+            label20.Text = "(ตัวหนังสือ)";
+            label20.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // dataGridView1
             // 
@@ -249,7 +481,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
             dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(1153, 598);
+            dataGridView1.Size = new Size(1153, 578);
             dataGridView1.TabIndex = 2;
             // 
             // number
@@ -259,10 +491,10 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             dataGridViewCellStyle2.ForeColor = Color.ForestGreen;
             number.DefaultCellStyle = dataGridViewCellStyle2;
             number.FillWeight = 50F;
-            number.HeaderText = "ลำดับ";
+            number.HeaderText = "ที่";
             number.Name = "number";
             number.ReadOnly = true;
-            number.Width = 50;
+            number.Width = 30;
             // 
             // detail
             // 
@@ -926,6 +1158,11 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             groupBox4.ResumeLayout(false);
+            tableLayoutPanel11.ResumeLayout(false);
+            tableLayoutPanel11.PerformLayout();
+            tableLayoutPanel12.ResumeLayout(false);
+            tableLayoutPanel12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox3.ResumeLayout(false);
             tableLayoutPanel10.ResumeLayout(false);
@@ -1012,11 +1249,27 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         private Button button7;
         private PictureBox pictureBox1;
         private DataGridView dataGridView1;
+        private TableLayoutPanel tableLayoutPanel11;
+        private TextBox textBox11;
+        private TextBox textBox12;
+        private TextBox textBox13;
+        private TextBox textBox14;
+        private Label label15;
+        private TableLayoutPanel tableLayoutPanel12;
+        private CheckBox checkBox1;
+        private NumericUpDown numericUpDown1;
+        private Label label16;
+        private Label label18;
+        private Label label17;
+        private Label label19;
+        private TextBox textBox15;
+        private TableLayoutPanel tableLayoutPanel13;
         private DataGridViewTextBoxColumn number;
         private DataGridViewTextBoxColumn detail;
         private DataGridViewTextBoxColumn quantity;
         private DataGridViewTextBoxColumn unit;
         private DataGridViewTextBoxColumn PricePerUnit;
         private DataGridViewTextBoxColumn AmountPrice;
+        private Label label20;
     }
 }
