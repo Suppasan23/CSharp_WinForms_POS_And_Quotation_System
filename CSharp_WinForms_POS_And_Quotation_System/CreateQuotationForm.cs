@@ -60,5 +60,9 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             dataGridView1.Rows.Add(newRow);
         }
 
+        private void CreateQuotationCancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -31,16 +31,29 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             panel1 = new Panel();
             panel3 = new Panel();
-            button6 = new Button();
+            CreateQuotationCancelButton = new Button();
             button5 = new Button();
             groupBox5 = new GroupBox();
             button7 = new Button();
             pictureBox1 = new PictureBox();
             groupBox4 = new GroupBox();
             dataGridView1 = new DataGridView();
-            button8 = new Button();
+            number = new DataGridViewTextBoxColumn();
+            detail = new DataGridViewTextBoxColumn();
+            quantity = new DataGridViewTextBoxColumn();
+            unit = new DataGridViewTextBoxColumn();
+            PricePerUnit = new DataGridViewTextBoxColumn();
+            AmountPrice = new DataGridViewTextBoxColumn();
             groupBox3 = new GroupBox();
             tableLayoutPanel10 = new TableLayoutPanel();
             tableLayoutPanel8 = new TableLayoutPanel();
@@ -90,9 +103,6 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             tableLayoutPanel2 = new TableLayoutPanel();
             textBox6 = new TextBox();
             label7 = new Label();
-            ที่ = new DataGridViewTextBoxColumn();
-            name = new DataGridViewTextBoxColumn();
-            price = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             groupBox5.SuspendLayout();
@@ -129,7 +139,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(250, 253, 236);
-            panel3.Controls.Add(button6);
+            panel3.Controls.Add(CreateQuotationCancelButton);
             panel3.Controls.Add(button5);
             panel3.Controls.Add(groupBox5);
             panel3.Controls.Add(groupBox4);
@@ -143,14 +153,15 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             panel3.TabIndex = 2;
             panel3.Paint += panel3_Paint_1;
             // 
-            // button6
+            // CreateQuotationCancelButton
             // 
-            button6.Location = new Point(1053, 1159);
-            button6.Name = "button6";
-            button6.Size = new Size(120, 35);
-            button6.TabIndex = 9;
-            button6.Text = "ยกเลิก";
-            button6.UseVisualStyleBackColor = true;
+            CreateQuotationCancelButton.Location = new Point(1053, 1159);
+            CreateQuotationCancelButton.Name = "CreateQuotationCancelButton";
+            CreateQuotationCancelButton.Size = new Size(120, 35);
+            CreateQuotationCancelButton.TabIndex = 9;
+            CreateQuotationCancelButton.Text = "ยกเลิก";
+            CreateQuotationCancelButton.UseVisualStyleBackColor = true;
+            CreateQuotationCancelButton.Click += CreateQuotationCancelButton_Click;
             // 
             // button5
             // 
@@ -198,7 +209,6 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // groupBox4
             // 
             groupBox4.Controls.Add(dataGridView1);
-            groupBox4.Controls.Add(button8);
             groupBox4.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox4.ForeColor = Color.Crimson;
             groupBox4.Location = new Point(8, 366);
@@ -210,34 +220,88 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // 
             // dataGridView1
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ที่, name, price });
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = Color.Crimson;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.Location = new Point(11, 57);
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { number, detail, quantity, unit, PricePerUnit, AmountPrice });
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = SystemColors.Window;
+            dataGridViewCellStyle8.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = Color.Crimson;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridView1.Location = new Point(6, 25);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle9.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(1148, 277);
+            dataGridView1.Size = new Size(1153, 598);
             dataGridView1.TabIndex = 2;
             // 
-            // button8
+            // number
             // 
-            button8.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button8.ForeColor = Color.ForestGreen;
-            button8.Location = new Point(1084, 25);
-            button8.Name = "button8";
-            button8.Size = new Size(75, 26);
-            button8.TabIndex = 1;
-            button8.Text = "Add";
-            button8.UseVisualStyleBackColor = true;
-            button8.Click += button8_Click;
+            dataGridViewCellStyle2.BackColor = Color.WhiteSmoke;
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.ForestGreen;
+            number.DefaultCellStyle = dataGridViewCellStyle2;
+            number.FillWeight = 50F;
+            number.HeaderText = "ลำดับ";
+            number.Name = "number";
+            number.ReadOnly = true;
+            number.Width = 50;
+            // 
+            // detail
+            // 
+            dataGridViewCellStyle3.ForeColor = Color.ForestGreen;
+            detail.DefaultCellStyle = dataGridViewCellStyle3;
+            detail.FillWeight = 650F;
+            detail.HeaderText = "รายละเอียด";
+            detail.Name = "detail";
+            detail.Width = 650;
+            // 
+            // quantity
+            // 
+            dataGridViewCellStyle4.ForeColor = Color.ForestGreen;
+            quantity.DefaultCellStyle = dataGridViewCellStyle4;
+            quantity.HeaderText = "จำนวน";
+            quantity.Name = "quantity";
+            // 
+            // unit
+            // 
+            dataGridViewCellStyle5.ForeColor = Color.ForestGreen;
+            unit.DefaultCellStyle = dataGridViewCellStyle5;
+            unit.HeaderText = "หน่วย";
+            unit.Name = "unit";
+            // 
+            // PricePerUnit
+            // 
+            dataGridViewCellStyle6.ForeColor = Color.ForestGreen;
+            PricePerUnit.DefaultCellStyle = dataGridViewCellStyle6;
+            PricePerUnit.HeaderText = "ราคา/หน่วย";
+            PricePerUnit.Name = "PricePerUnit";
+            // 
+            // AmountPrice
+            // 
+            dataGridViewCellStyle7.BackColor = Color.WhiteSmoke;
+            dataGridViewCellStyle7.ForeColor = Color.ForestGreen;
+            AmountPrice.DefaultCellStyle = dataGridViewCellStyle7;
+            AmountPrice.HeaderText = "จำนวนเงิน";
+            AmountPrice.Name = "AmountPrice";
+            AmountPrice.ReadOnly = true;
             // 
             // groupBox3
             // 
@@ -293,16 +357,16 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // 
             // label14
             // 
-            label14.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            label14.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label14.AutoSize = true;
             label14.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label14.ForeColor = SystemColors.WindowText;
-            label14.Location = new Point(209, 13);
+            label14.Location = new Point(3, 13);
             label14.Name = "label14";
-            label14.Size = new Size(77, 18);
+            label14.Size = new Size(283, 18);
             label14.TabIndex = 0;
             label14.Text = "วันหมดอายุ";
-            label14.TextAlign = ContentAlignment.MiddleRight;
+            label14.TextAlign = ContentAlignment.BottomRight;
             // 
             // tableLayoutPanel5
             // 
@@ -335,16 +399,16 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // 
             // label12
             // 
-            label12.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            label12.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label12.AutoSize = true;
             label12.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label12.ForeColor = SystemColors.WindowText;
-            label12.Location = new Point(167, 12);
+            label12.Location = new Point(3, 12);
             label12.Name = "label12";
-            label12.Size = new Size(119, 18);
+            label12.Size = new Size(283, 18);
             label12.TabIndex = 0;
             label12.Text = "เลขที่ใบเสนอราคา";
-            label12.TextAlign = ContentAlignment.MiddleRight;
+            label12.TextAlign = ContentAlignment.BottomRight;
             // 
             // textBox7
             // 
@@ -387,16 +451,16 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // 
             // label13
             // 
-            label13.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            label13.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label13.AutoSize = true;
             label13.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label13.ForeColor = SystemColors.WindowText;
-            label13.Location = new Point(147, 12);
+            label13.Location = new Point(3, 12);
             label13.Name = "label13";
-            label13.Size = new Size(139, 18);
+            label13.Size = new Size(283, 18);
             label13.TabIndex = 0;
             label13.Text = "วันที่ออกใบเสนอราคา";
-            label13.TextAlign = ContentAlignment.MiddleRight;
+            label13.TextAlign = ContentAlignment.BottomRight;
             // 
             // dateTimePicker1
             // 
@@ -846,25 +910,6 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             label7.Text = "ชื่อบริษัท:";
             label7.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // ที่
-            // 
-            ที่.HeaderText = "ที่";
-            ที่.Name = "ที่";
-            ที่.ReadOnly = true;
-            // 
-            // name
-            // 
-            name.HeaderText = "ชื่อ";
-            name.Name = "name";
-            name.ReadOnly = true;
-            name.Width = 500;
-            // 
-            // price
-            // 
-            price.HeaderText = "ราคา";
-            price.Name = "price";
-            price.ReadOnly = true;
-            // 
             // CreateQuotationForm
             // 
             AutoScaleDimensions = new SizeF(8F, 18F);
@@ -962,14 +1007,16 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         private TableLayoutPanel tableLayoutPanel9;
         private GroupBox groupBox5;
         private GroupBox groupBox4;
-        private Button button6;
+        private Button CreateQuotationCancelButton;
         private Button button5;
         private Button button7;
         private PictureBox pictureBox1;
-        private Button button8;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn ที่;
-        private DataGridViewTextBoxColumn name;
-        private DataGridViewTextBoxColumn price;
+        private DataGridViewTextBoxColumn number;
+        private DataGridViewTextBoxColumn detail;
+        private DataGridViewTextBoxColumn quantity;
+        private DataGridViewTextBoxColumn unit;
+        private DataGridViewTextBoxColumn PricePerUnit;
+        private DataGridViewTextBoxColumn AmountPrice;
     }
 }
