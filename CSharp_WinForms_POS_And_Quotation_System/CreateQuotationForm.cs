@@ -39,7 +39,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // Create a new row for the DataGridView
             DataGridViewRow newRow = new DataGridViewRow();
 
-            int rowCount = dataGridView1.RowCount - 1;
+            int rowCount = CQ_ProductDetailsDataGridView.RowCount - 1;
 
             // Create and add a cell for the "number" column
             DataGridViewTextBoxCell numberCell = new DataGridViewTextBoxCell();
@@ -57,7 +57,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             newRow.Cells.Add(fiveThousandCell);
 
             // Add the new row to the DataGridView
-            dataGridView1.Rows.Add(newRow);
+            CQ_ProductDetailsDataGridView.Rows.Add(newRow);
         }
 
         private void CreateQuotationCancelButton_Click(object sender, EventArgs e)
