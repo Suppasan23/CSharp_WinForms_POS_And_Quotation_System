@@ -50,7 +50,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
         }
 
-        private void ProductManagementToolStripButton_Click(object sender, EventArgs e)
+        private void M_ProductManagementToolStripButton_Click(object sender, EventArgs e)
         {
             ProductManagementForm childForm = new ProductManagementForm();
             childForm.StartPosition = FormStartPosition.Manual;
@@ -59,7 +59,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             openChildForms(childForm);
         }
 
-        private void PointOfSaleToolStripButton_Click(object sender, EventArgs e)
+        private void M_PointOfSaleToolStripButton_Click(object sender, EventArgs e)
         {
             PointOfSaleForm childForm = new PointOfSaleForm();
             childForm.StartPosition = FormStartPosition.Manual;
@@ -68,7 +68,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             openChildForms(childForm);
         }
 
-        private void CreateQuotationToolStripButton_Click(object sender, EventArgs e)
+        private void M_CreateQuotationToolStripButton_Click(object sender, EventArgs e)
         {
             CreateQuotationForm childForm = new CreateQuotationForm();
             childForm.StartPosition = FormStartPosition.Manual;
@@ -77,7 +77,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             openChildForms(childForm);
         }
 
-        private void ArchiveQuotationToolStripButton_Click(object sender, EventArgs e)
+        private void M_ArchiveQuotationToolStripButton_Click(object sender, EventArgs e)
         {
             ArchiveQuotationForm childForm = new ArchiveQuotationForm();
             childForm.StartPosition = FormStartPosition.Manual;
@@ -86,12 +86,12 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             openChildForms(childForm);
         }
 
-        private void ExitToolStripButton_Click(object sender, EventArgs e)
+        private void M_ExitToolStripButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void M_ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }

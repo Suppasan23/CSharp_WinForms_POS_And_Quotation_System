@@ -212,7 +212,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             button7.Name = "button7";
             button7.Size = new Size(75, 30);
             button7.TabIndex = 1;
-            button7.Text = "แก้ไข";
+            button7.Text = "อัพโหลด";
             button7.UseVisualStyleBackColor = true;
             // 
             // pictureBox1

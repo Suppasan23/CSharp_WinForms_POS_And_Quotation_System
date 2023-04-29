@@ -28,173 +28,173 @@
         /// </summary>
         private void InitializeComponent()
         {
-            menuStrip1 = new MenuStrip();
-            fileToolStripMenuItem = new ToolStripMenuItem();
-            exitToolStripMenuItem = new ToolStripMenuItem();
-            helpToolStripMenuItem = new ToolStripMenuItem();
-            statusStrip1 = new StatusStrip();
-            MainFormStatusToolStripStatusLabel = new ToolStripStatusLabel();
+            M_MenuStrip = new MenuStrip();
+            M_FileToolStripMenuItem = new ToolStripMenuItem();
+            M_ExitToolStripMenuItem = new ToolStripMenuItem();
+            M_HelpToolStripMenuItem = new ToolStripMenuItem();
+            M_StatusStrip = new StatusStrip();
             toolStrip1 = new ToolStrip();
-            ProductManagementToolStripButton = new ToolStripButton();
+            M_ProductManagementToolStripButton = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
-            PointOfSaleToolStripButton = new ToolStripButton();
+            M_PointOfSaleToolStripButton = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
-            CreateQuotationToolStripButton = new ToolStripButton();
+            M_CreateQuotationToolStripButton = new ToolStripButton();
             toolStripSeparator3 = new ToolStripSeparator();
-            ArchiveQuotationToolStripButton = new ToolStripButton();
+            M_ArchiveQuotationToolStripButton = new ToolStripButton();
             toolStripSeparator4 = new ToolStripSeparator();
-            ExitToolStripButton = new ToolStripButton();
+            M_ExitToolStripButton = new ToolStripButton();
             toolStripSeparator5 = new ToolStripSeparator();
-            menuStrip1.SuspendLayout();
-            statusStrip1.SuspendLayout();
+            M_ToolStripStatusLabel = new ToolStripStatusLabel();
+            M_MenuStrip.SuspendLayout();
+            M_StatusStrip.SuspendLayout();
             toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
-            // menuStrip1
+            // M_MenuStrip
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, helpToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(7, 2, 0, 2);
-            menuStrip1.Size = new Size(1784, 24);
-            menuStrip1.TabIndex = 1;
-            menuStrip1.Text = "menuStrip1";
+            M_MenuStrip.Items.AddRange(new ToolStripItem[] { M_FileToolStripMenuItem, M_HelpToolStripMenuItem });
+            M_MenuStrip.Location = new Point(0, 0);
+            M_MenuStrip.Name = "M_MenuStrip";
+            M_MenuStrip.Padding = new Padding(7, 2, 0, 2);
+            M_MenuStrip.Size = new Size(1784, 24);
+            M_MenuStrip.TabIndex = 1;
+            M_MenuStrip.Text = "menuStrip1";
             // 
-            // fileToolStripMenuItem
+            // M_FileToolStripMenuItem
             // 
-            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { exitToolStripMenuItem });
-            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new Size(37, 20);
-            fileToolStripMenuItem.Text = "File";
+            M_FileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { M_ExitToolStripMenuItem });
+            M_FileToolStripMenuItem.Name = "M_FileToolStripMenuItem";
+            M_FileToolStripMenuItem.Size = new Size(37, 20);
+            M_FileToolStripMenuItem.Text = "File";
             // 
-            // exitToolStripMenuItem
+            // M_ExitToolStripMenuItem
             // 
-            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(93, 22);
-            exitToolStripMenuItem.Text = "Exit";
-            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
+            M_ExitToolStripMenuItem.Name = "M_ExitToolStripMenuItem";
+            M_ExitToolStripMenuItem.Size = new Size(180, 22);
+            M_ExitToolStripMenuItem.Text = "Exit";
+            M_ExitToolStripMenuItem.Click += M_ExitToolStripMenuItem_Click;
             // 
-            // helpToolStripMenuItem
+            // M_HelpToolStripMenuItem
             // 
-            helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            helpToolStripMenuItem.Size = new Size(44, 20);
-            helpToolStripMenuItem.Text = "Help";
+            M_HelpToolStripMenuItem.Name = "M_HelpToolStripMenuItem";
+            M_HelpToolStripMenuItem.Size = new Size(44, 20);
+            M_HelpToolStripMenuItem.Text = "Help";
             // 
-            // statusStrip1
+            // M_StatusStrip
             // 
-            statusStrip1.Items.AddRange(new ToolStripItem[] { MainFormStatusToolStripStatusLabel });
-            statusStrip1.Location = new Point(0, 1139);
-            statusStrip1.Name = "statusStrip1";
-            statusStrip1.Padding = new Padding(1, 0, 16, 0);
-            statusStrip1.Size = new Size(1784, 22);
-            statusStrip1.TabIndex = 2;
-            statusStrip1.Text = "statusStrip1";
-            // 
-            // MainFormStatusToolStripStatusLabel
-            // 
-            MainFormStatusToolStripStatusLabel.Name = "MainFormStatusToolStripStatusLabel";
-            MainFormStatusToolStripStatusLabel.Size = new Size(39, 17);
-            MainFormStatusToolStripStatusLabel.Text = "Status";
+            M_StatusStrip.Items.AddRange(new ToolStripItem[] { M_ToolStripStatusLabel });
+            M_StatusStrip.Location = new Point(0, 1139);
+            M_StatusStrip.Name = "M_StatusStrip";
+            M_StatusStrip.Padding = new Padding(1, 0, 16, 0);
+            M_StatusStrip.Size = new Size(1784, 22);
+            M_StatusStrip.TabIndex = 2;
+            M_StatusStrip.Text = "statusStrip1";
             // 
             // toolStrip1
             // 
             toolStrip1.Dock = DockStyle.Left;
-            toolStrip1.Items.AddRange(new ToolStripItem[] { ProductManagementToolStripButton, toolStripSeparator1, PointOfSaleToolStripButton, toolStripSeparator2, CreateQuotationToolStripButton, toolStripSeparator3, ArchiveQuotationToolStripButton, toolStripSeparator4, ExitToolStripButton, toolStripSeparator5 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { M_ProductManagementToolStripButton, toolStripSeparator1, M_PointOfSaleToolStripButton, toolStripSeparator2, M_CreateQuotationToolStripButton, toolStripSeparator3, M_ArchiveQuotationToolStripButton, toolStripSeparator4, M_ExitToolStripButton, toolStripSeparator5 });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(137, 1115);
             toolStrip1.TabIndex = 3;
             toolStrip1.Text = "toolStrip1";
             // 
-            // ProductManagementToolStripButton
+            // M_ProductManagementToolStripButton
             // 
-            ProductManagementToolStripButton.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            ProductManagementToolStripButton.Image = Properties.Resources.warehouse_110;
-            ProductManagementToolStripButton.ImageScaling = ToolStripItemImageScaling.None;
-            ProductManagementToolStripButton.ImageTransparentColor = Color.Magenta;
-            ProductManagementToolStripButton.Margin = new Padding(3, 0, 0, 0);
-            ProductManagementToolStripButton.Name = "ProductManagementToolStripButton";
-            ProductManagementToolStripButton.Size = new Size(131, 133);
-            ProductManagementToolStripButton.Text = "จัดการสินค้า";
-            ProductManagementToolStripButton.TextImageRelation = TextImageRelation.ImageAboveText;
-            ProductManagementToolStripButton.Click += ProductManagementToolStripButton_Click;
+            M_ProductManagementToolStripButton.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            M_ProductManagementToolStripButton.Image = Properties.Resources.warehouse_110;
+            M_ProductManagementToolStripButton.ImageScaling = ToolStripItemImageScaling.None;
+            M_ProductManagementToolStripButton.ImageTransparentColor = Color.Magenta;
+            M_ProductManagementToolStripButton.Margin = new Padding(3, 0, 0, 0);
+            M_ProductManagementToolStripButton.Name = "M_ProductManagementToolStripButton";
+            M_ProductManagementToolStripButton.Size = new Size(131, 133);
+            M_ProductManagementToolStripButton.Text = "จัดการสินค้า";
+            M_ProductManagementToolStripButton.TextImageRelation = TextImageRelation.ImageAboveText;
+            M_ProductManagementToolStripButton.Click += M_ProductManagementToolStripButton_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
             toolStripSeparator1.Size = new Size(134, 6);
             // 
-            // PointOfSaleToolStripButton
+            // M_PointOfSaleToolStripButton
             // 
-            PointOfSaleToolStripButton.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            PointOfSaleToolStripButton.Image = Properties.Resources.exchange_110;
-            PointOfSaleToolStripButton.ImageScaling = ToolStripItemImageScaling.None;
-            PointOfSaleToolStripButton.ImageTransparentColor = Color.Magenta;
-            PointOfSaleToolStripButton.Margin = new Padding(3, 0, 0, 0);
-            PointOfSaleToolStripButton.Name = "PointOfSaleToolStripButton";
-            PointOfSaleToolStripButton.Size = new Size(131, 133);
-            PointOfSaleToolStripButton.Text = "ขายสินค้า";
-            PointOfSaleToolStripButton.TextImageRelation = TextImageRelation.ImageAboveText;
-            PointOfSaleToolStripButton.Click += PointOfSaleToolStripButton_Click;
+            M_PointOfSaleToolStripButton.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            M_PointOfSaleToolStripButton.Image = Properties.Resources.exchange_110;
+            M_PointOfSaleToolStripButton.ImageScaling = ToolStripItemImageScaling.None;
+            M_PointOfSaleToolStripButton.ImageTransparentColor = Color.Magenta;
+            M_PointOfSaleToolStripButton.Margin = new Padding(3, 0, 0, 0);
+            M_PointOfSaleToolStripButton.Name = "M_PointOfSaleToolStripButton";
+            M_PointOfSaleToolStripButton.Size = new Size(131, 133);
+            M_PointOfSaleToolStripButton.Text = "ขายสินค้า";
+            M_PointOfSaleToolStripButton.TextImageRelation = TextImageRelation.ImageAboveText;
+            M_PointOfSaleToolStripButton.Click += M_PointOfSaleToolStripButton_Click;
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
             toolStripSeparator2.Size = new Size(134, 6);
             // 
-            // CreateQuotationToolStripButton
+            // M_CreateQuotationToolStripButton
             // 
-            CreateQuotationToolStripButton.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            CreateQuotationToolStripButton.Image = Properties.Resources.create_file_110;
-            CreateQuotationToolStripButton.ImageScaling = ToolStripItemImageScaling.None;
-            CreateQuotationToolStripButton.ImageTransparentColor = Color.Magenta;
-            CreateQuotationToolStripButton.Margin = new Padding(3, 0, 0, 0);
-            CreateQuotationToolStripButton.Name = "CreateQuotationToolStripButton";
-            CreateQuotationToolStripButton.Size = new Size(131, 133);
-            CreateQuotationToolStripButton.Text = "สร้างใบเสนอราคา";
-            CreateQuotationToolStripButton.TextImageRelation = TextImageRelation.ImageAboveText;
-            CreateQuotationToolStripButton.Click += CreateQuotationToolStripButton_Click;
+            M_CreateQuotationToolStripButton.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            M_CreateQuotationToolStripButton.Image = Properties.Resources.create_file_110;
+            M_CreateQuotationToolStripButton.ImageScaling = ToolStripItemImageScaling.None;
+            M_CreateQuotationToolStripButton.ImageTransparentColor = Color.Magenta;
+            M_CreateQuotationToolStripButton.Margin = new Padding(3, 0, 0, 0);
+            M_CreateQuotationToolStripButton.Name = "M_CreateQuotationToolStripButton";
+            M_CreateQuotationToolStripButton.Size = new Size(131, 133);
+            M_CreateQuotationToolStripButton.Text = "สร้างใบเสนอราคา";
+            M_CreateQuotationToolStripButton.TextImageRelation = TextImageRelation.ImageAboveText;
+            M_CreateQuotationToolStripButton.Click += M_CreateQuotationToolStripButton_Click;
             // 
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
             toolStripSeparator3.Size = new Size(134, 6);
             // 
-            // ArchiveQuotationToolStripButton
+            // M_ArchiveQuotationToolStripButton
             // 
-            ArchiveQuotationToolStripButton.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            ArchiveQuotationToolStripButton.Image = Properties.Resources.cabinet_110;
-            ArchiveQuotationToolStripButton.ImageScaling = ToolStripItemImageScaling.None;
-            ArchiveQuotationToolStripButton.ImageTransparentColor = Color.Magenta;
-            ArchiveQuotationToolStripButton.Margin = new Padding(3, 0, 0, 0);
-            ArchiveQuotationToolStripButton.Name = "ArchiveQuotationToolStripButton";
-            ArchiveQuotationToolStripButton.Size = new Size(131, 133);
-            ArchiveQuotationToolStripButton.Text = "ที่เก็บใบเสนอราคา";
-            ArchiveQuotationToolStripButton.TextImageRelation = TextImageRelation.ImageAboveText;
-            ArchiveQuotationToolStripButton.Click += ArchiveQuotationToolStripButton_Click;
+            M_ArchiveQuotationToolStripButton.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            M_ArchiveQuotationToolStripButton.Image = Properties.Resources.cabinet_110;
+            M_ArchiveQuotationToolStripButton.ImageScaling = ToolStripItemImageScaling.None;
+            M_ArchiveQuotationToolStripButton.ImageTransparentColor = Color.Magenta;
+            M_ArchiveQuotationToolStripButton.Margin = new Padding(3, 0, 0, 0);
+            M_ArchiveQuotationToolStripButton.Name = "M_ArchiveQuotationToolStripButton";
+            M_ArchiveQuotationToolStripButton.Size = new Size(131, 133);
+            M_ArchiveQuotationToolStripButton.Text = "ที่เก็บใบเสนอราคา";
+            M_ArchiveQuotationToolStripButton.TextImageRelation = TextImageRelation.ImageAboveText;
+            M_ArchiveQuotationToolStripButton.Click += M_ArchiveQuotationToolStripButton_Click;
             // 
             // toolStripSeparator4
             // 
             toolStripSeparator4.Name = "toolStripSeparator4";
             toolStripSeparator4.Size = new Size(134, 6);
             // 
-            // ExitToolStripButton
+            // M_ExitToolStripButton
             // 
-            ExitToolStripButton.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            ExitToolStripButton.Image = Properties.Resources.shutdown_110;
-            ExitToolStripButton.ImageScaling = ToolStripItemImageScaling.None;
-            ExitToolStripButton.ImageTransparentColor = Color.Magenta;
-            ExitToolStripButton.Margin = new Padding(3, 0, 0, 0);
-            ExitToolStripButton.Name = "ExitToolStripButton";
-            ExitToolStripButton.Size = new Size(131, 133);
-            ExitToolStripButton.Text = "ออก";
-            ExitToolStripButton.TextImageRelation = TextImageRelation.ImageAboveText;
-            ExitToolStripButton.Click += ExitToolStripButton_Click;
+            M_ExitToolStripButton.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            M_ExitToolStripButton.Image = Properties.Resources.shutdown_110;
+            M_ExitToolStripButton.ImageScaling = ToolStripItemImageScaling.None;
+            M_ExitToolStripButton.ImageTransparentColor = Color.Magenta;
+            M_ExitToolStripButton.Margin = new Padding(3, 0, 0, 0);
+            M_ExitToolStripButton.Name = "M_ExitToolStripButton";
+            M_ExitToolStripButton.Size = new Size(131, 133);
+            M_ExitToolStripButton.Text = "ออก";
+            M_ExitToolStripButton.TextImageRelation = TextImageRelation.ImageAboveText;
+            M_ExitToolStripButton.Click += M_ExitToolStripButton_Click;
             // 
             // toolStripSeparator5
             // 
             toolStripSeparator5.Name = "toolStripSeparator5";
             toolStripSeparator5.Size = new Size(134, 6);
+            // 
+            // M_ToolStripStatusLabel
+            // 
+            M_ToolStripStatusLabel.Name = "M_ToolStripStatusLabel";
+            M_ToolStripStatusLabel.Size = new Size(39, 17);
+            M_ToolStripStatusLabel.Text = "Status";
             // 
             // MainForm
             // 
@@ -202,20 +202,20 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1784, 1161);
             Controls.Add(toolStrip1);
-            Controls.Add(statusStrip1);
-            Controls.Add(menuStrip1);
+            Controls.Add(M_StatusStrip);
+            Controls.Add(M_MenuStrip);
             Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             IsMdiContainer = true;
-            MainMenuStrip = menuStrip1;
+            MainMenuStrip = M_MenuStrip;
             Margin = new Padding(3, 4, 3, 4);
             Name = "MainForm";
             Text = "ร้านธีรภัทร์";
             WindowState = FormWindowState.Maximized;
             Load += MainForm_Load;
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
-            statusStrip1.ResumeLayout(false);
-            statusStrip1.PerformLayout();
+            M_MenuStrip.ResumeLayout(false);
+            M_MenuStrip.PerformLayout();
+            M_StatusStrip.ResumeLayout(false);
+            M_StatusStrip.PerformLayout();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             ResumeLayout(false);
@@ -224,22 +224,22 @@
 
         #endregion
 
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem fileToolStripMenuItem;
-        private ToolStripMenuItem exitToolStripMenuItem;
-        private ToolStripMenuItem helpToolStripMenuItem;
-        private StatusStrip statusStrip1;
-        private ToolStripStatusLabel MainFormStatusToolStripStatusLabel;
+        private MenuStrip M_MenuStrip;
+        private ToolStripMenuItem M_FileToolStripMenuItem;
+        private ToolStripMenuItem M_ExitToolStripMenuItem;
+        private ToolStripMenuItem M_HelpToolStripMenuItem;
+        private StatusStrip M_StatusStrip;
         private ToolStrip toolStrip1;
-        private ToolStripButton ProductManagementToolStripButton;
+        private ToolStripButton M_ProductManagementToolStripButton;
         private ToolStripSeparator toolStripSeparator1;
-        private ToolStripButton PointOfSaleToolStripButton;
+        private ToolStripButton M_PointOfSaleToolStripButton;
         private ToolStripSeparator toolStripSeparator2;
-        private ToolStripButton CreateQuotationToolStripButton;
+        private ToolStripButton M_CreateQuotationToolStripButton;
         private ToolStripSeparator toolStripSeparator3;
-        private ToolStripButton ArchiveQuotationToolStripButton;
+        private ToolStripButton M_ArchiveQuotationToolStripButton;
         private ToolStripSeparator toolStripSeparator4;
-        private ToolStripButton ExitToolStripButton;
+        private ToolStripButton M_ExitToolStripButton;
         private ToolStripSeparator toolStripSeparator5;
+        private ToolStripStatusLabel M_ToolStripStatusLabel;
     }
 }

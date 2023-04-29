@@ -49,20 +49,20 @@
             DeleteItemButton = new Button();
             EditItemButton = new Button();
             panel3 = new Panel();
-            dataGridView1 = new DataGridView();
-            statusStrip1 = new StatusStrip();
-            toolStripStatusLabel1 = new ToolStripStatusLabel();
-            tableLayoutPanel7 = new TableLayoutPanel();
-            tableLayoutPanel8 = new TableLayoutPanel();
-            textBox2 = new TextBox();
-            button6 = new Button();
-            button7 = new Button();
-            tableLayoutPanel9 = new TableLayoutPanel();
-            button8 = new Button();
-            button9 = new Button();
-            button10 = new Button();
-            panel4 = new Panel();
-            label1 = new Label();
+            PM_DataGridView = new DataGridView();
+            PM_StatusStrip = new StatusStrip();
+            PM_ToolStripStatusLabel = new ToolStripStatusLabel();
+            PM_TableLayoutPanel1 = new TableLayoutPanel();
+            PM_TableLayoutPanel2 = new TableLayoutPanel();
+            PM_SearchTextBox = new TextBox();
+            PM_SerachButton = new Button();
+            PM_RefreshButton = new Button();
+            PM_TableLayoutPanel3 = new TableLayoutPanel();
+            PM_AddButton = new Button();
+            PM_DeleteButton = new Button();
+            PM_EditButton = new Button();
+            PM_Panel1 = new Panel();
+            PM_HeadingLabel = new Label();
             tableLayoutPanel4.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
             tableLayoutPanel6.SuspendLayout();
@@ -70,12 +70,12 @@
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            statusStrip1.SuspendLayout();
-            tableLayoutPanel7.SuspendLayout();
-            tableLayoutPanel8.SuspendLayout();
-            tableLayoutPanel9.SuspendLayout();
-            panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PM_DataGridView).BeginInit();
+            PM_StatusStrip.SuspendLayout();
+            PM_TableLayoutPanel1.SuspendLayout();
+            PM_TableLayoutPanel2.SuspendLayout();
+            PM_TableLayoutPanel3.SuspendLayout();
+            PM_Panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
@@ -367,212 +367,212 @@
             // panel3
             // 
             panel3.BorderStyle = BorderStyle.FixedSingle;
-            panel3.Controls.Add(dataGridView1);
-            panel3.Controls.Add(statusStrip1);
-            panel3.Controls.Add(tableLayoutPanel7);
-            panel3.Controls.Add(panel4);
+            panel3.Controls.Add(PM_DataGridView);
+            panel3.Controls.Add(PM_StatusStrip);
+            panel3.Controls.Add(PM_TableLayoutPanel1);
+            panel3.Controls.Add(PM_Panel1);
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(0, 0);
             panel3.Name = "panel3";
             panel3.Size = new Size(1184, 1261);
             panel3.TabIndex = 0;
             // 
-            // dataGridView1
+            // PM_DataGridView
             // 
-            dataGridView1.BackgroundColor = SystemColors.ControlLight;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(0, 96);
-            dataGridView1.MultiSelect = false;
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(1082, 1040);
-            dataGridView1.TabIndex = 6;
+            PM_DataGridView.BackgroundColor = SystemColors.ControlLight;
+            PM_DataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            PM_DataGridView.Dock = DockStyle.Fill;
+            PM_DataGridView.Location = new Point(0, 96);
+            PM_DataGridView.MultiSelect = false;
+            PM_DataGridView.Name = "PM_DataGridView";
+            PM_DataGridView.RowHeadersWidth = 51;
+            PM_DataGridView.RowTemplate.Height = 25;
+            PM_DataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            PM_DataGridView.Size = new Size(1182, 1140);
+            PM_DataGridView.TabIndex = 6;
             // 
-            // statusStrip1
+            // PM_StatusStrip
             // 
-            statusStrip1.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            statusStrip1.ImageScalingSize = new Size(20, 20);
-            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
-            statusStrip1.Location = new Point(0, 1236);
-            statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(1182, 23);
-            statusStrip1.TabIndex = 5;
-            statusStrip1.Text = "statusStrip1";
+            PM_StatusStrip.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_StatusStrip.ImageScalingSize = new Size(20, 20);
+            PM_StatusStrip.Items.AddRange(new ToolStripItem[] { PM_ToolStripStatusLabel });
+            PM_StatusStrip.Location = new Point(0, 1236);
+            PM_StatusStrip.Name = "PM_StatusStrip";
+            PM_StatusStrip.Size = new Size(1182, 23);
+            PM_StatusStrip.TabIndex = 5;
+            PM_StatusStrip.Text = "statusStrip1";
             // 
-            // toolStripStatusLabel1
+            // PM_ToolStripStatusLabel
             // 
-            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            toolStripStatusLabel1.Size = new Size(52, 18);
-            toolStripStatusLabel1.Text = "รายการ";
+            PM_ToolStripStatusLabel.Name = "PM_ToolStripStatusLabel";
+            PM_ToolStripStatusLabel.Size = new Size(52, 18);
+            PM_ToolStripStatusLabel.Text = "รายการ";
             // 
-            // tableLayoutPanel7
+            // PM_TableLayoutPanel1
             // 
-            tableLayoutPanel7.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
-            tableLayoutPanel7.ColumnCount = 2;
-            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 334F));
-            tableLayoutPanel7.Controls.Add(tableLayoutPanel8, 0, 0);
-            tableLayoutPanel7.Controls.Add(tableLayoutPanel9, 1, 0);
-            tableLayoutPanel7.Dock = DockStyle.Top;
-            tableLayoutPanel7.Location = new Point(0, 60);
-            tableLayoutPanel7.Name = "tableLayoutPanel7";
-            tableLayoutPanel7.RowCount = 1;
-            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel7.Size = new Size(1182, 36);
-            tableLayoutPanel7.TabIndex = 4;
+            PM_TableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
+            PM_TableLayoutPanel1.ColumnCount = 2;
+            PM_TableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            PM_TableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 334F));
+            PM_TableLayoutPanel1.Controls.Add(PM_TableLayoutPanel2, 0, 0);
+            PM_TableLayoutPanel1.Controls.Add(PM_TableLayoutPanel3, 1, 0);
+            PM_TableLayoutPanel1.Dock = DockStyle.Top;
+            PM_TableLayoutPanel1.Location = new Point(0, 60);
+            PM_TableLayoutPanel1.Name = "PM_TableLayoutPanel1";
+            PM_TableLayoutPanel1.RowCount = 1;
+            PM_TableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            PM_TableLayoutPanel1.Size = new Size(1182, 36);
+            PM_TableLayoutPanel1.TabIndex = 4;
             // 
-            // tableLayoutPanel8
+            // PM_TableLayoutPanel2
             // 
-            tableLayoutPanel8.ColumnCount = 3;
-            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 110F));
-            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 112F));
-            tableLayoutPanel8.Controls.Add(textBox2, 0, 0);
-            tableLayoutPanel8.Controls.Add(button6, 1, 0);
-            tableLayoutPanel8.Controls.Add(button7, 2, 0);
-            tableLayoutPanel8.Dock = DockStyle.Fill;
-            tableLayoutPanel8.Location = new Point(1, 1);
-            tableLayoutPanel8.Margin = new Padding(0);
-            tableLayoutPanel8.Name = "tableLayoutPanel8";
-            tableLayoutPanel8.RowCount = 1;
-            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel8.Size = new Size(845, 34);
-            tableLayoutPanel8.TabIndex = 0;
+            PM_TableLayoutPanel2.ColumnCount = 3;
+            PM_TableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            PM_TableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 110F));
+            PM_TableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 112F));
+            PM_TableLayoutPanel2.Controls.Add(PM_SearchTextBox, 0, 0);
+            PM_TableLayoutPanel2.Controls.Add(PM_SerachButton, 1, 0);
+            PM_TableLayoutPanel2.Controls.Add(PM_RefreshButton, 2, 0);
+            PM_TableLayoutPanel2.Dock = DockStyle.Fill;
+            PM_TableLayoutPanel2.Location = new Point(1, 1);
+            PM_TableLayoutPanel2.Margin = new Padding(0);
+            PM_TableLayoutPanel2.Name = "PM_TableLayoutPanel2";
+            PM_TableLayoutPanel2.RowCount = 1;
+            PM_TableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            PM_TableLayoutPanel2.Size = new Size(845, 34);
+            PM_TableLayoutPanel2.TabIndex = 0;
             // 
-            // textBox2
+            // PM_SearchTextBox
             // 
-            textBox2.Dock = DockStyle.Fill;
-            textBox2.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.Location = new Point(2, 2);
-            textBox2.Margin = new Padding(2);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(619, 30);
-            textBox2.TabIndex = 0;
+            PM_SearchTextBox.Dock = DockStyle.Fill;
+            PM_SearchTextBox.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_SearchTextBox.Location = new Point(2, 2);
+            PM_SearchTextBox.Margin = new Padding(2);
+            PM_SearchTextBox.Name = "PM_SearchTextBox";
+            PM_SearchTextBox.Size = new Size(619, 30);
+            PM_SearchTextBox.TabIndex = 0;
             // 
-            // button6
+            // PM_SerachButton
             // 
-            button6.BackColor = Color.WhiteSmoke;
-            button6.Dock = DockStyle.Fill;
-            button6.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button6.Image = Properties.Resources.search_3_16;
-            button6.Location = new Point(625, 2);
-            button6.Margin = new Padding(2);
-            button6.Name = "button6";
-            button6.Size = new Size(106, 30);
-            button6.TabIndex = 1;
-            button6.Text = "ค้นหา";
-            button6.TextAlign = ContentAlignment.MiddleRight;
-            button6.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button6.UseVisualStyleBackColor = false;
+            PM_SerachButton.BackColor = Color.WhiteSmoke;
+            PM_SerachButton.Dock = DockStyle.Fill;
+            PM_SerachButton.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_SerachButton.Image = Properties.Resources.search_3_16;
+            PM_SerachButton.Location = new Point(625, 2);
+            PM_SerachButton.Margin = new Padding(2);
+            PM_SerachButton.Name = "PM_SerachButton";
+            PM_SerachButton.Size = new Size(106, 30);
+            PM_SerachButton.TabIndex = 1;
+            PM_SerachButton.Text = "ค้นหา";
+            PM_SerachButton.TextAlign = ContentAlignment.MiddleRight;
+            PM_SerachButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            PM_SerachButton.UseVisualStyleBackColor = false;
             // 
-            // button7
+            // PM_RefreshButton
             // 
-            button7.BackColor = Color.Azure;
-            button7.Dock = DockStyle.Fill;
-            button7.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button7.Image = Properties.Resources.refresh_2_16;
-            button7.Location = new Point(735, 2);
-            button7.Margin = new Padding(2, 2, 4, 2);
-            button7.Name = "button7";
-            button7.Size = new Size(106, 30);
-            button7.TabIndex = 2;
-            button7.Text = "รีเฟรช";
-            button7.TextAlign = ContentAlignment.MiddleRight;
-            button7.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button7.UseVisualStyleBackColor = false;
+            PM_RefreshButton.BackColor = Color.Azure;
+            PM_RefreshButton.Dock = DockStyle.Fill;
+            PM_RefreshButton.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_RefreshButton.Image = Properties.Resources.refresh_2_16;
+            PM_RefreshButton.Location = new Point(735, 2);
+            PM_RefreshButton.Margin = new Padding(2, 2, 4, 2);
+            PM_RefreshButton.Name = "PM_RefreshButton";
+            PM_RefreshButton.Size = new Size(106, 30);
+            PM_RefreshButton.TabIndex = 2;
+            PM_RefreshButton.Text = "รีเฟรช";
+            PM_RefreshButton.TextAlign = ContentAlignment.MiddleRight;
+            PM_RefreshButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            PM_RefreshButton.UseVisualStyleBackColor = false;
             // 
-            // tableLayoutPanel9
+            // PM_TableLayoutPanel3
             // 
-            tableLayoutPanel9.ColumnCount = 3;
-            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 112F));
-            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 110F));
-            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 112F));
-            tableLayoutPanel9.Controls.Add(button8, 0, 0);
-            tableLayoutPanel9.Controls.Add(button9, 2, 0);
-            tableLayoutPanel9.Controls.Add(button10, 1, 0);
-            tableLayoutPanel9.Dock = DockStyle.Fill;
-            tableLayoutPanel9.Location = new Point(847, 1);
-            tableLayoutPanel9.Margin = new Padding(0);
-            tableLayoutPanel9.Name = "tableLayoutPanel9";
-            tableLayoutPanel9.RowCount = 1;
-            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel9.Size = new Size(334, 34);
-            tableLayoutPanel9.TabIndex = 1;
+            PM_TableLayoutPanel3.ColumnCount = 3;
+            PM_TableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 112F));
+            PM_TableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 110F));
+            PM_TableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 112F));
+            PM_TableLayoutPanel3.Controls.Add(PM_AddButton, 0, 0);
+            PM_TableLayoutPanel3.Controls.Add(PM_DeleteButton, 2, 0);
+            PM_TableLayoutPanel3.Controls.Add(PM_EditButton, 1, 0);
+            PM_TableLayoutPanel3.Dock = DockStyle.Fill;
+            PM_TableLayoutPanel3.Location = new Point(847, 1);
+            PM_TableLayoutPanel3.Margin = new Padding(0);
+            PM_TableLayoutPanel3.Name = "PM_TableLayoutPanel3";
+            PM_TableLayoutPanel3.RowCount = 1;
+            PM_TableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            PM_TableLayoutPanel3.Size = new Size(334, 34);
+            PM_TableLayoutPanel3.TabIndex = 1;
             // 
-            // button8
+            // PM_AddButton
             // 
-            button8.BackColor = Color.Honeydew;
-            button8.Dock = DockStyle.Fill;
-            button8.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button8.Image = Properties.Resources.plus_2_16;
-            button8.Location = new Point(4, 2);
-            button8.Margin = new Padding(4, 2, 2, 2);
-            button8.Name = "button8";
-            button8.Size = new Size(106, 30);
-            button8.TabIndex = 0;
-            button8.Text = "เพิ่ม";
-            button8.TextAlign = ContentAlignment.MiddleRight;
-            button8.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button8.UseVisualStyleBackColor = false;
+            PM_AddButton.BackColor = Color.Honeydew;
+            PM_AddButton.Dock = DockStyle.Fill;
+            PM_AddButton.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_AddButton.Image = Properties.Resources.plus_2_16;
+            PM_AddButton.Location = new Point(4, 2);
+            PM_AddButton.Margin = new Padding(4, 2, 2, 2);
+            PM_AddButton.Name = "PM_AddButton";
+            PM_AddButton.Size = new Size(106, 30);
+            PM_AddButton.TabIndex = 0;
+            PM_AddButton.Text = "เพิ่ม";
+            PM_AddButton.TextAlign = ContentAlignment.MiddleRight;
+            PM_AddButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            PM_AddButton.UseVisualStyleBackColor = false;
             // 
-            // button9
+            // PM_DeleteButton
             // 
-            button9.BackColor = Color.FromArgb(255, 221, 221);
-            button9.Dock = DockStyle.Fill;
-            button9.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button9.Image = Properties.Resources.delete_16;
-            button9.Location = new Point(224, 2);
-            button9.Margin = new Padding(2, 2, 4, 2);
-            button9.Name = "button9";
-            button9.Size = new Size(106, 30);
-            button9.TabIndex = 2;
-            button9.Text = "ลบ";
-            button9.TextAlign = ContentAlignment.MiddleRight;
-            button9.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button9.UseVisualStyleBackColor = false;
+            PM_DeleteButton.BackColor = Color.FromArgb(255, 221, 221);
+            PM_DeleteButton.Dock = DockStyle.Fill;
+            PM_DeleteButton.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_DeleteButton.Image = Properties.Resources.delete_16;
+            PM_DeleteButton.Location = new Point(224, 2);
+            PM_DeleteButton.Margin = new Padding(2, 2, 4, 2);
+            PM_DeleteButton.Name = "PM_DeleteButton";
+            PM_DeleteButton.Size = new Size(106, 30);
+            PM_DeleteButton.TabIndex = 2;
+            PM_DeleteButton.Text = "ลบ";
+            PM_DeleteButton.TextAlign = ContentAlignment.MiddleRight;
+            PM_DeleteButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            PM_DeleteButton.UseVisualStyleBackColor = false;
             // 
-            // button10
+            // PM_EditButton
             // 
-            button10.BackColor = Color.Cornsilk;
-            button10.Dock = DockStyle.Fill;
-            button10.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button10.Image = Properties.Resources.edit;
-            button10.Location = new Point(114, 2);
-            button10.Margin = new Padding(2);
-            button10.Name = "button10";
-            button10.Size = new Size(106, 30);
-            button10.TabIndex = 1;
-            button10.Text = "แก้ไข";
-            button10.TextAlign = ContentAlignment.MiddleRight;
-            button10.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button10.UseVisualStyleBackColor = false;
+            PM_EditButton.BackColor = Color.Cornsilk;
+            PM_EditButton.Dock = DockStyle.Fill;
+            PM_EditButton.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_EditButton.Image = Properties.Resources.edit;
+            PM_EditButton.Location = new Point(114, 2);
+            PM_EditButton.Margin = new Padding(2);
+            PM_EditButton.Name = "PM_EditButton";
+            PM_EditButton.Size = new Size(106, 30);
+            PM_EditButton.TabIndex = 1;
+            PM_EditButton.Text = "แก้ไข";
+            PM_EditButton.TextAlign = ContentAlignment.MiddleRight;
+            PM_EditButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            PM_EditButton.UseVisualStyleBackColor = false;
             // 
-            // panel4
+            // PM_Panel1
             // 
-            panel4.BackColor = SystemColors.InactiveCaption;
-            panel4.Controls.Add(label1);
-            panel4.Dock = DockStyle.Top;
-            panel4.Location = new Point(0, 0);
-            panel4.Margin = new Padding(2, 3, 2, 3);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(1182, 60);
-            panel4.TabIndex = 3;
+            PM_Panel1.BackColor = SystemColors.InactiveCaption;
+            PM_Panel1.Controls.Add(PM_HeadingLabel);
+            PM_Panel1.Dock = DockStyle.Top;
+            PM_Panel1.Location = new Point(0, 0);
+            PM_Panel1.Margin = new Padding(2, 3, 2, 3);
+            PM_Panel1.Name = "PM_Panel1";
+            PM_Panel1.Size = new Size(1182, 60);
+            PM_Panel1.TabIndex = 3;
             // 
-            // label1
+            // PM_HeadingLabel
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Tahoma", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.ForeColor = Color.Black;
-            label1.Location = new Point(8, 8);
-            label1.Margin = new Padding(0);
-            label1.Name = "label1";
-            label1.Size = new Size(179, 39);
-            label1.TabIndex = 0;
-            label1.Text = "จัดการสินค้า";
+            PM_HeadingLabel.AutoSize = true;
+            PM_HeadingLabel.BackColor = Color.Transparent;
+            PM_HeadingLabel.Font = new Font("Tahoma", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_HeadingLabel.ForeColor = Color.Black;
+            PM_HeadingLabel.Location = new Point(8, 8);
+            PM_HeadingLabel.Margin = new Padding(0);
+            PM_HeadingLabel.Name = "PM_HeadingLabel";
+            PM_HeadingLabel.Size = new Size(179, 39);
+            PM_HeadingLabel.TabIndex = 0;
+            PM_HeadingLabel.Text = "จัดการสินค้า";
             // 
             // ProductManagementForm
             // 
@@ -595,15 +595,15 @@
             tableLayoutPanel3.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            statusStrip1.ResumeLayout(false);
-            statusStrip1.PerformLayout();
-            tableLayoutPanel7.ResumeLayout(false);
-            tableLayoutPanel8.ResumeLayout(false);
-            tableLayoutPanel8.PerformLayout();
-            tableLayoutPanel9.ResumeLayout(false);
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PM_DataGridView).EndInit();
+            PM_StatusStrip.ResumeLayout(false);
+            PM_StatusStrip.PerformLayout();
+            PM_TableLayoutPanel1.ResumeLayout(false);
+            PM_TableLayoutPanel2.ResumeLayout(false);
+            PM_TableLayoutPanel2.PerformLayout();
+            PM_TableLayoutPanel3.ResumeLayout(false);
+            PM_Panel1.ResumeLayout(false);
+            PM_Panel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -630,19 +630,19 @@
         private Button DeleteItemButton;
         private Button EditItemButton;
         private Panel panel3;
-        private DataGridView dataGridView1;
-        private StatusStrip statusStrip1;
-        private ToolStripStatusLabel toolStripStatusLabel1;
-        private TableLayoutPanel tableLayoutPanel7;
-        private TableLayoutPanel tableLayoutPanel8;
-        private TextBox textBox2;
-        private Button button6;
-        private Button button7;
-        private TableLayoutPanel tableLayoutPanel9;
-        private Button button8;
-        private Button button9;
-        private Button button10;
-        private Panel panel4;
-        private Label label1;
+        private DataGridView PM_DataGridView;
+        private StatusStrip PM_StatusStrip;
+        private ToolStripStatusLabel PM_ToolStripStatusLabel;
+        private TableLayoutPanel PM_TableLayoutPanel1;
+        private TableLayoutPanel PM_TableLayoutPanel2;
+        private TextBox PM_SearchTextBox;
+        private Button PM_SerachButton;
+        private Button PM_RefreshButton;
+        private TableLayoutPanel PM_TableLayoutPanel3;
+        private Button PM_AddButton;
+        private Button PM_DeleteButton;
+        private Button PM_EditButton;
+        private Panel PM_Panel1;
+        private Label PM_HeadingLabel;
     }
 }
