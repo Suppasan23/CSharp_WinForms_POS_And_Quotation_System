@@ -33,6 +33,7 @@
             M_ExitToolStripMenuItem = new ToolStripMenuItem();
             M_HelpToolStripMenuItem = new ToolStripMenuItem();
             M_StatusStrip = new StatusStrip();
+            M_ToolStripStatusLabel = new ToolStripStatusLabel();
             toolStrip1 = new ToolStrip();
             M_ProductManagementToolStripButton = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
@@ -44,7 +45,6 @@
             toolStripSeparator4 = new ToolStripSeparator();
             M_ExitToolStripButton = new ToolStripButton();
             toolStripSeparator5 = new ToolStripSeparator();
-            M_ToolStripStatusLabel = new ToolStripStatusLabel();
             M_MenuStrip.SuspendLayout();
             M_StatusStrip.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -70,7 +70,7 @@
             // M_ExitToolStripMenuItem
             // 
             M_ExitToolStripMenuItem.Name = "M_ExitToolStripMenuItem";
-            M_ExitToolStripMenuItem.Size = new Size(180, 22);
+            M_ExitToolStripMenuItem.Size = new Size(93, 22);
             M_ExitToolStripMenuItem.Text = "Exit";
             M_ExitToolStripMenuItem.Click += M_ExitToolStripMenuItem_Click;
             // 
@@ -89,6 +89,12 @@
             M_StatusStrip.Size = new Size(1784, 22);
             M_StatusStrip.TabIndex = 2;
             M_StatusStrip.Text = "statusStrip1";
+            // 
+            // M_ToolStripStatusLabel
+            // 
+            M_ToolStripStatusLabel.Name = "M_ToolStripStatusLabel";
+            M_ToolStripStatusLabel.Size = new Size(39, 17);
+            M_ToolStripStatusLabel.Text = "Status";
             // 
             // toolStrip1
             // 
@@ -190,16 +196,11 @@
             toolStripSeparator5.Name = "toolStripSeparator5";
             toolStripSeparator5.Size = new Size(134, 6);
             // 
-            // M_ToolStripStatusLabel
-            // 
-            M_ToolStripStatusLabel.Name = "M_ToolStripStatusLabel";
-            M_ToolStripStatusLabel.Size = new Size(39, 17);
-            M_ToolStripStatusLabel.Text = "Status";
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Control;
             ClientSize = new Size(1784, 1161);
             Controls.Add(toolStrip1);
             Controls.Add(M_StatusStrip);

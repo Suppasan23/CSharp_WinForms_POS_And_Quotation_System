@@ -379,7 +379,6 @@
             // 
             // PM_DataGridView
             // 
-            PM_DataGridView.BackgroundColor = SystemColors.ControlLight;
             PM_DataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             PM_DataGridView.Dock = DockStyle.Fill;
             PM_DataGridView.Location = new Point(0, 96);

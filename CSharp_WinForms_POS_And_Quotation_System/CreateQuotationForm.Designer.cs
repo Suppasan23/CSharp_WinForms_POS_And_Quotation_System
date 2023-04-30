@@ -64,6 +64,12 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_TableLayoutPanel10 = new TableLayoutPanel();
             CQ_TotalLetterLabel = new Label();
             CQ_ProductDetailsDataGridView = new DataGridView();
+            CQ_DataGridViewIdColumn = new DataGridViewTextBoxColumn();
+            CQ_DataGridViewDetailColumn = new DataGridViewTextBoxColumn();
+            CQ_DataGridViewQuantityColumn = new DataGridViewTextBoxColumn();
+            CQ_DataGridViewUnitColumn = new DataGridViewTextBoxColumn();
+            CQ_DataGridViewPricePerUnitColumn = new DataGridViewTextBoxColumn();
+            CQ_DataGridViewAmountPriceColumn = new DataGridViewTextBoxColumn();
             CQ_QuotaionDetailsGroupBox = new GroupBox();
             CQ_TableLayoutPanel5 = new TableLayoutPanel();
             CQ_TableLayoutPanel8 = new TableLayoutPanel();
@@ -110,12 +116,6 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             tableLayoutPanel2 = new TableLayoutPanel();
             textBox6 = new TextBox();
             label7 = new Label();
-            CQ_DataGridViewIdColumn = new DataGridViewTextBoxColumn();
-            CQ_DataGridViewDetailColumn = new DataGridViewTextBoxColumn();
-            CQ_DataGridViewQuantityColumn = new DataGridViewTextBoxColumn();
-            CQ_DataGridViewUnitColumn = new DataGridViewTextBoxColumn();
-            CQ_DataGridViewPricePerUnitColumn = new DataGridViewTextBoxColumn();
-            CQ_DataGridViewAmountPriceColumn = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             CQ_Panel2.SuspendLayout();
             CQ_SignatureGroupBox.SuspendLayout();
@@ -171,6 +171,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // 
             // CQ_CancelButton
             // 
+            CQ_CancelButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             CQ_CancelButton.Location = new Point(1053, 1159);
             CQ_CancelButton.Name = "CQ_CancelButton";
             CQ_CancelButton.Size = new Size(120, 35);
@@ -181,6 +182,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // 
             // CQ_ConfirmButton
             // 
+            CQ_ConfirmButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             CQ_ConfirmButton.Location = new Point(927, 1159);
             CQ_ConfirmButton.Name = "CQ_ConfirmButton";
             CQ_ConfirmButton.Size = new Size(120, 35);
@@ -190,6 +192,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // 
             // CQ_SignatureGroupBox
             // 
+            CQ_SignatureGroupBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             CQ_SignatureGroupBox.Controls.Add(CQ_SignatureUploadButton);
             CQ_SignatureGroupBox.Controls.Add(CQ_SignaturePictureBox);
             CQ_SignatureGroupBox.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
@@ -203,6 +206,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // 
             // CQ_SignatureUploadButton
             // 
+            CQ_SignatureUploadButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             CQ_SignatureUploadButton.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             CQ_SignatureUploadButton.ForeColor = SystemColors.WindowText;
             CQ_SignatureUploadButton.Location = new Point(226, 68);
@@ -224,6 +228,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // 
             // CQ_ProductDetailsGroupBox
             // 
+            CQ_ProductDetailsGroupBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             CQ_ProductDetailsGroupBox.Controls.Add(CQ_TableLayoutPanel9);
             CQ_ProductDetailsGroupBox.Controls.Add(CQ_ProductDetailsDataGridView);
             CQ_ProductDetailsGroupBox.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
@@ -237,11 +242,12 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // 
             // CQ_TableLayoutPanel9
             // 
+            CQ_TableLayoutPanel9.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             CQ_TableLayoutPanel9.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             CQ_TableLayoutPanel9.ColumnCount = 3;
-            CQ_TableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 75F));
-            CQ_TableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
-            CQ_TableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            CQ_TableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            CQ_TableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 150F));
+            CQ_TableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
             CQ_TableLayoutPanel9.Controls.Add(CQ_SubTotalTextBox, 2, 0);
             CQ_TableLayoutPanel9.Controls.Add(CQ_DiscountTextBox, 2, 1);
             CQ_TableLayoutPanel9.Controls.Add(CQ_AmountAfterDiscountTextBox, 2, 2);
@@ -269,40 +275,40 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // 
             CQ_SubTotalTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             CQ_SubTotalTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            CQ_SubTotalTextBox.Location = new Point(1039, 4);
+            CQ_SubTotalTextBox.Location = new Point(1035, 4);
             CQ_SubTotalTextBox.Name = "CQ_SubTotalTextBox";
             CQ_SubTotalTextBox.ReadOnly = true;
-            CQ_SubTotalTextBox.Size = new Size(110, 26);
+            CQ_SubTotalTextBox.Size = new Size(114, 26);
             CQ_SubTotalTextBox.TabIndex = 0;
             // 
             // CQ_DiscountTextBox
             // 
             CQ_DiscountTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             CQ_DiscountTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            CQ_DiscountTextBox.Location = new Point(1039, 38);
+            CQ_DiscountTextBox.Location = new Point(1035, 38);
             CQ_DiscountTextBox.Name = "CQ_DiscountTextBox";
             CQ_DiscountTextBox.ReadOnly = true;
-            CQ_DiscountTextBox.Size = new Size(110, 26);
+            CQ_DiscountTextBox.Size = new Size(114, 26);
             CQ_DiscountTextBox.TabIndex = 1;
             // 
             // CQ_AmountAfterDiscountTextBox
             // 
             CQ_AmountAfterDiscountTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             CQ_AmountAfterDiscountTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            CQ_AmountAfterDiscountTextBox.Location = new Point(1039, 72);
+            CQ_AmountAfterDiscountTextBox.Location = new Point(1035, 72);
             CQ_AmountAfterDiscountTextBox.Name = "CQ_AmountAfterDiscountTextBox";
             CQ_AmountAfterDiscountTextBox.ReadOnly = true;
-            CQ_AmountAfterDiscountTextBox.Size = new Size(110, 26);
+            CQ_AmountAfterDiscountTextBox.Size = new Size(114, 26);
             CQ_AmountAfterDiscountTextBox.TabIndex = 2;
             // 
             // CQ_VatTextBox
             // 
             CQ_VatTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             CQ_VatTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            CQ_VatTextBox.Location = new Point(1039, 106);
+            CQ_VatTextBox.Location = new Point(1035, 106);
             CQ_VatTextBox.Name = "CQ_VatTextBox";
             CQ_VatTextBox.ReadOnly = true;
-            CQ_VatTextBox.Size = new Size(110, 26);
+            CQ_VatTextBox.Size = new Size(114, 26);
             CQ_VatTextBox.TabIndex = 3;
             // 
             // CQ_SubTotalLabel
@@ -311,9 +317,9 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_SubTotalLabel.AutoSize = true;
             CQ_SubTotalLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             CQ_SubTotalLabel.ForeColor = SystemColors.WindowText;
-            CQ_SubTotalLabel.Location = new Point(866, 8);
+            CQ_SubTotalLabel.Location = new Point(884, 8);
             CQ_SubTotalLabel.Name = "CQ_SubTotalLabel";
-            CQ_SubTotalLabel.Size = new Size(166, 18);
+            CQ_SubTotalLabel.Size = new Size(144, 18);
             CQ_SubTotalLabel.TabIndex = 4;
             CQ_SubTotalLabel.Text = "รวมเป็นเงิน";
             CQ_SubTotalLabel.TextAlign = ContentAlignment.MiddleRight;
@@ -328,12 +334,12 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_TableLayoutPanel11.Controls.Add(CQ_DiscountNumericUpDown, 1, 0);
             CQ_TableLayoutPanel11.Controls.Add(CQ_DiscountLabel, 2, 0);
             CQ_TableLayoutPanel11.Dock = DockStyle.Fill;
-            CQ_TableLayoutPanel11.Location = new Point(863, 35);
+            CQ_TableLayoutPanel11.Location = new Point(881, 35);
             CQ_TableLayoutPanel11.Margin = new Padding(0);
             CQ_TableLayoutPanel11.Name = "CQ_TableLayoutPanel11";
             CQ_TableLayoutPanel11.RowCount = 1;
             CQ_TableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            CQ_TableLayoutPanel11.Size = new Size(172, 33);
+            CQ_TableLayoutPanel11.Size = new Size(150, 33);
             CQ_TableLayoutPanel11.TabIndex = 5;
             // 
             // CQ_DiscountCheckBox
@@ -342,7 +348,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_DiscountCheckBox.AutoSize = true;
             CQ_DiscountCheckBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             CQ_DiscountCheckBox.ForeColor = SystemColors.WindowText;
-            CQ_DiscountCheckBox.Location = new Point(16, 5);
+            CQ_DiscountCheckBox.Location = new Point(5, 5);
             CQ_DiscountCheckBox.Margin = new Padding(3, 3, 0, 3);
             CQ_DiscountCheckBox.Name = "CQ_DiscountCheckBox";
             CQ_DiscountCheckBox.Size = new Size(70, 22);
@@ -354,9 +360,9 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // 
             CQ_DiscountNumericUpDown.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             CQ_DiscountNumericUpDown.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            CQ_DiscountNumericUpDown.Location = new Point(89, 3);
+            CQ_DiscountNumericUpDown.Location = new Point(78, 3);
             CQ_DiscountNumericUpDown.Name = "CQ_DiscountNumericUpDown";
-            CQ_DiscountNumericUpDown.Size = new Size(45, 26);
+            CQ_DiscountNumericUpDown.Size = new Size(39, 26);
             CQ_DiscountNumericUpDown.TabIndex = 1;
             // 
             // CQ_DiscountLabel
@@ -365,9 +371,9 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_DiscountLabel.AutoSize = true;
             CQ_DiscountLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             CQ_DiscountLabel.ForeColor = SystemColors.WindowText;
-            CQ_DiscountLabel.Location = new Point(140, 7);
+            CQ_DiscountLabel.Location = new Point(123, 7);
             CQ_DiscountLabel.Name = "CQ_DiscountLabel";
-            CQ_DiscountLabel.Size = new Size(29, 18);
+            CQ_DiscountLabel.Size = new Size(24, 18);
             CQ_DiscountLabel.TabIndex = 2;
             CQ_DiscountLabel.Text = "%";
             CQ_DiscountLabel.TextAlign = ContentAlignment.MiddleRight;
@@ -378,9 +384,9 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_VatLabel.AutoSize = true;
             CQ_VatLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             CQ_VatLabel.ForeColor = SystemColors.WindowText;
-            CQ_VatLabel.Location = new Point(866, 110);
+            CQ_VatLabel.Location = new Point(884, 110);
             CQ_VatLabel.Name = "CQ_VatLabel";
-            CQ_VatLabel.Size = new Size(166, 18);
+            CQ_VatLabel.Size = new Size(144, 18);
             CQ_VatLabel.TabIndex = 7;
             CQ_VatLabel.Text = "ภาษีมูลค่าเพิ่ม 7 %";
             CQ_VatLabel.TextAlign = ContentAlignment.MiddleRight;
@@ -391,9 +397,9 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_AmountAfterDiscountLabel.AutoSize = true;
             CQ_AmountAfterDiscountLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             CQ_AmountAfterDiscountLabel.ForeColor = SystemColors.WindowText;
-            CQ_AmountAfterDiscountLabel.Location = new Point(866, 76);
+            CQ_AmountAfterDiscountLabel.Location = new Point(884, 69);
             CQ_AmountAfterDiscountLabel.Name = "CQ_AmountAfterDiscountLabel";
-            CQ_AmountAfterDiscountLabel.Size = new Size(166, 18);
+            CQ_AmountAfterDiscountLabel.Size = new Size(144, 33);
             CQ_AmountAfterDiscountLabel.TabIndex = 8;
             CQ_AmountAfterDiscountLabel.Text = "จำนวนเงินหลังหักส่วนลด";
             CQ_AmountAfterDiscountLabel.TextAlign = ContentAlignment.MiddleRight;
@@ -403,9 +409,9 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_TotalLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             CQ_TotalLabel.AutoSize = true;
             CQ_TotalLabel.ForeColor = SystemColors.WindowText;
-            CQ_TotalLabel.Location = new Point(866, 146);
+            CQ_TotalLabel.Location = new Point(884, 146);
             CQ_TotalLabel.Name = "CQ_TotalLabel";
-            CQ_TotalLabel.Size = new Size(166, 18);
+            CQ_TotalLabel.Size = new Size(144, 18);
             CQ_TotalLabel.TabIndex = 9;
             CQ_TotalLabel.Text = "จำนวนเงินทั้งสิน";
             CQ_TotalLabel.TextAlign = ContentAlignment.MiddleRight;
@@ -414,10 +420,10 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // 
             CQ_TotalTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             CQ_TotalTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            CQ_TotalTextBox.Location = new Point(1039, 142);
+            CQ_TotalTextBox.Location = new Point(1035, 142);
             CQ_TotalTextBox.Name = "CQ_TotalTextBox";
             CQ_TotalTextBox.ReadOnly = true;
-            CQ_TotalTextBox.Size = new Size(110, 26);
+            CQ_TotalTextBox.Size = new Size(114, 26);
             CQ_TotalTextBox.TabIndex = 3;
             // 
             // CQ_TableLayoutPanel10
@@ -431,7 +437,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_TableLayoutPanel10.RowCount = 1;
             CQ_TableLayoutPanel9.SetRowSpan(CQ_TableLayoutPanel10, 4);
             CQ_TableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            CQ_TableLayoutPanel10.Size = new Size(861, 135);
+            CQ_TableLayoutPanel10.Size = new Size(879, 135);
             CQ_TableLayoutPanel10.TabIndex = 10;
             // 
             // CQ_TotalLetterLabel
@@ -442,13 +448,14 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_TotalLetterLabel.ForeColor = SystemColors.WindowText;
             CQ_TotalLetterLabel.Location = new Point(4, 146);
             CQ_TotalLetterLabel.Name = "CQ_TotalLetterLabel";
-            CQ_TotalLetterLabel.Size = new Size(855, 18);
+            CQ_TotalLetterLabel.Size = new Size(873, 18);
             CQ_TotalLetterLabel.TabIndex = 11;
             CQ_TotalLetterLabel.Text = "(ตัวหนังสือ)";
             CQ_TotalLetterLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // CQ_ProductDetailsDataGridView
             // 
+            CQ_ProductDetailsDataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
             dataGridViewCellStyle1.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
@@ -481,8 +488,60 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_ProductDetailsDataGridView.Size = new Size(1153, 578);
             CQ_ProductDetailsDataGridView.TabIndex = 2;
             // 
+            // CQ_DataGridViewIdColumn
+            // 
+            dataGridViewCellStyle2.BackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.ForestGreen;
+            CQ_DataGridViewIdColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            CQ_DataGridViewIdColumn.FillWeight = 50F;
+            CQ_DataGridViewIdColumn.HeaderText = "ที่";
+            CQ_DataGridViewIdColumn.Name = "CQ_DataGridViewIdColumn";
+            CQ_DataGridViewIdColumn.ReadOnly = true;
+            CQ_DataGridViewIdColumn.Width = 30;
+            // 
+            // CQ_DataGridViewDetailColumn
+            // 
+            dataGridViewCellStyle3.ForeColor = Color.ForestGreen;
+            CQ_DataGridViewDetailColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            CQ_DataGridViewDetailColumn.FillWeight = 650F;
+            CQ_DataGridViewDetailColumn.HeaderText = "รายละเอียด";
+            CQ_DataGridViewDetailColumn.Name = "CQ_DataGridViewDetailColumn";
+            CQ_DataGridViewDetailColumn.Width = 650;
+            // 
+            // CQ_DataGridViewQuantityColumn
+            // 
+            dataGridViewCellStyle4.ForeColor = Color.ForestGreen;
+            CQ_DataGridViewQuantityColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            CQ_DataGridViewQuantityColumn.HeaderText = "จำนวน";
+            CQ_DataGridViewQuantityColumn.Name = "CQ_DataGridViewQuantityColumn";
+            // 
+            // CQ_DataGridViewUnitColumn
+            // 
+            dataGridViewCellStyle5.ForeColor = Color.ForestGreen;
+            CQ_DataGridViewUnitColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            CQ_DataGridViewUnitColumn.HeaderText = "หน่วย";
+            CQ_DataGridViewUnitColumn.Name = "CQ_DataGridViewUnitColumn";
+            // 
+            // CQ_DataGridViewPricePerUnitColumn
+            // 
+            dataGridViewCellStyle6.ForeColor = Color.ForestGreen;
+            CQ_DataGridViewPricePerUnitColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            CQ_DataGridViewPricePerUnitColumn.HeaderText = "ราคา/หน่วย";
+            CQ_DataGridViewPricePerUnitColumn.Name = "CQ_DataGridViewPricePerUnitColumn";
+            // 
+            // CQ_DataGridViewAmountPriceColumn
+            // 
+            dataGridViewCellStyle7.BackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle7.ForeColor = Color.ForestGreen;
+            CQ_DataGridViewAmountPriceColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            CQ_DataGridViewAmountPriceColumn.HeaderText = "จำนวนเงิน";
+            CQ_DataGridViewAmountPriceColumn.Name = "CQ_DataGridViewAmountPriceColumn";
+            CQ_DataGridViewAmountPriceColumn.ReadOnly = true;
+            // 
             // CQ_QuotaionDetailsGroupBox
             // 
+            CQ_QuotaionDetailsGroupBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             CQ_QuotaionDetailsGroupBox.Controls.Add(CQ_TableLayoutPanel5);
             CQ_QuotaionDetailsGroupBox.Controls.Add(CQ_TableLayoutPanel3);
             CQ_QuotaionDetailsGroupBox.Controls.Add(CQ_TableLayoutPanel4);
@@ -527,10 +586,10 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // CQ_QuotaionDateExpireDateTimePicker
             // 
             CQ_QuotaionDateExpireDateTimePicker.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            CQ_QuotaionDateExpireDateTimePicker.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            CQ_QuotaionDateExpireDateTimePicker.Location = new Point(3, 34);
+            CQ_QuotaionDateExpireDateTimePicker.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            CQ_QuotaionDateExpireDateTimePicker.Location = new Point(3, 35);
             CQ_QuotaionDateExpireDateTimePicker.Name = "CQ_QuotaionDateExpireDateTimePicker";
-            CQ_QuotaionDateExpireDateTimePicker.Size = new Size(283, 26);
+            CQ_QuotaionDateExpireDateTimePicker.Size = new Size(283, 24);
             CQ_QuotaionDateExpireDateTimePicker.TabIndex = 6;
             // 
             // CQ_QuotaionDateExpireLabel
@@ -591,11 +650,11 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // CQ_QuotaionNumberTextBox
             // 
             CQ_QuotaionNumberTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            CQ_QuotaionNumberTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            CQ_QuotaionNumberTextBox.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             CQ_QuotaionNumberTextBox.Location = new Point(3, 33);
             CQ_QuotaionNumberTextBox.Name = "CQ_QuotaionNumberTextBox";
             CQ_QuotaionNumberTextBox.ReadOnly = true;
-            CQ_QuotaionNumberTextBox.Size = new Size(283, 26);
+            CQ_QuotaionNumberTextBox.Size = new Size(283, 24);
             CQ_QuotaionNumberTextBox.TabIndex = 1;
             // 
             // CQ_TableLayoutPanel4
@@ -643,10 +702,10 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // CQ_QuotaionDateIssueDateTimePicker
             // 
             CQ_QuotaionDateIssueDateTimePicker.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            CQ_QuotaionDateIssueDateTimePicker.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            CQ_QuotaionDateIssueDateTimePicker.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             CQ_QuotaionDateIssueDateTimePicker.Location = new Point(3, 33);
             CQ_QuotaionDateIssueDateTimePicker.Name = "CQ_QuotaionDateIssueDateTimePicker";
-            CQ_QuotaionDateIssueDateTimePicker.Size = new Size(283, 26);
+            CQ_QuotaionDateIssueDateTimePicker.Size = new Size(283, 24);
             CQ_QuotaionDateIssueDateTimePicker.TabIndex = 6;
             // 
             // CQ_CustomerDetailsGroupBox
@@ -666,24 +725,26 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // 
             // CQ_CustomerDetailsDeleteButton
             // 
+            CQ_CustomerDetailsDeleteButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             CQ_CustomerDetailsDeleteButton.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             CQ_CustomerDetailsDeleteButton.ForeColor = SystemColors.WindowText;
-            CQ_CustomerDetailsDeleteButton.Location = new Point(741, 138);
+            CQ_CustomerDetailsDeleteButton.Location = new Point(776, 138);
             CQ_CustomerDetailsDeleteButton.Name = "CQ_CustomerDetailsDeleteButton";
-            CQ_CustomerDetailsDeleteButton.Size = new Size(105, 30);
+            CQ_CustomerDetailsDeleteButton.Size = new Size(70, 30);
             CQ_CustomerDetailsDeleteButton.TabIndex = 7;
             CQ_CustomerDetailsDeleteButton.Text = "ลบ";
             CQ_CustomerDetailsDeleteButton.UseVisualStyleBackColor = true;
             // 
             // CQ_CustomerDetailsAddButton
             // 
+            CQ_CustomerDetailsAddButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             CQ_CustomerDetailsAddButton.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             CQ_CustomerDetailsAddButton.ForeColor = SystemColors.WindowText;
-            CQ_CustomerDetailsAddButton.Location = new Point(630, 138);
+            CQ_CustomerDetailsAddButton.Location = new Point(635, 138);
             CQ_CustomerDetailsAddButton.Name = "CQ_CustomerDetailsAddButton";
-            CQ_CustomerDetailsAddButton.Size = new Size(105, 30);
+            CQ_CustomerDetailsAddButton.Size = new Size(135, 30);
             CQ_CustomerDetailsAddButton.TabIndex = 6;
-            CQ_CustomerDetailsAddButton.Text = "เพิ่ม";
+            CQ_CustomerDetailsAddButton.Text = "บันทึกข้อมูลลูกค้า";
             CQ_CustomerDetailsAddButton.UseVisualStyleBackColor = true;
             // 
             // CQ_TableLayoutPanel2
@@ -755,11 +816,11 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // 
             CQ_CustomerAddressTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             CQ_TableLayoutPanel2.SetColumnSpan(CQ_CustomerAddressTextBox, 3);
-            CQ_CustomerAddressTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            CQ_CustomerAddressTextBox.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             CQ_CustomerAddressTextBox.ForeColor = Color.Blue;
-            CQ_CustomerAddressTextBox.Location = new Point(167, 41);
+            CQ_CustomerAddressTextBox.Location = new Point(167, 42);
             CQ_CustomerAddressTextBox.Name = "CQ_CustomerAddressTextBox";
-            CQ_CustomerAddressTextBox.Size = new Size(668, 26);
+            CQ_CustomerAddressTextBox.Size = new Size(668, 24);
             CQ_CustomerAddressTextBox.TabIndex = 14;
             // 
             // CQ_CustomerTaxIdNumberLabel
@@ -778,28 +839,30 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // CQ_CustomerTaxIdNumberTextBox
             // 
             CQ_CustomerTaxIdNumberTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            CQ_CustomerTaxIdNumberTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            CQ_CustomerTaxIdNumberTextBox.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             CQ_CustomerTaxIdNumberTextBox.ForeColor = Color.Blue;
-            CQ_CustomerTaxIdNumberTextBox.Location = new Point(167, 77);
+            CQ_CustomerTaxIdNumberTextBox.Location = new Point(167, 78);
             CQ_CustomerTaxIdNumberTextBox.Name = "CQ_CustomerTaxIdNumberTextBox";
-            CQ_CustomerTaxIdNumberTextBox.Size = new Size(254, 26);
+            CQ_CustomerTaxIdNumberTextBox.Size = new Size(254, 24);
             CQ_CustomerTaxIdNumberTextBox.TabIndex = 13;
             // 
             // CQ_CustomerTelephoneNumberTextBox
             // 
             CQ_CustomerTelephoneNumberTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            CQ_CustomerTelephoneNumberTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            CQ_CustomerTelephoneNumberTextBox.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             CQ_CustomerTelephoneNumberTextBox.ForeColor = Color.Blue;
-            CQ_CustomerTelephoneNumberTextBox.Location = new Point(581, 77);
+            CQ_CustomerTelephoneNumberTextBox.Location = new Point(581, 78);
             CQ_CustomerTelephoneNumberTextBox.Name = "CQ_CustomerTelephoneNumberTextBox";
-            CQ_CustomerTelephoneNumberTextBox.Size = new Size(254, 26);
+            CQ_CustomerTelephoneNumberTextBox.Size = new Size(254, 24);
             CQ_CustomerTelephoneNumberTextBox.TabIndex = 15;
             // 
             // CQ_CustomerNameComboBox
             // 
             CQ_TableLayoutPanel2.SetColumnSpan(CQ_CustomerNameComboBox, 3);
             CQ_CustomerNameComboBox.Dock = DockStyle.Top;
+            CQ_CustomerNameComboBox.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             CQ_CustomerNameComboBox.FormattingEnabled = true;
+            CQ_CustomerNameComboBox.Items.AddRange(new object[] { "", "มทร.ศรีวิชัย", "ม.ทักษิณ", "ราชภัฎสงขลา" });
             CQ_CustomerNameComboBox.Location = new Point(167, 5);
             CQ_CustomerNameComboBox.Name = "CQ_CustomerNameComboBox";
             CQ_CustomerNameComboBox.Size = new Size(668, 26);
@@ -875,11 +938,11 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // 
             CQ_CompanyNameTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             CQ_TableLayoutPanel1.SetColumnSpan(CQ_CompanyNameTextBox, 3);
-            CQ_CompanyNameTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            CQ_CompanyNameTextBox.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             CQ_CompanyNameTextBox.ForeColor = Color.Blue;
-            CQ_CompanyNameTextBox.Location = new Point(167, 5);
+            CQ_CompanyNameTextBox.Location = new Point(167, 6);
             CQ_CompanyNameTextBox.Name = "CQ_CompanyNameTextBox";
-            CQ_CompanyNameTextBox.Size = new Size(668, 26);
+            CQ_CompanyNameTextBox.Size = new Size(668, 24);
             CQ_CompanyNameTextBox.TabIndex = 12;
             // 
             // CQ_CompanyAddressLabel
@@ -899,11 +962,11 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // 
             CQ_CompanyAddressTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             CQ_TableLayoutPanel1.SetColumnSpan(CQ_CompanyAddressTextBox, 3);
-            CQ_CompanyAddressTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            CQ_CompanyAddressTextBox.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             CQ_CompanyAddressTextBox.ForeColor = Color.Blue;
-            CQ_CompanyAddressTextBox.Location = new Point(167, 39);
+            CQ_CompanyAddressTextBox.Location = new Point(167, 40);
             CQ_CompanyAddressTextBox.Name = "CQ_CompanyAddressTextBox";
-            CQ_CompanyAddressTextBox.Size = new Size(668, 26);
+            CQ_CompanyAddressTextBox.Size = new Size(668, 24);
             CQ_CompanyAddressTextBox.TabIndex = 14;
             // 
             // CQ_CompanyTaxIdNumberLabel
@@ -922,21 +985,21 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // CQ_CompanyTaxIdNumberTextBox
             // 
             CQ_CompanyTaxIdNumberTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            CQ_CompanyTaxIdNumberTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            CQ_CompanyTaxIdNumberTextBox.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             CQ_CompanyTaxIdNumberTextBox.ForeColor = Color.Blue;
-            CQ_CompanyTaxIdNumberTextBox.Location = new Point(167, 75);
+            CQ_CompanyTaxIdNumberTextBox.Location = new Point(167, 76);
             CQ_CompanyTaxIdNumberTextBox.Name = "CQ_CompanyTaxIdNumberTextBox";
-            CQ_CompanyTaxIdNumberTextBox.Size = new Size(254, 26);
+            CQ_CompanyTaxIdNumberTextBox.Size = new Size(254, 24);
             CQ_CompanyTaxIdNumberTextBox.TabIndex = 13;
             // 
             // CQ_CompanyTelephoneNumberTextBox
             // 
             CQ_CompanyTelephoneNumberTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            CQ_CompanyTelephoneNumberTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            CQ_CompanyTelephoneNumberTextBox.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             CQ_CompanyTelephoneNumberTextBox.ForeColor = Color.Blue;
-            CQ_CompanyTelephoneNumberTextBox.Location = new Point(581, 75);
+            CQ_CompanyTelephoneNumberTextBox.Location = new Point(581, 76);
             CQ_CompanyTelephoneNumberTextBox.Name = "CQ_CompanyTelephoneNumberTextBox";
-            CQ_CompanyTelephoneNumberTextBox.Size = new Size(254, 26);
+            CQ_CompanyTelephoneNumberTextBox.Size = new Size(254, 24);
             CQ_CompanyTelephoneNumberTextBox.TabIndex = 15;
             // 
             // CQ_CompanyDetailsEditButton
@@ -1069,57 +1132,6 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             label7.TabIndex = 5;
             label7.Text = "ชื่อบริษัท:";
             label7.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // CQ_DataGridViewIdColumn
-            // 
-            dataGridViewCellStyle2.BackColor = Color.WhiteSmoke;
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = Color.ForestGreen;
-            CQ_DataGridViewIdColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            CQ_DataGridViewIdColumn.FillWeight = 50F;
-            CQ_DataGridViewIdColumn.HeaderText = "ที่";
-            CQ_DataGridViewIdColumn.Name = "CQ_DataGridViewIdColumn";
-            CQ_DataGridViewIdColumn.ReadOnly = true;
-            CQ_DataGridViewIdColumn.Width = 30;
-            // 
-            // CQ_DataGridViewDetailColumn
-            // 
-            dataGridViewCellStyle3.ForeColor = Color.ForestGreen;
-            CQ_DataGridViewDetailColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            CQ_DataGridViewDetailColumn.FillWeight = 650F;
-            CQ_DataGridViewDetailColumn.HeaderText = "รายละเอียด";
-            CQ_DataGridViewDetailColumn.Name = "CQ_DataGridViewDetailColumn";
-            CQ_DataGridViewDetailColumn.Width = 650;
-            // 
-            // CQ_DataGridViewQuantityColumn
-            // 
-            dataGridViewCellStyle4.ForeColor = Color.ForestGreen;
-            CQ_DataGridViewQuantityColumn.DefaultCellStyle = dataGridViewCellStyle4;
-            CQ_DataGridViewQuantityColumn.HeaderText = "จำนวน";
-            CQ_DataGridViewQuantityColumn.Name = "CQ_DataGridViewQuantityColumn";
-            // 
-            // CQ_DataGridViewUnitColumn
-            // 
-            dataGridViewCellStyle5.ForeColor = Color.ForestGreen;
-            CQ_DataGridViewUnitColumn.DefaultCellStyle = dataGridViewCellStyle5;
-            CQ_DataGridViewUnitColumn.HeaderText = "หน่วย";
-            CQ_DataGridViewUnitColumn.Name = "CQ_DataGridViewUnitColumn";
-            // 
-            // CQ_DataGridViewPricePerUnitColumn
-            // 
-            dataGridViewCellStyle6.ForeColor = Color.ForestGreen;
-            CQ_DataGridViewPricePerUnitColumn.DefaultCellStyle = dataGridViewCellStyle6;
-            CQ_DataGridViewPricePerUnitColumn.HeaderText = "ราคา/หน่วย";
-            CQ_DataGridViewPricePerUnitColumn.Name = "CQ_DataGridViewPricePerUnitColumn";
-            // 
-            // CQ_DataGridViewAmountPriceColumn
-            // 
-            dataGridViewCellStyle7.BackColor = Color.WhiteSmoke;
-            dataGridViewCellStyle7.ForeColor = Color.ForestGreen;
-            CQ_DataGridViewAmountPriceColumn.DefaultCellStyle = dataGridViewCellStyle7;
-            CQ_DataGridViewAmountPriceColumn.HeaderText = "จำนวนเงิน";
-            CQ_DataGridViewAmountPriceColumn.Name = "CQ_DataGridViewAmountPriceColumn";
-            CQ_DataGridViewAmountPriceColumn.ReadOnly = true;
             // 
             // CreateQuotationForm
             // 

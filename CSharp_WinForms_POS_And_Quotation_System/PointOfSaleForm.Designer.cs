@@ -421,7 +421,6 @@
             POS_DataGridView.AllowUserToAddRows = false;
             POS_DataGridView.AllowUserToDeleteRows = false;
             POS_DataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            POS_DataGridView.BackgroundColor = SystemColors.ControlLight;
             POS_DataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             POS_DataGridView.Location = new Point(6, 100);
             POS_DataGridView.Name = "POS_DataGridView";
