@@ -32,14 +32,17 @@
             AQ_Panel2 = new Panel();
             splitContainer1 = new SplitContainer();
             tableLayoutPanel3 = new TableLayoutPanel();
-            tableLayoutPanel2 = new TableLayoutPanel();
-            dataGridView2 = new DataGridView();
-            button1 = new Button();
-            tableLayoutPanel4 = new TableLayoutPanel();
             label2 = new Label();
+            tableLayoutPanel4 = new TableLayoutPanel();
+            dataGridView2 = new DataGridView();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            button2 = new Button();
+            button1 = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
             dataGridView1 = new DataGridView();
+            tableLayoutPanel5 = new TableLayoutPanel();
             label1 = new Label();
+            button3 = new Button();
             AQ_Panel1 = new Panel();
             AQ_HeadingLabel = new Label();
             panel1.SuspendLayout();
@@ -49,11 +52,12 @@
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             tableLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            tableLayoutPanel5.SuspendLayout();
             AQ_Panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -81,102 +85,128 @@
             // 
             // splitContainer1
             // 
-            splitContainer1.Location = new Point(6, 5);
+            splitContainer1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            splitContainer1.BorderStyle = BorderStyle.FixedSingle;
+            splitContainer1.Location = new Point(6, 10);
             splitContainer1.Name = "splitContainer1";
             splitContainer1.Orientation = Orientation.Horizontal;
             // 
             // splitContainer1.Panel1
             // 
+            splitContainer1.Panel1.AutoScroll = true;
             splitContainer1.Panel1.Controls.Add(tableLayoutPanel3);
             // 
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(tableLayoutPanel1);
-            splitContainer1.Size = new Size(1172, 1191);
-            splitContainer1.SplitterDistance = 150;
+            splitContainer1.Size = new Size(1170, 1178);
+            splitContainer1.SplitterDistance = 200;
+            splitContainer1.SplitterIncrement = 2;
+            splitContainer1.SplitterWidth = 10;
             splitContainer1.TabIndex = 4;
+            splitContainer1.SplitterMoved += splitContainer1_SplitterMoved;
             // 
             // tableLayoutPanel3
             // 
             tableLayoutPanel3.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
-            tableLayoutPanel3.ColumnCount = 2;
+            tableLayoutPanel3.ColumnCount = 1;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 80F));
-            tableLayoutPanel3.Controls.Add(tableLayoutPanel2, 0, 1);
-            tableLayoutPanel3.Controls.Add(button1, 1, 1);
-            tableLayoutPanel3.Controls.Add(tableLayoutPanel4, 0, 0);
+            tableLayoutPanel3.Controls.Add(label2, 0, 0);
+            tableLayoutPanel3.Controls.Add(tableLayoutPanel4, 0, 1);
             tableLayoutPanel3.Dock = DockStyle.Fill;
             tableLayoutPanel3.Location = new Point(0, 0);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 2;
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.Size = new Size(1172, 150);
+            tableLayoutPanel3.Size = new Size(1168, 198);
             tableLayoutPanel3.TabIndex = 3;
-            // 
-            // tableLayoutPanel2
-            // 
-            tableLayoutPanel2.ColumnCount = 1;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Controls.Add(dataGridView2, 0, 0);
-            tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(1, 32);
-            tableLayoutPanel2.Margin = new Padding(0);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 1;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.Size = new Size(1089, 117);
-            tableLayoutPanel2.TabIndex = 2;
-            // 
-            // dataGridView2
-            // 
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Dock = DockStyle.Fill;
-            dataGridView2.Location = new Point(0, 0);
-            dataGridView2.Margin = new Padding(0);
-            dataGridView2.MinimumSize = new Size(1089, 117);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowTemplate.Height = 25;
-            dataGridView2.Size = new Size(1089, 117);
-            dataGridView2.TabIndex = 1;
-            // 
-            // button1
-            // 
-            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            button1.Location = new Point(1094, 68);
-            button1.MinimumSize = new Size(74, 78);
-            button1.Name = "button1";
-            button1.Size = new Size(74, 78);
-            button1.TabIndex = 0;
-            button1.Text = "เก็บถาวร";
-            button1.TextImageRelation = TextImageRelation.ImageAboveText;
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel4
-            // 
-            tableLayoutPanel4.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            tableLayoutPanel4.ColumnCount = 1;
-            tableLayoutPanel3.SetColumnSpan(tableLayoutPanel4, 2);
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel4.Controls.Add(label2, 0, 0);
-            tableLayoutPanel4.Location = new Point(1, 1);
-            tableLayoutPanel4.Margin = new Padding(0);
-            tableLayoutPanel4.Name = "tableLayoutPanel4";
-            tableLayoutPanel4.RowCount = 1;
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel4.Size = new Size(1170, 30);
-            tableLayoutPanel4.TabIndex = 3;
             // 
             // label2
             // 
-            label2.Anchor = AnchorStyles.Right;
+            label2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Location = new Point(1011, 5);
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(4, 8);
             label2.Name = "label2";
-            label2.Size = new Size(156, 20);
+            label2.Size = new Size(1160, 21);
             label2.TabIndex = 3;
             label2.Text = "ใบเสนอราคารอดำเนินการ";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel4
+            // 
+            tableLayoutPanel4.ColumnCount = 2;
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 72F));
+            tableLayoutPanel4.Controls.Add(dataGridView2, 0, 0);
+            tableLayoutPanel4.Controls.Add(tableLayoutPanel2, 1, 0);
+            tableLayoutPanel4.Dock = DockStyle.Fill;
+            tableLayoutPanel4.Location = new Point(1, 37);
+            tableLayoutPanel4.Margin = new Padding(0);
+            tableLayoutPanel4.Name = "tableLayoutPanel4";
+            tableLayoutPanel4.RowCount = 1;
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel4.Size = new Size(1166, 160);
+            tableLayoutPanel4.TabIndex = 0;
+            // 
+            // dataGridView2
+            // 
+            dataGridView2.AllowUserToAddRows = false;
+            dataGridView2.AllowUserToDeleteRows = false;
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Dock = DockStyle.Fill;
+            dataGridView2.Location = new Point(3, 3);
+            dataGridView2.Margin = new Padding(3, 3, 0, 3);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.ReadOnly = true;
+            dataGridView2.RowTemplate.Height = 25;
+            dataGridView2.Size = new Size(1091, 154);
+            dataGridView2.TabIndex = 6;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel2.ColumnCount = 1;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Controls.Add(button2, 0, 1);
+            tableLayoutPanel2.Controls.Add(button1, 0, 0);
+            tableLayoutPanel2.Location = new Point(1096, 2);
+            tableLayoutPanel2.Margin = new Padding(2);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 2;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 65F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 65F));
+            tableLayoutPanel2.Size = new Size(68, 130);
+            tableLayoutPanel2.TabIndex = 7;
+            // 
+            // button2
+            // 
+            button2.Dock = DockStyle.Fill;
+            button2.Image = Properties.Resources.delete_16;
+            button2.Location = new Point(0, 65);
+            button2.Margin = new Padding(0);
+            button2.Name = "button2";
+            button2.Size = new Size(68, 65);
+            button2.TabIndex = 6;
+            button2.Text = "ทิ้ง";
+            button2.TextAlign = ContentAlignment.MiddleRight;
+            button2.TextImageRelation = TextImageRelation.ImageBeforeText;
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.Dock = DockStyle.Fill;
+            button1.Image = Properties.Resources.download_16;
+            button1.Location = new Point(0, 0);
+            button1.Margin = new Padding(0);
+            button1.Name = "button1";
+            button1.Size = new Size(68, 65);
+            button1.TabIndex = 0;
+            button1.Text = "เก็บถาวร";
+            button1.TextAlign = ContentAlignment.BottomCenter;
+            button1.TextImageRelation = TextImageRelation.ImageAboveText;
+            button1.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 
@@ -184,37 +214,74 @@
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Controls.Add(dataGridView1, 0, 1);
-            tableLayoutPanel1.Controls.Add(label1, 0, 0);
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel5, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1172, 1037);
+            tableLayoutPanel1.Size = new Size(1168, 966);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.BackgroundColor = Color.SlateGray;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(1, 32);
-            dataGridView1.Margin = new Padding(0);
+            dataGridView1.Location = new Point(4, 40);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(1170, 1004);
+            dataGridView1.Size = new Size(1160, 922);
             dataGridView1.TabIndex = 0;
+            // 
+            // tableLayoutPanel5
+            // 
+            tableLayoutPanel5.ColumnCount = 3;
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 230F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 230F));
+            tableLayoutPanel5.Controls.Add(label1, 1, 0);
+            tableLayoutPanel5.Controls.Add(button3, 2, 0);
+            tableLayoutPanel5.Dock = DockStyle.Fill;
+            tableLayoutPanel5.Location = new Point(1, 1);
+            tableLayoutPanel5.Margin = new Padding(0);
+            tableLayoutPanel5.Name = "tableLayoutPanel5";
+            tableLayoutPanel5.RowCount = 1;
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel5.Size = new Size(1166, 35);
+            tableLayoutPanel5.TabIndex = 0;
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Right;
+            label1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Location = new Point(1035, 6);
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(233, 7);
             label1.Name = "label1";
-            label1.Size = new Size(133, 20);
+            label1.Size = new Size(700, 21);
             label1.TabIndex = 1;
             label1.Text = "ใบเสนอราคาเก็บถาวร";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // button3
+            // 
+            button3.Anchor = AnchorStyles.Right;
+            button3.BackColor = Color.Transparent;
+            button3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button3.Image = Properties.Resources.download_blue_16_;
+            button3.Location = new Point(959, 1);
+            button3.Margin = new Padding(0, 0, 2, 0);
+            button3.Name = "button3";
+            button3.Padding = new Padding(5, 0, 0, 0);
+            button3.Size = new Size(205, 32);
+            button3.TabIndex = 5;
+            button3.Text = "เก็บใบเสนอราคาจากภายนอก";
+            button3.TextImageRelation = TextImageRelation.ImageBeforeText;
+            button3.UseVisualStyleBackColor = false;
             // 
             // AQ_Panel1
             // 
@@ -256,13 +323,14 @@
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
-            tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            tableLayoutPanel3.PerformLayout();
             tableLayoutPanel4.ResumeLayout(false);
-            tableLayoutPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            tableLayoutPanel5.ResumeLayout(false);
+            tableLayoutPanel5.PerformLayout();
             AQ_Panel1.ResumeLayout(false);
             AQ_Panel1.PerformLayout();
             ResumeLayout(false);
@@ -276,13 +344,16 @@
         private Label AQ_HeadingLabel;
         private TableLayoutPanel tableLayoutPanel1;
         private DataGridView dataGridView1;
-        private TableLayoutPanel tableLayoutPanel2;
         private TableLayoutPanel tableLayoutPanel3;
         private Button button1;
         private Label label2;
         private Label label1;
-        private DataGridView dataGridView2;
-        private TableLayoutPanel tableLayoutPanel4;
         private SplitContainer splitContainer1;
+        private Button button2;
+        private DataGridView dataGridView2;
+        private Button button3;
+        private TableLayoutPanel tableLayoutPanel5;
+        private TableLayoutPanel tableLayoutPanel4;
+        private TableLayoutPanel tableLayoutPanel2;
     }
 }

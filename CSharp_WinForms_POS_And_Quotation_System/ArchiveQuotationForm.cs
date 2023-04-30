@@ -23,5 +23,10 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         {
 
         }
+
+        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+
+        }
     }
 }
