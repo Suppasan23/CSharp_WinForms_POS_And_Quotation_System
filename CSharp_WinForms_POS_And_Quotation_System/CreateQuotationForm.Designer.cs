@@ -31,15 +31,14 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             panel1 = new Panel();
             CQ_Panel2 = new Panel();
             CQ_CancelButton = new Button();
@@ -112,7 +111,6 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             textBox6 = new TextBox();
             label7 = new Label();
             CQ_DataGridViewIdColumn = new DataGridViewTextBoxColumn();
-            test = new DataGridViewButtonColumn();
             CQ_DataGridViewDetailColumn = new DataGridViewTextBoxColumn();
             CQ_DataGridViewQuantityColumn = new DataGridViewTextBoxColumn();
             CQ_DataGridViewUnitColumn = new DataGridViewTextBoxColumn();
@@ -467,25 +465,25 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             CQ_ProductDetailsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             CQ_ProductDetailsDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            CQ_ProductDetailsDataGridView.Columns.AddRange(new DataGridViewColumn[] { CQ_DataGridViewIdColumn, test, CQ_DataGridViewDetailColumn, CQ_DataGridViewQuantityColumn, CQ_DataGridViewUnitColumn, CQ_DataGridViewPricePerUnitColumn, CQ_DataGridViewAmountPriceColumn });
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = SystemColors.Window;
-            dataGridViewCellStyle9.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle9.ForeColor = Color.Crimson;
-            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.False;
-            CQ_ProductDetailsDataGridView.DefaultCellStyle = dataGridViewCellStyle9;
+            CQ_ProductDetailsDataGridView.Columns.AddRange(new DataGridViewColumn[] { CQ_DataGridViewIdColumn, CQ_DataGridViewDetailColumn, CQ_DataGridViewQuantityColumn, CQ_DataGridViewUnitColumn, CQ_DataGridViewPricePerUnitColumn, CQ_DataGridViewAmountPriceColumn });
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = SystemColors.Window;
+            dataGridViewCellStyle8.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = Color.Crimson;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            CQ_ProductDetailsDataGridView.DefaultCellStyle = dataGridViewCellStyle8;
             CQ_ProductDetailsDataGridView.Location = new Point(6, 25);
             CQ_ProductDetailsDataGridView.Name = "CQ_ProductDetailsDataGridView";
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = SystemColors.ControlLight;
-            dataGridViewCellStyle10.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle10.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
-            CQ_ProductDetailsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle9.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            CQ_ProductDetailsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             CQ_ProductDetailsDataGridView.RowTemplate.Height = 25;
             CQ_ProductDetailsDataGridView.Size = new Size(1153, 578);
             CQ_ProductDetailsDataGridView.TabIndex = 2;
@@ -1086,7 +1084,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // 
             // CQ_DataGridViewIdColumn
             // 
-            dataGridViewCellStyle2.BackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
             dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             dataGridViewCellStyle2.ForeColor = Color.ForestGreen;
             CQ_DataGridViewIdColumn.DefaultCellStyle = dataGridViewCellStyle2;
@@ -1096,20 +1094,10 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_DataGridViewIdColumn.ReadOnly = true;
             CQ_DataGridViewIdColumn.Width = 30;
             // 
-            // test
-            // 
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            test.DefaultCellStyle = dataGridViewCellStyle3;
-            test.HeaderText = "test";
-            test.Name = "test";
-            test.Text = "test";
-            test.UseColumnTextForButtonValue = true;
-            // 
             // CQ_DataGridViewDetailColumn
             // 
-            dataGridViewCellStyle4.ForeColor = Color.ForestGreen;
-            CQ_DataGridViewDetailColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle3.ForeColor = Color.ForestGreen;
+            CQ_DataGridViewDetailColumn.DefaultCellStyle = dataGridViewCellStyle3;
             CQ_DataGridViewDetailColumn.FillWeight = 650F;
             CQ_DataGridViewDetailColumn.HeaderText = "รายละเอียด";
             CQ_DataGridViewDetailColumn.Name = "CQ_DataGridViewDetailColumn";
@@ -1117,30 +1105,30 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // 
             // CQ_DataGridViewQuantityColumn
             // 
-            dataGridViewCellStyle5.ForeColor = Color.ForestGreen;
-            CQ_DataGridViewQuantityColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle4.ForeColor = Color.ForestGreen;
+            CQ_DataGridViewQuantityColumn.DefaultCellStyle = dataGridViewCellStyle4;
             CQ_DataGridViewQuantityColumn.HeaderText = "จำนวน";
             CQ_DataGridViewQuantityColumn.Name = "CQ_DataGridViewQuantityColumn";
             // 
             // CQ_DataGridViewUnitColumn
             // 
-            dataGridViewCellStyle6.ForeColor = Color.ForestGreen;
-            CQ_DataGridViewUnitColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle5.ForeColor = Color.ForestGreen;
+            CQ_DataGridViewUnitColumn.DefaultCellStyle = dataGridViewCellStyle5;
             CQ_DataGridViewUnitColumn.HeaderText = "หน่วย";
             CQ_DataGridViewUnitColumn.Name = "CQ_DataGridViewUnitColumn";
             // 
             // CQ_DataGridViewPricePerUnitColumn
             // 
-            dataGridViewCellStyle7.ForeColor = Color.ForestGreen;
-            CQ_DataGridViewPricePerUnitColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle6.ForeColor = Color.ForestGreen;
+            CQ_DataGridViewPricePerUnitColumn.DefaultCellStyle = dataGridViewCellStyle6;
             CQ_DataGridViewPricePerUnitColumn.HeaderText = "ราคา/หน่วย";
             CQ_DataGridViewPricePerUnitColumn.Name = "CQ_DataGridViewPricePerUnitColumn";
             // 
             // CQ_DataGridViewAmountPriceColumn
             // 
-            dataGridViewCellStyle8.BackColor = SystemColors.ControlLight;
-            dataGridViewCellStyle8.ForeColor = Color.ForestGreen;
-            CQ_DataGridViewAmountPriceColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle7.BackColor = SystemColors.Control;
+            dataGridViewCellStyle7.ForeColor = Color.ForestGreen;
+            CQ_DataGridViewAmountPriceColumn.DefaultCellStyle = dataGridViewCellStyle7;
             CQ_DataGridViewAmountPriceColumn.HeaderText = "จำนวนเงิน";
             CQ_DataGridViewAmountPriceColumn.Name = "CQ_DataGridViewAmountPriceColumn";
             CQ_DataGridViewAmountPriceColumn.ReadOnly = true;
@@ -1266,7 +1254,6 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         private TableLayoutPanel CQ_TableLayoutPanel10;
         private Label CQ_TotalLetterLabel;
         private DataGridViewTextBoxColumn CQ_DataGridViewIdColumn;
-        private DataGridViewButtonColumn test;
         private DataGridViewTextBoxColumn CQ_DataGridViewDetailColumn;
         private DataGridViewTextBoxColumn CQ_DataGridViewQuantityColumn;
         private DataGridViewTextBoxColumn CQ_DataGridViewUnitColumn;

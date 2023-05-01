@@ -138,9 +138,9 @@
             POS_SaveButton.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             POS_SaveButton.ForeColor = Color.Black;
             POS_SaveButton.Image = Properties.Resources.save_24;
-            POS_SaveButton.Location = new Point(6, 1068);
+            POS_SaveButton.Location = new Point(6, 1075);
             POS_SaveButton.Name = "POS_SaveButton";
-            POS_SaveButton.Size = new Size(138, 55);
+            POS_SaveButton.Size = new Size(138, 48);
             POS_SaveButton.TabIndex = 20;
             POS_SaveButton.Text = "บันทึก";
             POS_SaveButton.TextAlign = ContentAlignment.MiddleRight;
@@ -485,8 +485,11 @@
             // POS_TransactionHistoryComboBox
             // 
             POS_TransactionHistoryComboBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            POS_TransactionHistoryComboBox.BackColor = SystemColors.Control;
+            POS_TransactionHistoryComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            POS_TransactionHistoryComboBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             POS_TransactionHistoryComboBox.FormattingEnabled = true;
-            POS_TransactionHistoryComboBox.Location = new Point(774, 8);
+            POS_TransactionHistoryComboBox.Location = new Point(774, 7);
             POS_TransactionHistoryComboBox.Margin = new Padding(0);
             POS_TransactionHistoryComboBox.Name = "POS_TransactionHistoryComboBox";
             POS_TransactionHistoryComboBox.Size = new Size(229, 26);
@@ -543,8 +546,9 @@
             // POS_AddNewSubjectButton
             // 
             POS_AddNewSubjectButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            POS_AddNewSubjectButton.BackColor = Color.LightCyan;
+            POS_AddNewSubjectButton.BackColor = Color.Chartreuse;
             POS_AddNewSubjectButton.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            POS_AddNewSubjectButton.ForeColor = Color.Black;
             POS_AddNewSubjectButton.Location = new Point(1027, 3);
             POS_AddNewSubjectButton.Margin = new Padding(0);
             POS_AddNewSubjectButton.Name = "POS_AddNewSubjectButton";
