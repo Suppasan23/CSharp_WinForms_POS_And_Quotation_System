@@ -204,7 +204,7 @@
             // 
             // POS_TotalAmountTextBox
             // 
-            POS_TotalAmountTextBox.BackColor = Color.Honeydew;
+            POS_TotalAmountTextBox.BackColor = Color.LightCyan;
             POS_TotalAmountTextBox.Font = new Font("Tahoma", 18F, FontStyle.Regular, GraphicsUnit.Point);
             POS_TotalAmountTextBox.Location = new Point(6, 55);
             POS_TotalAmountTextBox.Name = "POS_TotalAmountTextBox";
