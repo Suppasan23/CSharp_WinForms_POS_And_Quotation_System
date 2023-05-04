@@ -82,7 +82,7 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1184, 1261);
+            panel1.Size = new Size(1164, 1211);
             panel1.TabIndex = 0;
             // 
             // AQ_Panel2
@@ -93,7 +93,7 @@
             AQ_Panel2.Location = new Point(0, 60);
             AQ_Panel2.Margin = new Padding(3, 2, 3, 2);
             AQ_Panel2.Name = "AQ_Panel2";
-            AQ_Panel2.Size = new Size(1182, 1199);
+            AQ_Panel2.Size = new Size(1162, 1149);
             AQ_Panel2.TabIndex = 2;
             // 
             // splitContainer1
@@ -108,17 +108,17 @@
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.AutoScroll = true;
-            splitContainer1.Panel1.BackColor = Color.Transparent;
+            splitContainer1.Panel1.BackColor = Color.LightGray;
             splitContainer1.Panel1.Controls.Add(tableLayoutPanel3);
-            splitContainer1.Panel1MinSize = 40;
+            splitContainer1.Panel1MinSize = 39;
             // 
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.BackColor = Color.SkyBlue;
             splitContainer1.Panel2.Controls.Add(tableLayoutPanel1);
-            splitContainer1.Panel2MinSize = 40;
-            splitContainer1.Size = new Size(1172, 1189);
-            splitContainer1.SplitterDistance = 210;
+            splitContainer1.Panel2MinSize = 39;
+            splitContainer1.Size = new Size(1152, 1139);
+            splitContainer1.SplitterDistance = 200;
             splitContainer1.SplitterIncrement = 2;
             splitContainer1.SplitterWidth = 8;
             splitContainer1.TabIndex = 4;
@@ -126,6 +126,7 @@
             // 
             // tableLayoutPanel3
             // 
+            tableLayoutPanel3.BackColor = Color.LightGray;
             tableLayoutPanel3.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             tableLayoutPanel3.ColumnCount = 1;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
@@ -137,7 +138,7 @@
             tableLayoutPanel3.RowCount = 2;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.Size = new Size(1170, 208);
+            tableLayoutPanel3.Size = new Size(1150, 198);
             tableLayoutPanel3.TabIndex = 3;
             // 
             // label2
@@ -147,7 +148,7 @@
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label2.Location = new Point(4, 8);
             label2.Name = "label2";
-            label2.Size = new Size(1162, 21);
+            label2.Size = new Size(1142, 21);
             label2.TabIndex = 3;
             label2.Text = "ใบเสนอราคารอดำเนินการ";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -164,7 +165,7 @@
             tableLayoutPanel4.RowCount = 1;
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel4.Size = new Size(1168, 170);
+            tableLayoutPanel4.Size = new Size(1148, 160);
             tableLayoutPanel4.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -179,14 +180,15 @@
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(1168, 170);
+            tableLayoutPanel2.Size = new Size(1148, 160);
             tableLayoutPanel2.TabIndex = 0;
             // 
             // tableLayoutPanel7
             // 
+            tableLayoutPanel7.BackColor = Color.WhiteSmoke;
             tableLayoutPanel7.ColumnCount = 2;
             tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 92F));
             tableLayoutPanel7.Controls.Add(dataGridView2, 0, 0);
             tableLayoutPanel7.Controls.Add(tableLayoutPanel6, 1, 0);
             tableLayoutPanel7.Dock = DockStyle.Fill;
@@ -195,7 +197,7 @@
             tableLayoutPanel7.Name = "tableLayoutPanel7";
             tableLayoutPanel7.RowCount = 1;
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel7.Size = new Size(1168, 170);
+            tableLayoutPanel7.Size = new Size(1148, 160);
             tableLayoutPanel7.TabIndex = 0;
             // 
             // dataGridView2
@@ -221,12 +223,12 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView2.Dock = DockStyle.Fill;
-            dataGridView2.Location = new Point(3, 3);
-            dataGridView2.Margin = new Padding(3, 3, 0, 3);
+            dataGridView2.Location = new Point(0, 0);
+            dataGridView2.Margin = new Padding(0);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.ReadOnly = true;
             dataGridView2.RowTemplate.Height = 25;
-            dataGridView2.Size = new Size(1071, 164);
+            dataGridView2.Size = new Size(1056, 160);
             dataGridView2.TabIndex = 6;
             // 
             // AQ_TemporaryDataGridViewCheckBoxColumn
@@ -283,29 +285,33 @@
             // 
             // tableLayoutPanel6
             // 
+            tableLayoutPanel6.BackColor = Color.WhiteSmoke;
+            tableLayoutPanel6.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             tableLayoutPanel6.ColumnCount = 1;
             tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 90F));
             tableLayoutPanel6.Controls.Add(button1, 0, 0);
             tableLayoutPanel6.Controls.Add(button2, 0, 1);
             tableLayoutPanel6.Dock = DockStyle.Fill;
-            tableLayoutPanel6.Location = new Point(1077, 3);
+            tableLayoutPanel6.Location = new Point(1056, 0);
+            tableLayoutPanel6.Margin = new Padding(0);
             tableLayoutPanel6.Name = "tableLayoutPanel6";
             tableLayoutPanel6.RowCount = 3;
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
-            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Absolute, 62F));
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel6.Size = new Size(88, 164);
+            tableLayoutPanel6.Size = new Size(92, 160);
             tableLayoutPanel6.TabIndex = 7;
             // 
             // button1
             // 
-            button1.BackColor = Color.White;
+            button1.BackColor = Color.Honeydew;
+            button1.Dock = DockStyle.Fill;
             button1.Image = Properties.Resources.download_16;
             button1.ImageAlign = ContentAlignment.MiddleRight;
-            button1.Location = new Point(0, 0);
-            button1.Margin = new Padding(0);
+            button1.Location = new Point(2, 2);
+            button1.Margin = new Padding(1);
             button1.Name = "button1";
-            button1.Size = new Size(88, 60);
+            button1.Size = new Size(88, 58);
             button1.TabIndex = 0;
             button1.Text = "เก็บถาวร";
             button1.TextAlign = ContentAlignment.MiddleRight;
@@ -314,12 +320,13 @@
             // 
             // button2
             // 
-            button2.BackColor = Color.White;
+            button2.BackColor = Color.MistyRose;
+            button2.Dock = DockStyle.Fill;
             button2.Image = Properties.Resources.delete_16;
-            button2.Location = new Point(0, 62);
-            button2.Margin = new Padding(0, 2, 0, 0);
+            button2.Location = new Point(2, 63);
+            button2.Margin = new Padding(1);
             button2.Name = "button2";
-            button2.Size = new Size(88, 60);
+            button2.Size = new Size(88, 58);
             button2.TabIndex = 6;
             button2.Text = "ทิ้ง";
             button2.TextAlign = ContentAlignment.MiddleRight;
@@ -339,7 +346,7 @@
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1170, 969);
+            tableLayoutPanel1.Size = new Size(1150, 929);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // dataGridView1
@@ -349,11 +356,12 @@
             dataGridView1.BackgroundColor = Color.SlateGray;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(4, 40);
+            dataGridView1.Location = new Point(1, 37);
+            dataGridView1.Margin = new Padding(0);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(1162, 925);
+            dataGridView1.Size = new Size(1148, 891);
             dataGridView1.TabIndex = 0;
             // 
             // tableLayoutPanel5
@@ -370,7 +378,7 @@
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 1;
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel5.Size = new Size(1168, 35);
+            tableLayoutPanel5.Size = new Size(1148, 35);
             tableLayoutPanel5.TabIndex = 0;
             // 
             // label1
@@ -380,7 +388,7 @@
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(233, 7);
             label1.Name = "label1";
-            label1.Size = new Size(702, 21);
+            label1.Size = new Size(682, 21);
             label1.TabIndex = 1;
             label1.Text = "ใบเสนอราคาเก็บถาวร";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -388,10 +396,10 @@
             // button3
             // 
             button3.Anchor = AnchorStyles.Right;
-            button3.BackColor = Color.White;
+            button3.BackColor = Color.AliceBlue;
             button3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             button3.Image = Properties.Resources.download_blue_16_;
-            button3.Location = new Point(960, 1);
+            button3.Location = new Point(940, 1);
             button3.Margin = new Padding(0, 0, 3, 0);
             button3.Name = "button3";
             button3.Padding = new Padding(5, 0, 0, 0);
@@ -409,7 +417,7 @@
             AQ_Panel1.Location = new Point(0, 0);
             AQ_Panel1.Margin = new Padding(3, 2, 3, 2);
             AQ_Panel1.Name = "AQ_Panel1";
-            AQ_Panel1.Size = new Size(1182, 60);
+            AQ_Panel1.Size = new Size(1162, 60);
             AQ_Panel1.TabIndex = 1;
             // 
             // AQ_HeadingLabel
@@ -427,7 +435,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1184, 1261);
+            ClientSize = new Size(1164, 1211);
             Controls.Add(panel1);
             Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(3, 4, 3, 4);

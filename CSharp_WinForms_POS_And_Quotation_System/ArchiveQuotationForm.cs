@@ -16,7 +16,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         {
             InitializeComponent();
             this.MinimumSize = new Size(1000, 1000);
-            this.Size = new Size(1200, 1300);
+            this.Size = new Size(1180, 1250);
         }
 
         private void ArchiveQuotationForm_Load(object sender, EventArgs e)

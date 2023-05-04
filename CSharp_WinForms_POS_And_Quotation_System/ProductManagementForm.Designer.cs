@@ -374,7 +374,7 @@
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(0, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1184, 1261);
+            panel3.Size = new Size(1164, 1211);
             panel3.TabIndex = 0;
             // 
             // PM_DataGridView
@@ -395,9 +395,9 @@
             PM_StatusStrip.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             PM_StatusStrip.ImageScalingSize = new Size(20, 20);
             PM_StatusStrip.Items.AddRange(new ToolStripItem[] { PM_ToolStripStatusLabel });
-            PM_StatusStrip.Location = new Point(0, 1236);
+            PM_StatusStrip.Location = new Point(0, 1186);
             PM_StatusStrip.Name = "PM_StatusStrip";
-            PM_StatusStrip.Size = new Size(1182, 23);
+            PM_StatusStrip.Size = new Size(1162, 23);
             PM_StatusStrip.TabIndex = 5;
             PM_StatusStrip.Text = "statusStrip1";
             // 
@@ -420,7 +420,7 @@
             PM_TableLayoutPanel1.Name = "PM_TableLayoutPanel1";
             PM_TableLayoutPanel1.RowCount = 1;
             PM_TableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            PM_TableLayoutPanel1.Size = new Size(1182, 36);
+            PM_TableLayoutPanel1.Size = new Size(1162, 36);
             PM_TableLayoutPanel1.TabIndex = 4;
             // 
             // PM_TableLayoutPanel2
@@ -438,7 +438,7 @@
             PM_TableLayoutPanel2.Name = "PM_TableLayoutPanel2";
             PM_TableLayoutPanel2.RowCount = 1;
             PM_TableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            PM_TableLayoutPanel2.Size = new Size(845, 34);
+            PM_TableLayoutPanel2.Size = new Size(825, 34);
             PM_TableLayoutPanel2.TabIndex = 0;
             // 
             // PM_SearchTextBox
@@ -448,7 +448,7 @@
             PM_SearchTextBox.Location = new Point(2, 2);
             PM_SearchTextBox.Margin = new Padding(2);
             PM_SearchTextBox.Name = "PM_SearchTextBox";
-            PM_SearchTextBox.Size = new Size(619, 30);
+            PM_SearchTextBox.Size = new Size(599, 30);
             PM_SearchTextBox.TabIndex = 0;
             // 
             // PM_SerachButton
@@ -457,7 +457,7 @@
             PM_SerachButton.Dock = DockStyle.Fill;
             PM_SerachButton.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             PM_SerachButton.Image = Properties.Resources.search_3_16;
-            PM_SerachButton.Location = new Point(625, 2);
+            PM_SerachButton.Location = new Point(605, 2);
             PM_SerachButton.Margin = new Padding(2);
             PM_SerachButton.Name = "PM_SerachButton";
             PM_SerachButton.Size = new Size(106, 30);
@@ -473,7 +473,7 @@
             PM_RefreshButton.Dock = DockStyle.Fill;
             PM_RefreshButton.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             PM_RefreshButton.Image = Properties.Resources.refresh_2_16;
-            PM_RefreshButton.Location = new Point(735, 2);
+            PM_RefreshButton.Location = new Point(715, 2);
             PM_RefreshButton.Margin = new Padding(2, 2, 4, 2);
             PM_RefreshButton.Name = "PM_RefreshButton";
             PM_RefreshButton.Size = new Size(106, 30);
@@ -493,7 +493,7 @@
             PM_TableLayoutPanel3.Controls.Add(PM_DeleteButton, 2, 0);
             PM_TableLayoutPanel3.Controls.Add(PM_EditButton, 1, 0);
             PM_TableLayoutPanel3.Dock = DockStyle.Fill;
-            PM_TableLayoutPanel3.Location = new Point(847, 1);
+            PM_TableLayoutPanel3.Location = new Point(827, 1);
             PM_TableLayoutPanel3.Margin = new Padding(0);
             PM_TableLayoutPanel3.Name = "PM_TableLayoutPanel3";
             PM_TableLayoutPanel3.RowCount = 1;
@@ -557,7 +557,7 @@
             PM_Panel1.Location = new Point(0, 0);
             PM_Panel1.Margin = new Padding(2, 3, 2, 3);
             PM_Panel1.Name = "PM_Panel1";
-            PM_Panel1.Size = new Size(1182, 60);
+            PM_Panel1.Size = new Size(1162, 60);
             PM_Panel1.TabIndex = 3;
             // 
             // PM_HeadingLabel
@@ -577,7 +577,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1184, 1261);
+            ClientSize = new Size(1164, 1211);
             Controls.Add(panel3);
             Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(3, 4, 3, 4);

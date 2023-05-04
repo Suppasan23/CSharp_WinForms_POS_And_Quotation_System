@@ -94,7 +94,7 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1184, 1261);
+            panel1.Size = new Size(1164, 1211);
             panel1.TabIndex = 0;
             // 
             // POS_Panel2
@@ -108,7 +108,7 @@
             POS_Panel2.Dock = DockStyle.Fill;
             POS_Panel2.Location = new Point(0, 60);
             POS_Panel2.Name = "POS_Panel2";
-            POS_Panel2.Size = new Size(1182, 1177);
+            POS_Panel2.Size = new Size(1162, 1127);
             POS_Panel2.TabIndex = 5;
             // 
             // POS_CalculatePriceGroupBox
@@ -124,9 +124,9 @@
             POS_CalculatePriceGroupBox.Controls.Add(POS_TotalAmountLabel);
             POS_CalculatePriceGroupBox.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             POS_CalculatePriceGroupBox.ForeColor = Color.LimeGreen;
-            POS_CalculatePriceGroupBox.Location = new Point(1027, 45);
+            POS_CalculatePriceGroupBox.Location = new Point(1007, 45);
             POS_CalculatePriceGroupBox.Name = "POS_CalculatePriceGroupBox";
-            POS_CalculatePriceGroupBox.Size = new Size(150, 1129);
+            POS_CalculatePriceGroupBox.Size = new Size(150, 1079);
             POS_CalculatePriceGroupBox.TabIndex = 20;
             POS_CalculatePriceGroupBox.TabStop = false;
             POS_CalculatePriceGroupBox.Text = "คำนวณราคา";
@@ -138,7 +138,7 @@
             POS_SaveButton.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             POS_SaveButton.ForeColor = Color.Black;
             POS_SaveButton.Image = Properties.Resources.save_24;
-            POS_SaveButton.Location = new Point(6, 1075);
+            POS_SaveButton.Location = new Point(6, 1025);
             POS_SaveButton.Name = "POS_SaveButton";
             POS_SaveButton.Size = new Size(138, 48);
             POS_SaveButton.TabIndex = 20;
@@ -153,7 +153,7 @@
             SaveButton.BackColor = Color.LightGreen;
             SaveButton.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             SaveButton.ForeColor = Color.Black;
-            SaveButton.Location = new Point(-19, 1678);
+            SaveButton.Location = new Point(-19, 1628);
             SaveButton.Name = "SaveButton";
             SaveButton.Size = new Size(138, 55);
             SaveButton.TabIndex = 19;
@@ -232,7 +232,7 @@
             POS_ProductDetailGroupBox.ForeColor = Color.DodgerBlue;
             POS_ProductDetailGroupBox.Location = new Point(5, 121);
             POS_ProductDetailGroupBox.Name = "POS_ProductDetailGroupBox";
-            POS_ProductDetailGroupBox.Size = new Size(1016, 1053);
+            POS_ProductDetailGroupBox.Size = new Size(996, 1003);
             POS_ProductDetailGroupBox.TabIndex = 19;
             POS_ProductDetailGroupBox.TabStop = false;
             POS_ProductDetailGroupBox.Text = "รายละเอียดสินค้า:";
@@ -267,7 +267,7 @@
             POS_TableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             POS_TableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 26F));
             POS_TableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            POS_TableLayoutPanel3.Size = new Size(1004, 70);
+            POS_TableLayoutPanel3.Size = new Size(984, 70);
             POS_TableLayoutPanel3.TabIndex = 14;
             // 
             // POS_ProductIDLabel
@@ -288,31 +288,31 @@
             // 
             POS_SellingUnitNumericUpDown.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             POS_SellingUnitNumericUpDown.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            POS_SellingUnitNumericUpDown.Location = new Point(895, 35);
+            POS_SellingUnitNumericUpDown.Location = new Point(878, 35);
             POS_SellingUnitNumericUpDown.Margin = new Padding(0);
             POS_SellingUnitNumericUpDown.Name = "POS_SellingUnitNumericUpDown";
-            POS_SellingUnitNumericUpDown.Size = new Size(108, 26);
+            POS_SellingUnitNumericUpDown.Size = new Size(105, 26);
             POS_SellingUnitNumericUpDown.TabIndex = 6;
             // 
             // POS_UnitInStockTextBox
             // 
             POS_UnitInStockTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            POS_UnitInStockTextBox.Location = new Point(677, 35);
+            POS_UnitInStockTextBox.Location = new Point(663, 35);
             POS_UnitInStockTextBox.Margin = new Padding(0);
             POS_UnitInStockTextBox.Name = "POS_UnitInStockTextBox";
             POS_UnitInStockTextBox.ReadOnly = true;
-            POS_UnitInStockTextBox.Size = new Size(106, 26);
+            POS_UnitInStockTextBox.Size = new Size(103, 26);
             POS_UnitInStockTextBox.TabIndex = 12;
             // 
             // POS_SellingPriceTextBox
             // 
             POS_SellingPriceTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             POS_SellingPriceTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            POS_SellingPriceTextBox.Location = new Point(895, 1);
+            POS_SellingPriceTextBox.Location = new Point(878, 1);
             POS_SellingPriceTextBox.Margin = new Padding(0);
             POS_SellingPriceTextBox.Name = "POS_SellingPriceTextBox";
             POS_SellingPriceTextBox.ReadOnly = true;
-            POS_SellingPriceTextBox.Size = new Size(108, 26);
+            POS_SellingPriceTextBox.Size = new Size(105, 26);
             POS_SellingPriceTextBox.TabIndex = 10;
             // 
             // POS_UnitInStockLabel
@@ -321,7 +321,7 @@
             POS_UnitInStockLabel.AutoSize = true;
             POS_UnitInStockLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             POS_UnitInStockLabel.ForeColor = Color.Black;
-            POS_UnitInStockLabel.Location = new Point(556, 39);
+            POS_UnitInStockLabel.Location = new Point(542, 39);
             POS_UnitInStockLabel.Margin = new Padding(0);
             POS_UnitInStockLabel.Name = "POS_UnitInStockLabel";
             POS_UnitInStockLabel.Size = new Size(120, 18);
@@ -335,7 +335,7 @@
             POS_CostPriceLabel.AutoSize = true;
             POS_CostPriceLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             POS_CostPriceLabel.ForeColor = Color.Black;
-            POS_CostPriceLabel.Location = new Point(556, 5);
+            POS_CostPriceLabel.Location = new Point(542, 5);
             POS_CostPriceLabel.Margin = new Padding(0);
             POS_CostPriceLabel.Name = "POS_CostPriceLabel";
             POS_CostPriceLabel.Size = new Size(120, 18);
@@ -349,7 +349,7 @@
             POS_SellingPriceLabel.AutoSize = true;
             POS_SellingPriceLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             POS_SellingPriceLabel.ForeColor = Color.Black;
-            POS_SellingPriceLabel.Location = new Point(784, 5);
+            POS_SellingPriceLabel.Location = new Point(767, 5);
             POS_SellingPriceLabel.Margin = new Padding(0);
             POS_SellingPriceLabel.Name = "POS_SellingPriceLabel";
             POS_SellingPriceLabel.Size = new Size(110, 18);
@@ -361,11 +361,11 @@
             // 
             POS_CostPriceTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             POS_CostPriceTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            POS_CostPriceTextBox.Location = new Point(677, 1);
+            POS_CostPriceTextBox.Location = new Point(663, 1);
             POS_CostPriceTextBox.Margin = new Padding(0);
             POS_CostPriceTextBox.Name = "POS_CostPriceTextBox";
             POS_CostPriceTextBox.ReadOnly = true;
-            POS_CostPriceTextBox.Size = new Size(106, 26);
+            POS_CostPriceTextBox.Size = new Size(103, 26);
             POS_CostPriceTextBox.TabIndex = 10;
             // 
             // POS_ProductNameTextBox
@@ -375,7 +375,7 @@
             POS_ProductNameTextBox.Margin = new Padding(0);
             POS_ProductNameTextBox.Name = "POS_ProductNameTextBox";
             POS_ProductNameTextBox.ReadOnly = true;
-            POS_ProductNameTextBox.Size = new Size(453, 26);
+            POS_ProductNameTextBox.Size = new Size(439, 26);
             POS_ProductNameTextBox.TabIndex = 8;
             // 
             // POS_ProductNameLabel
@@ -399,7 +399,7 @@
             POS_ProductIDTextBox.Margin = new Padding(0);
             POS_ProductIDTextBox.Name = "POS_ProductIDTextBox";
             POS_ProductIDTextBox.ReadOnly = true;
-            POS_ProductIDTextBox.Size = new Size(453, 26);
+            POS_ProductIDTextBox.Size = new Size(439, 26);
             POS_ProductIDTextBox.TabIndex = 1;
             // 
             // POS_SellingUnitLabel
@@ -408,7 +408,7 @@
             POS_SellingUnitLabel.AutoSize = true;
             POS_SellingUnitLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             POS_SellingUnitLabel.ForeColor = Color.Black;
-            POS_SellingUnitLabel.Location = new Point(784, 39);
+            POS_SellingUnitLabel.Location = new Point(767, 39);
             POS_SellingUnitLabel.Margin = new Padding(0);
             POS_SellingUnitLabel.Name = "POS_SellingUnitLabel";
             POS_SellingUnitLabel.Size = new Size(110, 18);
@@ -427,7 +427,7 @@
             POS_DataGridView.ReadOnly = true;
             POS_DataGridView.RowHeadersWidth = 51;
             POS_DataGridView.RowTemplate.Height = 25;
-            POS_DataGridView.Size = new Size(1004, 947);
+            POS_DataGridView.Size = new Size(984, 897);
             POS_DataGridView.TabIndex = 10;
             // 
             // POS_TransactionGroupBox
@@ -439,7 +439,7 @@
             POS_TransactionGroupBox.ForeColor = Color.OrangeRed;
             POS_TransactionGroupBox.Location = new Point(5, 45);
             POS_TransactionGroupBox.Name = "POS_TransactionGroupBox";
-            POS_TransactionGroupBox.Size = new Size(1016, 74);
+            POS_TransactionGroupBox.Size = new Size(996, 74);
             POS_TransactionGroupBox.TabIndex = 18;
             POS_TransactionGroupBox.TabStop = false;
             POS_TransactionGroupBox.Text = "ธุรกรรม:";
@@ -465,7 +465,7 @@
             POS_TableLayoutPanel2.Name = "POS_TableLayoutPanel2";
             POS_TableLayoutPanel2.RowCount = 1;
             POS_TableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            POS_TableLayoutPanel2.Size = new Size(1004, 40);
+            POS_TableLayoutPanel2.Size = new Size(984, 40);
             POS_TableLayoutPanel2.TabIndex = 0;
             // 
             // POS_TransactionHistoryLabel
@@ -474,7 +474,7 @@
             POS_TransactionHistoryLabel.AutoSize = true;
             POS_TransactionHistoryLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             POS_TransactionHistoryLabel.ForeColor = Color.Black;
-            POS_TransactionHistoryLabel.Location = new Point(653, 11);
+            POS_TransactionHistoryLabel.Location = new Point(639, 11);
             POS_TransactionHistoryLabel.Margin = new Padding(0);
             POS_TransactionHistoryLabel.Name = "POS_TransactionHistoryLabel";
             POS_TransactionHistoryLabel.Size = new Size(120, 18);
@@ -489,10 +489,10 @@
             POS_TransactionHistoryComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             POS_TransactionHistoryComboBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             POS_TransactionHistoryComboBox.FormattingEnabled = true;
-            POS_TransactionHistoryComboBox.Location = new Point(774, 7);
+            POS_TransactionHistoryComboBox.Location = new Point(760, 7);
             POS_TransactionHistoryComboBox.Margin = new Padding(0);
             POS_TransactionHistoryComboBox.Name = "POS_TransactionHistoryComboBox";
-            POS_TransactionHistoryComboBox.Size = new Size(229, 26);
+            POS_TransactionHistoryComboBox.Size = new Size(223, 26);
             POS_TransactionHistoryComboBox.TabIndex = 7;
             // 
             // POS_DateTimeLabel
@@ -516,7 +516,7 @@
             POS_DateTimeTextBox.Margin = new Padding(0);
             POS_DateTimeTextBox.Name = "POS_DateTimeTextBox";
             POS_DateTimeTextBox.ReadOnly = true;
-            POS_DateTimeTextBox.Size = new Size(229, 26);
+            POS_DateTimeTextBox.Size = new Size(222, 26);
             POS_DateTimeTextBox.TabIndex = 1;
             // 
             // POS_TransactionIDLabel
@@ -525,7 +525,7 @@
             POS_TransactionIDLabel.AutoSize = true;
             POS_TransactionIDLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             POS_TransactionIDLabel.ForeColor = Color.Black;
-            POS_TransactionIDLabel.Location = new Point(302, 11);
+            POS_TransactionIDLabel.Location = new Point(295, 11);
             POS_TransactionIDLabel.Margin = new Padding(0);
             POS_TransactionIDLabel.Name = "POS_TransactionIDLabel";
             POS_TransactionIDLabel.Size = new Size(120, 18);
@@ -536,11 +536,11 @@
             // POS_TransactionIDTextBox
             // 
             POS_TransactionIDTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            POS_TransactionIDTextBox.Location = new Point(423, 7);
+            POS_TransactionIDTextBox.Location = new Point(416, 7);
             POS_TransactionIDTextBox.Margin = new Padding(0);
             POS_TransactionIDTextBox.Name = "POS_TransactionIDTextBox";
             POS_TransactionIDTextBox.ReadOnly = true;
-            POS_TransactionIDTextBox.Size = new Size(229, 26);
+            POS_TransactionIDTextBox.Size = new Size(222, 26);
             POS_TransactionIDTextBox.TabIndex = 6;
             // 
             // POS_AddNewSubjectButton
@@ -549,7 +549,7 @@
             POS_AddNewSubjectButton.BackColor = Color.Chartreuse;
             POS_AddNewSubjectButton.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             POS_AddNewSubjectButton.ForeColor = Color.Black;
-            POS_AddNewSubjectButton.Location = new Point(1027, 3);
+            POS_AddNewSubjectButton.Location = new Point(1007, 3);
             POS_AddNewSubjectButton.Margin = new Padding(0);
             POS_AddNewSubjectButton.Name = "POS_AddNewSubjectButton";
             POS_AddNewSubjectButton.Size = new Size(150, 42);
@@ -571,7 +571,7 @@
             POS_TableLayoutPanel1.Name = "POS_TableLayoutPanel1";
             POS_TableLayoutPanel1.RowCount = 1;
             POS_TableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            POS_TableLayoutPanel1.Size = new Size(1016, 36);
+            POS_TableLayoutPanel1.Size = new Size(996, 36);
             POS_TableLayoutPanel1.TabIndex = 16;
             // 
             // POS_BarcodeTextBox
@@ -582,7 +582,7 @@
             POS_BarcodeTextBox.Margin = new Padding(0);
             POS_BarcodeTextBox.Name = "POS_BarcodeTextBox";
             POS_BarcodeTextBox.RightToLeft = RightToLeft.Yes;
-            POS_BarcodeTextBox.Size = new Size(964, 36);
+            POS_BarcodeTextBox.Size = new Size(944, 36);
             POS_BarcodeTextBox.TabIndex = 16;
             // 
             // POS_PictureBox
@@ -600,9 +600,9 @@
             // 
             POS_StatusStrip.ImageScalingSize = new Size(20, 20);
             POS_StatusStrip.Items.AddRange(new ToolStripItem[] { POS_ToolStripStatusLabel });
-            POS_StatusStrip.Location = new Point(0, 1237);
+            POS_StatusStrip.Location = new Point(0, 1187);
             POS_StatusStrip.Name = "POS_StatusStrip";
-            POS_StatusStrip.Size = new Size(1182, 22);
+            POS_StatusStrip.Size = new Size(1162, 22);
             POS_StatusStrip.TabIndex = 4;
             POS_StatusStrip.Text = "statusStrip1";
             // 
@@ -620,7 +620,7 @@
             POS_Panel1.Location = new Point(0, 0);
             POS_Panel1.Margin = new Padding(2, 3, 2, 3);
             POS_Panel1.Name = "POS_Panel1";
-            POS_Panel1.Size = new Size(1182, 60);
+            POS_Panel1.Size = new Size(1162, 60);
             POS_Panel1.TabIndex = 3;
             // 
             // POS_HeadingLabel
@@ -638,7 +638,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1184, 1261);
+            ClientSize = new Size(1164, 1211);
             Controls.Add(panel1);
             Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(3, 4, 3, 4);
