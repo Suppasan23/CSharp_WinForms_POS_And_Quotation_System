@@ -110,13 +110,13 @@
             splitContainer1.Panel1.AutoScroll = true;
             splitContainer1.Panel1.BackColor = Color.LightGray;
             splitContainer1.Panel1.Controls.Add(tableLayoutPanel3);
-            splitContainer1.Panel1MinSize = 39;
+            splitContainer1.Panel1MinSize = 38;
             // 
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.BackColor = Color.SkyBlue;
             splitContainer1.Panel2.Controls.Add(tableLayoutPanel1);
-            splitContainer1.Panel2MinSize = 39;
+            splitContainer1.Panel2MinSize = 38;
             splitContainer1.Size = new Size(1152, 1139);
             splitContainer1.SplitterDistance = 200;
             splitContainer1.SplitterIncrement = 2;
@@ -145,10 +145,10 @@
             // 
             label2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(4, 8);
+            label2.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(4, 9);
             label2.Name = "label2";
-            label2.Size = new Size(1142, 21);
+            label2.Size = new Size(1142, 19);
             label2.TabIndex = 3;
             label2.Text = "ใบเสนอราคารอดำเนินการ";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -206,7 +206,7 @@
             dataGridView2.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
@@ -216,7 +216,7 @@
             dataGridView2.Columns.AddRange(new DataGridViewColumn[] { AQ_TemporaryDataGridViewCheckBoxColumn, AQ_TemporaryDataGridViewIdColumn, AQ_TemporaryDataGridViewQuotationIdColumn, AQ_TemporaryDataGridViewDueDateColumn, AQ_TemporaryDataGridViewCustomerNameColumn, AQ_TemporaryDataGridViewSellingPriceColumn, AQ_TemporaryDataGridViewFilePDFColumn });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
@@ -306,6 +306,7 @@
             // 
             button1.BackColor = Color.Honeydew;
             button1.Dock = DockStyle.Fill;
+            button1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             button1.Image = Properties.Resources.download_16;
             button1.ImageAlign = ContentAlignment.MiddleRight;
             button1.Location = new Point(2, 2);
@@ -322,6 +323,7 @@
             // 
             button2.BackColor = Color.MistyRose;
             button2.Dock = DockStyle.Fill;
+            button2.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             button2.Image = Properties.Resources.delete_16;
             button2.Location = new Point(2, 63);
             button2.Margin = new Padding(1);
@@ -385,10 +387,10 @@
             // 
             label1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(233, 7);
+            label1.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(233, 8);
             label1.Name = "label1";
-            label1.Size = new Size(682, 21);
+            label1.Size = new Size(682, 19);
             label1.TabIndex = 1;
             label1.Text = "ใบเสนอราคาเก็บถาวร";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -396,14 +398,14 @@
             // button3
             // 
             button3.Anchor = AnchorStyles.Right;
-            button3.BackColor = Color.AliceBlue;
+            button3.BackColor = Color.Azure;
             button3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             button3.Image = Properties.Resources.download_blue_16_;
-            button3.Location = new Point(940, 1);
-            button3.Margin = new Padding(0, 0, 3, 0);
+            button3.Location = new Point(943, 1);
+            button3.Margin = new Padding(0);
             button3.Name = "button3";
             button3.Padding = new Padding(5, 0, 0, 0);
-            button3.Size = new Size(205, 32);
+            button3.Size = new Size(205, 33);
             button3.TabIndex = 5;
             button3.Text = "เก็บใบเสนอราคาจากภายนอก";
             button3.TextImageRelation = TextImageRelation.ImageBeforeText;
