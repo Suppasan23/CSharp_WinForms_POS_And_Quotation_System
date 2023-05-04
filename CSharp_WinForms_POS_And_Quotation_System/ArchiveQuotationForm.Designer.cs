@@ -32,13 +32,10 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel1 = new Panel();
             AQ_Panel2 = new Panel();
-            splitContainer1 = new SplitContainer();
-            tableLayoutPanel3 = new TableLayoutPanel();
-            label2 = new Label();
-            tableLayoutPanel4 = new TableLayoutPanel();
-            tableLayoutPanel2 = new TableLayoutPanel();
-            tableLayoutPanel7 = new TableLayoutPanel();
-            dataGridView2 = new DataGridView();
+            AQ_SplitContainer = new SplitContainer();
+            AQ_TableLayoutPanel1 = new TableLayoutPanel();
+            AQ_TableLayoutPanel2 = new TableLayoutPanel();
+            AQ_TemporaryDataGridView = new DataGridView();
             AQ_TemporaryDataGridViewCheckBoxColumn = new DataGridViewCheckBoxColumn();
             AQ_TemporaryDataGridViewIdColumn = new DataGridViewTextBoxColumn();
             AQ_TemporaryDataGridViewQuotationIdColumn = new DataGridViewTextBoxColumn();
@@ -46,31 +43,30 @@
             AQ_TemporaryDataGridViewCustomerNameColumn = new DataGridViewTextBoxColumn();
             AQ_TemporaryDataGridViewSellingPriceColumn = new DataGridViewTextBoxColumn();
             AQ_TemporaryDataGridViewFilePDFColumn = new DataGridViewLinkColumn();
-            tableLayoutPanel6 = new TableLayoutPanel();
-            button1 = new Button();
-            button2 = new Button();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            dataGridView1 = new DataGridView();
-            tableLayoutPanel5 = new TableLayoutPanel();
-            label1 = new Label();
-            button3 = new Button();
+            AQ_TableLayoutPanel3 = new TableLayoutPanel();
+            AQ_InsideArchiveButton = new Button();
+            AQ_DeleteButton = new Button();
+            AQ_TemporaryQuotationLabel = new Label();
+            AQ_TableLayoutPanel4 = new TableLayoutPanel();
+            AQ_PermanentDataGridView = new DataGridView();
+            AQ_TableLayoutPanel5 = new TableLayoutPanel();
+            AQ_PermanentQuotationLabel = new Label();
+            AQ_OutsideArchiveButton = new Button();
             AQ_Panel1 = new Panel();
             AQ_HeadingLabel = new Label();
             panel1.SuspendLayout();
             AQ_Panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
-            splitContainer1.Panel1.SuspendLayout();
-            splitContainer1.Panel2.SuspendLayout();
-            splitContainer1.SuspendLayout();
-            tableLayoutPanel3.SuspendLayout();
-            tableLayoutPanel4.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
-            tableLayoutPanel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
-            tableLayoutPanel6.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)AQ_SplitContainer).BeginInit();
+            AQ_SplitContainer.Panel1.SuspendLayout();
+            AQ_SplitContainer.Panel2.SuspendLayout();
+            AQ_SplitContainer.SuspendLayout();
+            AQ_TableLayoutPanel1.SuspendLayout();
+            AQ_TableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)AQ_TemporaryDataGridView).BeginInit();
+            AQ_TableLayoutPanel3.SuspendLayout();
+            AQ_TableLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)AQ_PermanentDataGridView).BeginInit();
+            AQ_TableLayoutPanel5.SuspendLayout();
             AQ_Panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -88,7 +84,7 @@
             // AQ_Panel2
             // 
             AQ_Panel2.BackColor = Color.FromArgb(251, 240, 240);
-            AQ_Panel2.Controls.Add(splitContainer1);
+            AQ_Panel2.Controls.Add(AQ_SplitContainer);
             AQ_Panel2.Dock = DockStyle.Fill;
             AQ_Panel2.Location = new Point(0, 60);
             AQ_Panel2.Margin = new Padding(3, 2, 3, 2);
@@ -96,114 +92,72 @@
             AQ_Panel2.Size = new Size(1162, 1149);
             AQ_Panel2.TabIndex = 2;
             // 
-            // splitContainer1
+            // AQ_SplitContainer
             // 
-            splitContainer1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            splitContainer1.BorderStyle = BorderStyle.FixedSingle;
-            splitContainer1.Location = new Point(5, 5);
-            splitContainer1.Margin = new Padding(0);
-            splitContainer1.Name = "splitContainer1";
-            splitContainer1.Orientation = Orientation.Horizontal;
+            AQ_SplitContainer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            AQ_SplitContainer.BorderStyle = BorderStyle.FixedSingle;
+            AQ_SplitContainer.Location = new Point(5, 5);
+            AQ_SplitContainer.Margin = new Padding(0);
+            AQ_SplitContainer.Name = "AQ_SplitContainer";
+            AQ_SplitContainer.Orientation = Orientation.Horizontal;
             // 
-            // splitContainer1.Panel1
+            // AQ_SplitContainer.Panel1
             // 
-            splitContainer1.Panel1.AutoScroll = true;
-            splitContainer1.Panel1.BackColor = Color.LightGray;
-            splitContainer1.Panel1.Controls.Add(tableLayoutPanel3);
-            splitContainer1.Panel1MinSize = 38;
+            AQ_SplitContainer.Panel1.AutoScroll = true;
+            AQ_SplitContainer.Panel1.BackColor = Color.LightGray;
+            AQ_SplitContainer.Panel1.Controls.Add(AQ_TableLayoutPanel1);
+            AQ_SplitContainer.Panel1MinSize = 38;
             // 
-            // splitContainer1.Panel2
+            // AQ_SplitContainer.Panel2
             // 
-            splitContainer1.Panel2.BackColor = Color.SkyBlue;
-            splitContainer1.Panel2.Controls.Add(tableLayoutPanel1);
-            splitContainer1.Panel2MinSize = 38;
-            splitContainer1.Size = new Size(1152, 1139);
-            splitContainer1.SplitterDistance = 200;
-            splitContainer1.SplitterIncrement = 2;
-            splitContainer1.SplitterWidth = 8;
-            splitContainer1.TabIndex = 4;
-            splitContainer1.SplitterMoved += splitContainer1_SplitterMoved;
+            AQ_SplitContainer.Panel2.BackColor = Color.SkyBlue;
+            AQ_SplitContainer.Panel2.Controls.Add(AQ_TableLayoutPanel4);
+            AQ_SplitContainer.Panel2MinSize = 38;
+            AQ_SplitContainer.Size = new Size(1152, 1139);
+            AQ_SplitContainer.SplitterDistance = 200;
+            AQ_SplitContainer.SplitterIncrement = 2;
+            AQ_SplitContainer.SplitterWidth = 6;
+            AQ_SplitContainer.TabIndex = 4;
+            AQ_SplitContainer.SplitterMoved += splitContainer1_SplitterMoved;
             // 
-            // tableLayoutPanel3
+            // AQ_TableLayoutPanel1
             // 
-            tableLayoutPanel3.BackColor = Color.LightGray;
-            tableLayoutPanel3.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
-            tableLayoutPanel3.ColumnCount = 1;
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.Controls.Add(label2, 0, 0);
-            tableLayoutPanel3.Controls.Add(tableLayoutPanel4, 0, 1);
-            tableLayoutPanel3.Dock = DockStyle.Fill;
-            tableLayoutPanel3.Location = new Point(0, 0);
-            tableLayoutPanel3.Name = "tableLayoutPanel3";
-            tableLayoutPanel3.RowCount = 2;
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.Size = new Size(1150, 198);
-            tableLayoutPanel3.TabIndex = 3;
+            AQ_TableLayoutPanel1.BackColor = Color.LightGray;
+            AQ_TableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
+            AQ_TableLayoutPanel1.ColumnCount = 1;
+            AQ_TableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            AQ_TableLayoutPanel1.Controls.Add(AQ_TableLayoutPanel2, 0, 1);
+            AQ_TableLayoutPanel1.Controls.Add(AQ_TemporaryQuotationLabel, 0, 0);
+            AQ_TableLayoutPanel1.Dock = DockStyle.Fill;
+            AQ_TableLayoutPanel1.Location = new Point(0, 0);
+            AQ_TableLayoutPanel1.Name = "AQ_TableLayoutPanel1";
+            AQ_TableLayoutPanel1.RowCount = 2;
+            AQ_TableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
+            AQ_TableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            AQ_TableLayoutPanel1.Size = new Size(1150, 198);
+            AQ_TableLayoutPanel1.TabIndex = 3;
             // 
-            // label2
+            // AQ_TableLayoutPanel2
             // 
-            label2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            label2.AutoSize = true;
-            label2.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(4, 9);
-            label2.Name = "label2";
-            label2.Size = new Size(1142, 19);
-            label2.TabIndex = 3;
-            label2.Text = "ใบเสนอราคารอดำเนินการ";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
+            AQ_TableLayoutPanel2.BackColor = Color.WhiteSmoke;
+            AQ_TableLayoutPanel2.ColumnCount = 2;
+            AQ_TableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            AQ_TableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 92F));
+            AQ_TableLayoutPanel2.Controls.Add(AQ_TemporaryDataGridView, 0, 0);
+            AQ_TableLayoutPanel2.Controls.Add(AQ_TableLayoutPanel3, 1, 0);
+            AQ_TableLayoutPanel2.Dock = DockStyle.Fill;
+            AQ_TableLayoutPanel2.Location = new Point(1, 37);
+            AQ_TableLayoutPanel2.Margin = new Padding(0);
+            AQ_TableLayoutPanel2.Name = "AQ_TableLayoutPanel2";
+            AQ_TableLayoutPanel2.RowCount = 1;
+            AQ_TableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            AQ_TableLayoutPanel2.Size = new Size(1148, 160);
+            AQ_TableLayoutPanel2.TabIndex = 0;
             // 
-            // tableLayoutPanel4
+            // AQ_TemporaryDataGridView
             // 
-            tableLayoutPanel4.ColumnCount = 1;
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel4.Controls.Add(tableLayoutPanel2, 0, 0);
-            tableLayoutPanel4.Dock = DockStyle.Fill;
-            tableLayoutPanel4.Location = new Point(1, 37);
-            tableLayoutPanel4.Margin = new Padding(0);
-            tableLayoutPanel4.Name = "tableLayoutPanel4";
-            tableLayoutPanel4.RowCount = 1;
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel4.Size = new Size(1148, 160);
-            tableLayoutPanel4.TabIndex = 0;
-            // 
-            // tableLayoutPanel2
-            // 
-            tableLayoutPanel2.ColumnCount = 2;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel2.Controls.Add(tableLayoutPanel7, 0, 0);
-            tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(0, 0);
-            tableLayoutPanel2.Margin = new Padding(0);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 1;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(1148, 160);
-            tableLayoutPanel2.TabIndex = 0;
-            // 
-            // tableLayoutPanel7
-            // 
-            tableLayoutPanel7.BackColor = Color.WhiteSmoke;
-            tableLayoutPanel7.ColumnCount = 2;
-            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 92F));
-            tableLayoutPanel7.Controls.Add(dataGridView2, 0, 0);
-            tableLayoutPanel7.Controls.Add(tableLayoutPanel6, 1, 0);
-            tableLayoutPanel7.Dock = DockStyle.Fill;
-            tableLayoutPanel7.Location = new Point(0, 0);
-            tableLayoutPanel7.Margin = new Padding(0);
-            tableLayoutPanel7.Name = "tableLayoutPanel7";
-            tableLayoutPanel7.RowCount = 1;
-            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel7.Size = new Size(1148, 160);
-            tableLayoutPanel7.TabIndex = 0;
-            // 
-            // dataGridView2
-            // 
-            dataGridView2.AllowUserToAddRows = false;
-            dataGridView2.AllowUserToDeleteRows = false;
+            AQ_TemporaryDataGridView.AllowUserToAddRows = false;
+            AQ_TemporaryDataGridView.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
             dataGridViewCellStyle1.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
@@ -211,9 +165,9 @@
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { AQ_TemporaryDataGridViewCheckBoxColumn, AQ_TemporaryDataGridViewIdColumn, AQ_TemporaryDataGridViewQuotationIdColumn, AQ_TemporaryDataGridViewDueDateColumn, AQ_TemporaryDataGridViewCustomerNameColumn, AQ_TemporaryDataGridViewSellingPriceColumn, AQ_TemporaryDataGridViewFilePDFColumn });
+            AQ_TemporaryDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            AQ_TemporaryDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            AQ_TemporaryDataGridView.Columns.AddRange(new DataGridViewColumn[] { AQ_TemporaryDataGridViewCheckBoxColumn, AQ_TemporaryDataGridViewIdColumn, AQ_TemporaryDataGridViewQuotationIdColumn, AQ_TemporaryDataGridViewDueDateColumn, AQ_TemporaryDataGridViewCustomerNameColumn, AQ_TemporaryDataGridViewSellingPriceColumn, AQ_TemporaryDataGridViewFilePDFColumn });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -221,15 +175,15 @@
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView2.Dock = DockStyle.Fill;
-            dataGridView2.Location = new Point(0, 0);
-            dataGridView2.Margin = new Padding(0);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.ReadOnly = true;
-            dataGridView2.RowTemplate.Height = 25;
-            dataGridView2.Size = new Size(1056, 160);
-            dataGridView2.TabIndex = 6;
+            AQ_TemporaryDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            AQ_TemporaryDataGridView.Dock = DockStyle.Fill;
+            AQ_TemporaryDataGridView.Location = new Point(0, 0);
+            AQ_TemporaryDataGridView.Margin = new Padding(0);
+            AQ_TemporaryDataGridView.Name = "AQ_TemporaryDataGridView";
+            AQ_TemporaryDataGridView.ReadOnly = true;
+            AQ_TemporaryDataGridView.RowTemplate.Height = 25;
+            AQ_TemporaryDataGridView.Size = new Size(1056, 160);
+            AQ_TemporaryDataGridView.TabIndex = 6;
             // 
             // AQ_TemporaryDataGridViewCheckBoxColumn
             // 
@@ -283,133 +237,149 @@
             AQ_TemporaryDataGridViewFilePDFColumn.SortMode = DataGridViewColumnSortMode.Automatic;
             AQ_TemporaryDataGridViewFilePDFColumn.Width = 80;
             // 
-            // tableLayoutPanel6
+            // AQ_TableLayoutPanel3
             // 
-            tableLayoutPanel6.BackColor = Color.WhiteSmoke;
-            tableLayoutPanel6.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
-            tableLayoutPanel6.ColumnCount = 1;
-            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 90F));
-            tableLayoutPanel6.Controls.Add(button1, 0, 0);
-            tableLayoutPanel6.Controls.Add(button2, 0, 1);
-            tableLayoutPanel6.Dock = DockStyle.Fill;
-            tableLayoutPanel6.Location = new Point(1056, 0);
-            tableLayoutPanel6.Margin = new Padding(0);
-            tableLayoutPanel6.Name = "tableLayoutPanel6";
-            tableLayoutPanel6.RowCount = 3;
-            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
-            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
-            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel6.Size = new Size(92, 160);
-            tableLayoutPanel6.TabIndex = 7;
+            AQ_TableLayoutPanel3.BackColor = Color.WhiteSmoke;
+            AQ_TableLayoutPanel3.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
+            AQ_TableLayoutPanel3.ColumnCount = 1;
+            AQ_TableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 90F));
+            AQ_TableLayoutPanel3.Controls.Add(AQ_InsideArchiveButton, 0, 0);
+            AQ_TableLayoutPanel3.Controls.Add(AQ_DeleteButton, 0, 1);
+            AQ_TableLayoutPanel3.Dock = DockStyle.Fill;
+            AQ_TableLayoutPanel3.Location = new Point(1056, 0);
+            AQ_TableLayoutPanel3.Margin = new Padding(0);
+            AQ_TableLayoutPanel3.Name = "AQ_TableLayoutPanel3";
+            AQ_TableLayoutPanel3.RowCount = 3;
+            AQ_TableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
+            AQ_TableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
+            AQ_TableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            AQ_TableLayoutPanel3.Size = new Size(92, 160);
+            AQ_TableLayoutPanel3.TabIndex = 7;
             // 
-            // button1
+            // AQ_InsideArchiveButton
             // 
-            button1.BackColor = Color.Honeydew;
-            button1.Dock = DockStyle.Fill;
-            button1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Image = Properties.Resources.download_16;
-            button1.ImageAlign = ContentAlignment.MiddleRight;
-            button1.Location = new Point(2, 2);
-            button1.Margin = new Padding(1);
-            button1.Name = "button1";
-            button1.Size = new Size(88, 58);
-            button1.TabIndex = 0;
-            button1.Text = "เก็บถาวร";
-            button1.TextAlign = ContentAlignment.MiddleRight;
-            button1.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button1.UseVisualStyleBackColor = false;
+            AQ_InsideArchiveButton.BackColor = Color.Honeydew;
+            AQ_InsideArchiveButton.Dock = DockStyle.Fill;
+            AQ_InsideArchiveButton.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            AQ_InsideArchiveButton.Image = Properties.Resources.download_16;
+            AQ_InsideArchiveButton.ImageAlign = ContentAlignment.MiddleRight;
+            AQ_InsideArchiveButton.Location = new Point(2, 2);
+            AQ_InsideArchiveButton.Margin = new Padding(1);
+            AQ_InsideArchiveButton.Name = "AQ_InsideArchiveButton";
+            AQ_InsideArchiveButton.Size = new Size(88, 58);
+            AQ_InsideArchiveButton.TabIndex = 0;
+            AQ_InsideArchiveButton.Text = "เก็บถาวร";
+            AQ_InsideArchiveButton.TextAlign = ContentAlignment.MiddleRight;
+            AQ_InsideArchiveButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            AQ_InsideArchiveButton.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // AQ_DeleteButton
             // 
-            button2.BackColor = Color.MistyRose;
-            button2.Dock = DockStyle.Fill;
-            button2.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.Image = Properties.Resources.delete_16;
-            button2.Location = new Point(2, 63);
-            button2.Margin = new Padding(1);
-            button2.Name = "button2";
-            button2.Size = new Size(88, 58);
-            button2.TabIndex = 6;
-            button2.Text = "ทิ้ง";
-            button2.TextAlign = ContentAlignment.MiddleRight;
-            button2.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button2.UseVisualStyleBackColor = false;
+            AQ_DeleteButton.BackColor = Color.MistyRose;
+            AQ_DeleteButton.Dock = DockStyle.Fill;
+            AQ_DeleteButton.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            AQ_DeleteButton.Image = Properties.Resources.delete_16;
+            AQ_DeleteButton.Location = new Point(2, 63);
+            AQ_DeleteButton.Margin = new Padding(1);
+            AQ_DeleteButton.Name = "AQ_DeleteButton";
+            AQ_DeleteButton.Size = new Size(88, 58);
+            AQ_DeleteButton.TabIndex = 6;
+            AQ_DeleteButton.Text = "ทิ้ง";
+            AQ_DeleteButton.TextAlign = ContentAlignment.MiddleRight;
+            AQ_DeleteButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            AQ_DeleteButton.UseVisualStyleBackColor = false;
             // 
-            // tableLayoutPanel1
+            // AQ_TemporaryQuotationLabel
             // 
-            tableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
-            tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(dataGridView1, 0, 1);
-            tableLayoutPanel1.Controls.Add(tableLayoutPanel5, 0, 0);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1150, 929);
-            tableLayoutPanel1.TabIndex = 1;
+            AQ_TemporaryQuotationLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            AQ_TemporaryQuotationLabel.AutoSize = true;
+            AQ_TemporaryQuotationLabel.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            AQ_TemporaryQuotationLabel.Location = new Point(4, 9);
+            AQ_TemporaryQuotationLabel.Name = "AQ_TemporaryQuotationLabel";
+            AQ_TemporaryQuotationLabel.Size = new Size(1142, 19);
+            AQ_TemporaryQuotationLabel.TabIndex = 3;
+            AQ_TemporaryQuotationLabel.Text = "ใบเสนอราคารอดำเนินการ";
+            AQ_TemporaryQuotationLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // dataGridView1
+            // AQ_TableLayoutPanel4
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.BackgroundColor = Color.SlateGray;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(1, 37);
-            dataGridView1.Margin = new Padding(0);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(1148, 891);
-            dataGridView1.TabIndex = 0;
+            AQ_TableLayoutPanel4.BackColor = Color.SkyBlue;
+            AQ_TableLayoutPanel4.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
+            AQ_TableLayoutPanel4.ColumnCount = 1;
+            AQ_TableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            AQ_TableLayoutPanel4.Controls.Add(AQ_PermanentDataGridView, 0, 1);
+            AQ_TableLayoutPanel4.Controls.Add(AQ_TableLayoutPanel5, 0, 0);
+            AQ_TableLayoutPanel4.Dock = DockStyle.Fill;
+            AQ_TableLayoutPanel4.Location = new Point(0, 0);
+            AQ_TableLayoutPanel4.Name = "AQ_TableLayoutPanel4";
+            AQ_TableLayoutPanel4.RowCount = 2;
+            AQ_TableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
+            AQ_TableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            AQ_TableLayoutPanel4.Size = new Size(1150, 931);
+            AQ_TableLayoutPanel4.TabIndex = 1;
             // 
-            // tableLayoutPanel5
+            // AQ_PermanentDataGridView
             // 
-            tableLayoutPanel5.ColumnCount = 3;
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 230F));
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 230F));
-            tableLayoutPanel5.Controls.Add(label1, 1, 0);
-            tableLayoutPanel5.Controls.Add(button3, 2, 0);
-            tableLayoutPanel5.Dock = DockStyle.Fill;
-            tableLayoutPanel5.Location = new Point(1, 1);
-            tableLayoutPanel5.Margin = new Padding(0);
-            tableLayoutPanel5.Name = "tableLayoutPanel5";
-            tableLayoutPanel5.RowCount = 1;
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel5.Size = new Size(1148, 35);
-            tableLayoutPanel5.TabIndex = 0;
+            AQ_PermanentDataGridView.AllowUserToAddRows = false;
+            AQ_PermanentDataGridView.AllowUserToDeleteRows = false;
+            AQ_PermanentDataGridView.BackgroundColor = Color.SlateGray;
+            AQ_PermanentDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            AQ_PermanentDataGridView.Dock = DockStyle.Fill;
+            AQ_PermanentDataGridView.Location = new Point(1, 37);
+            AQ_PermanentDataGridView.Margin = new Padding(0);
+            AQ_PermanentDataGridView.Name = "AQ_PermanentDataGridView";
+            AQ_PermanentDataGridView.ReadOnly = true;
+            AQ_PermanentDataGridView.RowTemplate.Height = 25;
+            AQ_PermanentDataGridView.Size = new Size(1148, 893);
+            AQ_PermanentDataGridView.TabIndex = 0;
             // 
-            // label1
+            // AQ_TableLayoutPanel5
             // 
-            label1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            label1.AutoSize = true;
-            label1.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(233, 8);
-            label1.Name = "label1";
-            label1.Size = new Size(682, 19);
-            label1.TabIndex = 1;
-            label1.Text = "ใบเสนอราคาเก็บถาวร";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            AQ_TableLayoutPanel5.BackColor = Color.SkyBlue;
+            AQ_TableLayoutPanel5.ColumnCount = 3;
+            AQ_TableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 230F));
+            AQ_TableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            AQ_TableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 230F));
+            AQ_TableLayoutPanel5.Controls.Add(AQ_PermanentQuotationLabel, 1, 0);
+            AQ_TableLayoutPanel5.Controls.Add(AQ_OutsideArchiveButton, 2, 0);
+            AQ_TableLayoutPanel5.Dock = DockStyle.Fill;
+            AQ_TableLayoutPanel5.Location = new Point(1, 1);
+            AQ_TableLayoutPanel5.Margin = new Padding(0);
+            AQ_TableLayoutPanel5.Name = "AQ_TableLayoutPanel5";
+            AQ_TableLayoutPanel5.RowCount = 1;
+            AQ_TableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            AQ_TableLayoutPanel5.Size = new Size(1148, 35);
+            AQ_TableLayoutPanel5.TabIndex = 0;
             // 
-            // button3
+            // AQ_PermanentQuotationLabel
             // 
-            button3.Anchor = AnchorStyles.Right;
-            button3.BackColor = Color.Azure;
-            button3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button3.Image = Properties.Resources.download_blue_16_;
-            button3.Location = new Point(943, 1);
-            button3.Margin = new Padding(0);
-            button3.Name = "button3";
-            button3.Padding = new Padding(5, 0, 0, 0);
-            button3.Size = new Size(205, 33);
-            button3.TabIndex = 5;
-            button3.Text = "เก็บใบเสนอราคาจากภายนอก";
-            button3.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button3.UseVisualStyleBackColor = false;
+            AQ_PermanentQuotationLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            AQ_PermanentQuotationLabel.AutoSize = true;
+            AQ_PermanentQuotationLabel.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            AQ_PermanentQuotationLabel.Location = new Point(233, 8);
+            AQ_PermanentQuotationLabel.Name = "AQ_PermanentQuotationLabel";
+            AQ_PermanentQuotationLabel.Size = new Size(682, 19);
+            AQ_PermanentQuotationLabel.TabIndex = 1;
+            AQ_PermanentQuotationLabel.Text = "ใบเสนอราคาเก็บถาวร";
+            AQ_PermanentQuotationLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // AQ_OutsideArchiveButton
+            // 
+            AQ_OutsideArchiveButton.Anchor = AnchorStyles.Right;
+            AQ_OutsideArchiveButton.BackColor = Color.Azure;
+            AQ_OutsideArchiveButton.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            AQ_OutsideArchiveButton.Image = Properties.Resources.download_blue_16_;
+            AQ_OutsideArchiveButton.ImageAlign = ContentAlignment.MiddleRight;
+            AQ_OutsideArchiveButton.Location = new Point(935, 1);
+            AQ_OutsideArchiveButton.Margin = new Padding(0);
+            AQ_OutsideArchiveButton.Name = "AQ_OutsideArchiveButton";
+            AQ_OutsideArchiveButton.Padding = new Padding(5, 0, 0, 0);
+            AQ_OutsideArchiveButton.Size = new Size(213, 33);
+            AQ_OutsideArchiveButton.TabIndex = 5;
+            AQ_OutsideArchiveButton.Text = "เก็บใบเสนอราคาจากภายนอก";
+            AQ_OutsideArchiveButton.TextAlign = ContentAlignment.MiddleRight;
+            AQ_OutsideArchiveButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            AQ_OutsideArchiveButton.UseVisualStyleBackColor = false;
             // 
             // AQ_Panel1
             // 
@@ -446,21 +416,19 @@
             Load += ArchiveQuotationForm_Load;
             panel1.ResumeLayout(false);
             AQ_Panel2.ResumeLayout(false);
-            splitContainer1.Panel1.ResumeLayout(false);
-            splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
-            splitContainer1.ResumeLayout(false);
-            tableLayoutPanel3.ResumeLayout(false);
-            tableLayoutPanel3.PerformLayout();
-            tableLayoutPanel4.ResumeLayout(false);
-            tableLayoutPanel2.ResumeLayout(false);
-            tableLayoutPanel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
-            tableLayoutPanel6.ResumeLayout(false);
-            tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            tableLayoutPanel5.ResumeLayout(false);
-            tableLayoutPanel5.PerformLayout();
+            AQ_SplitContainer.Panel1.ResumeLayout(false);
+            AQ_SplitContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)AQ_SplitContainer).EndInit();
+            AQ_SplitContainer.ResumeLayout(false);
+            AQ_TableLayoutPanel1.ResumeLayout(false);
+            AQ_TableLayoutPanel1.PerformLayout();
+            AQ_TableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)AQ_TemporaryDataGridView).EndInit();
+            AQ_TableLayoutPanel3.ResumeLayout(false);
+            AQ_TableLayoutPanel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)AQ_PermanentDataGridView).EndInit();
+            AQ_TableLayoutPanel5.ResumeLayout(false);
+            AQ_TableLayoutPanel5.PerformLayout();
             AQ_Panel1.ResumeLayout(false);
             AQ_Panel1.PerformLayout();
             ResumeLayout(false);
@@ -472,17 +440,17 @@
         private Panel AQ_Panel2;
         private Panel AQ_Panel1;
         private Label AQ_HeadingLabel;
-        private TableLayoutPanel tableLayoutPanel1;
-        private DataGridView dataGridView1;
-        private TableLayoutPanel tableLayoutPanel3;
-        private Button button1;
-        private Label label2;
-        private Label label1;
-        private SplitContainer splitContainer1;
-        private Button button2;
-        private DataGridView dataGridView2;
-        private Button button3;
-        private TableLayoutPanel tableLayoutPanel5;
+        private TableLayoutPanel AQ_TableLayoutPanel4;
+        private DataGridView AQ_PermanentDataGridView;
+        private TableLayoutPanel AQ_TableLayoutPanel1;
+        private Button AQ_InsideArchiveButton;
+        private Label AQ_TemporaryQuotationLabel;
+        private Label AQ_PermanentQuotationLabel;
+        private SplitContainer AQ_SplitContainer;
+        private Button AQ_DeleteButton;
+        private DataGridView AQ_TemporaryDataGridView;
+        private Button AQ_OutsideArchiveButton;
+        private TableLayoutPanel AQ_TableLayoutPanel5;
         private DataGridViewCheckBoxColumn AQ_TemporaryDataGridViewCheckBoxColumn;
         private DataGridViewTextBoxColumn AQ_TemporaryDataGridViewIdColumn;
         private DataGridViewTextBoxColumn AQ_TemporaryDataGridViewQuotationIdColumn;
@@ -490,9 +458,7 @@
         private DataGridViewTextBoxColumn AQ_TemporaryDataGridViewCustomerNameColumn;
         private DataGridViewTextBoxColumn AQ_TemporaryDataGridViewSellingPriceColumn;
         private DataGridViewLinkColumn AQ_TemporaryDataGridViewFilePDFColumn;
-        private TableLayoutPanel tableLayoutPanel4;
-        private TableLayoutPanel tableLayoutPanel6;
-        private TableLayoutPanel tableLayoutPanel2;
-        private TableLayoutPanel tableLayoutPanel7;
+        private TableLayoutPanel AQ_TableLayoutPanel3;
+        private TableLayoutPanel AQ_TableLayoutPanel2;
     }
 }
