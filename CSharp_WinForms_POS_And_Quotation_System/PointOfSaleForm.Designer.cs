@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel1 = new Panel();
             POS_Panel2 = new Panel();
             POS_CalculatePriceGroupBox = new GroupBox();
@@ -70,6 +72,12 @@
             POS_ToolStripStatusLabel = new ToolStripStatusLabel();
             POS_Panel1 = new Panel();
             POS_HeadingLabel = new Label();
+            POS_DataGridViewIdColumn = new DataGridViewTextBoxColumn();
+            POS_DataGridViewProductNumberColumn = new DataGridViewTextBoxColumn();
+            POS_DataGridViewProductNameColumn = new DataGridViewTextBoxColumn();
+            POS_DataGridViewSellingPriceColumn = new DataGridViewTextBoxColumn();
+            POS_DataGridViewQuantityColumn = new DataGridViewTextBoxColumn();
+            POS_DataGridViewSubTotalColumn = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             POS_Panel2.SuspendLayout();
             POS_CalculatePriceGroupBox.SuspendLayout();
@@ -421,7 +429,24 @@
             POS_DataGridView.AllowUserToAddRows = false;
             POS_DataGridView.AllowUserToDeleteRows = false;
             POS_DataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            POS_DataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             POS_DataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            POS_DataGridView.Columns.AddRange(new DataGridViewColumn[] { POS_DataGridViewIdColumn, POS_DataGridViewProductNumberColumn, POS_DataGridViewProductNameColumn, POS_DataGridViewSellingPriceColumn, POS_DataGridViewQuantityColumn, POS_DataGridViewSubTotalColumn });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.DodgerBlue;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            POS_DataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             POS_DataGridView.Location = new Point(6, 100);
             POS_DataGridView.Name = "POS_DataGridView";
             POS_DataGridView.ReadOnly = true;
@@ -634,6 +659,45 @@
             POS_HeadingLabel.TabIndex = 0;
             POS_HeadingLabel.Text = "ขายสินค้า";
             // 
+            // POS_DataGridViewIdColumn
+            // 
+            POS_DataGridViewIdColumn.HeaderText = "ที่";
+            POS_DataGridViewIdColumn.Name = "POS_DataGridViewIdColumn";
+            POS_DataGridViewIdColumn.ReadOnly = true;
+            POS_DataGridViewIdColumn.Width = 30;
+            // 
+            // POS_DataGridViewProductNumberColumn
+            // 
+            POS_DataGridViewProductNumberColumn.HeaderText = "หมายเลขสินค้า";
+            POS_DataGridViewProductNumberColumn.Name = "POS_DataGridViewProductNumberColumn";
+            POS_DataGridViewProductNumberColumn.ReadOnly = true;
+            POS_DataGridViewProductNumberColumn.Width = 200;
+            // 
+            // POS_DataGridViewProductNameColumn
+            // 
+            POS_DataGridViewProductNameColumn.HeaderText = "ชื่อสินค้า";
+            POS_DataGridViewProductNameColumn.Name = "POS_DataGridViewProductNameColumn";
+            POS_DataGridViewProductNameColumn.ReadOnly = true;
+            POS_DataGridViewProductNameColumn.Width = 350;
+            // 
+            // POS_DataGridViewSellingPriceColumn
+            // 
+            POS_DataGridViewSellingPriceColumn.HeaderText = "ราคาขาย";
+            POS_DataGridViewSellingPriceColumn.Name = "POS_DataGridViewSellingPriceColumn";
+            POS_DataGridViewSellingPriceColumn.ReadOnly = true;
+            // 
+            // POS_DataGridViewQuantityColumn
+            // 
+            POS_DataGridViewQuantityColumn.HeaderText = "จำนวน";
+            POS_DataGridViewQuantityColumn.Name = "POS_DataGridViewQuantityColumn";
+            POS_DataGridViewQuantityColumn.ReadOnly = true;
+            // 
+            // POS_DataGridViewSubTotalColumn
+            // 
+            POS_DataGridViewSubTotalColumn.HeaderText = "ราคารวม";
+            POS_DataGridViewSubTotalColumn.Name = "POS_DataGridViewSubTotalColumn";
+            POS_DataGridViewSubTotalColumn.ReadOnly = true;
+            // 
             // PointOfSaleForm
             // 
             AutoScaleDimensions = new SizeF(8F, 18F);
@@ -712,5 +776,11 @@
         private Label POS_TotalAmountLabel;
         private Label POS_CostPriceLabel;
         private TextBox POS_CostPriceTextBox;
+        private DataGridViewTextBoxColumn POS_DataGridViewIdColumn;
+        private DataGridViewTextBoxColumn POS_DataGridViewProductNumberColumn;
+        private DataGridViewTextBoxColumn POS_DataGridViewProductNameColumn;
+        private DataGridViewTextBoxColumn POS_DataGridViewSellingPriceColumn;
+        private DataGridViewTextBoxColumn POS_DataGridViewQuantityColumn;
+        private DataGridViewTextBoxColumn POS_DataGridViewSubTotalColumn;
     }
 }
