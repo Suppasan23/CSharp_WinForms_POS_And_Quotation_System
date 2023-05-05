@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             PM_Panel1 = new Panel();
             PM_HeadingLabel = new Label();
             PM_PanelBase = new Panel();
@@ -53,6 +54,7 @@
             PM_DataGridViewSellingPriceColumn = new DataGridViewTextBoxColumn();
             PM_DataGridViewUnitInStockColumn = new DataGridViewTextBoxColumn();
             PM_DataGridViewCountingUnitColumn = new DataGridViewTextBoxColumn();
+            PM_DataGridViewNoteColumn = new DataGridViewTextBoxColumn();
             PM_Panel1.SuspendLayout();
             PM_PanelBase.SuspendLayout();
             PM_Panel2.SuspendLayout();
@@ -123,7 +125,15 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             PM_DataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             PM_DataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            PM_DataGridView.Columns.AddRange(new DataGridViewColumn[] { PM_DataGridViewIdColumn, PM_DataGridViewImageColumn, PM_DataGridViewProductNumberColumn, PM_DataGridViewProductNameColumn, PM_DataGridViewCostPriceColumn, PM_DataGridViewSellingPriceColumn, PM_DataGridViewUnitInStockColumn, PM_DataGridViewCountingUnitColumn });
+            PM_DataGridView.Columns.AddRange(new DataGridViewColumn[] { PM_DataGridViewIdColumn, PM_DataGridViewImageColumn, PM_DataGridViewProductNumberColumn, PM_DataGridViewProductNameColumn, PM_DataGridViewCostPriceColumn, PM_DataGridViewSellingPriceColumn, PM_DataGridViewUnitInStockColumn, PM_DataGridViewCountingUnitColumn, PM_DataGridViewNoteColumn });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            PM_DataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             PM_DataGridView.Dock = DockStyle.Fill;
             PM_DataGridView.Location = new Point(0, 30);
             PM_DataGridView.Name = "PM_DataGridView";
@@ -291,9 +301,10 @@
             // PM_DataGridViewImageColumn
             // 
             PM_DataGridViewImageColumn.HeaderText = "รูป";
+            PM_DataGridViewImageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom;
             PM_DataGridViewImageColumn.Name = "PM_DataGridViewImageColumn";
             PM_DataGridViewImageColumn.ReadOnly = true;
-            PM_DataGridViewImageColumn.Width = 120;
+            PM_DataGridViewImageColumn.Width = 80;
             // 
             // PM_DataGridViewProductNumberColumn
             // 
@@ -336,6 +347,12 @@
             PM_DataGridViewCountingUnitColumn.Name = "PM_DataGridViewCountingUnitColumn";
             PM_DataGridViewCountingUnitColumn.ReadOnly = true;
             PM_DataGridViewCountingUnitColumn.Width = 120;
+            // 
+            // PM_DataGridViewNoteColumn
+            // 
+            PM_DataGridViewNoteColumn.HeaderText = "หมายเหตุ";
+            PM_DataGridViewNoteColumn.Name = "PM_DataGridViewNoteColumn";
+            PM_DataGridViewNoteColumn.ReadOnly = true;
             // 
             // ProductManagementForm
             // 
@@ -389,5 +406,6 @@
         private DataGridViewTextBoxColumn PM_DataGridViewSellingPriceColumn;
         private DataGridViewTextBoxColumn PM_DataGridViewUnitInStockColumn;
         private DataGridViewTextBoxColumn PM_DataGridViewCountingUnitColumn;
+        private DataGridViewTextBoxColumn PM_DataGridViewNoteColumn;
     }
 }
