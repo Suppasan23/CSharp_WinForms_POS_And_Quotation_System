@@ -45,6 +45,7 @@
             toolStripSeparator4 = new ToolStripSeparator();
             M_ExitToolStripButton = new ToolStripButton();
             toolStripSeparator5 = new ToolStripSeparator();
+            M_ManualToolStripMenuItem = new ToolStripMenuItem();
             M_MenuStrip.SuspendLayout();
             M_StatusStrip.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -70,12 +71,13 @@
             // M_ExitToolStripMenuItem
             // 
             M_ExitToolStripMenuItem.Name = "M_ExitToolStripMenuItem";
-            M_ExitToolStripMenuItem.Size = new Size(93, 22);
+            M_ExitToolStripMenuItem.Size = new Size(180, 22);
             M_ExitToolStripMenuItem.Text = "Exit";
             M_ExitToolStripMenuItem.Click += M_ExitToolStripMenuItem_Click;
             // 
             // M_HelpToolStripMenuItem
             // 
+            M_HelpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { M_ManualToolStripMenuItem });
             M_HelpToolStripMenuItem.Name = "M_HelpToolStripMenuItem";
             M_HelpToolStripMenuItem.Size = new Size(44, 20);
             M_HelpToolStripMenuItem.Text = "Help";
@@ -196,6 +198,12 @@
             toolStripSeparator5.Name = "toolStripSeparator5";
             toolStripSeparator5.Size = new Size(134, 6);
             // 
+            // M_ManualToolStripMenuItem
+            // 
+            M_ManualToolStripMenuItem.Name = "M_ManualToolStripMenuItem";
+            M_ManualToolStripMenuItem.Size = new Size(180, 22);
+            M_ManualToolStripMenuItem.Text = "คู่มือการใช้งาน";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 18F);
@@ -242,5 +250,6 @@
         private ToolStripButton M_ExitToolStripButton;
         private ToolStripSeparator toolStripSeparator5;
         private ToolStripStatusLabel M_ToolStripStatusLabel;
+        private ToolStripMenuItem M_ManualToolStripMenuItem;
     }
 }
