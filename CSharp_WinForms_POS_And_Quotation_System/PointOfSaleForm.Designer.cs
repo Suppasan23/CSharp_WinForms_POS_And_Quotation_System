@@ -56,6 +56,12 @@
             POS_ProductIDTextBox = new TextBox();
             POS_SellingUnitLabel = new Label();
             POS_DataGridView = new DataGridView();
+            POS_DataGridViewIdColumn = new DataGridViewTextBoxColumn();
+            POS_DataGridViewProductNumberColumn = new DataGridViewTextBoxColumn();
+            POS_DataGridViewProductNameColumn = new DataGridViewTextBoxColumn();
+            POS_DataGridViewSellingPriceColumn = new DataGridViewTextBoxColumn();
+            POS_DataGridViewQuantityColumn = new DataGridViewTextBoxColumn();
+            POS_DataGridViewSubTotalColumn = new DataGridViewTextBoxColumn();
             POS_TransactionGroupBox = new GroupBox();
             POS_TableLayoutPanel2 = new TableLayoutPanel();
             POS_TransactionHistoryLabel = new Label();
@@ -72,12 +78,6 @@
             POS_ToolStripStatusLabel = new ToolStripStatusLabel();
             POS_Panel1 = new Panel();
             POS_HeadingLabel = new Label();
-            POS_DataGridViewIdColumn = new DataGridViewTextBoxColumn();
-            POS_DataGridViewProductNumberColumn = new DataGridViewTextBoxColumn();
-            POS_DataGridViewProductNameColumn = new DataGridViewTextBoxColumn();
-            POS_DataGridViewSellingPriceColumn = new DataGridViewTextBoxColumn();
-            POS_DataGridViewQuantityColumn = new DataGridViewTextBoxColumn();
-            POS_DataGridViewSubTotalColumn = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             POS_Panel2.SuspendLayout();
             POS_CalculatePriceGroupBox.SuspendLayout();
@@ -455,6 +455,45 @@
             POS_DataGridView.Size = new Size(984, 897);
             POS_DataGridView.TabIndex = 10;
             // 
+            // POS_DataGridViewIdColumn
+            // 
+            POS_DataGridViewIdColumn.HeaderText = "ที่";
+            POS_DataGridViewIdColumn.Name = "POS_DataGridViewIdColumn";
+            POS_DataGridViewIdColumn.ReadOnly = true;
+            POS_DataGridViewIdColumn.Width = 30;
+            // 
+            // POS_DataGridViewProductNumberColumn
+            // 
+            POS_DataGridViewProductNumberColumn.HeaderText = "หมายเลขสินค้า";
+            POS_DataGridViewProductNumberColumn.Name = "POS_DataGridViewProductNumberColumn";
+            POS_DataGridViewProductNumberColumn.ReadOnly = true;
+            POS_DataGridViewProductNumberColumn.Width = 200;
+            // 
+            // POS_DataGridViewProductNameColumn
+            // 
+            POS_DataGridViewProductNameColumn.HeaderText = "ชื่อสินค้า";
+            POS_DataGridViewProductNameColumn.Name = "POS_DataGridViewProductNameColumn";
+            POS_DataGridViewProductNameColumn.ReadOnly = true;
+            POS_DataGridViewProductNameColumn.Width = 350;
+            // 
+            // POS_DataGridViewSellingPriceColumn
+            // 
+            POS_DataGridViewSellingPriceColumn.HeaderText = "ราคาขาย";
+            POS_DataGridViewSellingPriceColumn.Name = "POS_DataGridViewSellingPriceColumn";
+            POS_DataGridViewSellingPriceColumn.ReadOnly = true;
+            // 
+            // POS_DataGridViewQuantityColumn
+            // 
+            POS_DataGridViewQuantityColumn.HeaderText = "จำนวน";
+            POS_DataGridViewQuantityColumn.Name = "POS_DataGridViewQuantityColumn";
+            POS_DataGridViewQuantityColumn.ReadOnly = true;
+            // 
+            // POS_DataGridViewSubTotalColumn
+            // 
+            POS_DataGridViewSubTotalColumn.HeaderText = "ราคารวม";
+            POS_DataGridViewSubTotalColumn.Name = "POS_DataGridViewSubTotalColumn";
+            POS_DataGridViewSubTotalColumn.ReadOnly = true;
+            // 
             // POS_TransactionGroupBox
             // 
             POS_TransactionGroupBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
@@ -658,45 +697,6 @@
             POS_HeadingLabel.Size = new Size(147, 39);
             POS_HeadingLabel.TabIndex = 0;
             POS_HeadingLabel.Text = "ขายสินค้า";
-            // 
-            // POS_DataGridViewIdColumn
-            // 
-            POS_DataGridViewIdColumn.HeaderText = "ที่";
-            POS_DataGridViewIdColumn.Name = "POS_DataGridViewIdColumn";
-            POS_DataGridViewIdColumn.ReadOnly = true;
-            POS_DataGridViewIdColumn.Width = 30;
-            // 
-            // POS_DataGridViewProductNumberColumn
-            // 
-            POS_DataGridViewProductNumberColumn.HeaderText = "หมายเลขสินค้า";
-            POS_DataGridViewProductNumberColumn.Name = "POS_DataGridViewProductNumberColumn";
-            POS_DataGridViewProductNumberColumn.ReadOnly = true;
-            POS_DataGridViewProductNumberColumn.Width = 200;
-            // 
-            // POS_DataGridViewProductNameColumn
-            // 
-            POS_DataGridViewProductNameColumn.HeaderText = "ชื่อสินค้า";
-            POS_DataGridViewProductNameColumn.Name = "POS_DataGridViewProductNameColumn";
-            POS_DataGridViewProductNameColumn.ReadOnly = true;
-            POS_DataGridViewProductNameColumn.Width = 350;
-            // 
-            // POS_DataGridViewSellingPriceColumn
-            // 
-            POS_DataGridViewSellingPriceColumn.HeaderText = "ราคาขาย";
-            POS_DataGridViewSellingPriceColumn.Name = "POS_DataGridViewSellingPriceColumn";
-            POS_DataGridViewSellingPriceColumn.ReadOnly = true;
-            // 
-            // POS_DataGridViewQuantityColumn
-            // 
-            POS_DataGridViewQuantityColumn.HeaderText = "จำนวน";
-            POS_DataGridViewQuantityColumn.Name = "POS_DataGridViewQuantityColumn";
-            POS_DataGridViewQuantityColumn.ReadOnly = true;
-            // 
-            // POS_DataGridViewSubTotalColumn
-            // 
-            POS_DataGridViewSubTotalColumn.HeaderText = "ราคารวม";
-            POS_DataGridViewSubTotalColumn.Name = "POS_DataGridViewSubTotalColumn";
-            POS_DataGridViewSubTotalColumn.ReadOnly = true;
             // 
             // PointOfSaleForm
             // 
