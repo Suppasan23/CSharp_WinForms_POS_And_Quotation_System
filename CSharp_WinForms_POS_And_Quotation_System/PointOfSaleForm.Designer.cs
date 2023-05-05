@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PointOfSaleForm));
             panel1 = new Panel();
             POS_Panel2 = new Panel();
             POS_CalculatePriceGroupBox = new GroupBox();
@@ -56,6 +57,13 @@
             POS_ProductIDTextBox = new TextBox();
             POS_SellingUnitLabel = new Label();
             POS_DataGridView = new DataGridView();
+            POS_DataGridViewIdColumn = new DataGridViewTextBoxColumn();
+            POS_DataGridViewImageColumn = new DataGridViewImageColumn();
+            POS_DataGridViewProductNumberColumn = new DataGridViewTextBoxColumn();
+            POS_DataGridViewProductNameColumn = new DataGridViewTextBoxColumn();
+            POS_DataGridViewSellingPriceColumn = new DataGridViewTextBoxColumn();
+            POS_DataGridViewQuantityColumn = new DataGridViewTextBoxColumn();
+            POS_DataGridViewSubTotalColumn = new DataGridViewTextBoxColumn();
             POS_TransactionGroupBox = new GroupBox();
             POS_TableLayoutPanel2 = new TableLayoutPanel();
             POS_TransactionHistoryLabel = new Label();
@@ -72,13 +80,8 @@
             POS_ToolStripStatusLabel = new ToolStripStatusLabel();
             POS_Panel1 = new Panel();
             POS_HeadingLabel = new Label();
-            POS_DataGridViewIdColumn = new DataGridViewTextBoxColumn();
-            POS_DataGridViewImageColumn = new DataGridViewImageColumn();
-            POS_DataGridViewProductNumberColumn = new DataGridViewTextBoxColumn();
-            POS_DataGridViewProductNameColumn = new DataGridViewTextBoxColumn();
-            POS_DataGridViewSellingPriceColumn = new DataGridViewTextBoxColumn();
-            POS_DataGridViewQuantityColumn = new DataGridViewTextBoxColumn();
-            POS_DataGridViewSubTotalColumn = new DataGridViewTextBoxColumn();
+            POS_PrintDocument = new System.Drawing.Printing.PrintDocument();
+            POS_PrintPreviewDialog = new PrintPreviewDialog();
             panel1.SuspendLayout();
             POS_Panel2.SuspendLayout();
             POS_CalculatePriceGroupBox.SuspendLayout();
@@ -155,6 +158,7 @@
             POS_SaveButton.TextAlign = ContentAlignment.MiddleRight;
             POS_SaveButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             POS_SaveButton.UseVisualStyleBackColor = false;
+            POS_SaveButton.Click += POS_SaveButton_Click;
             // 
             // SaveButton
             // 
@@ -459,6 +463,52 @@
             POS_DataGridView.Size = new Size(984, 897);
             POS_DataGridView.TabIndex = 10;
             // 
+            // POS_DataGridViewIdColumn
+            // 
+            POS_DataGridViewIdColumn.HeaderText = "ที่";
+            POS_DataGridViewIdColumn.Name = "POS_DataGridViewIdColumn";
+            POS_DataGridViewIdColumn.ReadOnly = true;
+            POS_DataGridViewIdColumn.Width = 30;
+            // 
+            // POS_DataGridViewImageColumn
+            // 
+            POS_DataGridViewImageColumn.HeaderText = "รูป";
+            POS_DataGridViewImageColumn.Name = "POS_DataGridViewImageColumn";
+            POS_DataGridViewImageColumn.ReadOnly = true;
+            POS_DataGridViewImageColumn.Width = 120;
+            // 
+            // POS_DataGridViewProductNumberColumn
+            // 
+            POS_DataGridViewProductNumberColumn.HeaderText = "หมายเลขสินค้า";
+            POS_DataGridViewProductNumberColumn.Name = "POS_DataGridViewProductNumberColumn";
+            POS_DataGridViewProductNumberColumn.ReadOnly = true;
+            POS_DataGridViewProductNumberColumn.Width = 200;
+            // 
+            // POS_DataGridViewProductNameColumn
+            // 
+            POS_DataGridViewProductNameColumn.HeaderText = "ชื่อสินค้า";
+            POS_DataGridViewProductNameColumn.Name = "POS_DataGridViewProductNameColumn";
+            POS_DataGridViewProductNameColumn.ReadOnly = true;
+            POS_DataGridViewProductNameColumn.Width = 350;
+            // 
+            // POS_DataGridViewSellingPriceColumn
+            // 
+            POS_DataGridViewSellingPriceColumn.HeaderText = "ราคาขาย";
+            POS_DataGridViewSellingPriceColumn.Name = "POS_DataGridViewSellingPriceColumn";
+            POS_DataGridViewSellingPriceColumn.ReadOnly = true;
+            // 
+            // POS_DataGridViewQuantityColumn
+            // 
+            POS_DataGridViewQuantityColumn.HeaderText = "จำนวน";
+            POS_DataGridViewQuantityColumn.Name = "POS_DataGridViewQuantityColumn";
+            POS_DataGridViewQuantityColumn.ReadOnly = true;
+            // 
+            // POS_DataGridViewSubTotalColumn
+            // 
+            POS_DataGridViewSubTotalColumn.HeaderText = "ราคารวม";
+            POS_DataGridViewSubTotalColumn.Name = "POS_DataGridViewSubTotalColumn";
+            POS_DataGridViewSubTotalColumn.ReadOnly = true;
+            // 
             // POS_TransactionGroupBox
             // 
             POS_TransactionGroupBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
@@ -665,51 +715,20 @@
             POS_HeadingLabel.TabIndex = 0;
             POS_HeadingLabel.Text = "ขายสินค้า";
             // 
-            // POS_DataGridViewIdColumn
+            // POS_PrintDocument
             // 
-            POS_DataGridViewIdColumn.HeaderText = "ที่";
-            POS_DataGridViewIdColumn.Name = "POS_DataGridViewIdColumn";
-            POS_DataGridViewIdColumn.ReadOnly = true;
-            POS_DataGridViewIdColumn.Width = 30;
+            POS_PrintDocument.PrintPage += POS_PrintDocument_PrintPage;
             // 
-            // POS_DataGridViewImageColumn
+            // POS_PrintPreviewDialog
             // 
-            POS_DataGridViewImageColumn.HeaderText = "รูป";
-            POS_DataGridViewImageColumn.Name = "POS_DataGridViewImageColumn";
-            POS_DataGridViewImageColumn.ReadOnly = true;
-            POS_DataGridViewImageColumn.Width = 120;
-            // 
-            // POS_DataGridViewProductNumberColumn
-            // 
-            POS_DataGridViewProductNumberColumn.HeaderText = "หมายเลขสินค้า";
-            POS_DataGridViewProductNumberColumn.Name = "POS_DataGridViewProductNumberColumn";
-            POS_DataGridViewProductNumberColumn.ReadOnly = true;
-            POS_DataGridViewProductNumberColumn.Width = 200;
-            // 
-            // POS_DataGridViewProductNameColumn
-            // 
-            POS_DataGridViewProductNameColumn.HeaderText = "ชื่อสินค้า";
-            POS_DataGridViewProductNameColumn.Name = "POS_DataGridViewProductNameColumn";
-            POS_DataGridViewProductNameColumn.ReadOnly = true;
-            POS_DataGridViewProductNameColumn.Width = 350;
-            // 
-            // POS_DataGridViewSellingPriceColumn
-            // 
-            POS_DataGridViewSellingPriceColumn.HeaderText = "ราคาขาย";
-            POS_DataGridViewSellingPriceColumn.Name = "POS_DataGridViewSellingPriceColumn";
-            POS_DataGridViewSellingPriceColumn.ReadOnly = true;
-            // 
-            // POS_DataGridViewQuantityColumn
-            // 
-            POS_DataGridViewQuantityColumn.HeaderText = "จำนวน";
-            POS_DataGridViewQuantityColumn.Name = "POS_DataGridViewQuantityColumn";
-            POS_DataGridViewQuantityColumn.ReadOnly = true;
-            // 
-            // POS_DataGridViewSubTotalColumn
-            // 
-            POS_DataGridViewSubTotalColumn.HeaderText = "ราคารวม";
-            POS_DataGridViewSubTotalColumn.Name = "POS_DataGridViewSubTotalColumn";
-            POS_DataGridViewSubTotalColumn.ReadOnly = true;
+            POS_PrintPreviewDialog.AutoScrollMargin = new Size(0, 0);
+            POS_PrintPreviewDialog.AutoScrollMinSize = new Size(0, 0);
+            POS_PrintPreviewDialog.ClientSize = new Size(400, 300);
+            POS_PrintPreviewDialog.Document = POS_PrintDocument;
+            POS_PrintPreviewDialog.Enabled = true;
+            POS_PrintPreviewDialog.Icon = (Icon)resources.GetObject("POS_PrintPreviewDialog.Icon");
+            POS_PrintPreviewDialog.Name = "POS_PrintPreviewDialog";
+            POS_PrintPreviewDialog.Visible = false;
             // 
             // PointOfSaleForm
             // 
@@ -796,5 +815,7 @@
         private DataGridViewTextBoxColumn POS_DataGridViewSellingPriceColumn;
         private DataGridViewTextBoxColumn POS_DataGridViewQuantityColumn;
         private DataGridViewTextBoxColumn POS_DataGridViewSubTotalColumn;
+        private System.Drawing.Printing.PrintDocument POS_PrintDocument;
+        private PrintPreviewDialog POS_PrintPreviewDialog;
     }
 }
