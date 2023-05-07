@@ -166,7 +166,6 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_Panel2.Name = "CQ_Panel2";
             CQ_Panel2.Size = new Size(1162, 1149);
             CQ_Panel2.TabIndex = 2;
-            CQ_Panel2.Paint += panel3_Paint_1;
             // 
             // CQ_CancelButton
             // 
