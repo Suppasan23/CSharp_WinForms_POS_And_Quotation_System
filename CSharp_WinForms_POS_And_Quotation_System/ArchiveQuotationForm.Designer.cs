@@ -38,6 +38,13 @@
             AQ_TableLayoutPanel1 = new TableLayoutPanel();
             AQ_TableLayoutPanel2 = new TableLayoutPanel();
             AQ_TemporaryDataGridView = new DataGridView();
+            AQ_TemporaryDataGridViewCheckBoxColumn = new DataGridViewCheckBoxColumn();
+            AQ_TemporaryDataGridViewIdColumn = new DataGridViewTextBoxColumn();
+            AQ_TemporaryDataGridViewQuotationNumberColumn = new DataGridViewTextBoxColumn();
+            AQ_TemporaryDataGridViewDueDateColumn = new DataGridViewTextBoxColumn();
+            AQ_TemporaryDataGridViewCustomerNameColumn = new DataGridViewTextBoxColumn();
+            AQ_TemporaryDataGridViewSellingPriceColumn = new DataGridViewTextBoxColumn();
+            AQ_TemporaryDataGridViewPDFColumn = new DataGridViewLinkColumn();
             AQ_TableLayoutPanel3 = new TableLayoutPanel();
             AQ_InsideArchiveButton = new Button();
             AQ_DeleteButton = new Button();
@@ -57,13 +64,6 @@
             AQ_OutsideArchiveButton = new Button();
             AQ_Panel1 = new Panel();
             AQ_HeadingLabel = new Label();
-            AQ_TemporaryDataGridViewCheckBoxColumn = new DataGridViewCheckBoxColumn();
-            AQ_TemporaryDataGridViewIdColumn = new DataGridViewTextBoxColumn();
-            AQ_TemporaryDataGridViewQuotationNumberColumn = new DataGridViewTextBoxColumn();
-            AQ_TemporaryDataGridViewDueDateColumn = new DataGridViewTextBoxColumn();
-            AQ_TemporaryDataGridViewCustomerNameColumn = new DataGridViewTextBoxColumn();
-            AQ_TemporaryDataGridViewSellingPriceColumn = new DataGridViewTextBoxColumn();
-            AQ_TemporaryDataGridViewPDFColumn = new DataGridViewLinkColumn();
             panel1.SuspendLayout();
             AQ_Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)AQ_SplitContainer).BeginInit();
@@ -88,7 +88,7 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1164, 1211);
+            panel1.Size = new Size(1164, 1131);
             panel1.TabIndex = 0;
             // 
             // AQ_Panel2
@@ -99,7 +99,7 @@
             AQ_Panel2.Location = new Point(0, 60);
             AQ_Panel2.Margin = new Padding(3, 2, 3, 2);
             AQ_Panel2.Name = "AQ_Panel2";
-            AQ_Panel2.Size = new Size(1162, 1149);
+            AQ_Panel2.Size = new Size(1162, 1069);
             AQ_Panel2.TabIndex = 2;
             // 
             // AQ_SplitContainer
@@ -123,8 +123,8 @@
             AQ_SplitContainer.Panel2.BackColor = Color.SkyBlue;
             AQ_SplitContainer.Panel2.Controls.Add(AQ_TableLayoutPanel4);
             AQ_SplitContainer.Panel2MinSize = 38;
-            AQ_SplitContainer.Size = new Size(1152, 1139);
-            AQ_SplitContainer.SplitterDistance = 200;
+            AQ_SplitContainer.Size = new Size(1152, 1059);
+            AQ_SplitContainer.SplitterDistance = 185;
             AQ_SplitContainer.SplitterIncrement = 2;
             AQ_SplitContainer.SplitterWidth = 6;
             AQ_SplitContainer.TabIndex = 4;
@@ -144,7 +144,7 @@
             AQ_TableLayoutPanel1.RowCount = 2;
             AQ_TableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
             AQ_TableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            AQ_TableLayoutPanel1.Size = new Size(1150, 198);
+            AQ_TableLayoutPanel1.Size = new Size(1150, 183);
             AQ_TableLayoutPanel1.TabIndex = 3;
             // 
             // AQ_TableLayoutPanel2
@@ -161,7 +161,7 @@
             AQ_TableLayoutPanel2.Name = "AQ_TableLayoutPanel2";
             AQ_TableLayoutPanel2.RowCount = 1;
             AQ_TableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            AQ_TableLayoutPanel2.Size = new Size(1148, 160);
+            AQ_TableLayoutPanel2.Size = new Size(1148, 145);
             AQ_TableLayoutPanel2.TabIndex = 0;
             // 
             // AQ_TemporaryDataGridView
@@ -189,11 +189,65 @@
             AQ_TemporaryDataGridView.Dock = DockStyle.Fill;
             AQ_TemporaryDataGridView.Location = new Point(0, 0);
             AQ_TemporaryDataGridView.Margin = new Padding(0);
+            AQ_TemporaryDataGridView.MultiSelect = false;
             AQ_TemporaryDataGridView.Name = "AQ_TemporaryDataGridView";
             AQ_TemporaryDataGridView.ReadOnly = true;
             AQ_TemporaryDataGridView.RowTemplate.Height = 25;
-            AQ_TemporaryDataGridView.Size = new Size(1056, 160);
+            AQ_TemporaryDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            AQ_TemporaryDataGridView.Size = new Size(1056, 145);
             AQ_TemporaryDataGridView.TabIndex = 6;
+            // 
+            // AQ_TemporaryDataGridViewCheckBoxColumn
+            // 
+            AQ_TemporaryDataGridViewCheckBoxColumn.HeaderText = "เลือก";
+            AQ_TemporaryDataGridViewCheckBoxColumn.Name = "AQ_TemporaryDataGridViewCheckBoxColumn";
+            AQ_TemporaryDataGridViewCheckBoxColumn.ReadOnly = true;
+            AQ_TemporaryDataGridViewCheckBoxColumn.Resizable = DataGridViewTriState.True;
+            AQ_TemporaryDataGridViewCheckBoxColumn.SortMode = DataGridViewColumnSortMode.Automatic;
+            AQ_TemporaryDataGridViewCheckBoxColumn.Width = 50;
+            // 
+            // AQ_TemporaryDataGridViewIdColumn
+            // 
+            AQ_TemporaryDataGridViewIdColumn.HeaderText = "ที่";
+            AQ_TemporaryDataGridViewIdColumn.Name = "AQ_TemporaryDataGridViewIdColumn";
+            AQ_TemporaryDataGridViewIdColumn.ReadOnly = true;
+            AQ_TemporaryDataGridViewIdColumn.Width = 30;
+            // 
+            // AQ_TemporaryDataGridViewQuotationNumberColumn
+            // 
+            AQ_TemporaryDataGridViewQuotationNumberColumn.HeaderText = "เลขที่ใบเสนอราคา";
+            AQ_TemporaryDataGridViewQuotationNumberColumn.Name = "AQ_TemporaryDataGridViewQuotationNumberColumn";
+            AQ_TemporaryDataGridViewQuotationNumberColumn.ReadOnly = true;
+            AQ_TemporaryDataGridViewQuotationNumberColumn.Width = 300;
+            // 
+            // AQ_TemporaryDataGridViewDueDateColumn
+            // 
+            AQ_TemporaryDataGridViewDueDateColumn.HeaderText = "เวลาคงเหลือ";
+            AQ_TemporaryDataGridViewDueDateColumn.Name = "AQ_TemporaryDataGridViewDueDateColumn";
+            AQ_TemporaryDataGridViewDueDateColumn.ReadOnly = true;
+            AQ_TemporaryDataGridViewDueDateColumn.Width = 120;
+            // 
+            // AQ_TemporaryDataGridViewCustomerNameColumn
+            // 
+            AQ_TemporaryDataGridViewCustomerNameColumn.HeaderText = "ชื่อลูกค้า";
+            AQ_TemporaryDataGridViewCustomerNameColumn.Name = "AQ_TemporaryDataGridViewCustomerNameColumn";
+            AQ_TemporaryDataGridViewCustomerNameColumn.ReadOnly = true;
+            AQ_TemporaryDataGridViewCustomerNameColumn.Width = 500;
+            // 
+            // AQ_TemporaryDataGridViewSellingPriceColumn
+            // 
+            AQ_TemporaryDataGridViewSellingPriceColumn.HeaderText = "ราคาขาย";
+            AQ_TemporaryDataGridViewSellingPriceColumn.Name = "AQ_TemporaryDataGridViewSellingPriceColumn";
+            AQ_TemporaryDataGridViewSellingPriceColumn.ReadOnly = true;
+            // 
+            // AQ_TemporaryDataGridViewPDFColumn
+            // 
+            AQ_TemporaryDataGridViewPDFColumn.HeaderText = "PDF";
+            AQ_TemporaryDataGridViewPDFColumn.Name = "AQ_TemporaryDataGridViewPDFColumn";
+            AQ_TemporaryDataGridViewPDFColumn.ReadOnly = true;
+            AQ_TemporaryDataGridViewPDFColumn.Resizable = DataGridViewTriState.True;
+            AQ_TemporaryDataGridViewPDFColumn.SortMode = DataGridViewColumnSortMode.Automatic;
+            AQ_TemporaryDataGridViewPDFColumn.Width = 80;
             // 
             // AQ_TableLayoutPanel3
             // 
@@ -211,7 +265,7 @@
             AQ_TableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
             AQ_TableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
             AQ_TableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            AQ_TableLayoutPanel3.Size = new Size(92, 160);
+            AQ_TableLayoutPanel3.Size = new Size(92, 145);
             AQ_TableLayoutPanel3.TabIndex = 7;
             // 
             // AQ_InsideArchiveButton
@@ -273,7 +327,7 @@
             AQ_TableLayoutPanel4.RowCount = 2;
             AQ_TableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
             AQ_TableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            AQ_TableLayoutPanel4.Size = new Size(1150, 931);
+            AQ_TableLayoutPanel4.Size = new Size(1150, 866);
             AQ_TableLayoutPanel4.TabIndex = 1;
             // 
             // AQ_PermanentDataGridView
@@ -302,10 +356,12 @@
             AQ_PermanentDataGridView.Dock = DockStyle.Fill;
             AQ_PermanentDataGridView.Location = new Point(1, 37);
             AQ_PermanentDataGridView.Margin = new Padding(0);
+            AQ_PermanentDataGridView.MultiSelect = false;
             AQ_PermanentDataGridView.Name = "AQ_PermanentDataGridView";
             AQ_PermanentDataGridView.ReadOnly = true;
             AQ_PermanentDataGridView.RowTemplate.Height = 25;
-            AQ_PermanentDataGridView.Size = new Size(1148, 893);
+            AQ_PermanentDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            AQ_PermanentDataGridView.Size = new Size(1148, 828);
             AQ_PermanentDataGridView.TabIndex = 0;
             // 
             // AQ_PermanentDataGridViewIdColumn
@@ -436,63 +492,11 @@
             AQ_HeadingLabel.TabIndex = 0;
             AQ_HeadingLabel.Text = "ที่เก็บใบเสนอราคา";
             // 
-            // AQ_TemporaryDataGridViewCheckBoxColumn
-            // 
-            AQ_TemporaryDataGridViewCheckBoxColumn.HeaderText = "เลือก";
-            AQ_TemporaryDataGridViewCheckBoxColumn.Name = "AQ_TemporaryDataGridViewCheckBoxColumn";
-            AQ_TemporaryDataGridViewCheckBoxColumn.ReadOnly = true;
-            AQ_TemporaryDataGridViewCheckBoxColumn.Resizable = DataGridViewTriState.True;
-            AQ_TemporaryDataGridViewCheckBoxColumn.SortMode = DataGridViewColumnSortMode.Automatic;
-            AQ_TemporaryDataGridViewCheckBoxColumn.Width = 50;
-            // 
-            // AQ_TemporaryDataGridViewIdColumn
-            // 
-            AQ_TemporaryDataGridViewIdColumn.HeaderText = "ที่";
-            AQ_TemporaryDataGridViewIdColumn.Name = "AQ_TemporaryDataGridViewIdColumn";
-            AQ_TemporaryDataGridViewIdColumn.ReadOnly = true;
-            AQ_TemporaryDataGridViewIdColumn.Width = 30;
-            // 
-            // AQ_TemporaryDataGridViewQuotationNumberColumn
-            // 
-            AQ_TemporaryDataGridViewQuotationNumberColumn.HeaderText = "เลขที่ใบเสนอราคา";
-            AQ_TemporaryDataGridViewQuotationNumberColumn.Name = "AQ_TemporaryDataGridViewQuotationNumberColumn";
-            AQ_TemporaryDataGridViewQuotationNumberColumn.ReadOnly = true;
-            AQ_TemporaryDataGridViewQuotationNumberColumn.Width = 300;
-            // 
-            // AQ_TemporaryDataGridViewDueDateColumn
-            // 
-            AQ_TemporaryDataGridViewDueDateColumn.HeaderText = "เวลาคงเหลือ";
-            AQ_TemporaryDataGridViewDueDateColumn.Name = "AQ_TemporaryDataGridViewDueDateColumn";
-            AQ_TemporaryDataGridViewDueDateColumn.ReadOnly = true;
-            AQ_TemporaryDataGridViewDueDateColumn.Width = 120;
-            // 
-            // AQ_TemporaryDataGridViewCustomerNameColumn
-            // 
-            AQ_TemporaryDataGridViewCustomerNameColumn.HeaderText = "ชื่อลูกค้า";
-            AQ_TemporaryDataGridViewCustomerNameColumn.Name = "AQ_TemporaryDataGridViewCustomerNameColumn";
-            AQ_TemporaryDataGridViewCustomerNameColumn.ReadOnly = true;
-            AQ_TemporaryDataGridViewCustomerNameColumn.Width = 500;
-            // 
-            // AQ_TemporaryDataGridViewSellingPriceColumn
-            // 
-            AQ_TemporaryDataGridViewSellingPriceColumn.HeaderText = "ราคาขาย";
-            AQ_TemporaryDataGridViewSellingPriceColumn.Name = "AQ_TemporaryDataGridViewSellingPriceColumn";
-            AQ_TemporaryDataGridViewSellingPriceColumn.ReadOnly = true;
-            // 
-            // AQ_TemporaryDataGridViewPDFColumn
-            // 
-            AQ_TemporaryDataGridViewPDFColumn.HeaderText = "PDF";
-            AQ_TemporaryDataGridViewPDFColumn.Name = "AQ_TemporaryDataGridViewPDFColumn";
-            AQ_TemporaryDataGridViewPDFColumn.ReadOnly = true;
-            AQ_TemporaryDataGridViewPDFColumn.Resizable = DataGridViewTriState.True;
-            AQ_TemporaryDataGridViewPDFColumn.SortMode = DataGridViewColumnSortMode.Automatic;
-            AQ_TemporaryDataGridViewPDFColumn.Width = 80;
-            // 
             // ArchiveQuotationForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1164, 1211);
+            ClientSize = new Size(1164, 1131);
             Controls.Add(panel1);
             Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(3, 4, 3, 4);

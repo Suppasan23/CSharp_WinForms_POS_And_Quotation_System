@@ -35,6 +35,15 @@
             PM_PanelBase = new Panel();
             PM_Panel2 = new Panel();
             PM_DataGridView = new DataGridView();
+            PM_DataGridViewIdColumn = new DataGridViewTextBoxColumn();
+            PM_DataGridViewImageColumn = new DataGridViewImageColumn();
+            PM_DataGridViewProductNumberColumn = new DataGridViewTextBoxColumn();
+            PM_DataGridViewProductNameColumn = new DataGridViewTextBoxColumn();
+            PM_DataGridViewCostPriceColumn = new DataGridViewTextBoxColumn();
+            PM_DataGridViewSellingPriceColumn = new DataGridViewTextBoxColumn();
+            PM_DataGridViewUnitInStockColumn = new DataGridViewTextBoxColumn();
+            PM_DataGridViewCountingUnitColumn = new DataGridViewTextBoxColumn();
+            PM_DataGridViewNoteColumn = new DataGridViewTextBoxColumn();
             PM_StatusStrip = new StatusStrip();
             PM_ToolStripStatusLabel1 = new ToolStripStatusLabel();
             PM_TableLayoutPanel1 = new TableLayoutPanel();
@@ -46,15 +55,6 @@
             PM_SearchTextBox = new TextBox();
             PM_RefreshButton = new Button();
             PM_SearchButton = new Button();
-            PM_DataGridViewIdColumn = new DataGridViewTextBoxColumn();
-            PM_DataGridViewImageColumn = new DataGridViewImageColumn();
-            PM_DataGridViewProductNumberColumn = new DataGridViewTextBoxColumn();
-            PM_DataGridViewProductNameColumn = new DataGridViewTextBoxColumn();
-            PM_DataGridViewCostPriceColumn = new DataGridViewTextBoxColumn();
-            PM_DataGridViewSellingPriceColumn = new DataGridViewTextBoxColumn();
-            PM_DataGridViewUnitInStockColumn = new DataGridViewTextBoxColumn();
-            PM_DataGridViewCountingUnitColumn = new DataGridViewTextBoxColumn();
-            PM_DataGridViewNoteColumn = new DataGridViewTextBoxColumn();
             PM_Panel1.SuspendLayout();
             PM_PanelBase.SuspendLayout();
             PM_Panel2.SuspendLayout();
@@ -97,7 +97,7 @@
             PM_PanelBase.Location = new Point(0, 0);
             PM_PanelBase.Margin = new Padding(3, 4, 3, 4);
             PM_PanelBase.Name = "PM_PanelBase";
-            PM_PanelBase.Size = new Size(1164, 1211);
+            PM_PanelBase.Size = new Size(1164, 1131);
             PM_PanelBase.TabIndex = 1;
             // 
             // PM_Panel2
@@ -109,7 +109,7 @@
             PM_Panel2.Location = new Point(0, 60);
             PM_Panel2.Margin = new Padding(3, 4, 3, 4);
             PM_Panel2.Name = "PM_Panel2";
-            PM_Panel2.Size = new Size(1162, 1149);
+            PM_Panel2.Size = new Size(1162, 1069);
             PM_Panel2.TabIndex = 1;
             // 
             // PM_DataGridView
@@ -136,17 +136,82 @@
             PM_DataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             PM_DataGridView.Dock = DockStyle.Fill;
             PM_DataGridView.Location = new Point(0, 30);
+            PM_DataGridView.MultiSelect = false;
             PM_DataGridView.Name = "PM_DataGridView";
             PM_DataGridView.ReadOnly = true;
             PM_DataGridView.RowTemplate.Height = 25;
-            PM_DataGridView.Size = new Size(1162, 1096);
+            PM_DataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            PM_DataGridView.Size = new Size(1162, 1016);
             PM_DataGridView.TabIndex = 4;
+            // 
+            // PM_DataGridViewIdColumn
+            // 
+            PM_DataGridViewIdColumn.HeaderText = "ที่";
+            PM_DataGridViewIdColumn.Name = "PM_DataGridViewIdColumn";
+            PM_DataGridViewIdColumn.ReadOnly = true;
+            PM_DataGridViewIdColumn.Width = 30;
+            // 
+            // PM_DataGridViewImageColumn
+            // 
+            PM_DataGridViewImageColumn.HeaderText = "รูป";
+            PM_DataGridViewImageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            PM_DataGridViewImageColumn.Name = "PM_DataGridViewImageColumn";
+            PM_DataGridViewImageColumn.ReadOnly = true;
+            PM_DataGridViewImageColumn.Width = 80;
+            // 
+            // PM_DataGridViewProductNumberColumn
+            // 
+            PM_DataGridViewProductNumberColumn.HeaderText = "หมายเลขสินค้า";
+            PM_DataGridViewProductNumberColumn.Name = "PM_DataGridViewProductNumberColumn";
+            PM_DataGridViewProductNumberColumn.ReadOnly = true;
+            PM_DataGridViewProductNumberColumn.Width = 200;
+            // 
+            // PM_DataGridViewProductNameColumn
+            // 
+            PM_DataGridViewProductNameColumn.HeaderText = "ชื่อสินค้า";
+            PM_DataGridViewProductNameColumn.Name = "PM_DataGridViewProductNameColumn";
+            PM_DataGridViewProductNameColumn.ReadOnly = true;
+            PM_DataGridViewProductNameColumn.Width = 300;
+            // 
+            // PM_DataGridViewCostPriceColumn
+            // 
+            PM_DataGridViewCostPriceColumn.HeaderText = "ราคาทุน";
+            PM_DataGridViewCostPriceColumn.Name = "PM_DataGridViewCostPriceColumn";
+            PM_DataGridViewCostPriceColumn.ReadOnly = true;
+            PM_DataGridViewCostPriceColumn.Width = 120;
+            // 
+            // PM_DataGridViewSellingPriceColumn
+            // 
+            PM_DataGridViewSellingPriceColumn.HeaderText = "ราคาขาย";
+            PM_DataGridViewSellingPriceColumn.Name = "PM_DataGridViewSellingPriceColumn";
+            PM_DataGridViewSellingPriceColumn.ReadOnly = true;
+            PM_DataGridViewSellingPriceColumn.Width = 120;
+            // 
+            // PM_DataGridViewUnitInStockColumn
+            // 
+            PM_DataGridViewUnitInStockColumn.HeaderText = "จำนวนคงเหลือ";
+            PM_DataGridViewUnitInStockColumn.Name = "PM_DataGridViewUnitInStockColumn";
+            PM_DataGridViewUnitInStockColumn.ReadOnly = true;
+            PM_DataGridViewUnitInStockColumn.Width = 140;
+            // 
+            // PM_DataGridViewCountingUnitColumn
+            // 
+            PM_DataGridViewCountingUnitColumn.HeaderText = "หน่วยนับ";
+            PM_DataGridViewCountingUnitColumn.Name = "PM_DataGridViewCountingUnitColumn";
+            PM_DataGridViewCountingUnitColumn.ReadOnly = true;
+            PM_DataGridViewCountingUnitColumn.Width = 120;
+            // 
+            // PM_DataGridViewNoteColumn
+            // 
+            PM_DataGridViewNoteColumn.HeaderText = "หมายเหตุ";
+            PM_DataGridViewNoteColumn.Name = "PM_DataGridViewNoteColumn";
+            PM_DataGridViewNoteColumn.ReadOnly = true;
             // 
             // PM_StatusStrip
             // 
             PM_StatusStrip.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             PM_StatusStrip.Items.AddRange(new ToolStripItem[] { PM_ToolStripStatusLabel1 });
-            PM_StatusStrip.Location = new Point(0, 1126);
+            PM_StatusStrip.Location = new Point(0, 1046);
             PM_StatusStrip.Name = "PM_StatusStrip";
             PM_StatusStrip.Size = new Size(1162, 23);
             PM_StatusStrip.TabIndex = 3;
@@ -291,74 +356,11 @@
             PM_SearchButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             PM_SearchButton.UseVisualStyleBackColor = false;
             // 
-            // PM_DataGridViewIdColumn
-            // 
-            PM_DataGridViewIdColumn.HeaderText = "ที่";
-            PM_DataGridViewIdColumn.Name = "PM_DataGridViewIdColumn";
-            PM_DataGridViewIdColumn.ReadOnly = true;
-            PM_DataGridViewIdColumn.Width = 30;
-            // 
-            // PM_DataGridViewImageColumn
-            // 
-            PM_DataGridViewImageColumn.HeaderText = "รูป";
-            PM_DataGridViewImageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            PM_DataGridViewImageColumn.Name = "PM_DataGridViewImageColumn";
-            PM_DataGridViewImageColumn.ReadOnly = true;
-            PM_DataGridViewImageColumn.Width = 80;
-            // 
-            // PM_DataGridViewProductNumberColumn
-            // 
-            PM_DataGridViewProductNumberColumn.HeaderText = "หมายเลขสินค้า";
-            PM_DataGridViewProductNumberColumn.Name = "PM_DataGridViewProductNumberColumn";
-            PM_DataGridViewProductNumberColumn.ReadOnly = true;
-            PM_DataGridViewProductNumberColumn.Width = 200;
-            // 
-            // PM_DataGridViewProductNameColumn
-            // 
-            PM_DataGridViewProductNameColumn.HeaderText = "ชื่อสินค้า";
-            PM_DataGridViewProductNameColumn.Name = "PM_DataGridViewProductNameColumn";
-            PM_DataGridViewProductNameColumn.ReadOnly = true;
-            PM_DataGridViewProductNameColumn.Width = 300;
-            // 
-            // PM_DataGridViewCostPriceColumn
-            // 
-            PM_DataGridViewCostPriceColumn.HeaderText = "ราคาทุน";
-            PM_DataGridViewCostPriceColumn.Name = "PM_DataGridViewCostPriceColumn";
-            PM_DataGridViewCostPriceColumn.ReadOnly = true;
-            PM_DataGridViewCostPriceColumn.Width = 120;
-            // 
-            // PM_DataGridViewSellingPriceColumn
-            // 
-            PM_DataGridViewSellingPriceColumn.HeaderText = "ราคาขาย";
-            PM_DataGridViewSellingPriceColumn.Name = "PM_DataGridViewSellingPriceColumn";
-            PM_DataGridViewSellingPriceColumn.ReadOnly = true;
-            PM_DataGridViewSellingPriceColumn.Width = 120;
-            // 
-            // PM_DataGridViewUnitInStockColumn
-            // 
-            PM_DataGridViewUnitInStockColumn.HeaderText = "จำนวนคงเหลือ";
-            PM_DataGridViewUnitInStockColumn.Name = "PM_DataGridViewUnitInStockColumn";
-            PM_DataGridViewUnitInStockColumn.ReadOnly = true;
-            PM_DataGridViewUnitInStockColumn.Width = 140;
-            // 
-            // PM_DataGridViewCountingUnitColumn
-            // 
-            PM_DataGridViewCountingUnitColumn.HeaderText = "หน่วยนับ";
-            PM_DataGridViewCountingUnitColumn.Name = "PM_DataGridViewCountingUnitColumn";
-            PM_DataGridViewCountingUnitColumn.ReadOnly = true;
-            PM_DataGridViewCountingUnitColumn.Width = 120;
-            // 
-            // PM_DataGridViewNoteColumn
-            // 
-            PM_DataGridViewNoteColumn.HeaderText = "หมายเหตุ";
-            PM_DataGridViewNoteColumn.Name = "PM_DataGridViewNoteColumn";
-            PM_DataGridViewNoteColumn.ReadOnly = true;
-            // 
             // ProductManagementForm
             // 
             AutoScaleDimensions = new SizeF(8F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1164, 1211);
+            ClientSize = new Size(1164, 1131);
             Controls.Add(PM_PanelBase);
             Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(3, 4, 3, 4);

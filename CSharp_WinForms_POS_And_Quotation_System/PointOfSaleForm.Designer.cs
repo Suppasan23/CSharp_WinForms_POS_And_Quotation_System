@@ -106,7 +106,7 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1164, 1211);
+            panel1.Size = new Size(1164, 1131);
             panel1.TabIndex = 0;
             // 
             // POS_Panel2
@@ -120,7 +120,7 @@
             POS_Panel2.Dock = DockStyle.Fill;
             POS_Panel2.Location = new Point(0, 60);
             POS_Panel2.Name = "POS_Panel2";
-            POS_Panel2.Size = new Size(1162, 1127);
+            POS_Panel2.Size = new Size(1162, 1047);
             POS_Panel2.TabIndex = 5;
             // 
             // POS_CalculatePriceGroupBox
@@ -138,7 +138,7 @@
             POS_CalculatePriceGroupBox.ForeColor = Color.LimeGreen;
             POS_CalculatePriceGroupBox.Location = new Point(1007, 45);
             POS_CalculatePriceGroupBox.Name = "POS_CalculatePriceGroupBox";
-            POS_CalculatePriceGroupBox.Size = new Size(150, 1079);
+            POS_CalculatePriceGroupBox.Size = new Size(150, 999);
             POS_CalculatePriceGroupBox.TabIndex = 20;
             POS_CalculatePriceGroupBox.TabStop = false;
             POS_CalculatePriceGroupBox.Text = "คำนวณราคา";
@@ -150,7 +150,7 @@
             POS_SaveButton.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             POS_SaveButton.ForeColor = Color.Black;
             POS_SaveButton.Image = Properties.Resources.save_24;
-            POS_SaveButton.Location = new Point(6, 1025);
+            POS_SaveButton.Location = new Point(6, 945);
             POS_SaveButton.Name = "POS_SaveButton";
             POS_SaveButton.Size = new Size(138, 48);
             POS_SaveButton.TabIndex = 20;
@@ -166,7 +166,7 @@
             SaveButton.BackColor = Color.LightGreen;
             SaveButton.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             SaveButton.ForeColor = Color.Black;
-            SaveButton.Location = new Point(-19, 1628);
+            SaveButton.Location = new Point(-19, 1548);
             SaveButton.Name = "SaveButton";
             SaveButton.Size = new Size(138, 55);
             SaveButton.TabIndex = 19;
@@ -245,7 +245,7 @@
             POS_ProductDetailGroupBox.ForeColor = Color.DodgerBlue;
             POS_ProductDetailGroupBox.Location = new Point(5, 121);
             POS_ProductDetailGroupBox.Name = "POS_ProductDetailGroupBox";
-            POS_ProductDetailGroupBox.Size = new Size(996, 1003);
+            POS_ProductDetailGroupBox.Size = new Size(996, 923);
             POS_ProductDetailGroupBox.TabIndex = 19;
             POS_ProductDetailGroupBox.TabStop = false;
             POS_ProductDetailGroupBox.Text = "รายละเอียดสินค้า:";
@@ -456,11 +456,13 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             POS_DataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             POS_DataGridView.Location = new Point(6, 100);
+            POS_DataGridView.MultiSelect = false;
             POS_DataGridView.Name = "POS_DataGridView";
             POS_DataGridView.ReadOnly = true;
             POS_DataGridView.RowHeadersWidth = 51;
             POS_DataGridView.RowTemplate.Height = 25;
-            POS_DataGridView.Size = new Size(984, 897);
+            POS_DataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            POS_DataGridView.Size = new Size(984, 817);
             POS_DataGridView.TabIndex = 10;
             // 
             // POS_DataGridViewIdColumn
@@ -681,7 +683,7 @@
             // 
             POS_StatusStrip.ImageScalingSize = new Size(20, 20);
             POS_StatusStrip.Items.AddRange(new ToolStripItem[] { POS_ToolStripStatusLabel });
-            POS_StatusStrip.Location = new Point(0, 1187);
+            POS_StatusStrip.Location = new Point(0, 1107);
             POS_StatusStrip.Name = "POS_StatusStrip";
             POS_StatusStrip.Size = new Size(1162, 22);
             POS_StatusStrip.TabIndex = 4;
@@ -734,7 +736,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1164, 1211);
+            ClientSize = new Size(1164, 1131);
             Controls.Add(panel1);
             Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(3, 4, 3, 4);
