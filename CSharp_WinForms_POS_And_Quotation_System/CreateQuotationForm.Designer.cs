@@ -86,21 +86,25 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_CustomerDetailsDeleteButton = new Button();
             CQ_CustomerDetailsAddButton = new Button();
             CQ_TableLayoutPanel2 = new TableLayoutPanel();
+            tableLayoutPanel5 = new TableLayoutPanel();
+            CQ_CustomerAddressTextBox = new TextBox();
             CQ_CustomerTelephoneNumberLabel = new Label();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            CQ_CustomerNameComboBox = new ComboBox();
             CQ_CustomerNameLabel = new Label();
             CQ_CustomerAddressLabel = new Label();
-            CQ_CustomerAddressTextBox = new TextBox();
             CQ_CustomerTaxIdNumberLabel = new Label();
             CQ_CustomerTaxIdNumberTextBox = new TextBox();
             CQ_CustomerTelephoneNumberTextBox = new TextBox();
-            CQ_CustomerNameComboBox = new ComboBox();
             CQ_CompanyDetailsGroupBox = new GroupBox();
             CQ_TableLayoutPanel1 = new TableLayoutPanel();
+            tableLayoutPanel6 = new TableLayoutPanel();
+            CQ_CompanyNameTextBox = new TextBox();
+            tableLayoutPanel7 = new TableLayoutPanel();
+            CQ_CompanyAddressTextBox = new TextBox();
             CQ_CompanyTelephoneNumberLabel = new Label();
             CQ_CompanyNameLabel = new Label();
-            CQ_CompanyNameTextBox = new TextBox();
             CQ_CompanyAddressLabel = new Label();
-            CQ_CompanyAddressTextBox = new TextBox();
             CQ_CompanyTaxIdNumberLabel = new Label();
             CQ_CompanyTaxIdNumberTextBox = new TextBox();
             CQ_CompanyTelephoneNumberTextBox = new TextBox();
@@ -115,6 +119,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             tableLayoutPanel2 = new TableLayoutPanel();
             textBox6 = new TextBox();
             label7 = new Label();
+            tableLayoutPanel4 = new TableLayoutPanel();
             panel1.SuspendLayout();
             CQ_Panel2.SuspendLayout();
             CQ_SignatureGroupBox.SuspendLayout();
@@ -133,8 +138,12 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_TableLayoutPanel7.SuspendLayout();
             CQ_CustomerDetailsGroupBox.SuspendLayout();
             CQ_TableLayoutPanel2.SuspendLayout();
+            tableLayoutPanel5.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
             CQ_CompanyDetailsGroupBox.SuspendLayout();
             CQ_TableLayoutPanel1.SuspendLayout();
+            tableLayoutPanel6.SuspendLayout();
+            tableLayoutPanel7.SuspendLayout();
             CQ_Panel1.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -153,7 +162,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // 
             // CQ_Panel2
             // 
-            CQ_Panel2.BackColor = Color.FromArgb(250, 253, 236);
+            CQ_Panel2.BackColor = SystemColors.Control;
             CQ_Panel2.Controls.Add(CQ_CancelButton);
             CQ_Panel2.Controls.Add(CQ_ConfirmButton);
             CQ_Panel2.Controls.Add(CQ_SignatureGroupBox);
@@ -590,10 +599,10 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // 
             CQ_QuotaionDateExpireDateTimePicker.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             CQ_QuotaionDateExpireDateTimePicker.CalendarForeColor = Color.Maroon;
-            CQ_QuotaionDateExpireDateTimePicker.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            CQ_QuotaionDateExpireDateTimePicker.Location = new Point(3, 35);
+            CQ_QuotaionDateExpireDateTimePicker.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            CQ_QuotaionDateExpireDateTimePicker.Location = new Point(3, 34);
             CQ_QuotaionDateExpireDateTimePicker.Name = "CQ_QuotaionDateExpireDateTimePicker";
-            CQ_QuotaionDateExpireDateTimePicker.Size = new Size(283, 24);
+            CQ_QuotaionDateExpireDateTimePicker.Size = new Size(283, 26);
             CQ_QuotaionDateExpireDateTimePicker.TabIndex = 6;
             // 
             // CQ_QuotaionDateExpireLabel
@@ -708,10 +717,10 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // 
             CQ_QuotaionDateIssueDateTimePicker.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             CQ_QuotaionDateIssueDateTimePicker.CalendarForeColor = Color.Maroon;
-            CQ_QuotaionDateIssueDateTimePicker.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            CQ_QuotaionDateIssueDateTimePicker.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             CQ_QuotaionDateIssueDateTimePicker.Location = new Point(3, 33);
             CQ_QuotaionDateIssueDateTimePicker.Name = "CQ_QuotaionDateIssueDateTimePicker";
-            CQ_QuotaionDateIssueDateTimePicker.Size = new Size(283, 24);
+            CQ_QuotaionDateIssueDateTimePicker.Size = new Size(283, 26);
             CQ_QuotaionDateIssueDateTimePicker.TabIndex = 6;
             // 
             // CQ_CustomerDetailsGroupBox
@@ -770,14 +779,14 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_TableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             CQ_TableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 150F));
             CQ_TableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            CQ_TableLayoutPanel2.Controls.Add(tableLayoutPanel5, 1, 1);
             CQ_TableLayoutPanel2.Controls.Add(CQ_CustomerTelephoneNumberLabel, 2, 2);
+            CQ_TableLayoutPanel2.Controls.Add(tableLayoutPanel1, 1, 0);
             CQ_TableLayoutPanel2.Controls.Add(CQ_CustomerNameLabel, 0, 0);
             CQ_TableLayoutPanel2.Controls.Add(CQ_CustomerAddressLabel, 0, 1);
-            CQ_TableLayoutPanel2.Controls.Add(CQ_CustomerAddressTextBox, 1, 1);
             CQ_TableLayoutPanel2.Controls.Add(CQ_CustomerTaxIdNumberLabel, 0, 2);
             CQ_TableLayoutPanel2.Controls.Add(CQ_CustomerTaxIdNumberTextBox, 1, 2);
             CQ_TableLayoutPanel2.Controls.Add(CQ_CustomerTelephoneNumberTextBox, 3, 2);
-            CQ_TableLayoutPanel2.Controls.Add(CQ_CustomerNameComboBox, 1, 0);
             CQ_TableLayoutPanel2.Location = new Point(6, 25);
             CQ_TableLayoutPanel2.Name = "CQ_TableLayoutPanel2";
             CQ_TableLayoutPanel2.RowCount = 3;
@@ -786,6 +795,32 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_TableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             CQ_TableLayoutPanel2.Size = new Size(820, 110);
             CQ_TableLayoutPanel2.TabIndex = 3;
+            // 
+            // tableLayoutPanel5
+            // 
+            tableLayoutPanel5.ColumnCount = 1;
+            CQ_TableLayoutPanel2.SetColumnSpan(tableLayoutPanel5, 3);
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel5.Controls.Add(CQ_CustomerAddressTextBox, 0, 0);
+            tableLayoutPanel5.Dock = DockStyle.Fill;
+            tableLayoutPanel5.Location = new Point(164, 37);
+            tableLayoutPanel5.Margin = new Padding(0);
+            tableLayoutPanel5.Name = "tableLayoutPanel5";
+            tableLayoutPanel5.RowCount = 1;
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel5.Size = new Size(654, 34);
+            tableLayoutPanel5.TabIndex = 18;
+            // 
+            // CQ_CustomerAddressTextBox
+            // 
+            CQ_CustomerAddressTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel5.SetColumnSpan(CQ_CustomerAddressTextBox, 3);
+            CQ_CustomerAddressTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            CQ_CustomerAddressTextBox.ForeColor = Color.Purple;
+            CQ_CustomerAddressTextBox.Location = new Point(3, 4);
+            CQ_CustomerAddressTextBox.Name = "CQ_CustomerAddressTextBox";
+            CQ_CustomerAddressTextBox.Size = new Size(648, 26);
+            CQ_CustomerAddressTextBox.TabIndex = 14;
             // 
             // CQ_CustomerTelephoneNumberLabel
             // 
@@ -799,6 +834,33 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_CustomerTelephoneNumberLabel.TabIndex = 7;
             CQ_CustomerTelephoneNumberLabel.Text = "เบอร์โทรศัพท์:";
             CQ_CustomerTelephoneNumberLabel.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 1;
+            CQ_TableLayoutPanel2.SetColumnSpan(tableLayoutPanel1, 3);
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(CQ_CustomerNameComboBox, 0, 0);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(164, 2);
+            tableLayoutPanel1.Margin = new Padding(0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Size = new Size(654, 33);
+            tableLayoutPanel1.TabIndex = 17;
+            // 
+            // CQ_CustomerNameComboBox
+            // 
+            tableLayoutPanel1.SetColumnSpan(CQ_CustomerNameComboBox, 3);
+            CQ_CustomerNameComboBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            CQ_CustomerNameComboBox.ForeColor = Color.Purple;
+            CQ_CustomerNameComboBox.FormattingEnabled = true;
+            CQ_CustomerNameComboBox.Items.AddRange(new object[] { "", "มทร.ศรีวิชัย", "ม.ทักษิณ", "ราชภัฎสงขลา" });
+            CQ_CustomerNameComboBox.Location = new Point(3, 3);
+            CQ_CustomerNameComboBox.Name = "CQ_CustomerNameComboBox";
+            CQ_CustomerNameComboBox.Size = new Size(648, 26);
+            CQ_CustomerNameComboBox.TabIndex = 16;
             // 
             // CQ_CustomerNameLabel
             // 
@@ -826,17 +888,6 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_CustomerAddressLabel.Text = "ที่อยู่:";
             CQ_CustomerAddressLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // CQ_CustomerAddressTextBox
-            // 
-            CQ_CustomerAddressTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            CQ_TableLayoutPanel2.SetColumnSpan(CQ_CustomerAddressTextBox, 3);
-            CQ_CustomerAddressTextBox.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            CQ_CustomerAddressTextBox.ForeColor = Color.Purple;
-            CQ_CustomerAddressTextBox.Location = new Point(167, 42);
-            CQ_CustomerAddressTextBox.Name = "CQ_CustomerAddressTextBox";
-            CQ_CustomerAddressTextBox.Size = new Size(648, 24);
-            CQ_CustomerAddressTextBox.TabIndex = 14;
-            // 
             // CQ_CustomerTaxIdNumberLabel
             // 
             CQ_CustomerTaxIdNumberLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
@@ -853,35 +904,22 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // CQ_CustomerTaxIdNumberTextBox
             // 
             CQ_CustomerTaxIdNumberTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            CQ_CustomerTaxIdNumberTextBox.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            CQ_CustomerTaxIdNumberTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             CQ_CustomerTaxIdNumberTextBox.ForeColor = Color.Purple;
-            CQ_CustomerTaxIdNumberTextBox.Location = new Point(167, 78);
+            CQ_CustomerTaxIdNumberTextBox.Location = new Point(167, 77);
             CQ_CustomerTaxIdNumberTextBox.Name = "CQ_CustomerTaxIdNumberTextBox";
-            CQ_CustomerTaxIdNumberTextBox.Size = new Size(244, 24);
+            CQ_CustomerTaxIdNumberTextBox.Size = new Size(244, 26);
             CQ_CustomerTaxIdNumberTextBox.TabIndex = 13;
             // 
             // CQ_CustomerTelephoneNumberTextBox
             // 
             CQ_CustomerTelephoneNumberTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            CQ_CustomerTelephoneNumberTextBox.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            CQ_CustomerTelephoneNumberTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             CQ_CustomerTelephoneNumberTextBox.ForeColor = Color.Purple;
-            CQ_CustomerTelephoneNumberTextBox.Location = new Point(571, 78);
+            CQ_CustomerTelephoneNumberTextBox.Location = new Point(571, 77);
             CQ_CustomerTelephoneNumberTextBox.Name = "CQ_CustomerTelephoneNumberTextBox";
-            CQ_CustomerTelephoneNumberTextBox.Size = new Size(244, 24);
+            CQ_CustomerTelephoneNumberTextBox.Size = new Size(244, 26);
             CQ_CustomerTelephoneNumberTextBox.TabIndex = 15;
-            // 
-            // CQ_CustomerNameComboBox
-            // 
-            CQ_TableLayoutPanel2.SetColumnSpan(CQ_CustomerNameComboBox, 3);
-            CQ_CustomerNameComboBox.Dock = DockStyle.Top;
-            CQ_CustomerNameComboBox.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            CQ_CustomerNameComboBox.ForeColor = Color.Purple;
-            CQ_CustomerNameComboBox.FormattingEnabled = true;
-            CQ_CustomerNameComboBox.Items.AddRange(new object[] { "", "มทร.ศรีวิชัย", "ม.ทักษิณ", "ราชภัฎสงขลา" });
-            CQ_CustomerNameComboBox.Location = new Point(167, 5);
-            CQ_CustomerNameComboBox.Name = "CQ_CustomerNameComboBox";
-            CQ_CustomerNameComboBox.Size = new Size(648, 26);
-            CQ_CustomerNameComboBox.TabIndex = 16;
             // 
             // CQ_CompanyDetailsGroupBox
             // 
@@ -906,11 +944,11 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_TableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             CQ_TableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 150F));
             CQ_TableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            CQ_TableLayoutPanel1.Controls.Add(tableLayoutPanel6, 1, 0);
+            CQ_TableLayoutPanel1.Controls.Add(tableLayoutPanel7, 1, 1);
             CQ_TableLayoutPanel1.Controls.Add(CQ_CompanyTelephoneNumberLabel, 2, 2);
             CQ_TableLayoutPanel1.Controls.Add(CQ_CompanyNameLabel, 0, 0);
-            CQ_TableLayoutPanel1.Controls.Add(CQ_CompanyNameTextBox, 1, 0);
             CQ_TableLayoutPanel1.Controls.Add(CQ_CompanyAddressLabel, 0, 1);
-            CQ_TableLayoutPanel1.Controls.Add(CQ_CompanyAddressTextBox, 1, 1);
             CQ_TableLayoutPanel1.Controls.Add(CQ_CompanyTaxIdNumberLabel, 0, 2);
             CQ_TableLayoutPanel1.Controls.Add(CQ_CompanyTaxIdNumberTextBox, 1, 2);
             CQ_TableLayoutPanel1.Controls.Add(CQ_CompanyTelephoneNumberTextBox, 3, 2);
@@ -922,6 +960,60 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_TableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             CQ_TableLayoutPanel1.Size = new Size(820, 108);
             CQ_TableLayoutPanel1.TabIndex = 3;
+            // 
+            // tableLayoutPanel6
+            // 
+            tableLayoutPanel6.ColumnCount = 1;
+            CQ_TableLayoutPanel1.SetColumnSpan(tableLayoutPanel6, 3);
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel6.Controls.Add(CQ_CompanyNameTextBox, 0, 0);
+            tableLayoutPanel6.Dock = DockStyle.Fill;
+            tableLayoutPanel6.Location = new Point(164, 2);
+            tableLayoutPanel6.Margin = new Padding(0);
+            tableLayoutPanel6.Name = "tableLayoutPanel6";
+            tableLayoutPanel6.RowCount = 1;
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel6.Size = new Size(654, 33);
+            tableLayoutPanel6.TabIndex = 15;
+            // 
+            // CQ_CompanyNameTextBox
+            // 
+            CQ_CompanyNameTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel6.SetColumnSpan(CQ_CompanyNameTextBox, 3);
+            CQ_CompanyNameTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            CQ_CompanyNameTextBox.ForeColor = Color.Blue;
+            CQ_CompanyNameTextBox.Location = new Point(3, 3);
+            CQ_CompanyNameTextBox.Name = "CQ_CompanyNameTextBox";
+            CQ_CompanyNameTextBox.Size = new Size(648, 26);
+            CQ_CompanyNameTextBox.TabIndex = 12;
+            // 
+            // tableLayoutPanel7
+            // 
+            tableLayoutPanel7.ColumnCount = 1;
+            CQ_TableLayoutPanel1.SetColumnSpan(tableLayoutPanel7, 3);
+            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel7.Controls.Add(CQ_CompanyAddressTextBox, 0, 0);
+            tableLayoutPanel7.Dock = DockStyle.Fill;
+            tableLayoutPanel7.Location = new Point(164, 37);
+            tableLayoutPanel7.Margin = new Padding(0);
+            tableLayoutPanel7.Name = "tableLayoutPanel7";
+            tableLayoutPanel7.RowCount = 1;
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel7.Size = new Size(654, 33);
+            tableLayoutPanel7.TabIndex = 16;
+            // 
+            // CQ_CompanyAddressTextBox
+            // 
+            CQ_CompanyAddressTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel7.SetColumnSpan(CQ_CompanyAddressTextBox, 3);
+            CQ_CompanyAddressTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            CQ_CompanyAddressTextBox.ForeColor = Color.Blue;
+            CQ_CompanyAddressTextBox.Location = new Point(3, 3);
+            CQ_CompanyAddressTextBox.Name = "CQ_CompanyAddressTextBox";
+            CQ_CompanyAddressTextBox.Size = new Size(648, 26);
+            CQ_CompanyAddressTextBox.TabIndex = 14;
             // 
             // CQ_CompanyTelephoneNumberLabel
             // 
@@ -949,17 +1041,6 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_CompanyNameLabel.Text = "ชื่อบริษัท:";
             CQ_CompanyNameLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // CQ_CompanyNameTextBox
-            // 
-            CQ_CompanyNameTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            CQ_TableLayoutPanel1.SetColumnSpan(CQ_CompanyNameTextBox, 3);
-            CQ_CompanyNameTextBox.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            CQ_CompanyNameTextBox.ForeColor = Color.Blue;
-            CQ_CompanyNameTextBox.Location = new Point(167, 6);
-            CQ_CompanyNameTextBox.Name = "CQ_CompanyNameTextBox";
-            CQ_CompanyNameTextBox.Size = new Size(648, 24);
-            CQ_CompanyNameTextBox.TabIndex = 12;
-            // 
             // CQ_CompanyAddressLabel
             // 
             CQ_CompanyAddressLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
@@ -972,17 +1053,6 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_CompanyAddressLabel.TabIndex = 6;
             CQ_CompanyAddressLabel.Text = "ที่อยู่:";
             CQ_CompanyAddressLabel.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // CQ_CompanyAddressTextBox
-            // 
-            CQ_CompanyAddressTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            CQ_TableLayoutPanel1.SetColumnSpan(CQ_CompanyAddressTextBox, 3);
-            CQ_CompanyAddressTextBox.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            CQ_CompanyAddressTextBox.ForeColor = Color.Blue;
-            CQ_CompanyAddressTextBox.Location = new Point(167, 41);
-            CQ_CompanyAddressTextBox.Name = "CQ_CompanyAddressTextBox";
-            CQ_CompanyAddressTextBox.Size = new Size(648, 24);
-            CQ_CompanyAddressTextBox.TabIndex = 14;
             // 
             // CQ_CompanyTaxIdNumberLabel
             // 
@@ -1000,21 +1070,21 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // CQ_CompanyTaxIdNumberTextBox
             // 
             CQ_CompanyTaxIdNumberTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            CQ_CompanyTaxIdNumberTextBox.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            CQ_CompanyTaxIdNumberTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             CQ_CompanyTaxIdNumberTextBox.ForeColor = Color.Blue;
-            CQ_CompanyTaxIdNumberTextBox.Location = new Point(167, 77);
+            CQ_CompanyTaxIdNumberTextBox.Location = new Point(167, 76);
             CQ_CompanyTaxIdNumberTextBox.Name = "CQ_CompanyTaxIdNumberTextBox";
-            CQ_CompanyTaxIdNumberTextBox.Size = new Size(244, 24);
+            CQ_CompanyTaxIdNumberTextBox.Size = new Size(244, 26);
             CQ_CompanyTaxIdNumberTextBox.TabIndex = 13;
             // 
             // CQ_CompanyTelephoneNumberTextBox
             // 
             CQ_CompanyTelephoneNumberTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            CQ_CompanyTelephoneNumberTextBox.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            CQ_CompanyTelephoneNumberTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             CQ_CompanyTelephoneNumberTextBox.ForeColor = Color.Blue;
-            CQ_CompanyTelephoneNumberTextBox.Location = new Point(571, 77);
+            CQ_CompanyTelephoneNumberTextBox.Location = new Point(571, 76);
             CQ_CompanyTelephoneNumberTextBox.Name = "CQ_CompanyTelephoneNumberTextBox";
-            CQ_CompanyTelephoneNumberTextBox.Size = new Size(244, 24);
+            CQ_CompanyTelephoneNumberTextBox.Size = new Size(244, 26);
             CQ_CompanyTelephoneNumberTextBox.TabIndex = 15;
             // 
             // CQ_CompanyDetailsEditButton
@@ -1035,7 +1105,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // 
             // CQ_Panel1
             // 
-            CQ_Panel1.BackColor = Color.FromArgb(192, 232, 74);
+            CQ_Panel1.BackColor = Color.FromArgb(135, 214, 135);
             CQ_Panel1.Controls.Add(CQ_HeadingLabel);
             CQ_Panel1.Dock = DockStyle.Top;
             CQ_Panel1.Location = new Point(0, 0);
@@ -1152,6 +1222,19 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             label7.Text = "ชื่อบริษัท:";
             label7.TextAlign = ContentAlignment.MiddleRight;
             // 
+            // tableLayoutPanel4
+            // 
+            tableLayoutPanel4.ColumnCount = 1;
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel4.Dock = DockStyle.Fill;
+            tableLayoutPanel4.Location = new Point(0, 0);
+            tableLayoutPanel4.Margin = new Padding(0);
+            tableLayoutPanel4.Name = "tableLayoutPanel4";
+            tableLayoutPanel4.RowCount = 1;
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel4.Size = new Size(200, 100);
+            tableLayoutPanel4.TabIndex = 0;
+            // 
             // CreateQuotationForm
             // 
             AutoScaleDimensions = new SizeF(8F, 18F);
@@ -1187,9 +1270,16 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_CustomerDetailsGroupBox.ResumeLayout(false);
             CQ_TableLayoutPanel2.ResumeLayout(false);
             CQ_TableLayoutPanel2.PerformLayout();
+            tableLayoutPanel5.ResumeLayout(false);
+            tableLayoutPanel5.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
             CQ_CompanyDetailsGroupBox.ResumeLayout(false);
             CQ_TableLayoutPanel1.ResumeLayout(false);
             CQ_TableLayoutPanel1.PerformLayout();
+            tableLayoutPanel6.ResumeLayout(false);
+            tableLayoutPanel6.PerformLayout();
+            tableLayoutPanel7.ResumeLayout(false);
+            tableLayoutPanel7.PerformLayout();
             CQ_Panel1.ResumeLayout(false);
             CQ_Panel1.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
@@ -1278,5 +1368,10 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         private DataGridViewTextBoxColumn CQ_DataGridViewUnitColumn;
         private DataGridViewTextBoxColumn CQ_DataGridViewPricePerUnitColumn;
         private DataGridViewTextBoxColumn CQ_DataGridViewAmountPriceColumn;
+        private TableLayoutPanel tableLayoutPanel5;
+        private TableLayoutPanel tableLayoutPanel1;
+        private TableLayoutPanel tableLayoutPanel4;
+        private TableLayoutPanel tableLayoutPanel6;
+        private TableLayoutPanel tableLayoutPanel7;
     }
 }

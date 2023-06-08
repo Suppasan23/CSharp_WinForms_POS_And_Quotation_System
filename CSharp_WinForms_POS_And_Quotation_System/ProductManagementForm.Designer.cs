@@ -135,13 +135,13 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             PM_DataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             PM_DataGridView.Dock = DockStyle.Fill;
-            PM_DataGridView.Location = new Point(0, 30);
+            PM_DataGridView.Location = new Point(0, 42);
             PM_DataGridView.MultiSelect = false;
             PM_DataGridView.Name = "PM_DataGridView";
             PM_DataGridView.ReadOnly = true;
             PM_DataGridView.RowTemplate.Height = 25;
             PM_DataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            PM_DataGridView.Size = new Size(1162, 1016);
+            PM_DataGridView.Size = new Size(1162, 1004);
             PM_DataGridView.TabIndex = 4;
             // 
             // PM_DataGridViewIdColumn
@@ -237,7 +237,7 @@
             PM_TableLayoutPanel1.Name = "PM_TableLayoutPanel1";
             PM_TableLayoutPanel1.RowCount = 1;
             PM_TableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            PM_TableLayoutPanel1.Size = new Size(1162, 30);
+            PM_TableLayoutPanel1.Size = new Size(1162, 42);
             PM_TableLayoutPanel1.TabIndex = 2;
             // 
             // PM_TableLayoutPanel3
@@ -255,18 +255,19 @@
             PM_TableLayoutPanel3.Name = "PM_TableLayoutPanel3";
             PM_TableLayoutPanel3.RowCount = 1;
             PM_TableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            PM_TableLayoutPanel3.Size = new Size(306, 28);
+            PM_TableLayoutPanel3.Size = new Size(306, 40);
             PM_TableLayoutPanel3.TabIndex = 0;
             // 
             // PM_DeleteButton
             // 
+            PM_DeleteButton.Anchor = AnchorStyles.Left;
             PM_DeleteButton.BackColor = Color.MistyRose;
             PM_DeleteButton.Image = Properties.Resources.delete_16;
             PM_DeleteButton.ImageAlign = ContentAlignment.MiddleRight;
-            PM_DeleteButton.Location = new Point(206, 0);
-            PM_DeleteButton.Margin = new Padding(2, 0, 0, 0);
+            PM_DeleteButton.Location = new Point(207, 2);
+            PM_DeleteButton.Margin = new Padding(3, 0, 0, 0);
             PM_DeleteButton.Name = "PM_DeleteButton";
-            PM_DeleteButton.Size = new Size(100, 28);
+            PM_DeleteButton.Size = new Size(99, 36);
             PM_DeleteButton.TabIndex = 1;
             PM_DeleteButton.Text = "ลบ";
             PM_DeleteButton.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -274,13 +275,14 @@
             // 
             // PM_AddButton
             // 
+            PM_AddButton.Anchor = AnchorStyles.Left;
             PM_AddButton.BackColor = Color.Honeydew;
             PM_AddButton.Image = Properties.Resources.plus_2_16;
             PM_AddButton.ImageAlign = ContentAlignment.MiddleRight;
-            PM_AddButton.Location = new Point(2, 0);
-            PM_AddButton.Margin = new Padding(2, 0, 0, 0);
+            PM_AddButton.Location = new Point(3, 2);
+            PM_AddButton.Margin = new Padding(3, 0, 0, 0);
             PM_AddButton.Name = "PM_AddButton";
-            PM_AddButton.Size = new Size(100, 28);
+            PM_AddButton.Size = new Size(96, 36);
             PM_AddButton.TabIndex = 1;
             PM_AddButton.Text = "เพิ่ม";
             PM_AddButton.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -288,13 +290,14 @@
             // 
             // PM_EditButton
             // 
+            PM_EditButton.Anchor = AnchorStyles.Left;
             PM_EditButton.BackColor = Color.Cornsilk;
             PM_EditButton.Image = Properties.Resources.edit_16;
             PM_EditButton.ImageAlign = ContentAlignment.MiddleRight;
-            PM_EditButton.Location = new Point(104, 0);
-            PM_EditButton.Margin = new Padding(2, 0, 0, 0);
+            PM_EditButton.Location = new Point(105, 2);
+            PM_EditButton.Margin = new Padding(3, 0, 0, 0);
             PM_EditButton.Name = "PM_EditButton";
-            PM_EditButton.Size = new Size(100, 28);
+            PM_EditButton.Size = new Size(99, 36);
             PM_EditButton.TabIndex = 1;
             PM_EditButton.Text = "แก้ไข";
             PM_EditButton.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -315,28 +318,29 @@
             PM_TableLayoutPanel2.Name = "PM_TableLayoutPanel2";
             PM_TableLayoutPanel2.RowCount = 1;
             PM_TableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            PM_TableLayoutPanel2.Size = new Size(853, 28);
+            PM_TableLayoutPanel2.Size = new Size(853, 40);
             PM_TableLayoutPanel2.TabIndex = 1;
             // 
             // PM_SearchTextBox
             // 
             PM_SearchTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            PM_SearchTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            PM_SearchTextBox.Location = new Point(2, 1);
-            PM_SearchTextBox.Margin = new Padding(2, 0, 2, 0);
+            PM_SearchTextBox.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_SearchTextBox.Location = new Point(3, 5);
+            PM_SearchTextBox.Margin = new Padding(3, 0, 3, 0);
             PM_SearchTextBox.Name = "PM_SearchTextBox";
-            PM_SearchTextBox.Size = new Size(645, 26);
+            PM_SearchTextBox.Size = new Size(643, 30);
             PM_SearchTextBox.TabIndex = 3;
             // 
             // PM_RefreshButton
             // 
+            PM_RefreshButton.Anchor = AnchorStyles.Left;
             PM_RefreshButton.BackColor = Color.Azure;
             PM_RefreshButton.Image = Properties.Resources.refresh_2_16;
             PM_RefreshButton.ImageAlign = ContentAlignment.MiddleRight;
-            PM_RefreshButton.Location = new Point(751, 0);
-            PM_RefreshButton.Margin = new Padding(0, 0, 2, 0);
+            PM_RefreshButton.Location = new Point(751, 2);
+            PM_RefreshButton.Margin = new Padding(0, 0, 3, 0);
             PM_RefreshButton.Name = "PM_RefreshButton";
-            PM_RefreshButton.Size = new Size(100, 28);
+            PM_RefreshButton.Size = new Size(99, 36);
             PM_RefreshButton.TabIndex = 1;
             PM_RefreshButton.Text = "รีเฟรช";
             PM_RefreshButton.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -344,13 +348,14 @@
             // 
             // PM_SearchButton
             // 
+            PM_SearchButton.Anchor = AnchorStyles.Left;
             PM_SearchButton.BackColor = Color.WhiteSmoke;
             PM_SearchButton.Image = Properties.Resources.search_3_16;
             PM_SearchButton.ImageAlign = ContentAlignment.MiddleRight;
-            PM_SearchButton.Location = new Point(649, 0);
-            PM_SearchButton.Margin = new Padding(0, 0, 2, 0);
+            PM_SearchButton.Location = new Point(649, 2);
+            PM_SearchButton.Margin = new Padding(0, 0, 3, 0);
             PM_SearchButton.Name = "PM_SearchButton";
-            PM_SearchButton.Size = new Size(100, 28);
+            PM_SearchButton.Size = new Size(99, 36);
             PM_SearchButton.TabIndex = 1;
             PM_SearchButton.Text = "ค้นหา";
             PM_SearchButton.TextImageRelation = TextImageRelation.ImageBeforeText;

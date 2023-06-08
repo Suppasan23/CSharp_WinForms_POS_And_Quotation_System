@@ -93,7 +93,7 @@
             // 
             // AQ_Panel2
             // 
-            AQ_Panel2.BackColor = Color.FromArgb(251, 240, 240);
+            AQ_Panel2.BackColor = SystemColors.Control;
             AQ_Panel2.Controls.Add(AQ_SplitContainer);
             AQ_Panel2.Dock = DockStyle.Fill;
             AQ_Panel2.Location = new Point(0, 60);
