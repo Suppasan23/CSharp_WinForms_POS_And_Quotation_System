@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PointOfSaleForm));
             panel1 = new Panel();
             POS_Panel2 = new Panel();
@@ -82,8 +82,8 @@
             POS_ToolStripStatusLabel = new ToolStripStatusLabel();
             POS_Panel1 = new Panel();
             POS_HeadingLabel = new Label();
-            POS_PrintDocument = new System.Drawing.Printing.PrintDocument();
             POS_PrintPreviewDialog = new PrintPreviewDialog();
+            POS_PrintDocument = new System.Drawing.Printing.PrintDocument();
             panel1.SuspendLayout();
             POS_Panel2.SuspendLayout();
             POS_CalculatePriceGroupBox.SuspendLayout();
@@ -477,24 +477,24 @@
             POS_DataGridView.AllowUserToAddRows = false;
             POS_DataGridView.AllowUserToDeleteRows = false;
             POS_DataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = SystemColors.Control;
-            dataGridViewCellStyle17.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle17.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = DataGridViewTriState.True;
-            POS_DataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            POS_DataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             POS_DataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             POS_DataGridView.Columns.AddRange(new DataGridViewColumn[] { POS_DataGridViewIdColumn, POS_DataGridViewImageColumn, POS_DataGridViewProductNumberColumn, POS_DataGridViewProductNameColumn, POS_DataGridViewSellingPriceColumn, POS_DataGridViewQuantityColumn, POS_DataGridViewSubTotalColumn });
-            dataGridViewCellStyle18.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = SystemColors.Window;
-            dataGridViewCellStyle18.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle18.ForeColor = Color.DodgerBlue;
-            dataGridViewCellStyle18.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = DataGridViewTriState.False;
-            POS_DataGridView.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.DodgerBlue;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            POS_DataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             POS_DataGridView.Location = new Point(6, 106);
             POS_DataGridView.MultiSelect = false;
             POS_DataGridView.Name = "POS_DataGridView";
@@ -770,10 +770,6 @@
             POS_HeadingLabel.TabIndex = 0;
             POS_HeadingLabel.Text = "ขายสินค้า";
             // 
-            // POS_PrintDocument
-            // 
-            POS_PrintDocument.PrintPage += POS_PrintDocument_PrintPage;
-            // 
             // POS_PrintPreviewDialog
             // 
             POS_PrintPreviewDialog.AutoScrollMargin = new Size(0, 0);
@@ -784,6 +780,10 @@
             POS_PrintPreviewDialog.Icon = (Icon)resources.GetObject("POS_PrintPreviewDialog.Icon");
             POS_PrintPreviewDialog.Name = "POS_PrintPreviewDialog";
             POS_PrintPreviewDialog.Visible = false;
+            // 
+            // POS_PrintDocument
+            // 
+            POS_PrintDocument.PrintPage += POS_PrintDocument_PrintPage;
             // 
             // PointOfSaleForm
             // 
@@ -871,10 +871,10 @@
         private DataGridViewTextBoxColumn POS_DataGridViewSellingPriceColumn;
         private DataGridViewTextBoxColumn POS_DataGridViewQuantityColumn;
         private DataGridViewTextBoxColumn POS_DataGridViewSubTotalColumn;
-        private System.Drawing.Printing.PrintDocument POS_PrintDocument;
-        private PrintPreviewDialog POS_PrintPreviewDialog;
         private Button POS_DeleteButton;
         private TableLayoutPanel tableLayoutPanel1;
         private TableLayoutPanel tableLayoutPanel2;
+        private PrintPreviewDialog POS_PrintPreviewDialog;
+        private System.Drawing.Printing.PrintDocument POS_PrintDocument;
     }
 }
