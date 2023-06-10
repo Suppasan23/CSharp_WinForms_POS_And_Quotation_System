@@ -30,8 +30,6 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            PM_Panel1 = new Panel();
-            PM_HeadingLabel = new Label();
             PM_PanelBase = new Panel();
             PM_Panel2 = new Panel();
             PM_DataGridView = new DataGridView();
@@ -55,7 +53,8 @@
             PM_SearchTextBox = new TextBox();
             PM_RefreshButton = new Button();
             PM_SearchButton = new Button();
-            PM_Panel1.SuspendLayout();
+            PM_Panel1 = new Panel();
+            PM_HeadingLabel = new Label();
             PM_PanelBase.SuspendLayout();
             PM_Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PM_DataGridView).BeginInit();
@@ -63,29 +62,8 @@
             PM_TableLayoutPanel1.SuspendLayout();
             PM_TableLayoutPanel3.SuspendLayout();
             PM_TableLayoutPanel2.SuspendLayout();
+            PM_Panel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // PM_Panel1
-            // 
-            PM_Panel1.BackColor = SystemColors.InactiveCaption;
-            PM_Panel1.Controls.Add(PM_HeadingLabel);
-            PM_Panel1.Dock = DockStyle.Top;
-            PM_Panel1.Location = new Point(0, 0);
-            PM_Panel1.Margin = new Padding(3, 4, 3, 4);
-            PM_Panel1.Name = "PM_Panel1";
-            PM_Panel1.Size = new Size(1162, 60);
-            PM_Panel1.TabIndex = 0;
-            // 
-            // PM_HeadingLabel
-            // 
-            PM_HeadingLabel.AutoSize = true;
-            PM_HeadingLabel.Font = new Font("Tahoma", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            PM_HeadingLabel.Location = new Point(9, 10);
-            PM_HeadingLabel.Margin = new Padding(0);
-            PM_HeadingLabel.Name = "PM_HeadingLabel";
-            PM_HeadingLabel.Size = new Size(179, 39);
-            PM_HeadingLabel.TabIndex = 1;
-            PM_HeadingLabel.Text = "จัดการสินค้า";
             // 
             // PM_PanelBase
             // 
@@ -116,6 +94,7 @@
             // 
             PM_DataGridView.AllowUserToAddRows = false;
             PM_DataGridView.AllowUserToDeleteRows = false;
+            PM_DataGridView.BorderStyle = BorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
             dataGridViewCellStyle1.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
@@ -361,6 +340,28 @@
             PM_SearchButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             PM_SearchButton.UseVisualStyleBackColor = false;
             // 
+            // PM_Panel1
+            // 
+            PM_Panel1.BackColor = SystemColors.InactiveCaption;
+            PM_Panel1.Controls.Add(PM_HeadingLabel);
+            PM_Panel1.Dock = DockStyle.Top;
+            PM_Panel1.Location = new Point(0, 0);
+            PM_Panel1.Margin = new Padding(3, 4, 3, 4);
+            PM_Panel1.Name = "PM_Panel1";
+            PM_Panel1.Size = new Size(1162, 60);
+            PM_Panel1.TabIndex = 0;
+            // 
+            // PM_HeadingLabel
+            // 
+            PM_HeadingLabel.AutoSize = true;
+            PM_HeadingLabel.Font = new Font("Tahoma", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_HeadingLabel.Location = new Point(9, 10);
+            PM_HeadingLabel.Margin = new Padding(0);
+            PM_HeadingLabel.Name = "PM_HeadingLabel";
+            PM_HeadingLabel.Size = new Size(179, 39);
+            PM_HeadingLabel.TabIndex = 1;
+            PM_HeadingLabel.Text = "จัดการสินค้า";
+            // 
             // ProductManagementForm
             // 
             AutoScaleDimensions = new SizeF(8F, 18F);
@@ -372,8 +373,6 @@
             Name = "ProductManagementForm";
             Text = "Product Management";
             Load += ProductManagementForm_Load;
-            PM_Panel1.ResumeLayout(false);
-            PM_Panel1.PerformLayout();
             PM_PanelBase.ResumeLayout(false);
             PM_Panel2.ResumeLayout(false);
             PM_Panel2.PerformLayout();
@@ -384,14 +383,13 @@
             PM_TableLayoutPanel3.ResumeLayout(false);
             PM_TableLayoutPanel2.ResumeLayout(false);
             PM_TableLayoutPanel2.PerformLayout();
+            PM_Panel1.ResumeLayout(false);
+            PM_Panel1.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Panel PM_Panel1;
         private Panel PM_PanelBase;
-        private Label PM_HeadingLabel;
         private Panel PM_Panel2;
         private Button PM_DeleteButton;
         private Button PM_EditButton;
@@ -414,5 +412,7 @@
         private DataGridViewTextBoxColumn PM_DataGridViewUnitInStockColumn;
         private DataGridViewTextBoxColumn PM_DataGridViewCountingUnitColumn;
         private DataGridViewTextBoxColumn PM_DataGridViewNoteColumn;
+        private Panel PM_Panel1;
+        private Label PM_HeadingLabel;
     }
 }

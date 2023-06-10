@@ -31,7 +31,9 @@
             M_MenuStrip = new MenuStrip();
             M_FileToolStripMenuItem = new ToolStripMenuItem();
             M_ExitToolStripMenuItem = new ToolStripMenuItem();
+            M_CategoryToolStripMenuItem = new ToolStripMenuItem();
             M_HelpToolStripMenuItem = new ToolStripMenuItem();
+            M_ManualToolStripMenuItem = new ToolStripMenuItem();
             M_StatusStrip = new StatusStrip();
             M_ToolStripStatusLabel = new ToolStripStatusLabel();
             toolStrip1 = new ToolStrip();
@@ -45,7 +47,6 @@
             toolStripSeparator4 = new ToolStripSeparator();
             M_ExitToolStripButton = new ToolStripButton();
             toolStripSeparator5 = new ToolStripSeparator();
-            M_ManualToolStripMenuItem = new ToolStripMenuItem();
             M_MenuStrip.SuspendLayout();
             M_StatusStrip.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -63,7 +64,7 @@
             // 
             // M_FileToolStripMenuItem
             // 
-            M_FileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { M_ExitToolStripMenuItem });
+            M_FileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { M_ExitToolStripMenuItem, M_CategoryToolStripMenuItem });
             M_FileToolStripMenuItem.Name = "M_FileToolStripMenuItem";
             M_FileToolStripMenuItem.Size = new Size(37, 20);
             M_FileToolStripMenuItem.Text = "File";
@@ -75,12 +76,25 @@
             M_ExitToolStripMenuItem.Text = "Exit";
             M_ExitToolStripMenuItem.Click += M_ExitToolStripMenuItem_Click;
             // 
+            // M_CategoryToolStripMenuItem
+            // 
+            M_CategoryToolStripMenuItem.Name = "M_CategoryToolStripMenuItem";
+            M_CategoryToolStripMenuItem.Size = new Size(180, 22);
+            M_CategoryToolStripMenuItem.Text = "จัดการประเภทสินค้า";
+            M_CategoryToolStripMenuItem.Click += M_CategoryToolStripMenuItem_Click;
+            // 
             // M_HelpToolStripMenuItem
             // 
             M_HelpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { M_ManualToolStripMenuItem });
             M_HelpToolStripMenuItem.Name = "M_HelpToolStripMenuItem";
             M_HelpToolStripMenuItem.Size = new Size(44, 20);
             M_HelpToolStripMenuItem.Text = "Help";
+            // 
+            // M_ManualToolStripMenuItem
+            // 
+            M_ManualToolStripMenuItem.Name = "M_ManualToolStripMenuItem";
+            M_ManualToolStripMenuItem.Size = new Size(138, 22);
+            M_ManualToolStripMenuItem.Text = "คู่มือการใช้งาน";
             // 
             // M_StatusStrip
             // 
@@ -198,12 +212,6 @@
             toolStripSeparator5.Name = "toolStripSeparator5";
             toolStripSeparator5.Size = new Size(134, 6);
             // 
-            // M_ManualToolStripMenuItem
-            // 
-            M_ManualToolStripMenuItem.Name = "M_ManualToolStripMenuItem";
-            M_ManualToolStripMenuItem.Size = new Size(180, 22);
-            M_ManualToolStripMenuItem.Text = "คู่มือการใช้งาน";
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 18F);
@@ -251,5 +259,6 @@
         private ToolStripSeparator toolStripSeparator5;
         private ToolStripStatusLabel M_ToolStripStatusLabel;
         private ToolStripMenuItem M_ManualToolStripMenuItem;
+        private ToolStripMenuItem M_CategoryToolStripMenuItem;
     }
 }
