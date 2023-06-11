@@ -32,6 +32,7 @@
             M_FileToolStripMenuItem = new ToolStripMenuItem();
             M_ExitToolStripMenuItem = new ToolStripMenuItem();
             M_CategoryToolStripMenuItem = new ToolStripMenuItem();
+            M_CRUDToolStripMenuItem = new ToolStripMenuItem();
             M_HelpToolStripMenuItem = new ToolStripMenuItem();
             M_ManualToolStripMenuItem = new ToolStripMenuItem();
             M_StatusStrip = new StatusStrip();
@@ -64,7 +65,7 @@
             // 
             // M_FileToolStripMenuItem
             // 
-            M_FileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { M_ExitToolStripMenuItem, M_CategoryToolStripMenuItem });
+            M_FileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { M_ExitToolStripMenuItem, M_CategoryToolStripMenuItem, M_CRUDToolStripMenuItem });
             M_FileToolStripMenuItem.Name = "M_FileToolStripMenuItem";
             M_FileToolStripMenuItem.Size = new Size(37, 20);
             M_FileToolStripMenuItem.Text = "File";
@@ -83,6 +84,13 @@
             M_CategoryToolStripMenuItem.Text = "จัดการประเภทสินค้า";
             M_CategoryToolStripMenuItem.Click += M_CategoryToolStripMenuItem_Click;
             // 
+            // M_CRUDToolStripMenuItem
+            // 
+            M_CRUDToolStripMenuItem.Name = "M_CRUDToolStripMenuItem";
+            M_CRUDToolStripMenuItem.Size = new Size(180, 22);
+            M_CRUDToolStripMenuItem.Text = "เพิ่ม แก้ไข ลบ สินค้า";
+            M_CRUDToolStripMenuItem.Click += M_CRUDToolStripMenuItem_Click;
+            // 
             // M_HelpToolStripMenuItem
             // 
             M_HelpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { M_ManualToolStripMenuItem });
@@ -99,7 +107,7 @@
             // M_StatusStrip
             // 
             M_StatusStrip.Items.AddRange(new ToolStripItem[] { M_ToolStripStatusLabel });
-            M_StatusStrip.Location = new Point(0, 1139);
+            M_StatusStrip.Location = new Point(0, 1109);
             M_StatusStrip.Name = "M_StatusStrip";
             M_StatusStrip.Padding = new Padding(1, 0, 16, 0);
             M_StatusStrip.Size = new Size(1784, 22);
@@ -118,7 +126,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { M_ProductManagementToolStripButton, toolStripSeparator1, M_PointOfSaleToolStripButton, toolStripSeparator2, M_CreateQuotationToolStripButton, toolStripSeparator3, M_ArchiveQuotationToolStripButton, toolStripSeparator4, M_ExitToolStripButton, toolStripSeparator5 });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(137, 1115);
+            toolStrip1.Size = new Size(137, 1085);
             toolStrip1.TabIndex = 3;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -217,7 +225,7 @@
             AutoScaleDimensions = new SizeF(8F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(1784, 1161);
+            ClientSize = new Size(1784, 1131);
             Controls.Add(toolStrip1);
             Controls.Add(M_StatusStrip);
             Controls.Add(M_MenuStrip);
@@ -260,5 +268,6 @@
         private ToolStripStatusLabel M_ToolStripStatusLabel;
         private ToolStripMenuItem M_ManualToolStripMenuItem;
         private ToolStripMenuItem M_CategoryToolStripMenuItem;
+        private ToolStripMenuItem M_CRUDToolStripMenuItem;
     }
 }

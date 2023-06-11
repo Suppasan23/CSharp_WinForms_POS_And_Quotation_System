@@ -95,6 +95,15 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             openChildForms(childForm);
         }
 
+        private void M_CRUDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProductManagementForm_CRUD childForm = new ProductManagementForm_CRUD();
+            childForm.StartPosition = FormStartPosition.Manual;
+            childForm.Top = 0;
+            childForm.Left = 1000;
+            openChildForms(childForm);
+        }
+
         private void M_ExitToolStripButton_Click(object sender, EventArgs e)
         {
             Application.Exit();

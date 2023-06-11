@@ -28,308 +28,510 @@
         /// </summary>
         private void InitializeComponent()
         {
-            PM_CRUD_Panel1 = new Panel();
-            tableLayoutPanel1 = new TableLayoutPanel();
+            tableLayoutPanel5 = new TableLayoutPanel();
             PM_CRUD_HeadingLabel = new Label();
-            PM_CRUD_ProductIdLabel = new Label();
             PM_CRUD_ProductBarcodeLabel = new Label();
             PM_CRUD_ProductNameLabel = new Label();
-            PM_CRUD_ProductCostPriceLabel = new Label();
-            PM_CRUD_ProductTextBox = new TextBox();
             PM_CRUD_ProductBarcodeTextBox = new TextBox();
-            PM_CRUD_ProductNameTextBox = new TextBox();
-            PM_CRUD_ProductCostPriceTextBox = new TextBox();
-            PM_CRUD_ProductSellingPriceLabel = new Label();
-            PM_CRUD_ProductUnitNameLabel = new Label();
-            PM_CRUD_ProductCategoryLabel = new Label();
-            PM_CRUD_ProductQuantityLabel = new Label();
-            PM_CRUD_ProductSellingPriceTextBox = new TextBox();
             PM_CRUD_ProductUnitNameTextBox = new TextBox();
-            PM_CRUD_ProductCategoryTextBox = new TextBox();
-            PM_CRUD_ProductQuantityTextBox = new TextBox();
-            panel2 = new Panel();
-            tableLayoutPanel2 = new TableLayoutPanel();
-            PM_CRUD_PictureBox1 = new PictureBox();
-            PM_CRUD_GroupBox1 = new GroupBox();
-            PM_CRUD_Panel1.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
-            panel2.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)PM_CRUD_PictureBox1).BeginInit();
-            PM_CRUD_GroupBox1.SuspendLayout();
+            PM_CRUD_ProductNameTextBox = new TextBox();
+            PM_CRUD_ProductCostPriceNumericUpDown = new NumericUpDown();
+            PM_CRUD_ProductQuantityLabel = new Label();
+            PM_CRUD_ProductQuantityNumericUpDown = new NumericUpDown();
+            PM_CRUD_ProductCostPriceLabel = new Label();
+            PM_CRUD_ProductCategoryLabel = new Label();
+            PM_CRUD_ProductSellingPriceLabel = new Label();
+            PM_CRUD_ProductPictureLabel = new Label();
+            PM_CRUD_ProductUnitNameLabel = new Label();
+            tableLayoutPanel4 = new TableLayoutPanel();
+            PM_CRUD_ProductCategoryComboBox = new ComboBox();
+            PM_CRUD_EditCategoryLinkLabel = new LinkLabel();
+            PM_CRUD_ProductSellingPriceNumericUpDown = new NumericUpDown();
+            flowLayoutPanel2 = new FlowLayoutPanel();
+            PM_CRUD_CancelButton = new Button();
+            PM_CRUD_SaveButton = new Button();
+            PM_CRUD_ProductIdNumericUpDown = new NumericUpDown();
+            PM_CRUD_ProductIdLabel = new Label();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            PM_CRUD_PictureBox = new PictureBox();
+            tableLayoutPanel3 = new TableLayoutPanel();
+            label1 = new Label();
+            linkLabel2 = new LinkLabel();
+            linkLabel1 = new LinkLabel();
+            tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PM_CRUD_ProductCostPriceNumericUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PM_CRUD_ProductQuantityNumericUpDown).BeginInit();
+            tableLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PM_CRUD_ProductSellingPriceNumericUpDown).BeginInit();
+            flowLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PM_CRUD_ProductIdNumericUpDown).BeginInit();
+            flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PM_CRUD_PictureBox).BeginInit();
+            tableLayoutPanel3.SuspendLayout();
             SuspendLayout();
             // 
-            // PM_CRUD_Panel1
+            // tableLayoutPanel5
             // 
-            PM_CRUD_Panel1.BorderStyle = BorderStyle.FixedSingle;
-            PM_CRUD_Panel1.Controls.Add(tableLayoutPanel1);
-            PM_CRUD_Panel1.Dock = DockStyle.Fill;
-            PM_CRUD_Panel1.Location = new Point(0, 0);
-            PM_CRUD_Panel1.Name = "PM_CRUD_Panel1";
-            PM_CRUD_Panel1.Size = new Size(808, 759);
-            PM_CRUD_Panel1.TabIndex = 0;
-            PM_CRUD_Panel1.Paint += panel1_Paint;
-            // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
-            tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(PM_CRUD_HeadingLabel, 0, 0);
-            tableLayoutPanel1.Controls.Add(panel2, 0, 1);
-            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 2);
-            tableLayoutPanel1.Location = new Point(395, 11);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 3;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(385, 722);
-            tableLayoutPanel1.TabIndex = 0;
+            tableLayoutPanel5.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
+            tableLayoutPanel5.ColumnCount = 2;
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel5.Controls.Add(PM_CRUD_HeadingLabel, 0, 0);
+            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductBarcodeLabel, 0, 1);
+            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductNameLabel, 0, 2);
+            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductBarcodeTextBox, 1, 1);
+            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductUnitNameTextBox, 1, 6);
+            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductNameTextBox, 1, 2);
+            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductCostPriceNumericUpDown, 1, 4);
+            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductQuantityLabel, 0, 3);
+            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductQuantityNumericUpDown, 1, 3);
+            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductCostPriceLabel, 0, 4);
+            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductCategoryLabel, 0, 7);
+            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductSellingPriceLabel, 0, 5);
+            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductPictureLabel, 0, 8);
+            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductUnitNameLabel, 0, 6);
+            tableLayoutPanel5.Controls.Add(tableLayoutPanel4, 1, 7);
+            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductSellingPriceNumericUpDown, 1, 5);
+            tableLayoutPanel5.Controls.Add(flowLayoutPanel2, 0, 9);
+            tableLayoutPanel5.Controls.Add(flowLayoutPanel1, 1, 8);
+            tableLayoutPanel5.Dock = DockStyle.Fill;
+            tableLayoutPanel5.Location = new Point(0, 0);
+            tableLayoutPanel5.Margin = new Padding(0);
+            tableLayoutPanel5.Name = "tableLayoutPanel5";
+            tableLayoutPanel5.RowCount = 10;
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
+            tableLayoutPanel5.Size = new Size(634, 511);
+            tableLayoutPanel5.TabIndex = 0;
             // 
             // PM_CRUD_HeadingLabel
             // 
             PM_CRUD_HeadingLabel.AutoSize = true;
             PM_CRUD_HeadingLabel.BackColor = SystemColors.InactiveCaption;
+            tableLayoutPanel5.SetColumnSpan(PM_CRUD_HeadingLabel, 2);
             PM_CRUD_HeadingLabel.Dock = DockStyle.Fill;
             PM_CRUD_HeadingLabel.Font = new Font("Tahoma", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             PM_CRUD_HeadingLabel.Location = new Point(1, 1);
             PM_CRUD_HeadingLabel.Margin = new Padding(0);
             PM_CRUD_HeadingLabel.Name = "PM_CRUD_HeadingLabel";
-            PM_CRUD_HeadingLabel.Size = new Size(383, 40);
+            PM_CRUD_HeadingLabel.Size = new Size(632, 50);
             PM_CRUD_HeadingLabel.TabIndex = 1;
-            PM_CRUD_HeadingLabel.Text = "...สินค้า";
+            PM_CRUD_HeadingLabel.Text = "...";
             PM_CRUD_HeadingLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // PM_CRUD_ProductIdLabel
-            // 
-            PM_CRUD_ProductIdLabel.AutoSize = true;
-            PM_CRUD_ProductIdLabel.Location = new Point(70, 53);
-            PM_CRUD_ProductIdLabel.Name = "PM_CRUD_ProductIdLabel";
-            PM_CRUD_ProductIdLabel.Size = new Size(18, 15);
-            PM_CRUD_ProductIdLabel.TabIndex = 1;
-            PM_CRUD_ProductIdLabel.Text = "ID";
             // 
             // PM_CRUD_ProductBarcodeLabel
             // 
             PM_CRUD_ProductBarcodeLabel.AutoSize = true;
-            PM_CRUD_ProductBarcodeLabel.Location = new Point(49, 82);
+            PM_CRUD_ProductBarcodeLabel.Dock = DockStyle.Fill;
+            PM_CRUD_ProductBarcodeLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_CRUD_ProductBarcodeLabel.Location = new Point(4, 55);
+            PM_CRUD_ProductBarcodeLabel.Margin = new Padding(3);
             PM_CRUD_ProductBarcodeLabel.Name = "PM_CRUD_ProductBarcodeLabel";
-            PM_CRUD_ProductBarcodeLabel.Size = new Size(73, 15);
+            PM_CRUD_ProductBarcodeLabel.Size = new Size(114, 22);
             PM_CRUD_ProductBarcodeLabel.TabIndex = 1;
-            PM_CRUD_ProductBarcodeLabel.Text = "หมายเลขสินค้า";
+            PM_CRUD_ProductBarcodeLabel.Text = "หมายเลขสินค้า:";
+            PM_CRUD_ProductBarcodeLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
             // PM_CRUD_ProductNameLabel
             // 
             PM_CRUD_ProductNameLabel.AutoSize = true;
-            PM_CRUD_ProductNameLabel.Location = new Point(70, 111);
+            PM_CRUD_ProductNameLabel.Dock = DockStyle.Fill;
+            PM_CRUD_ProductNameLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_CRUD_ProductNameLabel.Location = new Point(4, 84);
+            PM_CRUD_ProductNameLabel.Margin = new Padding(3);
             PM_CRUD_ProductNameLabel.Name = "PM_CRUD_ProductNameLabel";
-            PM_CRUD_ProductNameLabel.Size = new Size(45, 15);
+            PM_CRUD_ProductNameLabel.Size = new Size(114, 22);
             PM_CRUD_ProductNameLabel.TabIndex = 1;
-            PM_CRUD_ProductNameLabel.Text = "ชื่อสินค้า";
-            // 
-            // PM_CRUD_ProductCostPriceLabel
-            // 
-            PM_CRUD_ProductCostPriceLabel.AutoSize = true;
-            PM_CRUD_ProductCostPriceLabel.Location = new Point(70, 169);
-            PM_CRUD_ProductCostPriceLabel.Name = "PM_CRUD_ProductCostPriceLabel";
-            PM_CRUD_ProductCostPriceLabel.Size = new Size(43, 15);
-            PM_CRUD_ProductCostPriceLabel.TabIndex = 1;
-            PM_CRUD_ProductCostPriceLabel.Text = "ราคาทุน";
-            // 
-            // PM_CRUD_ProductTextBox
-            // 
-            PM_CRUD_ProductTextBox.Location = new Point(178, 45);
-            PM_CRUD_ProductTextBox.Name = "PM_CRUD_ProductTextBox";
-            PM_CRUD_ProductTextBox.Size = new Size(183, 23);
-            PM_CRUD_ProductTextBox.TabIndex = 2;
+            PM_CRUD_ProductNameLabel.Text = "ชื่อสินค้า:";
+            PM_CRUD_ProductNameLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
             // PM_CRUD_ProductBarcodeTextBox
             // 
-            PM_CRUD_ProductBarcodeTextBox.Location = new Point(178, 74);
+            PM_CRUD_ProductBarcodeTextBox.Dock = DockStyle.Fill;
+            PM_CRUD_ProductBarcodeTextBox.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_CRUD_ProductBarcodeTextBox.Location = new Point(125, 55);
             PM_CRUD_ProductBarcodeTextBox.Name = "PM_CRUD_ProductBarcodeTextBox";
-            PM_CRUD_ProductBarcodeTextBox.Size = new Size(183, 23);
+            PM_CRUD_ProductBarcodeTextBox.Size = new Size(505, 23);
             PM_CRUD_ProductBarcodeTextBox.TabIndex = 2;
+            // 
+            // PM_CRUD_ProductUnitNameTextBox
+            // 
+            PM_CRUD_ProductUnitNameTextBox.Dock = DockStyle.Fill;
+            PM_CRUD_ProductUnitNameTextBox.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_CRUD_ProductUnitNameTextBox.Location = new Point(125, 200);
+            PM_CRUD_ProductUnitNameTextBox.Name = "PM_CRUD_ProductUnitNameTextBox";
+            PM_CRUD_ProductUnitNameTextBox.Size = new Size(505, 23);
+            PM_CRUD_ProductUnitNameTextBox.TabIndex = 2;
             // 
             // PM_CRUD_ProductNameTextBox
             // 
-            PM_CRUD_ProductNameTextBox.Location = new Point(178, 103);
+            PM_CRUD_ProductNameTextBox.Dock = DockStyle.Fill;
+            PM_CRUD_ProductNameTextBox.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_CRUD_ProductNameTextBox.Location = new Point(125, 84);
             PM_CRUD_ProductNameTextBox.Name = "PM_CRUD_ProductNameTextBox";
-            PM_CRUD_ProductNameTextBox.Size = new Size(183, 23);
+            PM_CRUD_ProductNameTextBox.Size = new Size(505, 23);
             PM_CRUD_ProductNameTextBox.TabIndex = 2;
             // 
-            // PM_CRUD_ProductCostPriceTextBox
+            // PM_CRUD_ProductCostPriceNumericUpDown
             // 
-            PM_CRUD_ProductCostPriceTextBox.Location = new Point(178, 161);
-            PM_CRUD_ProductCostPriceTextBox.Name = "PM_CRUD_ProductCostPriceTextBox";
-            PM_CRUD_ProductCostPriceTextBox.Size = new Size(183, 23);
-            PM_CRUD_ProductCostPriceTextBox.TabIndex = 2;
-            // 
-            // PM_CRUD_ProductSellingPriceLabel
-            // 
-            PM_CRUD_ProductSellingPriceLabel.AutoSize = true;
-            PM_CRUD_ProductSellingPriceLabel.Location = new Point(70, 202);
-            PM_CRUD_ProductSellingPriceLabel.Name = "PM_CRUD_ProductSellingPriceLabel";
-            PM_CRUD_ProductSellingPriceLabel.Size = new Size(47, 15);
-            PM_CRUD_ProductSellingPriceLabel.TabIndex = 1;
-            PM_CRUD_ProductSellingPriceLabel.Text = "ราคาขาย";
-            // 
-            // PM_CRUD_ProductUnitNameLabel
-            // 
-            PM_CRUD_ProductUnitNameLabel.AutoSize = true;
-            PM_CRUD_ProductUnitNameLabel.Location = new Point(70, 231);
-            PM_CRUD_ProductUnitNameLabel.Name = "PM_CRUD_ProductUnitNameLabel";
-            PM_CRUD_ProductUnitNameLabel.Size = new Size(46, 15);
-            PM_CRUD_ProductUnitNameLabel.TabIndex = 1;
-            PM_CRUD_ProductUnitNameLabel.Text = "หน่วยนับ";
-            // 
-            // PM_CRUD_ProductCategoryLabel
-            // 
-            PM_CRUD_ProductCategoryLabel.AutoSize = true;
-            PM_CRUD_ProductCategoryLabel.Location = new Point(70, 260);
-            PM_CRUD_ProductCategoryLabel.Name = "PM_CRUD_ProductCategoryLabel";
-            PM_CRUD_ProductCategoryLabel.Size = new Size(65, 15);
-            PM_CRUD_ProductCategoryLabel.TabIndex = 1;
-            PM_CRUD_ProductCategoryLabel.Text = "ประเภทสินค้า";
+            PM_CRUD_ProductCostPriceNumericUpDown.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            PM_CRUD_ProductCostPriceNumericUpDown.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_CRUD_ProductCostPriceNumericUpDown.Location = new Point(125, 142);
+            PM_CRUD_ProductCostPriceNumericUpDown.Name = "PM_CRUD_ProductCostPriceNumericUpDown";
+            PM_CRUD_ProductCostPriceNumericUpDown.Size = new Size(91, 26);
+            PM_CRUD_ProductCostPriceNumericUpDown.TabIndex = 7;
+            PM_CRUD_ProductCostPriceNumericUpDown.TextAlign = HorizontalAlignment.Center;
             // 
             // PM_CRUD_ProductQuantityLabel
             // 
             PM_CRUD_ProductQuantityLabel.AutoSize = true;
-            PM_CRUD_ProductQuantityLabel.Location = new Point(70, 140);
+            PM_CRUD_ProductQuantityLabel.Dock = DockStyle.Fill;
+            PM_CRUD_ProductQuantityLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_CRUD_ProductQuantityLabel.Location = new Point(4, 113);
+            PM_CRUD_ProductQuantityLabel.Margin = new Padding(3);
             PM_CRUD_ProductQuantityLabel.Name = "PM_CRUD_ProductQuantityLabel";
-            PM_CRUD_ProductQuantityLabel.Size = new Size(37, 15);
+            PM_CRUD_ProductQuantityLabel.Size = new Size(114, 22);
             PM_CRUD_ProductQuantityLabel.TabIndex = 1;
-            PM_CRUD_ProductQuantityLabel.Text = "จำนวน";
+            PM_CRUD_ProductQuantityLabel.Text = "จำนวน:";
+            PM_CRUD_ProductQuantityLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // PM_CRUD_ProductSellingPriceTextBox
+            // PM_CRUD_ProductQuantityNumericUpDown
             // 
-            PM_CRUD_ProductSellingPriceTextBox.Location = new Point(178, 194);
-            PM_CRUD_ProductSellingPriceTextBox.Name = "PM_CRUD_ProductSellingPriceTextBox";
-            PM_CRUD_ProductSellingPriceTextBox.Size = new Size(183, 23);
-            PM_CRUD_ProductSellingPriceTextBox.TabIndex = 2;
+            PM_CRUD_ProductQuantityNumericUpDown.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            PM_CRUD_ProductQuantityNumericUpDown.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_CRUD_ProductQuantityNumericUpDown.Location = new Point(125, 113);
+            PM_CRUD_ProductQuantityNumericUpDown.Name = "PM_CRUD_ProductQuantityNumericUpDown";
+            PM_CRUD_ProductQuantityNumericUpDown.Size = new Size(91, 26);
+            PM_CRUD_ProductQuantityNumericUpDown.TabIndex = 6;
+            PM_CRUD_ProductQuantityNumericUpDown.TextAlign = HorizontalAlignment.Center;
             // 
-            // PM_CRUD_ProductUnitNameTextBox
+            // PM_CRUD_ProductCostPriceLabel
             // 
-            PM_CRUD_ProductUnitNameTextBox.Location = new Point(178, 223);
-            PM_CRUD_ProductUnitNameTextBox.Name = "PM_CRUD_ProductUnitNameTextBox";
-            PM_CRUD_ProductUnitNameTextBox.Size = new Size(183, 23);
-            PM_CRUD_ProductUnitNameTextBox.TabIndex = 2;
+            PM_CRUD_ProductCostPriceLabel.AutoSize = true;
+            PM_CRUD_ProductCostPriceLabel.Dock = DockStyle.Fill;
+            PM_CRUD_ProductCostPriceLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_CRUD_ProductCostPriceLabel.Location = new Point(4, 142);
+            PM_CRUD_ProductCostPriceLabel.Margin = new Padding(3);
+            PM_CRUD_ProductCostPriceLabel.Name = "PM_CRUD_ProductCostPriceLabel";
+            PM_CRUD_ProductCostPriceLabel.Size = new Size(114, 22);
+            PM_CRUD_ProductCostPriceLabel.TabIndex = 1;
+            PM_CRUD_ProductCostPriceLabel.Text = "ราคาทุน:";
+            PM_CRUD_ProductCostPriceLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // PM_CRUD_ProductCategoryTextBox
+            // PM_CRUD_ProductCategoryLabel
             // 
-            PM_CRUD_ProductCategoryTextBox.Location = new Point(178, 252);
-            PM_CRUD_ProductCategoryTextBox.Name = "PM_CRUD_ProductCategoryTextBox";
-            PM_CRUD_ProductCategoryTextBox.Size = new Size(183, 23);
-            PM_CRUD_ProductCategoryTextBox.TabIndex = 2;
+            PM_CRUD_ProductCategoryLabel.AutoSize = true;
+            PM_CRUD_ProductCategoryLabel.Dock = DockStyle.Fill;
+            PM_CRUD_ProductCategoryLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_CRUD_ProductCategoryLabel.Location = new Point(4, 229);
+            PM_CRUD_ProductCategoryLabel.Margin = new Padding(3);
+            PM_CRUD_ProductCategoryLabel.Name = "PM_CRUD_ProductCategoryLabel";
+            PM_CRUD_ProductCategoryLabel.Size = new Size(114, 22);
+            PM_CRUD_ProductCategoryLabel.TabIndex = 1;
+            PM_CRUD_ProductCategoryLabel.Text = "ประเภทสินค้า:";
+            PM_CRUD_ProductCategoryLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // PM_CRUD_ProductQuantityTextBox
+            // PM_CRUD_ProductSellingPriceLabel
             // 
-            PM_CRUD_ProductQuantityTextBox.Location = new Point(178, 132);
-            PM_CRUD_ProductQuantityTextBox.Name = "PM_CRUD_ProductQuantityTextBox";
-            PM_CRUD_ProductQuantityTextBox.Size = new Size(183, 23);
-            PM_CRUD_ProductQuantityTextBox.TabIndex = 2;
+            PM_CRUD_ProductSellingPriceLabel.AutoSize = true;
+            PM_CRUD_ProductSellingPriceLabel.Dock = DockStyle.Fill;
+            PM_CRUD_ProductSellingPriceLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_CRUD_ProductSellingPriceLabel.Location = new Point(4, 171);
+            PM_CRUD_ProductSellingPriceLabel.Margin = new Padding(3);
+            PM_CRUD_ProductSellingPriceLabel.Name = "PM_CRUD_ProductSellingPriceLabel";
+            PM_CRUD_ProductSellingPriceLabel.Size = new Size(114, 22);
+            PM_CRUD_ProductSellingPriceLabel.TabIndex = 1;
+            PM_CRUD_ProductSellingPriceLabel.Text = "ราคาขาย:";
+            PM_CRUD_ProductSellingPriceLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // panel2
+            // PM_CRUD_ProductPictureLabel
             // 
-            panel2.Controls.Add(PM_CRUD_ProductQuantityLabel);
-            panel2.Controls.Add(PM_CRUD_ProductQuantityTextBox);
-            panel2.Controls.Add(PM_CRUD_ProductCategoryLabel);
-            panel2.Controls.Add(PM_CRUD_ProductCostPriceLabel);
-            panel2.Controls.Add(PM_CRUD_ProductCategoryTextBox);
-            panel2.Controls.Add(PM_CRUD_ProductUnitNameLabel);
-            panel2.Controls.Add(PM_CRUD_ProductTextBox);
-            panel2.Controls.Add(PM_CRUD_ProductNameLabel);
-            panel2.Controls.Add(PM_CRUD_ProductCostPriceTextBox);
-            panel2.Controls.Add(PM_CRUD_ProductSellingPriceLabel);
-            panel2.Controls.Add(PM_CRUD_ProductBarcodeTextBox);
-            panel2.Controls.Add(PM_CRUD_ProductBarcodeLabel);
-            panel2.Controls.Add(PM_CRUD_ProductUnitNameTextBox);
-            panel2.Controls.Add(PM_CRUD_ProductIdLabel);
-            panel2.Controls.Add(PM_CRUD_ProductSellingPriceTextBox);
-            panel2.Controls.Add(PM_CRUD_ProductNameTextBox);
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(4, 45);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(377, 333);
-            panel2.TabIndex = 2;
+            PM_CRUD_ProductPictureLabel.AutoSize = true;
+            PM_CRUD_ProductPictureLabel.Dock = DockStyle.Fill;
+            PM_CRUD_ProductPictureLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_CRUD_ProductPictureLabel.Location = new Point(4, 258);
+            PM_CRUD_ProductPictureLabel.Margin = new Padding(3);
+            PM_CRUD_ProductPictureLabel.Name = "PM_CRUD_ProductPictureLabel";
+            PM_CRUD_ProductPictureLabel.Size = new Size(114, 208);
+            PM_CRUD_ProductPictureLabel.TabIndex = 1;
+            PM_CRUD_ProductPictureLabel.Text = "รูปภาพ:";
+            PM_CRUD_ProductPictureLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // tableLayoutPanel2
+            // PM_CRUD_ProductUnitNameLabel
             // 
-            tableLayoutPanel2.ColumnCount = 2;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Controls.Add(PM_CRUD_GroupBox1, 0, 0);
-            tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(4, 385);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 1;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Size = new Size(377, 333);
-            tableLayoutPanel2.TabIndex = 3;
+            PM_CRUD_ProductUnitNameLabel.AutoSize = true;
+            PM_CRUD_ProductUnitNameLabel.Dock = DockStyle.Fill;
+            PM_CRUD_ProductUnitNameLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_CRUD_ProductUnitNameLabel.Location = new Point(4, 200);
+            PM_CRUD_ProductUnitNameLabel.Margin = new Padding(3);
+            PM_CRUD_ProductUnitNameLabel.Name = "PM_CRUD_ProductUnitNameLabel";
+            PM_CRUD_ProductUnitNameLabel.Size = new Size(114, 22);
+            PM_CRUD_ProductUnitNameLabel.TabIndex = 1;
+            PM_CRUD_ProductUnitNameLabel.Text = "หน่วยนับ:";
+            PM_CRUD_ProductUnitNameLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // PM_CRUD_PictureBox1
+            // tableLayoutPanel4
             // 
-            PM_CRUD_PictureBox1.Dock = DockStyle.Fill;
-            PM_CRUD_PictureBox1.Location = new Point(3, 19);
-            PM_CRUD_PictureBox1.Name = "PM_CRUD_PictureBox1";
-            PM_CRUD_PictureBox1.Size = new Size(176, 305);
-            PM_CRUD_PictureBox1.TabIndex = 0;
-            PM_CRUD_PictureBox1.TabStop = false;
+            tableLayoutPanel4.ColumnCount = 2;
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel4.Controls.Add(PM_CRUD_ProductCategoryComboBox, 0, 0);
+            tableLayoutPanel4.Controls.Add(PM_CRUD_EditCategoryLinkLabel, 1, 0);
+            tableLayoutPanel4.Dock = DockStyle.Fill;
+            tableLayoutPanel4.Location = new Point(122, 226);
+            tableLayoutPanel4.Margin = new Padding(0);
+            tableLayoutPanel4.Name = "tableLayoutPanel4";
+            tableLayoutPanel4.RowCount = 1;
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel4.Size = new Size(511, 28);
+            tableLayoutPanel4.TabIndex = 12;
             // 
-            // PM_CRUD_GroupBox1
+            // PM_CRUD_ProductCategoryComboBox
             // 
-            PM_CRUD_GroupBox1.Controls.Add(PM_CRUD_PictureBox1);
-            PM_CRUD_GroupBox1.Dock = DockStyle.Fill;
-            PM_CRUD_GroupBox1.Location = new Point(3, 3);
-            PM_CRUD_GroupBox1.Name = "PM_CRUD_GroupBox1";
-            PM_CRUD_GroupBox1.Size = new Size(182, 327);
-            PM_CRUD_GroupBox1.TabIndex = 0;
-            PM_CRUD_GroupBox1.TabStop = false;
-            PM_CRUD_GroupBox1.Text = "groupBox1";
+            PM_CRUD_ProductCategoryComboBox.Dock = DockStyle.Fill;
+            PM_CRUD_ProductCategoryComboBox.FormattingEnabled = true;
+            PM_CRUD_ProductCategoryComboBox.Location = new Point(3, 3);
+            PM_CRUD_ProductCategoryComboBox.Name = "PM_CRUD_ProductCategoryComboBox";
+            PM_CRUD_ProductCategoryComboBox.Size = new Size(410, 23);
+            PM_CRUD_ProductCategoryComboBox.TabIndex = 12;
+            // 
+            // PM_CRUD_EditCategoryLinkLabel
+            // 
+            PM_CRUD_EditCategoryLinkLabel.AutoSize = true;
+            PM_CRUD_EditCategoryLinkLabel.Dock = DockStyle.Fill;
+            PM_CRUD_EditCategoryLinkLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_CRUD_EditCategoryLinkLabel.Location = new Point(419, 0);
+            PM_CRUD_EditCategoryLinkLabel.Name = "PM_CRUD_EditCategoryLinkLabel";
+            PM_CRUD_EditCategoryLinkLabel.Size = new Size(89, 28);
+            PM_CRUD_EditCategoryLinkLabel.TabIndex = 13;
+            PM_CRUD_EditCategoryLinkLabel.TabStop = true;
+            PM_CRUD_EditCategoryLinkLabel.Text = "ประเภทสินค้า";
+            PM_CRUD_EditCategoryLinkLabel.TextAlign = ContentAlignment.MiddleCenter;
+            PM_CRUD_EditCategoryLinkLabel.VisitedLinkColor = Color.Blue;
+            // 
+            // PM_CRUD_ProductSellingPriceNumericUpDown
+            // 
+            PM_CRUD_ProductSellingPriceNumericUpDown.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            PM_CRUD_ProductSellingPriceNumericUpDown.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_CRUD_ProductSellingPriceNumericUpDown.Location = new Point(125, 171);
+            PM_CRUD_ProductSellingPriceNumericUpDown.Name = "PM_CRUD_ProductSellingPriceNumericUpDown";
+            PM_CRUD_ProductSellingPriceNumericUpDown.Size = new Size(91, 26);
+            PM_CRUD_ProductSellingPriceNumericUpDown.TabIndex = 8;
+            PM_CRUD_ProductSellingPriceNumericUpDown.TextAlign = HorizontalAlignment.Center;
+            // 
+            // flowLayoutPanel2
+            // 
+            tableLayoutPanel5.SetColumnSpan(flowLayoutPanel2, 2);
+            flowLayoutPanel2.Controls.Add(PM_CRUD_CancelButton);
+            flowLayoutPanel2.Controls.Add(PM_CRUD_SaveButton);
+            flowLayoutPanel2.Controls.Add(PM_CRUD_ProductIdNumericUpDown);
+            flowLayoutPanel2.Controls.Add(PM_CRUD_ProductIdLabel);
+            flowLayoutPanel2.Dock = DockStyle.Fill;
+            flowLayoutPanel2.Location = new Point(1, 470);
+            flowLayoutPanel2.Margin = new Padding(0);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.RightToLeft = RightToLeft.Yes;
+            flowLayoutPanel2.Size = new Size(632, 40);
+            flowLayoutPanel2.TabIndex = 13;
+            // 
+            // PM_CRUD_CancelButton
+            // 
+            PM_CRUD_CancelButton.Anchor = AnchorStyles.Right;
+            PM_CRUD_CancelButton.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_CRUD_CancelButton.Location = new Point(533, 3);
+            PM_CRUD_CancelButton.Margin = new Padding(3, 3, 1, 3);
+            PM_CRUD_CancelButton.Name = "PM_CRUD_CancelButton";
+            PM_CRUD_CancelButton.Size = new Size(96, 34);
+            PM_CRUD_CancelButton.TabIndex = 3;
+            PM_CRUD_CancelButton.Text = "ยกเลิก";
+            PM_CRUD_CancelButton.UseVisualStyleBackColor = true;
+            // 
+            // PM_CRUD_SaveButton
+            // 
+            PM_CRUD_SaveButton.Anchor = AnchorStyles.Right;
+            PM_CRUD_SaveButton.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_CRUD_SaveButton.Location = new Point(435, 3);
+            PM_CRUD_SaveButton.Margin = new Padding(1, 3, 3, 3);
+            PM_CRUD_SaveButton.Name = "PM_CRUD_SaveButton";
+            PM_CRUD_SaveButton.Size = new Size(96, 34);
+            PM_CRUD_SaveButton.TabIndex = 3;
+            PM_CRUD_SaveButton.Text = "บันทึก";
+            PM_CRUD_SaveButton.UseVisualStyleBackColor = true;
+            // 
+            // PM_CRUD_ProductIdNumericUpDown
+            // 
+            PM_CRUD_ProductIdNumericUpDown.Anchor = AnchorStyles.Right;
+            PM_CRUD_ProductIdNumericUpDown.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_CRUD_ProductIdNumericUpDown.Location = new Point(377, 7);
+            PM_CRUD_ProductIdNumericUpDown.Name = "PM_CRUD_ProductIdNumericUpDown";
+            PM_CRUD_ProductIdNumericUpDown.RightToLeft = RightToLeft.No;
+            PM_CRUD_ProductIdNumericUpDown.Size = new Size(52, 26);
+            PM_CRUD_ProductIdNumericUpDown.TabIndex = 9;
+            PM_CRUD_ProductIdNumericUpDown.Visible = false;
+            // 
+            // PM_CRUD_ProductIdLabel
+            // 
+            PM_CRUD_ProductIdLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            PM_CRUD_ProductIdLabel.AutoSize = true;
+            PM_CRUD_ProductIdLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_CRUD_ProductIdLabel.Location = new Point(342, 11);
+            PM_CRUD_ProductIdLabel.Margin = new Padding(3);
+            PM_CRUD_ProductIdLabel.Name = "PM_CRUD_ProductIdLabel";
+            PM_CRUD_ProductIdLabel.Size = new Size(29, 18);
+            PM_CRUD_ProductIdLabel.TabIndex = 1;
+            PM_CRUD_ProductIdLabel.Text = ":ID";
+            PM_CRUD_ProductIdLabel.Visible = false;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Anchor = AnchorStyles.None;
+            flowLayoutPanel1.BorderStyle = BorderStyle.FixedSingle;
+            flowLayoutPanel1.Controls.Add(PM_CRUD_PictureBox);
+            flowLayoutPanel1.Controls.Add(tableLayoutPanel3);
+            flowLayoutPanel1.Location = new Point(220, 271);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(314, 182);
+            flowLayoutPanel1.TabIndex = 3;
+            // 
+            // PM_CRUD_PictureBox
+            // 
+            PM_CRUD_PictureBox.BackColor = SystemColors.Info;
+            PM_CRUD_PictureBox.BorderStyle = BorderStyle.FixedSingle;
+            PM_CRUD_PictureBox.Location = new Point(0, 0);
+            PM_CRUD_PictureBox.Margin = new Padding(0);
+            PM_CRUD_PictureBox.Name = "PM_CRUD_PictureBox";
+            PM_CRUD_PictureBox.Size = new Size(180, 180);
+            PM_CRUD_PictureBox.TabIndex = 0;
+            PM_CRUD_PictureBox.TabStop = false;
+            // 
+            // tableLayoutPanel3
+            // 
+            tableLayoutPanel3.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
+            tableLayoutPanel3.ColumnCount = 1;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel3.Controls.Add(label1, 0, 2);
+            tableLayoutPanel3.Controls.Add(linkLabel2, 0, 1);
+            tableLayoutPanel3.Controls.Add(linkLabel1, 0, 0);
+            tableLayoutPanel3.Location = new Point(180, 0);
+            tableLayoutPanel3.Margin = new Padding(0);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 3;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel3.Size = new Size(132, 180);
+            tableLayoutPanel3.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Dock = DockStyle.Fill;
+            label1.Font = new Font("Tahoma", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
+            label1.Location = new Point(4, 66);
+            label1.Margin = new Padding(3);
+            label1.Name = "label1";
+            label1.Size = new Size(124, 110);
+            label1.TabIndex = 5;
+            label1.Text = "ใช้รูปภาพนามสกุล \r\njpg หรือ png \r\nขนาด 100 x100 \r\nเท่านั้น";
+            label1.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // linkLabel2
+            // 
+            linkLabel2.AutoSize = true;
+            linkLabel2.Dock = DockStyle.Fill;
+            linkLabel2.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            linkLabel2.LinkColor = Color.Crimson;
+            linkLabel2.Location = new Point(4, 35);
+            linkLabel2.Margin = new Padding(3);
+            linkLabel2.Name = "linkLabel2";
+            linkLabel2.Size = new Size(124, 24);
+            linkLabel2.TabIndex = 7;
+            linkLabel2.TabStop = true;
+            linkLabel2.Text = "ลบรูปภาพ";
+            linkLabel2.TextAlign = ContentAlignment.MiddleCenter;
+            linkLabel2.VisitedLinkColor = Color.Crimson;
+            // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Dock = DockStyle.Fill;
+            linkLabel1.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            linkLabel1.LinkColor = Color.Green;
+            linkLabel1.Location = new Point(4, 4);
+            linkLabel1.Margin = new Padding(3);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(124, 24);
+            linkLabel1.TabIndex = 6;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "เลือกรูปภาพ";
+            linkLabel1.TextAlign = ContentAlignment.MiddleCenter;
+            linkLabel1.VisitedLinkColor = Color.Green;
             // 
             // ProductManagementForm_CRUD
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(808, 759);
-            Controls.Add(PM_CRUD_Panel1);
+            ClientSize = new Size(634, 511);
+            Controls.Add(tableLayoutPanel5);
             Name = "ProductManagementForm_CRUD";
             Text = "ProductManagementForm_CRUD";
-            PM_CRUD_Panel1.ResumeLayout(false);
-            tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)PM_CRUD_PictureBox1).EndInit();
-            PM_CRUD_GroupBox1.ResumeLayout(false);
+            tableLayoutPanel5.ResumeLayout(false);
+            tableLayoutPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PM_CRUD_ProductCostPriceNumericUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PM_CRUD_ProductQuantityNumericUpDown).EndInit();
+            tableLayoutPanel4.ResumeLayout(false);
+            tableLayoutPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PM_CRUD_ProductSellingPriceNumericUpDown).EndInit();
+            flowLayoutPanel2.ResumeLayout(false);
+            flowLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PM_CRUD_ProductIdNumericUpDown).EndInit();
+            flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)PM_CRUD_PictureBox).EndInit();
+            tableLayoutPanel3.ResumeLayout(false);
+            tableLayoutPanel3.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Panel PM_CRUD_Panel1;
-        private TableLayoutPanel tableLayoutPanel1;
         private Label PM_CRUD_HeadingLabel;
-        private TextBox PM_CRUD_ProductCostPriceTextBox;
         private TextBox PM_CRUD_ProductNameTextBox;
         private TextBox PM_CRUD_ProductBarcodeTextBox;
-        private TextBox PM_CRUD_ProductTextBox;
         private Label PM_CRUD_ProductCostPriceLabel;
         private Label PM_CRUD_ProductNameLabel;
         private Label PM_CRUD_ProductBarcodeLabel;
         private Label PM_CRUD_ProductIdLabel;
-        private TextBox PM_CRUD_ProductQuantityTextBox;
-        private TextBox PM_CRUD_ProductCategoryTextBox;
         private TextBox PM_CRUD_ProductUnitNameTextBox;
-        private TextBox PM_CRUD_ProductSellingPriceTextBox;
         private Label PM_CRUD_ProductQuantityLabel;
         private Label PM_CRUD_ProductCategoryLabel;
         private Label PM_CRUD_ProductUnitNameLabel;
         private Label PM_CRUD_ProductSellingPriceLabel;
-        private Panel panel2;
-        private TableLayoutPanel tableLayoutPanel2;
+        private TableLayoutPanel PM_CRUD_TableLayoutPanel2;
         private GroupBox PM_CRUD_GroupBox1;
-        private PictureBox PM_CRUD_PictureBox1;
+        private PictureBox PM_CRUD_PictureBox;
+        private Button PM_CRUD_SaveButton;
+        private Label label1;
+        private Button PM_CRUD_CancelButton;
+        private Label PM_CRUD_ProductPictureLabel;
+        private TableLayoutPanel tableLayoutPanel3;
+        private NumericUpDown PM_CRUD_ProductIdNumericUpDown;
+        private NumericUpDown PM_CRUD_ProductSellingPriceNumericUpDown;
+        private NumericUpDown PM_CRUD_ProductCostPriceNumericUpDown;
+        private NumericUpDown PM_CRUD_ProductQuantityNumericUpDown;
+        private TableLayoutPanel tableLayoutPanel5;
+        private LinkLabel linkLabel1;
+        private LinkLabel linkLabel2;
+        private TableLayoutPanel tableLayoutPanel4;
+        private ComboBox PM_CRUD_ProductCategoryComboBox;
+        private LinkLabel PM_CRUD_EditCategoryLinkLabel;
+        private FlowLayoutPanel flowLayoutPanel2;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }

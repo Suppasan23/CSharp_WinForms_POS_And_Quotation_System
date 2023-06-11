@@ -15,11 +15,10 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         public ProductManagementForm_CRUD()
         {
             InitializeComponent();
+            this.MinimumSize = new Size(550, 550);
+            this.Size = new Size(650, 550);
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
     }
 }
