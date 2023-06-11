@@ -16,5 +16,10 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         {
             InitializeComponent();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
