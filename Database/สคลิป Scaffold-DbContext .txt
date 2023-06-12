@@ -1,0 +1,3 @@
+Scaffold-DbContext "Server=localhost;Database=CSharp_WinForms_POS_And_Quotation_System_DB;User ID=sa;Password=root;TrustServerCertificate=true;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models\Db
+
+Scaffold-DbContext "Server=localhost;Database=CSharp_WinForms_POS_And_Quotation_System_DB;User ID=sa;Password=root;TrustServerCertificate=true;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models\Db -force

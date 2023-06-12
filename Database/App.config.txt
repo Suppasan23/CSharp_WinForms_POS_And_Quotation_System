@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <configuration>
-
+	
 	<connectionStrings>
 		<add name="conStr" connectionString="Data Source=localhost;Initial Catalog=CSharp_WinForms_POS_And_Quotation_System_DB;User Id=sa;Password=root;TrustServerCertificate=true;" />
 	</connectionStrings>
