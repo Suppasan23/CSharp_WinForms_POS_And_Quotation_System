@@ -43,8 +43,6 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             childForm.Show();
         }
 
-
-
         private void MainForm_Load(object sender, EventArgs e)
         {
 
@@ -64,7 +62,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             PointOfSaleForm childForm = new PointOfSaleForm();
             childForm.StartPosition = FormStartPosition.Manual;
             childForm.Top = 0;
-            childForm.Left = 800;
+            childForm.Left = 100;
             openChildForms(childForm);
         }
 
@@ -82,7 +80,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             ArchiveQuotationForm childForm = new ArchiveQuotationForm();
             childForm.StartPosition = FormStartPosition.Manual;
             childForm.Top = 0;
-            childForm.Left = 1000;
+            childForm.Left = 300;
             openChildForms(childForm);
         }
 
@@ -91,7 +89,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             ProductManagementForm_Category childForm = new ProductManagementForm_Category();
             childForm.StartPosition = FormStartPosition.Manual;
             childForm.Top = 0;
-            childForm.Left = 1000;
+            childForm.Left = 0;
             openChildForms(childForm);
         }
 
@@ -100,7 +98,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             ProductManagementForm_CRUD childForm = new ProductManagementForm_CRUD();
             childForm.StartPosition = FormStartPosition.Manual;
             childForm.Top = 0;
-            childForm.Left = 1000;
+            childForm.Left = 0;
             openChildForms(childForm);
         }
 

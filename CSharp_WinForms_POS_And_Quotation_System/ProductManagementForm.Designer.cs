@@ -33,15 +33,6 @@
             PM_PanelBase = new Panel();
             PM_Panel2 = new Panel();
             PM_DataGridView = new DataGridView();
-            PM_DataGridViewIdColumn = new DataGridViewTextBoxColumn();
-            PM_DataGridViewImageColumn = new DataGridViewImageColumn();
-            PM_DataGridViewProductNumberColumn = new DataGridViewTextBoxColumn();
-            PM_DataGridViewProductNameColumn = new DataGridViewTextBoxColumn();
-            PM_DataGridViewCostPriceColumn = new DataGridViewTextBoxColumn();
-            PM_DataGridViewSellingPriceColumn = new DataGridViewTextBoxColumn();
-            PM_DataGridViewUnitInStockColumn = new DataGridViewTextBoxColumn();
-            PM_DataGridViewCountingUnitColumn = new DataGridViewTextBoxColumn();
-            PM_DataGridViewNoteColumn = new DataGridViewTextBoxColumn();
             PM_StatusStrip = new StatusStrip();
             PM_ToolStripStatusLabel1 = new ToolStripStatusLabel();
             PM_TableLayoutPanel1 = new TableLayoutPanel();
@@ -53,6 +44,7 @@
             PM_SearchTextBox = new TextBox();
             PM_RefreshButton = new Button();
             PM_SearchButton = new Button();
+            PM_ComboBox = new ComboBox();
             PM_Panel1 = new Panel();
             PM_HeadingLabel = new Label();
             PM_PanelBase.SuspendLayout();
@@ -104,7 +96,6 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             PM_DataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             PM_DataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            PM_DataGridView.Columns.AddRange(new DataGridViewColumn[] { PM_DataGridViewIdColumn, PM_DataGridViewImageColumn, PM_DataGridViewProductNumberColumn, PM_DataGridViewProductNameColumn, PM_DataGridViewCostPriceColumn, PM_DataGridViewSellingPriceColumn, PM_DataGridViewUnitInStockColumn, PM_DataGridViewCountingUnitColumn, PM_DataGridViewNoteColumn });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -122,69 +113,6 @@
             PM_DataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             PM_DataGridView.Size = new Size(1162, 1004);
             PM_DataGridView.TabIndex = 4;
-            // 
-            // PM_DataGridViewIdColumn
-            // 
-            PM_DataGridViewIdColumn.HeaderText = "ที่";
-            PM_DataGridViewIdColumn.Name = "PM_DataGridViewIdColumn";
-            PM_DataGridViewIdColumn.ReadOnly = true;
-            PM_DataGridViewIdColumn.Width = 30;
-            // 
-            // PM_DataGridViewImageColumn
-            // 
-            PM_DataGridViewImageColumn.HeaderText = "รูป";
-            PM_DataGridViewImageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            PM_DataGridViewImageColumn.Name = "PM_DataGridViewImageColumn";
-            PM_DataGridViewImageColumn.ReadOnly = true;
-            PM_DataGridViewImageColumn.Width = 80;
-            // 
-            // PM_DataGridViewProductNumberColumn
-            // 
-            PM_DataGridViewProductNumberColumn.HeaderText = "หมายเลขสินค้า";
-            PM_DataGridViewProductNumberColumn.Name = "PM_DataGridViewProductNumberColumn";
-            PM_DataGridViewProductNumberColumn.ReadOnly = true;
-            PM_DataGridViewProductNumberColumn.Width = 200;
-            // 
-            // PM_DataGridViewProductNameColumn
-            // 
-            PM_DataGridViewProductNameColumn.HeaderText = "ชื่อสินค้า";
-            PM_DataGridViewProductNameColumn.Name = "PM_DataGridViewProductNameColumn";
-            PM_DataGridViewProductNameColumn.ReadOnly = true;
-            PM_DataGridViewProductNameColumn.Width = 300;
-            // 
-            // PM_DataGridViewCostPriceColumn
-            // 
-            PM_DataGridViewCostPriceColumn.HeaderText = "ราคาทุน";
-            PM_DataGridViewCostPriceColumn.Name = "PM_DataGridViewCostPriceColumn";
-            PM_DataGridViewCostPriceColumn.ReadOnly = true;
-            PM_DataGridViewCostPriceColumn.Width = 120;
-            // 
-            // PM_DataGridViewSellingPriceColumn
-            // 
-            PM_DataGridViewSellingPriceColumn.HeaderText = "ราคาขาย";
-            PM_DataGridViewSellingPriceColumn.Name = "PM_DataGridViewSellingPriceColumn";
-            PM_DataGridViewSellingPriceColumn.ReadOnly = true;
-            PM_DataGridViewSellingPriceColumn.Width = 120;
-            // 
-            // PM_DataGridViewUnitInStockColumn
-            // 
-            PM_DataGridViewUnitInStockColumn.HeaderText = "จำนวนคงเหลือ";
-            PM_DataGridViewUnitInStockColumn.Name = "PM_DataGridViewUnitInStockColumn";
-            PM_DataGridViewUnitInStockColumn.ReadOnly = true;
-            PM_DataGridViewUnitInStockColumn.Width = 140;
-            // 
-            // PM_DataGridViewCountingUnitColumn
-            // 
-            PM_DataGridViewCountingUnitColumn.HeaderText = "หน่วยนับ";
-            PM_DataGridViewCountingUnitColumn.Name = "PM_DataGridViewCountingUnitColumn";
-            PM_DataGridViewCountingUnitColumn.ReadOnly = true;
-            PM_DataGridViewCountingUnitColumn.Width = 120;
-            // 
-            // PM_DataGridViewNoteColumn
-            // 
-            PM_DataGridViewNoteColumn.HeaderText = "หมายเหตุ";
-            PM_DataGridViewNoteColumn.Name = "PM_DataGridViewNoteColumn";
-            PM_DataGridViewNoteColumn.ReadOnly = true;
             // 
             // PM_StatusStrip
             // 
@@ -208,7 +136,7 @@
             PM_TableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             PM_TableLayoutPanel1.ColumnCount = 2;
             PM_TableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            PM_TableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 306F));
+            PM_TableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 280F));
             PM_TableLayoutPanel1.Controls.Add(PM_TableLayoutPanel3, 1, 0);
             PM_TableLayoutPanel1.Controls.Add(PM_TableLayoutPanel2, 0, 0);
             PM_TableLayoutPanel1.Dock = DockStyle.Top;
@@ -221,20 +149,21 @@
             // 
             // PM_TableLayoutPanel3
             // 
+            PM_TableLayoutPanel3.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             PM_TableLayoutPanel3.ColumnCount = 3;
-            PM_TableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 102F));
-            PM_TableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 102F));
-            PM_TableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 102F));
+            PM_TableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 92F));
+            PM_TableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 92F));
+            PM_TableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 92F));
             PM_TableLayoutPanel3.Controls.Add(PM_DeleteButton, 2, 0);
             PM_TableLayoutPanel3.Controls.Add(PM_AddButton, 0, 0);
             PM_TableLayoutPanel3.Controls.Add(PM_EditButton, 1, 0);
             PM_TableLayoutPanel3.Dock = DockStyle.Fill;
-            PM_TableLayoutPanel3.Location = new Point(855, 1);
+            PM_TableLayoutPanel3.Location = new Point(881, 1);
             PM_TableLayoutPanel3.Margin = new Padding(0);
             PM_TableLayoutPanel3.Name = "PM_TableLayoutPanel3";
             PM_TableLayoutPanel3.RowCount = 1;
             PM_TableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            PM_TableLayoutPanel3.Size = new Size(306, 40);
+            PM_TableLayoutPanel3.Size = new Size(280, 40);
             PM_TableLayoutPanel3.TabIndex = 0;
             // 
             // PM_DeleteButton
@@ -243,10 +172,10 @@
             PM_DeleteButton.BackColor = Color.MistyRose;
             PM_DeleteButton.Image = Properties.Resources.delete_16;
             PM_DeleteButton.ImageAlign = ContentAlignment.MiddleRight;
-            PM_DeleteButton.Location = new Point(207, 2);
-            PM_DeleteButton.Margin = new Padding(3, 0, 0, 0);
+            PM_DeleteButton.Location = new Point(189, 3);
+            PM_DeleteButton.Margin = new Padding(2);
             PM_DeleteButton.Name = "PM_DeleteButton";
-            PM_DeleteButton.Size = new Size(99, 36);
+            PM_DeleteButton.Size = new Size(88, 34);
             PM_DeleteButton.TabIndex = 1;
             PM_DeleteButton.Text = "ลบ";
             PM_DeleteButton.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -258,10 +187,10 @@
             PM_AddButton.BackColor = Color.Honeydew;
             PM_AddButton.Image = Properties.Resources.plus_2_16;
             PM_AddButton.ImageAlign = ContentAlignment.MiddleRight;
-            PM_AddButton.Location = new Point(3, 2);
-            PM_AddButton.Margin = new Padding(3, 0, 0, 0);
+            PM_AddButton.Location = new Point(3, 3);
+            PM_AddButton.Margin = new Padding(2);
             PM_AddButton.Name = "PM_AddButton";
-            PM_AddButton.Size = new Size(96, 36);
+            PM_AddButton.Size = new Size(88, 34);
             PM_AddButton.TabIndex = 1;
             PM_AddButton.Text = "เพิ่ม";
             PM_AddButton.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -273,10 +202,10 @@
             PM_EditButton.BackColor = Color.Cornsilk;
             PM_EditButton.Image = Properties.Resources.edit_16;
             PM_EditButton.ImageAlign = ContentAlignment.MiddleRight;
-            PM_EditButton.Location = new Point(105, 2);
-            PM_EditButton.Margin = new Padding(3, 0, 0, 0);
+            PM_EditButton.Location = new Point(96, 3);
+            PM_EditButton.Margin = new Padding(2);
             PM_EditButton.Name = "PM_EditButton";
-            PM_EditButton.Size = new Size(99, 36);
+            PM_EditButton.Size = new Size(88, 34);
             PM_EditButton.TabIndex = 1;
             PM_EditButton.Text = "แก้ไข";
             PM_EditButton.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -284,30 +213,33 @@
             // 
             // PM_TableLayoutPanel2
             // 
-            PM_TableLayoutPanel2.ColumnCount = 3;
+            PM_TableLayoutPanel2.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
+            PM_TableLayoutPanel2.ColumnCount = 4;
             PM_TableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            PM_TableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 102F));
-            PM_TableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 102F));
+            PM_TableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 200F));
+            PM_TableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 92F));
+            PM_TableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 92F));
             PM_TableLayoutPanel2.Controls.Add(PM_SearchTextBox, 0, 0);
-            PM_TableLayoutPanel2.Controls.Add(PM_RefreshButton, 2, 0);
-            PM_TableLayoutPanel2.Controls.Add(PM_SearchButton, 1, 0);
+            PM_TableLayoutPanel2.Controls.Add(PM_RefreshButton, 3, 0);
+            PM_TableLayoutPanel2.Controls.Add(PM_SearchButton, 2, 0);
+            PM_TableLayoutPanel2.Controls.Add(PM_ComboBox, 1, 0);
             PM_TableLayoutPanel2.Dock = DockStyle.Fill;
             PM_TableLayoutPanel2.Location = new Point(1, 1);
             PM_TableLayoutPanel2.Margin = new Padding(0);
             PM_TableLayoutPanel2.Name = "PM_TableLayoutPanel2";
             PM_TableLayoutPanel2.RowCount = 1;
             PM_TableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            PM_TableLayoutPanel2.Size = new Size(853, 40);
+            PM_TableLayoutPanel2.Size = new Size(879, 40);
             PM_TableLayoutPanel2.TabIndex = 1;
             // 
             // PM_SearchTextBox
             // 
             PM_SearchTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            PM_SearchTextBox.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            PM_SearchTextBox.Location = new Point(3, 5);
-            PM_SearchTextBox.Margin = new Padding(3, 0, 3, 0);
+            PM_SearchTextBox.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_SearchTextBox.Location = new Point(3, 6);
+            PM_SearchTextBox.Margin = new Padding(2);
             PM_SearchTextBox.Name = "PM_SearchTextBox";
-            PM_SearchTextBox.Size = new Size(643, 30);
+            PM_SearchTextBox.Size = new Size(486, 27);
             PM_SearchTextBox.TabIndex = 3;
             // 
             // PM_RefreshButton
@@ -316,10 +248,10 @@
             PM_RefreshButton.BackColor = Color.Azure;
             PM_RefreshButton.Image = Properties.Resources.refresh_2_16;
             PM_RefreshButton.ImageAlign = ContentAlignment.MiddleRight;
-            PM_RefreshButton.Location = new Point(751, 2);
-            PM_RefreshButton.Margin = new Padding(0, 0, 3, 0);
+            PM_RefreshButton.Location = new Point(788, 3);
+            PM_RefreshButton.Margin = new Padding(2);
             PM_RefreshButton.Name = "PM_RefreshButton";
-            PM_RefreshButton.Size = new Size(99, 36);
+            PM_RefreshButton.Size = new Size(88, 34);
             PM_RefreshButton.TabIndex = 1;
             PM_RefreshButton.Text = "รีเฟรช";
             PM_RefreshButton.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -331,14 +263,26 @@
             PM_SearchButton.BackColor = Color.WhiteSmoke;
             PM_SearchButton.Image = Properties.Resources.search_3_16;
             PM_SearchButton.ImageAlign = ContentAlignment.MiddleRight;
-            PM_SearchButton.Location = new Point(649, 2);
-            PM_SearchButton.Margin = new Padding(0, 0, 3, 0);
+            PM_SearchButton.Location = new Point(695, 3);
+            PM_SearchButton.Margin = new Padding(2);
             PM_SearchButton.Name = "PM_SearchButton";
-            PM_SearchButton.Size = new Size(99, 36);
+            PM_SearchButton.Size = new Size(88, 34);
             PM_SearchButton.TabIndex = 1;
             PM_SearchButton.Text = "ค้นหา";
             PM_SearchButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             PM_SearchButton.UseVisualStyleBackColor = false;
+            // 
+            // PM_ComboBox
+            // 
+            PM_ComboBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            PM_ComboBox.BackColor = SystemColors.Control;
+            PM_ComboBox.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_ComboBox.FormattingEnabled = true;
+            PM_ComboBox.Location = new Point(494, 6);
+            PM_ComboBox.Margin = new Padding(2);
+            PM_ComboBox.Name = "PM_ComboBox";
+            PM_ComboBox.Size = new Size(196, 27);
+            PM_ComboBox.TabIndex = 4;
             // 
             // PM_Panel1
             // 
@@ -403,16 +347,8 @@
         private StatusStrip PM_StatusStrip;
         private ToolStripStatusLabel PM_ToolStripStatusLabel1;
         private DataGridView PM_DataGridView;
-        private DataGridViewTextBoxColumn PM_DataGridViewIdColumn;
-        private DataGridViewImageColumn PM_DataGridViewImageColumn;
-        private DataGridViewTextBoxColumn PM_DataGridViewProductNumberColumn;
-        private DataGridViewTextBoxColumn PM_DataGridViewProductNameColumn;
-        private DataGridViewTextBoxColumn PM_DataGridViewCostPriceColumn;
-        private DataGridViewTextBoxColumn PM_DataGridViewSellingPriceColumn;
-        private DataGridViewTextBoxColumn PM_DataGridViewUnitInStockColumn;
-        private DataGridViewTextBoxColumn PM_DataGridViewCountingUnitColumn;
-        private DataGridViewTextBoxColumn PM_DataGridViewNoteColumn;
         private Panel PM_Panel1;
         private Label PM_HeadingLabel;
+        private ComboBox PM_ComboBox;
     }
 }
