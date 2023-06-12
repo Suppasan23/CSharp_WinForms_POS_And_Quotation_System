@@ -74,7 +74,7 @@
             // 
             tableLayoutPanel5.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             tableLayoutPanel5.ColumnCount = 2;
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 105F));
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel5.Controls.Add(PM_CRUD_HeadingLabel, 0, 0);
             tableLayoutPanel5.Controls.Add(PM_CRUD_ProductBarcodeLabel, 0, 1);
@@ -135,9 +135,9 @@
             PM_CRUD_ProductBarcodeLabel.Location = new Point(4, 55);
             PM_CRUD_ProductBarcodeLabel.Margin = new Padding(3);
             PM_CRUD_ProductBarcodeLabel.Name = "PM_CRUD_ProductBarcodeLabel";
-            PM_CRUD_ProductBarcodeLabel.Size = new Size(114, 22);
+            PM_CRUD_ProductBarcodeLabel.Size = new Size(99, 22);
             PM_CRUD_ProductBarcodeLabel.TabIndex = 1;
-            PM_CRUD_ProductBarcodeLabel.Text = "หมายเลขสินค้า:";
+            PM_CRUD_ProductBarcodeLabel.Text = "รหัสสินค้า:";
             PM_CRUD_ProductBarcodeLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
             // PM_CRUD_ProductNameLabel
@@ -148,7 +148,7 @@
             PM_CRUD_ProductNameLabel.Location = new Point(4, 84);
             PM_CRUD_ProductNameLabel.Margin = new Padding(3);
             PM_CRUD_ProductNameLabel.Name = "PM_CRUD_ProductNameLabel";
-            PM_CRUD_ProductNameLabel.Size = new Size(114, 22);
+            PM_CRUD_ProductNameLabel.Size = new Size(99, 22);
             PM_CRUD_ProductNameLabel.TabIndex = 1;
             PM_CRUD_ProductNameLabel.Text = "ชื่อสินค้า:";
             PM_CRUD_ProductNameLabel.TextAlign = ContentAlignment.MiddleRight;
@@ -157,34 +157,34 @@
             // 
             PM_CRUD_ProductBarcodeTextBox.Dock = DockStyle.Fill;
             PM_CRUD_ProductBarcodeTextBox.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            PM_CRUD_ProductBarcodeTextBox.Location = new Point(125, 55);
+            PM_CRUD_ProductBarcodeTextBox.Location = new Point(110, 55);
             PM_CRUD_ProductBarcodeTextBox.Name = "PM_CRUD_ProductBarcodeTextBox";
-            PM_CRUD_ProductBarcodeTextBox.Size = new Size(505, 23);
+            PM_CRUD_ProductBarcodeTextBox.Size = new Size(520, 23);
             PM_CRUD_ProductBarcodeTextBox.TabIndex = 2;
             // 
             // PM_CRUD_ProductUnitNameTextBox
             // 
             PM_CRUD_ProductUnitNameTextBox.Dock = DockStyle.Fill;
             PM_CRUD_ProductUnitNameTextBox.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            PM_CRUD_ProductUnitNameTextBox.Location = new Point(125, 200);
+            PM_CRUD_ProductUnitNameTextBox.Location = new Point(110, 200);
             PM_CRUD_ProductUnitNameTextBox.Name = "PM_CRUD_ProductUnitNameTextBox";
-            PM_CRUD_ProductUnitNameTextBox.Size = new Size(505, 23);
+            PM_CRUD_ProductUnitNameTextBox.Size = new Size(520, 23);
             PM_CRUD_ProductUnitNameTextBox.TabIndex = 2;
             // 
             // PM_CRUD_ProductNameTextBox
             // 
             PM_CRUD_ProductNameTextBox.Dock = DockStyle.Fill;
             PM_CRUD_ProductNameTextBox.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            PM_CRUD_ProductNameTextBox.Location = new Point(125, 84);
+            PM_CRUD_ProductNameTextBox.Location = new Point(110, 84);
             PM_CRUD_ProductNameTextBox.Name = "PM_CRUD_ProductNameTextBox";
-            PM_CRUD_ProductNameTextBox.Size = new Size(505, 23);
+            PM_CRUD_ProductNameTextBox.Size = new Size(520, 23);
             PM_CRUD_ProductNameTextBox.TabIndex = 2;
             // 
             // PM_CRUD_ProductCostPriceNumericUpDown
             // 
             PM_CRUD_ProductCostPriceNumericUpDown.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             PM_CRUD_ProductCostPriceNumericUpDown.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            PM_CRUD_ProductCostPriceNumericUpDown.Location = new Point(125, 142);
+            PM_CRUD_ProductCostPriceNumericUpDown.Location = new Point(110, 142);
             PM_CRUD_ProductCostPriceNumericUpDown.Name = "PM_CRUD_ProductCostPriceNumericUpDown";
             PM_CRUD_ProductCostPriceNumericUpDown.Size = new Size(91, 26);
             PM_CRUD_ProductCostPriceNumericUpDown.TabIndex = 7;
@@ -198,7 +198,7 @@
             PM_CRUD_ProductQuantityLabel.Location = new Point(4, 113);
             PM_CRUD_ProductQuantityLabel.Margin = new Padding(3);
             PM_CRUD_ProductQuantityLabel.Name = "PM_CRUD_ProductQuantityLabel";
-            PM_CRUD_ProductQuantityLabel.Size = new Size(114, 22);
+            PM_CRUD_ProductQuantityLabel.Size = new Size(99, 22);
             PM_CRUD_ProductQuantityLabel.TabIndex = 1;
             PM_CRUD_ProductQuantityLabel.Text = "จำนวน:";
             PM_CRUD_ProductQuantityLabel.TextAlign = ContentAlignment.MiddleRight;
@@ -207,7 +207,7 @@
             // 
             PM_CRUD_ProductQuantityNumericUpDown.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             PM_CRUD_ProductQuantityNumericUpDown.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            PM_CRUD_ProductQuantityNumericUpDown.Location = new Point(125, 113);
+            PM_CRUD_ProductQuantityNumericUpDown.Location = new Point(110, 113);
             PM_CRUD_ProductQuantityNumericUpDown.Name = "PM_CRUD_ProductQuantityNumericUpDown";
             PM_CRUD_ProductQuantityNumericUpDown.Size = new Size(91, 26);
             PM_CRUD_ProductQuantityNumericUpDown.TabIndex = 6;
@@ -221,7 +221,7 @@
             PM_CRUD_ProductCostPriceLabel.Location = new Point(4, 142);
             PM_CRUD_ProductCostPriceLabel.Margin = new Padding(3);
             PM_CRUD_ProductCostPriceLabel.Name = "PM_CRUD_ProductCostPriceLabel";
-            PM_CRUD_ProductCostPriceLabel.Size = new Size(114, 22);
+            PM_CRUD_ProductCostPriceLabel.Size = new Size(99, 22);
             PM_CRUD_ProductCostPriceLabel.TabIndex = 1;
             PM_CRUD_ProductCostPriceLabel.Text = "ราคาทุน:";
             PM_CRUD_ProductCostPriceLabel.TextAlign = ContentAlignment.MiddleRight;
@@ -234,7 +234,7 @@
             PM_CRUD_ProductCategoryLabel.Location = new Point(4, 229);
             PM_CRUD_ProductCategoryLabel.Margin = new Padding(3);
             PM_CRUD_ProductCategoryLabel.Name = "PM_CRUD_ProductCategoryLabel";
-            PM_CRUD_ProductCategoryLabel.Size = new Size(114, 22);
+            PM_CRUD_ProductCategoryLabel.Size = new Size(99, 22);
             PM_CRUD_ProductCategoryLabel.TabIndex = 1;
             PM_CRUD_ProductCategoryLabel.Text = "ประเภทสินค้า:";
             PM_CRUD_ProductCategoryLabel.TextAlign = ContentAlignment.MiddleRight;
@@ -247,7 +247,7 @@
             PM_CRUD_ProductSellingPriceLabel.Location = new Point(4, 171);
             PM_CRUD_ProductSellingPriceLabel.Margin = new Padding(3);
             PM_CRUD_ProductSellingPriceLabel.Name = "PM_CRUD_ProductSellingPriceLabel";
-            PM_CRUD_ProductSellingPriceLabel.Size = new Size(114, 22);
+            PM_CRUD_ProductSellingPriceLabel.Size = new Size(99, 22);
             PM_CRUD_ProductSellingPriceLabel.TabIndex = 1;
             PM_CRUD_ProductSellingPriceLabel.Text = "ราคาขาย:";
             PM_CRUD_ProductSellingPriceLabel.TextAlign = ContentAlignment.MiddleRight;
@@ -260,7 +260,7 @@
             PM_CRUD_ProductPictureLabel.Location = new Point(4, 258);
             PM_CRUD_ProductPictureLabel.Margin = new Padding(3);
             PM_CRUD_ProductPictureLabel.Name = "PM_CRUD_ProductPictureLabel";
-            PM_CRUD_ProductPictureLabel.Size = new Size(114, 208);
+            PM_CRUD_ProductPictureLabel.Size = new Size(99, 208);
             PM_CRUD_ProductPictureLabel.TabIndex = 1;
             PM_CRUD_ProductPictureLabel.Text = "รูปภาพ:";
             PM_CRUD_ProductPictureLabel.TextAlign = ContentAlignment.TopRight;
@@ -273,7 +273,7 @@
             PM_CRUD_ProductUnitNameLabel.Location = new Point(4, 200);
             PM_CRUD_ProductUnitNameLabel.Margin = new Padding(3);
             PM_CRUD_ProductUnitNameLabel.Name = "PM_CRUD_ProductUnitNameLabel";
-            PM_CRUD_ProductUnitNameLabel.Size = new Size(114, 22);
+            PM_CRUD_ProductUnitNameLabel.Size = new Size(99, 22);
             PM_CRUD_ProductUnitNameLabel.TabIndex = 1;
             PM_CRUD_ProductUnitNameLabel.Text = "หน่วยนับ:";
             PM_CRUD_ProductUnitNameLabel.TextAlign = ContentAlignment.MiddleRight;
@@ -286,12 +286,12 @@
             tableLayoutPanel4.Controls.Add(PM_CRUD_ProductCategoryComboBox, 0, 0);
             tableLayoutPanel4.Controls.Add(PM_CRUD_EditCategoryLinkLabel, 1, 0);
             tableLayoutPanel4.Dock = DockStyle.Fill;
-            tableLayoutPanel4.Location = new Point(122, 226);
+            tableLayoutPanel4.Location = new Point(107, 226);
             tableLayoutPanel4.Margin = new Padding(0);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 1;
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel4.Size = new Size(511, 28);
+            tableLayoutPanel4.Size = new Size(526, 28);
             tableLayoutPanel4.TabIndex = 12;
             // 
             // PM_CRUD_ProductCategoryComboBox
@@ -300,7 +300,7 @@
             PM_CRUD_ProductCategoryComboBox.FormattingEnabled = true;
             PM_CRUD_ProductCategoryComboBox.Location = new Point(3, 3);
             PM_CRUD_ProductCategoryComboBox.Name = "PM_CRUD_ProductCategoryComboBox";
-            PM_CRUD_ProductCategoryComboBox.Size = new Size(410, 23);
+            PM_CRUD_ProductCategoryComboBox.Size = new Size(425, 23);
             PM_CRUD_ProductCategoryComboBox.TabIndex = 12;
             // 
             // PM_CRUD_EditCategoryLinkLabel
@@ -308,7 +308,7 @@
             PM_CRUD_EditCategoryLinkLabel.AutoSize = true;
             PM_CRUD_EditCategoryLinkLabel.Dock = DockStyle.Fill;
             PM_CRUD_EditCategoryLinkLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            PM_CRUD_EditCategoryLinkLabel.Location = new Point(419, 0);
+            PM_CRUD_EditCategoryLinkLabel.Location = new Point(434, 0);
             PM_CRUD_EditCategoryLinkLabel.Name = "PM_CRUD_EditCategoryLinkLabel";
             PM_CRUD_EditCategoryLinkLabel.Size = new Size(89, 28);
             PM_CRUD_EditCategoryLinkLabel.TabIndex = 13;
@@ -321,7 +321,7 @@
             // 
             PM_CRUD_ProductSellingPriceNumericUpDown.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             PM_CRUD_ProductSellingPriceNumericUpDown.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            PM_CRUD_ProductSellingPriceNumericUpDown.Location = new Point(125, 171);
+            PM_CRUD_ProductSellingPriceNumericUpDown.Location = new Point(110, 171);
             PM_CRUD_ProductSellingPriceNumericUpDown.Name = "PM_CRUD_ProductSellingPriceNumericUpDown";
             PM_CRUD_ProductSellingPriceNumericUpDown.Size = new Size(91, 26);
             PM_CRUD_ProductSellingPriceNumericUpDown.TabIndex = 8;
@@ -396,7 +396,7 @@
             flowLayoutPanel1.BorderStyle = BorderStyle.FixedSingle;
             flowLayoutPanel1.Controls.Add(PM_CRUD_PictureBox);
             flowLayoutPanel1.Controls.Add(tableLayoutPanel3);
-            flowLayoutPanel1.Location = new Point(220, 271);
+            flowLayoutPanel1.Location = new Point(213, 271);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(314, 182);
             flowLayoutPanel1.TabIndex = 3;
