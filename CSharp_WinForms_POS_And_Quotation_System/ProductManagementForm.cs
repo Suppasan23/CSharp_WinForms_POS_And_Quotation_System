@@ -135,6 +135,65 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             loadData(keyword, catValue);
         }
 
+
+
+        ///////////////////////////////// CRUD ///////////////////////////////////////////////////////////////////////////
+        private void CRUD(string whichCRUD, int whichID)
+        {
+            if (whichCRUD.ToUpper().Equals("EDIT") || whichCRUD.ToUpper().Equals("DELETE"))
+            {
+                if (whichID == 0)
+                {
+                    MessageBox.Show("โปรดเลือกรายการสินค้าที่ต้องการ แก้ไข หรือ ลบ", "จัดการสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
+
+            ProductManagementForm_CRUD f = new ProductManagementForm_CRUD(whichCRUD, whichID);
+            f.ShowDialog();
+
+            if (center.isExecuted == true)
+            {
+                loadCategory(); // Refresh the main form after Executed data.
+                loadData("", 0);
+            }
+        }
+
+        ///////////////////////////// GET WhichID ////////////////////////////////////////////////
+        private int GetWhichID()
+        {
+            if (PM_DataGridView.Rows.Count > 0 && PM_DataGridView.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = PM_DataGridView.SelectedRows[0];
+                return (Convert.ToInt32(selectedRow.Cells[0].Value));
+            }
+            else
+            {
+                return (0);
+            }
+        }
+
+        ///////////////////////////////// ADD BUTTON ///////////////////////////////////////////////////////////////////////////
+        private void PM_AddButton_Click(object sender, EventArgs e)
+        {
+            int whichID = GetWhichID();
+            CRUD("ADD", whichID);
+        }
+
+        ///////////////////////////////// EDIT BUTTON ///////////////////////////////////////////////////////////////////////////
+        private void PM_EditButton_Click(object sender, EventArgs e)
+        {
+            int whichID = GetWhichID();
+            CRUD("EDIT", whichID);
+        }
+
+        ///////////////////////////////// DELETE BUTTON ///////////////////////////////////////////////////////////////////////////
+        private void PM_DeleteButton_Click(object sender, EventArgs e)
+        {
+            int whichID = GetWhichID();
+            CRUD("DELETE", whichID);
+        }
+
         /////////////////////////////////////// REFRESH BUTTON /////////////////////////////////////////////////////////
         private void PM_RefreshButton_Click(object sender, EventArgs e)
         {
@@ -142,38 +201,5 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             loadCategory();
             loadData("", 0);
         }
-
-
-        /////////////////////////////////CRUD///////////////////////////////////////////////////////////////////////////
-        private int WhichID = 0; // Waiting for datagridview selected change
-        private string whichCRUD = ""; // Waiting for Add, Update, Delete button clicked
-
-
-
-        ///////////////////////////// DATAGRIDVIEW CELL SELECTED CHANGE ////////////////////////////////////////////////
-        private void PM_DataGridView_SelectionChanged(object sender, EventArgs e)
-        {
-            GetWichID();
-        }
-        private void PM_DataGridView_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
-        {
-            GetWichID();
-        }
-        private void GetWichID()
-        {
-            if (PM_DataGridView.Rows.Count > 0 && PM_DataGridView.SelectedRows.Count > 0)
-            {
-                DataGridViewRow selectedRow = PM_DataGridView.SelectedRows[0];
-                WhichID = Convert.ToInt32(selectedRow.Cells[0].Value);
-                numericUpDown1.Value = WhichID;
-            }
-            else
-            {
-                WhichID = 0;
-                numericUpDown1.Value = WhichID;
-            }
-        }
-
-
     }
 }

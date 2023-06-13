@@ -46,7 +46,6 @@
             PM_SearchButton = new Button();
             PM_ComboBox = new ComboBox();
             PM_Panel1 = new Panel();
-            numericUpDown1 = new NumericUpDown();
             PM_HeadingLabel = new Label();
             PM_PanelBase.SuspendLayout();
             PM_Panel2.SuspendLayout();
@@ -56,7 +55,6 @@
             PM_TableLayoutPanel3.SuspendLayout();
             PM_TableLayoutPanel2.SuspendLayout();
             PM_Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // PM_PanelBase
@@ -114,19 +112,17 @@
             PM_DataGridView.RowHeadersWidth = 51;
             PM_DataGridView.RowTemplate.Height = 25;
             PM_DataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            PM_DataGridView.Size = new Size(1162, 1004);
+            PM_DataGridView.Size = new Size(1162, 998);
             PM_DataGridView.TabIndex = 4;
-            PM_DataGridView.RowStateChanged += PM_DataGridView_RowStateChanged;
-            PM_DataGridView.SelectionChanged += PM_DataGridView_SelectionChanged;
             // 
             // PM_StatusStrip
             // 
             PM_StatusStrip.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             PM_StatusStrip.ImageScalingSize = new Size(20, 20);
             PM_StatusStrip.Items.AddRange(new ToolStripItem[] { PM_ToolStripStatusLabel1 });
-            PM_StatusStrip.Location = new Point(0, 1046);
+            PM_StatusStrip.Location = new Point(0, 1040);
             PM_StatusStrip.Name = "PM_StatusStrip";
-            PM_StatusStrip.Size = new Size(1162, 23);
+            PM_StatusStrip.Size = new Size(1162, 29);
             PM_StatusStrip.TabIndex = 3;
             PM_StatusStrip.Text = "statusStrip1";
             // 
@@ -134,7 +130,7 @@
             // 
             PM_ToolStripStatusLabel1.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             PM_ToolStripStatusLabel1.Name = "PM_ToolStripStatusLabel1";
-            PM_ToolStripStatusLabel1.Size = new Size(52, 18);
+            PM_ToolStripStatusLabel1.Size = new Size(66, 23);
             PM_ToolStripStatusLabel1.Text = "รายการ";
             // 
             // PM_TableLayoutPanel1
@@ -186,6 +182,7 @@
             PM_DeleteButton.Text = "ลบ";
             PM_DeleteButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             PM_DeleteButton.UseVisualStyleBackColor = false;
+            PM_DeleteButton.Click += PM_DeleteButton_Click;
             // 
             // PM_AddButton
             // 
@@ -201,6 +198,7 @@
             PM_AddButton.Text = "เพิ่ม";
             PM_AddButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             PM_AddButton.UseVisualStyleBackColor = false;
+            PM_AddButton.Click += PM_AddButton_Click;
             // 
             // PM_EditButton
             // 
@@ -216,6 +214,7 @@
             PM_EditButton.Text = "แก้ไข";
             PM_EditButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             PM_EditButton.UseVisualStyleBackColor = false;
+            PM_EditButton.Click += PM_EditButton_Click;
             // 
             // PM_TableLayoutPanel2
             // 
@@ -242,10 +241,10 @@
             // 
             PM_SearchTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             PM_SearchTextBox.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            PM_SearchTextBox.Location = new Point(3, 6);
+            PM_SearchTextBox.Location = new Point(3, 4);
             PM_SearchTextBox.Margin = new Padding(2);
             PM_SearchTextBox.Name = "PM_SearchTextBox";
-            PM_SearchTextBox.Size = new Size(486, 27);
+            PM_SearchTextBox.Size = new Size(486, 32);
             PM_SearchTextBox.TabIndex = 3;
             PM_SearchTextBox.KeyUp += PM_SearchTextBox_KeyUp;
             // 
@@ -287,16 +286,15 @@
             PM_ComboBox.BackColor = SystemColors.Control;
             PM_ComboBox.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
             PM_ComboBox.FormattingEnabled = true;
-            PM_ComboBox.Location = new Point(494, 6);
+            PM_ComboBox.Location = new Point(494, 4);
             PM_ComboBox.Margin = new Padding(2);
             PM_ComboBox.Name = "PM_ComboBox";
-            PM_ComboBox.Size = new Size(196, 27);
+            PM_ComboBox.Size = new Size(196, 32);
             PM_ComboBox.TabIndex = 4;
             // 
             // PM_Panel1
             // 
             PM_Panel1.BackColor = SystemColors.InactiveCaption;
-            PM_Panel1.Controls.Add(numericUpDown1);
             PM_Panel1.Controls.Add(PM_HeadingLabel);
             PM_Panel1.Dock = DockStyle.Top;
             PM_Panel1.Location = new Point(0, 0);
@@ -305,13 +303,6 @@
             PM_Panel1.Size = new Size(1162, 60);
             PM_Panel1.TabIndex = 0;
             // 
-            // numericUpDown1
-            // 
-            numericUpDown1.Location = new Point(219, 23);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(43, 26);
-            numericUpDown1.TabIndex = 2;
-            // 
             // PM_HeadingLabel
             // 
             PM_HeadingLabel.AutoSize = true;
@@ -319,13 +310,13 @@
             PM_HeadingLabel.Location = new Point(9, 10);
             PM_HeadingLabel.Margin = new Padding(0);
             PM_HeadingLabel.Name = "PM_HeadingLabel";
-            PM_HeadingLabel.Size = new Size(179, 39);
+            PM_HeadingLabel.Size = new Size(219, 48);
             PM_HeadingLabel.TabIndex = 1;
             PM_HeadingLabel.Text = "จัดการสินค้า";
             // 
             // ProductManagementForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 18F);
+            AutoScaleDimensions = new SizeF(10F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1164, 1131);
             Controls.Add(PM_PanelBase);
@@ -346,7 +337,6 @@
             PM_TableLayoutPanel2.PerformLayout();
             PM_Panel1.ResumeLayout(false);
             PM_Panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
         }
 
@@ -368,6 +358,5 @@
         private Panel PM_Panel1;
         private Label PM_HeadingLabel;
         private ComboBox PM_ComboBox;
-        private NumericUpDown numericUpDown1;
     }
 }
