@@ -53,31 +53,19 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         ///////////////////////////////////////// LOAD /////////////////////////////////////////////////////////////
         private void ProductManagementForm_Load(object sender, EventArgs e)
         {
-            loadData("");
-            PM_DataGridView.ClearSelection(); //Selected no row
-            //PM_DataGridView.Rows[0].Selected = true; //Selected first row
+            loadCategory();
+            loadData("", 0);
         }
 
         ///////////////////////////////////////// LOAD DATA /////////////////////////////////////////////////////////
-        private void loadData(string keyword)
+        private void loadData(string keyword, int cat)
         {
-            PM_ComboBox.Items.Clear();
             PM_DataGridView.DataSource = null;
-
-
-            // Add ProductCategory to ComboBox
-            var cat = from m in db.ProductCategories
-                      select new { m.Id, m.Name };
-
-            PM_ComboBox.Items.Insert(0, "ทั้งหมด");
-            PM_ComboBox.Items.AddRange(cat.ToArray());
-            PM_ComboBox.ValueMember = "Id";
-            PM_ComboBox.DisplayMember = "Name";
 
             //Add data to DataGridview
             var data = from i in db.Products
                        join r in db.ProductCategories on i.Category equals r.Id
-                       where i.Barcode.Contains(keyword) || i.Name.Contains(keyword)
+                       where (i.Barcode.Contains(keyword) || i.Name.Contains(keyword)) && (cat == 0 ? true : i.Category == cat)
                        select new
                        {
                            //ที่ = TODO
@@ -100,10 +88,53 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             }
         }
 
-        private void PM_SearchButton_Click(object sender, EventArgs e)
+        ///////////////////////////////////////// LOAD CATEGORY /////////////////////////////////////////////////////////
+        private void loadCategory()
         {
+            PM_ComboBox.Items.Clear();
 
+            // Add ProductCategory to ComboBox
+            var data = from m in db.ProductCategories
+                       select new { m.Id, m.Name };
+
+            PM_ComboBox.Items.Add(new { Id = 0, Name = "-ทั้งหมด-" }); // Add Id = 0, Name = "ทั้งหมด" item
+            PM_ComboBox.Items.AddRange(data.ToArray());
+            PM_ComboBox.ValueMember = "Id";
+            PM_ComboBox.DisplayMember = "Name";
+            PM_ComboBox.SelectedIndex = 0; // Set the selected index to 0 (the first item)
         }
 
+        ///////////////////////////////////////// SEARCH /////////////////////////////////////////////////////////
+        private void PM_SearchButton_Click(object sender, EventArgs e)
+        {
+            searchData();
+        }
+
+        private void PM_SearchTextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                searchData();
+            }
+        }
+
+        private void searchData()
+        {
+            string keyword = PM_SearchTextBox.Text.Trim() == null ? "" : PM_SearchTextBox.Text.Trim();
+
+            dynamic selectedCat = PM_ComboBox.SelectedItem;
+            int catValue = Convert.ToInt32(selectedCat.Id);
+
+            loadData(keyword, catValue);
+        }
+
+        /////////////////////////////////////// REFRESH BUTTON ///////////////////////////////////////////////////////
+        private void PM_RefreshButton_Click(object sender, EventArgs e)
+        {
+            PM_SearchTextBox.Clear();
+            loadCategory();
+            loadData("", 0);      
+        }
     }
 }
