@@ -50,7 +50,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
         }
 
-        ///////////////////////////////////////// LOAD /////////////////////////////////////////////////////////////
+        ///////////////////////////////////////// FORM LOAD /////////////////////////////////////////////////////////////
         private void ProductManagementForm_Load(object sender, EventArgs e)
         {
             loadCategory();
@@ -60,7 +60,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         ///////////////////////////////////////// LOAD DATA /////////////////////////////////////////////////////////
         private void loadData(string keyword, int cat)
         {
-            PM_DataGridView.DataSource = null;
+            PM_DataGridView.DataSource = null; //Clear DataGridView
+            PM_DataGridView.ClearSelection(); //Selected no row
 
             //Add data to DataGridview
             var data = from i in db.Products
@@ -68,6 +69,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                        where (i.Barcode.Contains(keyword) || i.Name.Contains(keyword)) && (cat == 0 ? true : i.Category == cat)
                        select new
                        {
+                           id = i.Id,
                            //ที่ = TODO
                            //รูปภาพ = TODO
                            รหัสสินค้า = i.Barcode,
@@ -81,11 +83,15 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             if (data != null)
             {
                 PM_DataGridView.DataSource = data.ToList();
+                PM_DataGridView.Columns[0].Visible = false;
             }
             else
             {
-                PM_DataGridView.DataSource = null;
+                PM_DataGridView.DataSource = null; //Clear DataGridView
+                PM_DataGridView.ClearSelection(); //Selected no row
             }
+
+
         }
 
         ///////////////////////////////////////// LOAD CATEGORY /////////////////////////////////////////////////////////
@@ -104,7 +110,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             PM_ComboBox.SelectedIndex = 0; // Set the selected index to 0 (the first item)
         }
 
-        ///////////////////////////////////////// SEARCH /////////////////////////////////////////////////////////
+        ///////////////////////////////////////// SEARCH ////////////////////////////////////////////////////////////////
         private void PM_SearchButton_Click(object sender, EventArgs e)
         {
             searchData();
@@ -129,12 +135,45 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             loadData(keyword, catValue);
         }
 
-        /////////////////////////////////////// REFRESH BUTTON ///////////////////////////////////////////////////////
+        /////////////////////////////////////// REFRESH BUTTON /////////////////////////////////////////////////////////
         private void PM_RefreshButton_Click(object sender, EventArgs e)
         {
             PM_SearchTextBox.Clear();
             loadCategory();
-            loadData("", 0);      
+            loadData("", 0);
         }
+
+
+        /////////////////////////////////CRUD///////////////////////////////////////////////////////////////////////////
+        private int WhichID = 0; // Waiting for datagridview selected change
+        private string whichCRUD = ""; // Waiting for Add, Update, Delete button clicked
+
+
+
+        ///////////////////////////// DATAGRIDVIEW CELL SELECTED CHANGE ////////////////////////////////////////////////
+        private void PM_DataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            GetWichID();
+        }
+        private void PM_DataGridView_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            GetWichID();
+        }
+        private void GetWichID()
+        {
+            if (PM_DataGridView.Rows.Count > 0 && PM_DataGridView.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = PM_DataGridView.SelectedRows[0];
+                WhichID = Convert.ToInt32(selectedRow.Cells[0].Value);
+                numericUpDown1.Value = WhichID;
+            }
+            else
+            {
+                WhichID = 0;
+                numericUpDown1.Value = WhichID;
+            }
+        }
+
+
     }
 }

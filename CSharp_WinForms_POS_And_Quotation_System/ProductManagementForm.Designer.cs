@@ -46,6 +46,7 @@
             PM_SearchButton = new Button();
             PM_ComboBox = new ComboBox();
             PM_Panel1 = new Panel();
+            numericUpDown1 = new NumericUpDown();
             PM_HeadingLabel = new Label();
             PM_PanelBase.SuspendLayout();
             PM_Panel2.SuspendLayout();
@@ -55,6 +56,7 @@
             PM_TableLayoutPanel3.SuspendLayout();
             PM_TableLayoutPanel2.SuspendLayout();
             PM_Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // PM_PanelBase
@@ -114,6 +116,8 @@
             PM_DataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             PM_DataGridView.Size = new Size(1162, 1004);
             PM_DataGridView.TabIndex = 4;
+            PM_DataGridView.RowStateChanged += PM_DataGridView_RowStateChanged;
+            PM_DataGridView.SelectionChanged += PM_DataGridView_SelectionChanged;
             // 
             // PM_StatusStrip
             // 
@@ -292,6 +296,7 @@
             // PM_Panel1
             // 
             PM_Panel1.BackColor = SystemColors.InactiveCaption;
+            PM_Panel1.Controls.Add(numericUpDown1);
             PM_Panel1.Controls.Add(PM_HeadingLabel);
             PM_Panel1.Dock = DockStyle.Top;
             PM_Panel1.Location = new Point(0, 0);
@@ -299,6 +304,13 @@
             PM_Panel1.Name = "PM_Panel1";
             PM_Panel1.Size = new Size(1162, 60);
             PM_Panel1.TabIndex = 0;
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(219, 23);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(43, 26);
+            numericUpDown1.TabIndex = 2;
             // 
             // PM_HeadingLabel
             // 
@@ -334,6 +346,7 @@
             PM_TableLayoutPanel2.PerformLayout();
             PM_Panel1.ResumeLayout(false);
             PM_Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
         }
 
@@ -355,5 +368,6 @@
         private Panel PM_Panel1;
         private Label PM_HeadingLabel;
         private ComboBox PM_ComboBox;
+        private NumericUpDown numericUpDown1;
     }
 }
