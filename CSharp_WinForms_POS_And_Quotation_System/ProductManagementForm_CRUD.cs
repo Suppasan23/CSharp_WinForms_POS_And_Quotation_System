@@ -53,9 +53,9 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             PM_CRUD_ProductIdNumericUpDown.ReadOnly = true; //X
             PM_CRUD_ProductBarcodeTextBox.ReadOnly = true; //X
             PM_CRUD_ProductNameTextBox.ReadOnly = false; //O
-            PM_CRUD_ProductQuantityNumericUpDown.Enabled = true; //O
             PM_CRUD_ProductCostPriceNumericUpDown.Enabled = true; //O
             PM_CRUD_ProductSellingPriceNumericUpDown.Enabled = true; //O
+            PM_CRUD_ProductQuantityNumericUpDown.Enabled = true; //O
             PM_CRUD_ProductUnitNameTextBox.ReadOnly = false; //O
             PM_CRUD_EditCategoryLinkLabel.Enabled = true; //O
             PM_CRUD_ChoosePictureLinkLabel.Enabled = true; //O
@@ -71,8 +71,13 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 PM_CRUD_ProductCategoryComboBox.ValueMember = "Id";
                 PM_CRUD_ProductCategoryComboBox.DisplayMember = "Name";
             }
+            else
+            {
+                MessageBox.Show("ไม่สามารถเข้าถึงฐานข้อมูลได้", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            //PM_CRUD_ProductIdNumericUpDown.Value = AUTO GENERATE
+            //PM_CRUD_ProductIdNumericUpDown.Value = *สร้างอัตโนมัติ
             PM_CRUD_ProductBarcodeTextBox.Text = "*สร้างอัตโนมัติ";
         }
         private void prepareEDIT() //Prepare EDIT
@@ -84,9 +89,9 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             PM_CRUD_ProductIdNumericUpDown.ReadOnly = true; //X
             PM_CRUD_ProductBarcodeTextBox.ReadOnly = true; //X
             PM_CRUD_ProductNameTextBox.ReadOnly = false; //O
-            PM_CRUD_ProductQuantityNumericUpDown.Enabled = true; //O
             PM_CRUD_ProductCostPriceNumericUpDown.Enabled = true; //O
             PM_CRUD_ProductSellingPriceNumericUpDown.Enabled = true; //O
+            PM_CRUD_ProductQuantityNumericUpDown.Enabled = true; //O
             PM_CRUD_ProductUnitNameTextBox.ReadOnly = false; //O
             PM_CRUD_EditCategoryLinkLabel.Enabled = true; //O
             PM_CRUD_ChoosePictureLinkLabel.Enabled = true; //O
@@ -103,9 +108,9 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
                 PM_CRUD_ProductBarcodeTextBox.Text = data.Barcode;
                 PM_CRUD_ProductNameTextBox.Text = data.Name;
-                PM_CRUD_ProductQuantityNumericUpDown.Value = data.Quantity;
                 PM_CRUD_ProductCostPriceNumericUpDown.Value = data.CostPrice;
                 PM_CRUD_ProductSellingPriceNumericUpDown.Value = data.SellingPrice;
+                PM_CRUD_ProductQuantityNumericUpDown.Value = data.Quantity;
                 PM_CRUD_ProductUnitNameTextBox.Text = data.UnitName;
 
                 //Category show value
@@ -123,6 +128,11 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                     }
                 }
             }
+            else
+            {
+                MessageBox.Show("ไม่สามารถเข้าถึงฐานข้อมูลได้", "แก้ไขสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
         private void prepareDELETE() //Prepare DELETE
         {
@@ -133,9 +143,9 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             PM_CRUD_ProductIdNumericUpDown.ReadOnly = true; //X
             PM_CRUD_ProductBarcodeTextBox.ReadOnly = true; //X
             PM_CRUD_ProductNameTextBox.ReadOnly = true; //X
-            PM_CRUD_ProductQuantityNumericUpDown.ReadOnly = true; //X
             PM_CRUD_ProductCostPriceNumericUpDown.ReadOnly = true; //X
             PM_CRUD_ProductSellingPriceNumericUpDown.ReadOnly = true; //X
+            PM_CRUD_ProductQuantityNumericUpDown.ReadOnly = true; //X
             PM_CRUD_ProductUnitNameTextBox.ReadOnly = true; //X
             PM_CRUD_EditCategoryLinkLabel.Enabled = false; //X
             PM_CRUD_ChoosePictureLinkLabel.Enabled = false; //X
@@ -159,27 +169,34 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
                 PM_CRUD_ProductBarcodeTextBox.Text = data.Pro.Barcode;
                 PM_CRUD_ProductNameTextBox.Text = data.Pro.Name;
-                PM_CRUD_ProductQuantityNumericUpDown.Value = data.Pro.Quantity;
                 PM_CRUD_ProductCostPriceNumericUpDown.Value = data.Pro.CostPrice;
                 PM_CRUD_ProductSellingPriceNumericUpDown.Value = data.Pro.SellingPrice;
+                PM_CRUD_ProductQuantityNumericUpDown.Value = data.Pro.Quantity;
                 PM_CRUD_ProductUnitNameTextBox.Text = data.Pro.UnitName;
                 PM_CRUD_ProductCategoryComboBox.Items.Insert(0, data.Cat.Name);
                 PM_CRUD_ProductCategoryComboBox.SelectedIndex = 0;
-
-                PM_CRUD_ProductQuantityNumericUpDown.Minimum = data.Pro.Quantity;
-                PM_CRUD_ProductQuantityNumericUpDown.Maximum = data.Pro.Quantity;
 
                 PM_CRUD_ProductCostPriceNumericUpDown.Minimum = data.Pro.CostPrice;
                 PM_CRUD_ProductCostPriceNumericUpDown.Maximum = data.Pro.CostPrice;
 
                 PM_CRUD_ProductSellingPriceNumericUpDown.Minimum = data.Pro.SellingPrice;
                 PM_CRUD_ProductSellingPriceNumericUpDown.Maximum = data.Pro.SellingPrice;
+
+                PM_CRUD_ProductQuantityNumericUpDown.Minimum = data.Pro.Quantity;
+                PM_CRUD_ProductQuantityNumericUpDown.Maximum = data.Pro.Quantity;
+            }
+            else
+            {
+                MessageBox.Show("ไม่สามารถเข้าถึงฐานข้อมูลได้", "ลบสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
 
         ///////////////////////////////////////// EXECUTE BUTTON /////////////////////////////////////////////////////////////
         private void PM_CRUD_SaveButton_Click(object sender, EventArgs e)
         {
+
+
             switch (theCRUD)
             {
                 case "ADD": executeADD(); break;
@@ -195,20 +212,56 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 MessageBox.Show("โปรดระบุชื่อสินค้า", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (PM_CRUD_ProductCostPriceNumericUpDown.Value == 0)
+            else if (PM_CRUD_ProductCostPriceNumericUpDown.Value == 0)
             {
                 MessageBox.Show("โปรดระบุราคาทุน", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (PM_CRUD_ProductSellingPriceNumericUpDown.Value == 0)
+            else if (PM_CRUD_ProductSellingPriceNumericUpDown.Value == 0)
             {
                 MessageBox.Show("โปรดระบุราคาขาย", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (PM_CRUD_ProductCategoryComboBox.SelectedItem == null)
+            else if (PM_CRUD_ProductCategoryComboBox.SelectedItem == null)
             {
                 MessageBox.Show("โปรดเลือกประเภทสินค้า", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
+            }
+            else
+            {
+                try
+                {
+                    var tr = db.Database.BeginTransaction();//Transaction control: ADD, EDIT, DELETE
+                    Product A = new Product();
+                    A.Barcode = generateBarcode();
+                    A.Name = PM_CRUD_ProductNameTextBox.Text.Trim();
+                    A.CostPrice = PM_CRUD_ProductQuantityNumericUpDown.Value;
+                    A.SellingPrice = PM_CRUD_ProductCostPriceNumericUpDown.Value;
+                    A.Quantity = Convert.ToInt32(PM_CRUD_ProductQuantityNumericUpDown.Value);
+                    A.UnitName = PM_CRUD_ProductUnitNameTextBox.Text.Trim();
+
+                    dynamic selectedCat = PM_CRUD_ProductCategoryComboBox.SelectedItem;
+                    A.Category = Convert.ToInt32(selectedCat.Id);
+
+                    db.Products.Add(A);
+                    db.SaveChanges();
+                    tr.Commit();
+
+                    center.isExecuted = true;
+                    MessageBox.Show("เพิ่มสินค้าสำเร็จ", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            string generateBarcode()// EAN-13 หรือ Code-128
+            {
+                //885
+                var unigueID = Guid.NewGuid();
+                return ("516516511546");
             }
         }
 
