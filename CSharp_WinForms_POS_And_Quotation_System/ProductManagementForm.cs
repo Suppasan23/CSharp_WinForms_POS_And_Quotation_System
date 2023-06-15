@@ -90,8 +90,6 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 PM_DataGridView.DataSource = null; //Clear DataGridView
                 PM_DataGridView.ClearSelection(); //Selected no row
             }
-
-
         }
 
         ///////////////////////////////////////// LOAD CATEGORY /////////////////////////////////////////////////////////
@@ -150,7 +148,12 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             }
 
             ProductManagementForm_CRUD f = new ProductManagementForm_CRUD(whichCRUD, whichID);
-            f.ShowDialog();
+            f.StartPosition = FormStartPosition.Manual;
+            // Calculate the center position of the child form
+            int x = this.Left + ((this.Width - f.Width) / 2) + ((f.Width-(f.Width / 8)) /2/2);
+            int y = this.Top + ((this.Height - f.Height) / 2);
+            f.Location = new Point(x, y);
+            f.ShowDialog();  // Use ShowDialog instead of Show to open the form modally
 
             if (center.isExecuted == true)
             {
@@ -176,8 +179,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         ///////////////////////////////// ADD BUTTON ///////////////////////////////////////////////////////////////////////////
         private void PM_AddButton_Click(object sender, EventArgs e)
         {
-            int whichID = GetWhichID();
-            CRUD("ADD", whichID);
+            CRUD("ADD", 0);
         }
 
         ///////////////////////////////// EDIT BUTTON ///////////////////////////////////////////////////////////////////////////

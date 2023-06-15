@@ -1,4 +1,5 @@
 ﻿using CSharp_WinForms_POS_And_Quotation_System.Models.Db;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.VisualBasic.Devices;
 using System;
 using System.Collections.Generic;
@@ -60,9 +61,19 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             PM_CRUD_ChoosePictureLinkLabel.Enabled = true; //O
             PM_CRUD_DeletePictureLinkLabel.Enabled = true; //O
             PM_CRUD_PictureDescriptionLabel.Enabled = true; //O
-            PM_CRUD_ProductNameTextBox.Focus();
+            PM_CRUD_SaveButton.Select();
 
-            //PM_CRUD_ProductBarcodeTextBox.Text = TODO
+            var cat = from m in db.ProductCategories select new { m.Id, m.Name };
+            if (cat != null)
+            {
+                //Category show value
+                PM_CRUD_ProductCategoryComboBox.Items.AddRange(cat.ToArray());
+                PM_CRUD_ProductCategoryComboBox.ValueMember = "Id";
+                PM_CRUD_ProductCategoryComboBox.DisplayMember = "Name";
+            }
+
+            //PM_CRUD_ProductIdNumericUpDown.Value = AUTO GENERATE
+            PM_CRUD_ProductBarcodeTextBox.Text = "*สร้างอัตโนมัติ";
         }
         private void prepareEDIT() //Prepare EDIT
         {
@@ -81,9 +92,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             PM_CRUD_ChoosePictureLinkLabel.Enabled = true; //O
             PM_CRUD_DeletePictureLinkLabel.Enabled = true; //O
             PM_CRUD_PictureDescriptionLabel.Enabled = true; //O
-            PM_CRUD_ProductNameTextBox.Focus();
-
-
+            PM_CRUD_SaveButton.Select();
 
             var data = (from c in db.Products where c.Id == theID select c).FirstOrDefault();
             var cat = from m in db.ProductCategories select new { m.Id, m.Name };
@@ -132,12 +141,9 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             PM_CRUD_ChoosePictureLinkLabel.Enabled = false; //X
             PM_CRUD_DeletePictureLinkLabel.Enabled = false; //X
             PM_CRUD_PictureDescriptionLabel.Enabled = false; //X
-
-            PM_CRUD_SaveButton.Focus();
+            PM_CRUD_SaveButton.Select();
 
             //Id, Barcode, Name, Quantity, CostPrice, SellingPrice, UnitName, Category show value
-            PM_CRUD_ProductIdNumericUpDown.Value = theID;
-
             var data = (from p in db.Products
                         join c in db.ProductCategories on p.Category equals c.Id
                         where p.Id == theID
@@ -149,6 +155,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
             if (data != null)
             {
+                PM_CRUD_ProductIdNumericUpDown.Value = theID;
+
                 PM_CRUD_ProductBarcodeTextBox.Text = data.Pro.Barcode;
                 PM_CRUD_ProductNameTextBox.Text = data.Pro.Name;
                 PM_CRUD_ProductQuantityNumericUpDown.Value = data.Pro.Quantity;
@@ -157,10 +165,67 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 PM_CRUD_ProductUnitNameTextBox.Text = data.Pro.UnitName;
                 PM_CRUD_ProductCategoryComboBox.Items.Insert(0, data.Cat.Name);
                 PM_CRUD_ProductCategoryComboBox.SelectedIndex = 0;
-            }
 
-            PM_CRUD_ProductQuantityNumericUpDown.Minimum = data.Pro.Quantity;
-            PM_CRUD_ProductQuantityNumericUpDown.Maximum = data.Pro.Quantity;
+                PM_CRUD_ProductQuantityNumericUpDown.Minimum = data.Pro.Quantity;
+                PM_CRUD_ProductQuantityNumericUpDown.Maximum = data.Pro.Quantity;
+
+                PM_CRUD_ProductCostPriceNumericUpDown.Minimum = data.Pro.CostPrice;
+                PM_CRUD_ProductCostPriceNumericUpDown.Maximum = data.Pro.CostPrice;
+
+                PM_CRUD_ProductSellingPriceNumericUpDown.Minimum = data.Pro.SellingPrice;
+                PM_CRUD_ProductSellingPriceNumericUpDown.Maximum = data.Pro.SellingPrice;
+            }
+        }
+
+        ///////////////////////////////////////// EXECUTE BUTTON /////////////////////////////////////////////////////////////
+        private void PM_CRUD_SaveButton_Click(object sender, EventArgs e)
+        {
+            switch (theCRUD)
+            {
+                case "ADD": executeADD(); break;
+                case "EDIT": executeEDIT(); break;
+                case "DELETE": executeDELETE(); break;
+            }
+        }
+
+        private void executeADD() //Execute ADD
+        {
+            if (string.IsNullOrEmpty(PM_CRUD_ProductNameTextBox.Text))
+            {
+                MessageBox.Show("โปรดระบุชื่อสินค้า", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (PM_CRUD_ProductCostPriceNumericUpDown.Value == 0)
+            {
+                MessageBox.Show("โปรดระบุราคาทุน", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (PM_CRUD_ProductSellingPriceNumericUpDown.Value == 0)
+            {
+                MessageBox.Show("โปรดระบุราคาขาย", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (PM_CRUD_ProductCategoryComboBox.SelectedItem == null)
+            {
+                MessageBox.Show("โปรดเลือกประเภทสินค้า", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+        }
+
+        private void executeEDIT() //Execute EDIT
+        {
+
+        }
+
+        private void executeDELETE() //Execute DELETE
+        {
+
+        }
+
+        ///////////////////////////////////////// CANCEL BUTTON /////////////////////////////////////////////////////////////
+        private void PM_CRUD_CancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -358,6 +358,7 @@
             PM_CRUD_CancelButton.TabIndex = 3;
             PM_CRUD_CancelButton.Text = "ยกเลิก";
             PM_CRUD_CancelButton.UseVisualStyleBackColor = true;
+            PM_CRUD_CancelButton.Click += PM_CRUD_CancelButton_Click;
             // 
             // PM_CRUD_SaveButton
             // 
@@ -370,6 +371,7 @@
             PM_CRUD_SaveButton.TabIndex = 3;
             PM_CRUD_SaveButton.Text = "...";
             PM_CRUD_SaveButton.UseVisualStyleBackColor = true;
+            PM_CRUD_SaveButton.Click += PM_CRUD_SaveButton_Click;
             // 
             // PM_CRUD_ProductIdNumericUpDown
             // 
@@ -380,7 +382,6 @@
             PM_CRUD_ProductIdNumericUpDown.RightToLeft = RightToLeft.No;
             PM_CRUD_ProductIdNumericUpDown.Size = new Size(52, 26);
             PM_CRUD_ProductIdNumericUpDown.TabIndex = 9;
-            PM_CRUD_ProductIdNumericUpDown.Visible = false;
             // 
             // PM_CRUD_ProductIdLabel
             // 
@@ -393,7 +394,6 @@
             PM_CRUD_ProductIdLabel.Size = new Size(29, 18);
             PM_CRUD_ProductIdLabel.TabIndex = 1;
             PM_CRUD_ProductIdLabel.Text = ":ID";
-            PM_CRUD_ProductIdLabel.Visible = false;
             // 
             // flowLayoutPanel1
             // 
