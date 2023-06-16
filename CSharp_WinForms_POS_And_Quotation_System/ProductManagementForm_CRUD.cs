@@ -6,10 +6,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Security.Cryptography;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.Diagnostics.Metrics;
 
 namespace CSharp_WinForms_POS_And_Quotation_System
 {
@@ -233,7 +236,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 {
                     var tr = db.Database.BeginTransaction();//Transaction control: ADD, EDIT, DELETE
                     Product A = new Product();
-                    A.Barcode = generateBarcode();
+                    //A.Barcode = generateBarcode();
                     A.Name = PM_CRUD_ProductNameTextBox.Text.Trim();
                     A.CostPrice = PM_CRUD_ProductQuantityNumericUpDown.Value;
                     A.SellingPrice = PM_CRUD_ProductCostPriceNumericUpDown.Value;
@@ -257,13 +260,45 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 }
             }
 
-            string generateBarcode()// EAN-13 หรือ Code-128
-            {
-                //885
-                var unigueID = Guid.NewGuid();
-                return ("516516511546");
-            }
+
+
         }
+        private static Random random = new Random();
+        private void testbutton1_Click(object sender, EventArgs e)
+        {
+            generateBarcode();
+        }
+
+        private void generateBarcode()// Code-128 หรือ EAN-13
+        {
+            // Get the current timestamp in milliseconds
+            long timestamp = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+
+            Random random = new Random();
+            int randomNumber = random.Next(100000, 999999);
+
+            string uniqueID = timestamp.ToString() + randomNumber.ToString();
+
+            PM_CRUD_ProductBarcodeTextBox.Text = timestamp.ToString() + " + " + randomNumber.ToString();
+            PM_CRUD_ProductNameTextBox.Text = uniqueID.ToString();
+
+            if (uniqueID.Length > 12)
+            {
+                uniqueID = uniqueID.Substring(0, 12);
+                PM_CRUD_ProductUnitNameTextBox.Text = uniqueID.ToString();
+            }
+            else if (uniqueID.Length < 12)
+            {
+                uniqueID = uniqueID.PadRight(12, '0');
+                PM_CRUD_ProductUnitNameTextBox.Text = uniqueID.ToString();
+            }
+
+            
+        }
+
+
+
+
 
         private void executeEDIT() //Execute EDIT
         {
