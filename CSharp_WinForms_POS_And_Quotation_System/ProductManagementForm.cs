@@ -114,6 +114,14 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             searchData();
         }
 
+        private void PM_SearchTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+            }
+        }
+
         private void PM_SearchTextBox_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -150,7 +158,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             ProductManagementForm_CRUD f = new ProductManagementForm_CRUD(whichCRUD, whichID);
             f.StartPosition = FormStartPosition.Manual;
             // Calculate the center position of the child form
-            int x = this.Left + ((this.Width - f.Width) / 2) + ((f.Width-(f.Width / 8)) /2/2);
+            int x = this.Left + ((this.Width - f.Width) / 2) + ((f.Width - (f.Width / 8)) / 2 / 2);
             int y = this.Top + ((this.Height - f.Height) / 2);
             f.Location = new Point(x, y);
             f.ShowDialog();  // Use ShowDialog instead of Show to open the form modally
@@ -203,5 +211,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             loadCategory();
             loadData("", 0);
         }
+
+
     }
 }

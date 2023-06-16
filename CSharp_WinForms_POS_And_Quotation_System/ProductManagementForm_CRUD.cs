@@ -6,13 +6,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Security.Cryptography;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using System.Diagnostics.Metrics;
+using System.Numerics;
+using System.Collections;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace CSharp_WinForms_POS_And_Quotation_System
 {
@@ -80,7 +82,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 return;
             }
 
-            //PM_CRUD_ProductIdNumericUpDown.Value = *สร้างอัตโนมัติ
+            //PM_CRUD_ProductIdNumericUpDown.Value = Primary key Generate Auto
             PM_CRUD_ProductBarcodeTextBox.Text = "*สร้างอัตโนมัติ";
         }
         private void prepareEDIT() //Prepare EDIT
@@ -198,8 +200,6 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         ///////////////////////////////////////// EXECUTE BUTTON /////////////////////////////////////////////////////////////
         private void PM_CRUD_SaveButton_Click(object sender, EventArgs e)
         {
-
-
             switch (theCRUD)
             {
                 case "ADD": executeADD(); break;
@@ -232,73 +232,79 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             }
             else
             {
-                try
+                string theBarcode = generateBarcode();
+                if (theBarcode == "EXIST" || theBarcode.Length != 13)
                 {
-                    var tr = db.Database.BeginTransaction();//Transaction control: ADD, EDIT, DELETE
-                    Product A = new Product();
-                    //A.Barcode = generateBarcode();
-                    A.Name = PM_CRUD_ProductNameTextBox.Text.Trim();
-                    A.CostPrice = PM_CRUD_ProductQuantityNumericUpDown.Value;
-                    A.SellingPrice = PM_CRUD_ProductCostPriceNumericUpDown.Value;
-                    A.Quantity = Convert.ToInt32(PM_CRUD_ProductQuantityNumericUpDown.Value);
-                    A.UnitName = PM_CRUD_ProductUnitNameTextBox.Text.Trim();
-
-                    dynamic selectedCat = PM_CRUD_ProductCategoryComboBox.SelectedItem;
-                    A.Category = Convert.ToInt32(selectedCat.Id);
-
-                    db.Products.Add(A);
-                    db.SaveChanges();
-                    tr.Commit();
-
-                    center.isExecuted = true;
-                    MessageBox.Show("เพิ่มสินค้าสำเร็จ", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    return;
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Error: " + ex.Message, "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    try
+                    {
+                        var tr = db.Database.BeginTransaction();//Transaction control: ADD
+                        Product A = new Product();
+
+                        //A.Id = Primary key Generate Autos
+                        A.Barcode = theBarcode;
+                        A.Name = PM_CRUD_ProductNameTextBox.Text.Trim();
+                        A.CostPrice = PM_CRUD_ProductQuantityNumericUpDown.Value;
+                        A.SellingPrice = PM_CRUD_ProductCostPriceNumericUpDown.Value;
+                        A.Quantity = Convert.ToInt32(PM_CRUD_ProductQuantityNumericUpDown.Value);
+                        A.UnitName = PM_CRUD_ProductUnitNameTextBox.Text.Trim();
+
+                        dynamic selectedCat = PM_CRUD_ProductCategoryComboBox.SelectedItem;
+                        A.Category = Convert.ToInt32(selectedCat.Id);
+
+                        db.Products.Add(A);
+                        db.SaveChanges();
+                        tr.Commit();
+
+                        center.isExecuted = true;
+                        MessageBox.Show("เพิ่มสินค้าสำเร็จ", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message, "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
-
-
-
         }
-        private static Random random = new Random();
-        private void testbutton1_Click(object sender, EventArgs e)
+        private string generateBarcode() // Code-128 หรือ EAN-13
         {
-            generateBarcode();
-        }
-
-        private void generateBarcode()// Code-128 หรือ EAN-13
-        {
-            // Get the current timestamp in milliseconds
-            long timestamp = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-
+            //Random 12 digit of number
             Random random = new Random();
-            int randomNumber = random.Next(100000, 999999);
+            long randomID = random.NextInt64(100000000000, 999999999999);
+            string randomIDString = Convert.ToString(randomID);
 
-            string uniqueID = timestamp.ToString() + randomNumber.ToString();
-
-            PM_CRUD_ProductBarcodeTextBox.Text = timestamp.ToString() + " + " + randomNumber.ToString();
-            PM_CRUD_ProductNameTextBox.Text = uniqueID.ToString();
-
-            if (uniqueID.Length > 12)
+            //Add 13th checking digit by Modulo 10 Algorithm
+            int sum = 0;
+            int multiplier = 3;
+            for (int i = randomIDString.Length - 1; i >= 0; i--)
             {
-                uniqueID = uniqueID.Substring(0, 12);
-                PM_CRUD_ProductUnitNameTextBox.Text = uniqueID.ToString();
-            }
-            else if (uniqueID.Length < 12)
-            {
-                uniqueID = uniqueID.PadRight(12, '0');
-                PM_CRUD_ProductUnitNameTextBox.Text = uniqueID.ToString();
-            }
+                int digit = randomIDString[i] - '0';
+                sum += digit * multiplier;
 
-            
+                multiplier = (multiplier == 3) ? 1 : 3;
+            }
+            int remainder = sum % 10;
+            int checkDigit = (remainder == 0) ? 0 : 10 - remainder;
+
+            string barcode = Convert.ToString(randomIDString) + Convert.ToString(checkDigit);
+
+            var data = (from x in db.Products
+                        where x.Barcode == barcode
+                        select x).FirstOrDefault();
+
+            if (data == null)
+            {
+                return barcode;
+            }
+            else
+            {
+                return "EXIST";
+            }
         }
-
-
-
-
 
         private void executeEDIT() //Execute EDIT
         {

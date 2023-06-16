@@ -112,7 +112,7 @@
             PM_DataGridView.RowHeadersWidth = 51;
             PM_DataGridView.RowTemplate.Height = 25;
             PM_DataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            PM_DataGridView.Size = new Size(1162, 1004);
+            PM_DataGridView.Size = new Size(1162, 998);
             PM_DataGridView.TabIndex = 4;
             // 
             // PM_StatusStrip
@@ -120,9 +120,9 @@
             PM_StatusStrip.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             PM_StatusStrip.ImageScalingSize = new Size(20, 20);
             PM_StatusStrip.Items.AddRange(new ToolStripItem[] { PM_ToolStripStatusLabel1 });
-            PM_StatusStrip.Location = new Point(0, 1046);
+            PM_StatusStrip.Location = new Point(0, 1040);
             PM_StatusStrip.Name = "PM_StatusStrip";
-            PM_StatusStrip.Size = new Size(1162, 23);
+            PM_StatusStrip.Size = new Size(1162, 29);
             PM_StatusStrip.TabIndex = 3;
             PM_StatusStrip.Text = "statusStrip1";
             // 
@@ -130,7 +130,7 @@
             // 
             PM_ToolStripStatusLabel1.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             PM_ToolStripStatusLabel1.Name = "PM_ToolStripStatusLabel1";
-            PM_ToolStripStatusLabel1.Size = new Size(52, 18);
+            PM_ToolStripStatusLabel1.Size = new Size(66, 23);
             PM_ToolStripStatusLabel1.Text = "รายการ";
             // 
             // PM_TableLayoutPanel1
@@ -241,11 +241,12 @@
             // 
             PM_SearchTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             PM_SearchTextBox.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            PM_SearchTextBox.Location = new Point(3, 6);
+            PM_SearchTextBox.Location = new Point(3, 4);
             PM_SearchTextBox.Margin = new Padding(2);
             PM_SearchTextBox.Name = "PM_SearchTextBox";
-            PM_SearchTextBox.Size = new Size(486, 27);
+            PM_SearchTextBox.Size = new Size(486, 32);
             PM_SearchTextBox.TabIndex = 3;
+            PM_SearchTextBox.KeyDown += PM_SearchTextBox_KeyDown;
             PM_SearchTextBox.KeyUp += PM_SearchTextBox_KeyUp;
             // 
             // PM_RefreshButton
@@ -286,10 +287,10 @@
             PM_ComboBox.BackColor = SystemColors.Control;
             PM_ComboBox.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
             PM_ComboBox.FormattingEnabled = true;
-            PM_ComboBox.Location = new Point(494, 6);
+            PM_ComboBox.Location = new Point(494, 4);
             PM_ComboBox.Margin = new Padding(2);
             PM_ComboBox.Name = "PM_ComboBox";
-            PM_ComboBox.Size = new Size(196, 27);
+            PM_ComboBox.Size = new Size(196, 32);
             PM_ComboBox.TabIndex = 4;
             // 
             // PM_Panel1
@@ -310,13 +311,13 @@
             PM_HeadingLabel.Location = new Point(9, 10);
             PM_HeadingLabel.Margin = new Padding(0);
             PM_HeadingLabel.Name = "PM_HeadingLabel";
-            PM_HeadingLabel.Size = new Size(179, 39);
+            PM_HeadingLabel.Size = new Size(219, 48);
             PM_HeadingLabel.TabIndex = 1;
             PM_HeadingLabel.Text = "จัดการสินค้า";
             // 
             // ProductManagementForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 18F);
+            AutoScaleDimensions = new SizeF(10F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1164, 1131);
             Controls.Add(PM_PanelBase);
