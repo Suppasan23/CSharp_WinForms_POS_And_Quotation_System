@@ -74,8 +74,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                            //รูปภาพ = TODO
                            รหัสสินค้า = i.Barcode,
                            ชื่อสินค้า = i.Name,
-                           ราคาทุน = i.CostPrice,
-                           ราคาขาย = i.SellingPrice,
+                           ราคาทุน = i.CostPrice.ToString("#,###,##0", System.Globalization.CultureInfo.InvariantCulture),
+                           ราคาขาย = i.SellingPrice.ToString("#,###,##0", System.Globalization.CultureInfo.InvariantCulture),
                            จำนวน = i.Quantity,
                            หน่วยนับ = i.UnitName,
                            ประเภทสินค้า = r.Name
