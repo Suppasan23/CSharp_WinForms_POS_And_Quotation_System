@@ -49,7 +49,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 case "DELETE": prepareDELETE(); break;
             }
         }
-        private void prepareADD() //Prepare ADD
+        private void prepareADD() //PREPARE ADD
         {
             PM_CRUD_HeadingLabel.Text = "เพิ่มสินค้า";
             PM_CRUD_SaveButton.Text = "บันทึก";
@@ -85,7 +85,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             //PM_CRUD_ProductIdNumericUpDown.Value = Primary key Generate Auto
             PM_CRUD_ProductBarcodeTextBox.Text = "*สร้างอัตโนมัติ";
         }
-        private void prepareEDIT() //Prepare EDIT
+        private void prepareEDIT() //PREPARE EDIT
         {
             PM_CRUD_HeadingLabel.Text = "แก้ไขสินค้า";
             PM_CRUD_SaveButton.Text = "บันทึก";
@@ -108,10 +108,10 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             var cat = from m in db.ProductCategories select new { m.Id, m.Name };
             if (data != null && cat != null)
             {
-                //Barcode, Name, Quantity, CostPrice, SellingPrice, UnitName show value
-                PM_CRUD_ProductIdNumericUpDown.Value = theID;
+                //ID, Barcode, Name, Quantity, CostPrice, SellingPrice, UnitName show value
+                PM_CRUD_ProductIdNumericUpDown.Value = theID; //Read only
+                PM_CRUD_ProductBarcodeTextBox.Text = data.Barcode; //Read only
 
-                PM_CRUD_ProductBarcodeTextBox.Text = data.Barcode;
                 PM_CRUD_ProductNameTextBox.Text = data.Name;
                 PM_CRUD_ProductCostPriceNumericUpDown.Value = data.CostPrice;
                 PM_CRUD_ProductSellingPriceNumericUpDown.Value = data.SellingPrice;
@@ -139,7 +139,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 return;
             }
         }
-        private void prepareDELETE() //Prepare DELETE
+        private void prepareDELETE() //PREPARE DELETE
         {
             PM_CRUD_HeadingLabel.Text = "ลบสินค้า";
             PM_CRUD_SaveButton.Text = "ลบ";
@@ -158,7 +158,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             PM_CRUD_PictureDescriptionLabel.Enabled = false; //X
             PM_CRUD_SaveButton.Select();
 
-            //Id, Barcode, Name, Quantity, CostPrice, SellingPrice, UnitName, Category show value
+
             var data = (from p in db.Products
                         join c in db.ProductCategories on p.Category equals c.Id
                         where p.Id == theID
@@ -170,25 +170,29 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
             if (data != null)
             {
-                PM_CRUD_ProductIdNumericUpDown.Value = theID;
+                //Id, Barcode, Name, Quantity, CostPrice, SellingPrice, UnitName, Category show value
+                PM_CRUD_ProductIdNumericUpDown.Value = theID; //Read only
+                PM_CRUD_ProductBarcodeTextBox.Text = data.Pro.Barcode; //Read only
 
-                PM_CRUD_ProductBarcodeTextBox.Text = data.Pro.Barcode;
-                PM_CRUD_ProductNameTextBox.Text = data.Pro.Name;
-                PM_CRUD_ProductCostPriceNumericUpDown.Value = data.Pro.CostPrice;
-                PM_CRUD_ProductSellingPriceNumericUpDown.Value = data.Pro.SellingPrice;
-                PM_CRUD_ProductQuantityNumericUpDown.Value = data.Pro.Quantity;
-                PM_CRUD_ProductUnitNameTextBox.Text = data.Pro.UnitName;
-                PM_CRUD_ProductCategoryComboBox.Items.Insert(0, data.Cat.Name);
-                PM_CRUD_ProductCategoryComboBox.SelectedIndex = 0;
+                PM_CRUD_ProductNameTextBox.Text = data.Pro.Name; //Read only
+                PM_CRUD_ProductCostPriceNumericUpDown.Value = data.Pro.CostPrice; //Read only
+                PM_CRUD_ProductSellingPriceNumericUpDown.Value = data.Pro.SellingPrice; //Read only
+                PM_CRUD_ProductQuantityNumericUpDown.Value = data.Pro.Quantity; //Read only
+                PM_CRUD_ProductUnitNameTextBox.Text = data.Pro.UnitName; //Read only
 
-                PM_CRUD_ProductCostPriceNumericUpDown.Minimum = data.Pro.CostPrice;
-                PM_CRUD_ProductCostPriceNumericUpDown.Maximum = data.Pro.CostPrice;
+                //Category show value
+                PM_CRUD_ProductCategoryComboBox.Items.Insert(0, data.Cat.Name); //Read only
+                PM_CRUD_ProductCategoryComboBox.SelectedIndex = 0; //Read only
 
-                PM_CRUD_ProductSellingPriceNumericUpDown.Minimum = data.Pro.SellingPrice;
-                PM_CRUD_ProductSellingPriceNumericUpDown.Maximum = data.Pro.SellingPrice;
+                //Prevent change numericUpDown value
+                PM_CRUD_ProductCostPriceNumericUpDown.Minimum = data.Pro.CostPrice; //Disable change
+                PM_CRUD_ProductCostPriceNumericUpDown.Maximum = data.Pro.CostPrice; //Disable change
 
-                PM_CRUD_ProductQuantityNumericUpDown.Minimum = data.Pro.Quantity;
-                PM_CRUD_ProductQuantityNumericUpDown.Maximum = data.Pro.Quantity;
+                PM_CRUD_ProductSellingPriceNumericUpDown.Minimum = data.Pro.SellingPrice; //Disable change
+                PM_CRUD_ProductSellingPriceNumericUpDown.Maximum = data.Pro.SellingPrice; //Disable change
+
+                PM_CRUD_ProductQuantityNumericUpDown.Minimum = data.Pro.Quantity; //Disable change
+                PM_CRUD_ProductQuantityNumericUpDown.Maximum = data.Pro.Quantity; //Disable change
             }
             else
             {
@@ -208,7 +212,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             }
         }
 
-        private void executeADD() //Execute ADD
+        private void executeADD() //EXECUTE ADD
         {
             if (string.IsNullOrEmpty(PM_CRUD_ProductNameTextBox.Text))
             {
@@ -233,22 +237,22 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             else
             {
                 string theBarcode = generateBarcode();
-                if (theBarcode == "EXIST" || theBarcode.Length != 13)
-                {
-                    return;
-                }
-                else
+                var B = (from b in db.Products
+                         where b.Barcode == theBarcode
+                         select b).FirstOrDefault();
+
+                if (B == null && theBarcode.Length == 13)
                 {
                     try
                     {
                         var tr = db.Database.BeginTransaction();//Transaction control: ADD
                         Product A = new Product();
 
-                        //A.Id = Primary key Generate Autos
+                        //A.Id = Primary key Generate Auto
                         A.Barcode = theBarcode;
                         A.Name = PM_CRUD_ProductNameTextBox.Text.Trim();
-                        A.CostPrice = PM_CRUD_ProductQuantityNumericUpDown.Value;
-                        A.SellingPrice = PM_CRUD_ProductCostPriceNumericUpDown.Value;
+                        A.CostPrice = PM_CRUD_ProductCostPriceNumericUpDown.Value;
+                        A.SellingPrice = PM_CRUD_ProductSellingPriceNumericUpDown.Value;
                         A.Quantity = Convert.ToInt32(PM_CRUD_ProductQuantityNumericUpDown.Value);
                         A.UnitName = PM_CRUD_ProductUnitNameTextBox.Text.Trim();
 
@@ -267,6 +271,10 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                     {
                         MessageBox.Show("Error: " + ex.Message, "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                }
+                else
+                {
+                    return;
                 }
             }
         }
@@ -290,28 +298,85 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             int remainder = sum % 10;
             int checkDigit = (remainder == 0) ? 0 : 10 - remainder;
 
-            string barcode = Convert.ToString(randomIDString) + Convert.ToString(checkDigit);
+            string barcode = (Convert.ToString(randomIDString) + Convert.ToString(checkDigit)).Trim();
 
-            var data = (from x in db.Products
-                        where x.Barcode == barcode
-                        select x).FirstOrDefault();
+            return barcode;
+        }
 
-            if (data == null)
+        private void executeEDIT() //EXECUTE EDIT
+        {
+            if (PM_CRUD_ProductIdNumericUpDown.Value == 0)
             {
-                return barcode;
+                MessageBox.Show("ไม่พบ ID", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (string.IsNullOrEmpty(PM_CRUD_ProductBarcodeTextBox.Text))
+            {
+                MessageBox.Show("ไม่พบรหัสสินค้า", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (string.IsNullOrEmpty(PM_CRUD_ProductNameTextBox.Text))
+            {
+                MessageBox.Show("โปรดระบุชื่อสินค้า", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (PM_CRUD_ProductCostPriceNumericUpDown.Value == 0)
+            {
+                MessageBox.Show("โปรดระบุราคาทุน", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (PM_CRUD_ProductSellingPriceNumericUpDown.Value == 0)
+            {
+                MessageBox.Show("โปรดระบุราคาขาย", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (PM_CRUD_ProductCategoryComboBox.SelectedItem == null)
+            {
+                MessageBox.Show("โปรดเลือกประเภทสินค้า", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
             else
             {
-                return "EXIST";
+                var E = (from e in db.Products
+                         where e.Id == theID
+                         select e).FirstOrDefault();
+
+                if (E != null)
+                {
+                    try
+                    {
+                        var tr = db.Database.BeginTransaction();//Transaction control: EDIT
+                        //E.Id = Stay same
+                        //E.Barcode = Stay same
+                        E.Name = PM_CRUD_ProductNameTextBox.Text.Trim();
+                        E.CostPrice = PM_CRUD_ProductCostPriceNumericUpDown.Value;
+                        E.SellingPrice = PM_CRUD_ProductSellingPriceNumericUpDown.Value;
+                        E.Quantity = Convert.ToInt32(PM_CRUD_ProductQuantityNumericUpDown.Value);
+                        E.UnitName = PM_CRUD_ProductUnitNameTextBox.Text.Trim();
+
+                        dynamic selectedCat = PM_CRUD_ProductCategoryComboBox.SelectedItem;
+                        E.Category = Convert.ToInt32(selectedCat.Id);
+
+                        db.SaveChanges();
+                        tr.Commit();
+
+                        center.isExecuted = true;
+                        MessageBox.Show("แก้ไขสินค้าสำเร็จ", "แก้ไขสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message, "แก้ไขสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    return;
+                }
             }
         }
 
-        private void executeEDIT() //Execute EDIT
-        {
-
-        }
-
-        private void executeDELETE() //Execute DELETE
+        private void executeDELETE() //EXECUTE DELETE
         {
 
         }
