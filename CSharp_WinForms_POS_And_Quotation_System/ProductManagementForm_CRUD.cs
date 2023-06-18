@@ -250,32 +250,33 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         private string imageFileName = "";
         private void PM_CRUD_ChoosePictureLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) //CHOOSE PICTURE
         {
-            try
-            {
-                openFileDialog1.Title = "เลือกรูปภาพ";
-                openFileDialog1.FileName = "";
-                openFileDialog1.Filter = "Jpg, Jpeg Images|*.jpg;*.jpeg|PNG Image|*.png|All files (*.*)|*.*";
-                openFileDialog1.AddExtension = true;
-                openFileDialog1.FilterIndex = 1;
-                openFileDialog1.Multiselect = false;
-                openFileDialog1.ValidateNames = true;
-                openFileDialog1.RestoreDirectory = true;
 
-                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            openFileDialog1.Title = "เลือกรูปภาพ";
+            openFileDialog1.FileName = "";
+            openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png";
+            openFileDialog1.AddExtension = true;
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.Multiselect = false;
+            openFileDialog1.ValidateNames = true;
+            openFileDialog1.RestoreDirectory = true;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
                 {
                     imageFileName = openFileDialog1.FileName; fileImageTestTextBox.Text = imageFileName;
                     PM_CRUD_PictureBox.Image = Image.FromFile(imageFileName);
                     PM_CRUD_PictureBox.Tag = "NewImage";
                 }
-                else
+                catch (Exception ex)
                 {
-                    imageFileName = ""; fileImageTestTextBox.Text = imageFileName;
-                    return;
+                    MessageBox.Show("Error: " + ex.Message, "เลือกรูปภาพ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();   
                 }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Error: " + ex.Message, "เลือกรูปภาพ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
 
@@ -288,23 +289,36 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
         private byte[] imgToByteArray() //CONVERT IMAGE TO BYTEARRAY
         {
+            try
+            {
+                byte[] createByteArray = Array.Empty<byte>();
 
-            byte[] byteArray = Array.Empty<byte>();
+                FileStream fs = new FileStream(imageFileName, FileMode.Open, FileAccess.Read);
+                createByteArray = new byte[fs.Length];
+                fs.Read(createByteArray, 0, Convert.ToInt32(fs.Length));
+                fs.Close();
 
-            FileStream fs = new FileStream(imageFileName, FileMode.Open, FileAccess.Read);
-            byteArray = new byte[fs.Length];
-            fs.Read(byteArray, 0, Convert.ToInt32(fs.Length));
-            fs.Close();
-
-            return byteArray;
+                return createByteArray;
+            }
+            catch (Exception)
+            {
+                return Array.Empty<byte>();
+            }
         }
 
-        private Image byteArraytoImage(byte[] input) //CONVERT BYTEARRAY TO IMAGE
+        private Image? byteArraytoImage(byte[] input) //CONVERT BYTEARRAY TO IMAGE
         {
-            using (var ms = new MemoryStream(input))
+            try
             {
-                var image = Image.FromStream(ms);
-                return image;
+                using (var ms = new MemoryStream(input))
+                {
+                    var createImage = Image.FromStream(ms);
+                    return createImage;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
             }
         }
 
@@ -368,7 +382,19 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
                         if (Path.IsPathRooted(imageFileName))
                         {
-                            A.Picture = imgToByteArray();
+                            byte[] gotByteArray = imgToByteArray();
+
+                            if (gotByteArray.Length > 1000)
+                            {
+                                A.Picture = gotByteArray;
+                                MessageBox.Show("gotByteArray.Length = " + gotByteArray.Length, "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("บันทึกล้มเหลว เกิดความผิดพลาดในขั้นตอนการบันทึกรูปภาพ gotByteArray.Length = " + gotByteArray.Length, "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                tr.Rollback();
+                                return;
+                            }
                         }
                         else if (imageFileName.Equals("EXIST"))
                         {
@@ -380,7 +406,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                         }
                         else
                         {
-                            A.Picture = null;
+                            //Do Nothing
                         }
 
                         db.Products.Add(A);
@@ -483,7 +509,19 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
                         if (Path.IsPathRooted(imageFileName))
                         {
-                            E.Picture = imgToByteArray();
+                            byte[] gotByteArray = imgToByteArray();
+
+                            if (gotByteArray.Length > 1000)
+                            {
+                                E.Picture = gotByteArray;
+                                MessageBox.Show("gotByteArray.Length = " + gotByteArray.Length, "แก้ไขสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("บันทึกล้มเหลว เกิดความผิดพลาดในขั้นตอนการแก้ไขรูปภาพ gotByteArray.Length = " + gotByteArray.Length, "แก้ไขสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                tr.Rollback();
+                                return;
+                            }
                         }
                         else if (imageFileName.Equals("EXIST"))
                         {
@@ -495,7 +533,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                         }
                         else
                         {
-                            E.Picture = null;
+                            //Do Nothing
                         }
 
                         db.SaveChanges();
