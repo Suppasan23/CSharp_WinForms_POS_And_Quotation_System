@@ -40,6 +40,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             this.PM_CRUD_SaveButton.TabIndex = 8;
             this.PM_CRUD_CancelButton.TabIndex = 9;
 
+            this.PM_CRUD_PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+
             this.PM_CRUD_ProductCategoryComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
             this.theCRUD = _whichCRUD;
@@ -97,6 +99,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
             //PM_CRUD_ProductIdNumericUpDown.Value = Primary key Generate Auto
             PM_CRUD_ProductBarcodeTextBox.Text = "*สร้างอัตโนมัติ";
+            imageFileName = ""; fileImageTestTextBox.Text = imageFileName;
+            PM_CRUD_PictureBox.Image = null;
         }
         private void prepareEDIT() //PREPARE EDIT
         {
@@ -152,10 +156,12 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 //Picture show
                 if (data.Picture != null)
                 {
+                    imageFileName = "EXIST"; fileImageTestTextBox.Text = imageFileName;
                     PM_CRUD_PictureBox.Image = byteArraytoImage(data.Picture);
                 }
                 else
                 {
+                    imageFileName = ""; fileImageTestTextBox.Text = imageFileName;
                     PM_CRUD_PictureBox.Image = null;
                 }
             }
@@ -224,10 +230,12 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 //Picture show
                 if (data.Pro.Picture != null)
                 {
+                    imageFileName = "EXIST"; fileImageTestTextBox.Text = imageFileName;
                     PM_CRUD_PictureBox.Image = byteArraytoImage(data.Pro.Picture);
                 }
                 else
                 {
+                    imageFileName = ""; fileImageTestTextBox.Text = imageFileName;
                     PM_CRUD_PictureBox.Image = null;
                 }
             }
@@ -239,18 +247,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         }
 
         //////////////////////////////////////////////// PICTURE /////////////////////////////////////////////////////////////////
-        private Image byteArraytoImage(byte[] input) //CONVERTBYTEARRAY TO IMAGE
-        {
-            using (var ms = new MemoryStream(input))
-            {
-                var image = Image.FromStream(ms);
-                return image;
-            }
-        }
-
-        private string imageFileName;
-        private bool imageHasChanged;
-
+        private string imageFileName = "";
         private void PM_CRUD_ChoosePictureLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) //CHOOSE PICTURE
         {
             try
@@ -266,15 +263,13 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    PM_CRUD_PictureBox.Image = Image.FromFile(openFileDialog1.FileName);
-                    imageFileName = openFileDialog1.FileName;
-                    imageHasChanged = true;
+                    imageFileName = openFileDialog1.FileName; fileImageTestTextBox.Text = imageFileName;
+                    PM_CRUD_PictureBox.Image = Image.FromFile(imageFileName);
                     PM_CRUD_PictureBox.Tag = "NewImage";
                 }
                 else
                 {
-                    imageFileName = "";
-                    imageHasChanged = false;
+                    imageFileName = ""; fileImageTestTextBox.Text = imageFileName;
                     return;
                 }
             }
@@ -286,12 +281,32 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
         private void PM_CRUD_DeletePictureLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) //DELETE PICTURE
         {
+            imageFileName = ""; fileImageTestTextBox.Text = imageFileName;
             PM_CRUD_PictureBox.Image = null;
             PM_CRUD_PictureBox.Tag = "Empty";
-            imageFileName = "";
-            imageHasChanged = true;
         }
 
+        private byte[] imgToByteArray() //CONVERT IMAGE TO BYTEARRAY
+        {
+
+            byte[] byteArray = Array.Empty<byte>();
+
+            FileStream fs = new FileStream(imageFileName, FileMode.Open, FileAccess.Read);
+            byteArray = new byte[fs.Length];
+            fs.Read(byteArray, 0, Convert.ToInt32(fs.Length));
+            fs.Close();
+
+            return byteArray;
+        }
+
+        private Image byteArraytoImage(byte[] input) //CONVERT BYTEARRAY TO IMAGE
+        {
+            using (var ms = new MemoryStream(input))
+            {
+                var image = Image.FromStream(ms);
+                return image;
+            }
+        }
 
         ///////////////////////////////////////// EXECUTE BUTTON /////////////////////////////////////////////////////////////
         private void PM_CRUD_SaveButton_Click(object sender, EventArgs e)
@@ -350,6 +365,23 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
                         dynamic selectedCat = PM_CRUD_ProductCategoryComboBox.SelectedItem;
                         A.Category = Convert.ToInt32(selectedCat.Id);
+
+                        if (Path.IsPathRooted(imageFileName))
+                        {
+                            A.Picture = imgToByteArray();
+                        }
+                        else if (imageFileName.Equals("EXIST"))
+                        {
+                            //Do Nothing
+                        }
+                        else if (string.IsNullOrEmpty(imageFileName))
+                        {
+                            A.Picture = null;
+                        }
+                        else
+                        {
+                            A.Picture = null;
+                        }
 
                         db.Products.Add(A);
                         db.SaveChanges();
@@ -449,6 +481,23 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                         dynamic selectedCat = PM_CRUD_ProductCategoryComboBox.SelectedItem;
                         E.Category = Convert.ToInt32(selectedCat.Id);
 
+                        if (Path.IsPathRooted(imageFileName))
+                        {
+                            E.Picture = imgToByteArray();
+                        }
+                        else if (imageFileName.Equals("EXIST"))
+                        {
+                            //Do Nothing
+                        }
+                        else if (string.IsNullOrEmpty(imageFileName))
+                        {
+                            E.Picture = null;
+                        }
+                        else
+                        {
+                            E.Picture = null;
+                        }
+
                         db.SaveChanges();
                         tr.Commit();
 
@@ -516,7 +565,5 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         {
             this.Close();
         }
-
-
     }
 }

@@ -48,6 +48,7 @@
             PM_CRUD_SaveButton = new Button();
             PM_CRUD_ProductIdNumericUpDown = new NumericUpDown();
             PM_CRUD_ProductIdLabel = new Label();
+            fileImageTestTextBox = new TextBox();
             flowLayoutPanel1 = new FlowLayoutPanel();
             PM_CRUD_PictureBox = new PictureBox();
             tableLayoutPanel3 = new TableLayoutPanel();
@@ -297,6 +298,7 @@
             flowLayoutPanel2.Controls.Add(PM_CRUD_SaveButton);
             flowLayoutPanel2.Controls.Add(PM_CRUD_ProductIdNumericUpDown);
             flowLayoutPanel2.Controls.Add(PM_CRUD_ProductIdLabel);
+            flowLayoutPanel2.Controls.Add(fileImageTestTextBox);
             flowLayoutPanel2.Dock = DockStyle.Fill;
             flowLayoutPanel2.Location = new Point(1, 579);
             flowLayoutPanel2.Margin = new Padding(0);
@@ -341,7 +343,6 @@
             PM_CRUD_ProductIdNumericUpDown.RightToLeft = RightToLeft.No;
             PM_CRUD_ProductIdNumericUpDown.Size = new Size(59, 30);
             PM_CRUD_ProductIdNumericUpDown.TabIndex = 118;
-            PM_CRUD_ProductIdNumericUpDown.Visible = false;
             // 
             // PM_CRUD_ProductIdLabel
             // 
@@ -354,7 +355,14 @@
             PM_CRUD_ProductIdLabel.Size = new Size(37, 23);
             PM_CRUD_ProductIdLabel.TabIndex = 117;
             PM_CRUD_ProductIdLabel.Text = ":ID";
-            PM_CRUD_ProductIdLabel.Visible = false;
+            // 
+            // fileImageTestTextBox
+            // 
+            fileImageTestTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            fileImageTestTextBox.Location = new Point(11, 13);
+            fileImageTestTextBox.Name = "fileImageTestTextBox";
+            fileImageTestTextBox.Size = new Size(430, 27);
+            fileImageTestTextBox.TabIndex = 119;
             // 
             // flowLayoutPanel1
             // 
@@ -562,5 +570,6 @@
         private FlowLayoutPanel flowLayoutPanel1;
         private TableLayoutPanel tableLayoutPanel1;
         private OpenFileDialog openFileDialog1;
+        private TextBox fileImageTestTextBox;
     }
 }
