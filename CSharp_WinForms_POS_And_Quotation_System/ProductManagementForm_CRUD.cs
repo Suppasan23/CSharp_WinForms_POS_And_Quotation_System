@@ -28,8 +28,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         public ProductManagementForm_CRUD(string _whichCRUD, int _whichID)
         {
             InitializeComponent();
-            this.MinimumSize = new Size(550, 550);
-            this.Size = new Size(650, 550);
+            this.Size = new Size(800, 680);
 
             this.PM_CRUD_ProductBarcodeTextBox.TabIndex = 1;
             this.PM_CRUD_ProductNameTextBox.TabIndex = 2;
@@ -239,7 +238,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             }
         }
 
-        private Image byteArraytoImage(byte[] input)
+        //////////////////////////////////////////////// PICTURE /////////////////////////////////////////////////////////////////
+        private Image byteArraytoImage(byte[] input) //CONVERTBYTEARRAY TO IMAGE
         {
             using (var ms = new MemoryStream(input))
             {
@@ -247,6 +247,51 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 return image;
             }
         }
+
+        private string imageFileName;
+        private bool imageHasChanged;
+
+        private void PM_CRUD_ChoosePictureLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) //CHOOSE PICTURE
+        {
+            try
+            {
+                openFileDialog1.Title = "เลือกรูปภาพ";
+                openFileDialog1.FileName = "";
+                openFileDialog1.Filter = "Jpg, Jpeg Images|*.jpg;*.jpeg|PNG Image|*.png|All files (*.*)|*.*";
+                openFileDialog1.AddExtension = true;
+                openFileDialog1.FilterIndex = 1;
+                openFileDialog1.Multiselect = false;
+                openFileDialog1.ValidateNames = true;
+                openFileDialog1.RestoreDirectory = true;
+
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    PM_CRUD_PictureBox.Image = Image.FromFile(openFileDialog1.FileName);
+                    imageFileName = openFileDialog1.FileName;
+                    imageHasChanged = true;
+                    PM_CRUD_PictureBox.Tag = "NewImage";
+                }
+                else
+                {
+                    imageFileName = "";
+                    imageHasChanged = false;
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "เลือกรูปภาพ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void PM_CRUD_DeletePictureLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) //DELETE PICTURE
+        {
+            PM_CRUD_PictureBox.Image = null;
+            PM_CRUD_PictureBox.Tag = "Empty";
+            imageFileName = "";
+            imageHasChanged = true;
+        }
+
 
         ///////////////////////////////////////// EXECUTE BUTTON /////////////////////////////////////////////////////////////
         private void PM_CRUD_SaveButton_Click(object sender, EventArgs e)
@@ -471,5 +516,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         {
             this.Close();
         }
+
+
     }
 }
