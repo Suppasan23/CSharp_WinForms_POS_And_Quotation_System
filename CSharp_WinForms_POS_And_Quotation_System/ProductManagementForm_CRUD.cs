@@ -154,10 +154,9 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 }
 
                 //Picture show
-                if (data.Picture != null)
+                if (data.Picture != null && data.Picture.Length > 1000)
                 {
-                    imageFileName = "EXIST";
-                    PM_CRUD_PictureBox.Image = ProductManagementForm_CRUD.byteArraytoImage(data.Picture);
+                    PM_CRUD_PictureBox.Image = byteArraytoImage(data.Picture);
                 }
                 else
                 {
@@ -228,16 +227,16 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 PM_CRUD_ProductQuantityNumericUpDown.Maximum = data.Pro.Quantity; //Disable change
 
                 //Picture show
-                if (data.Pro.Picture != null)
+                if (data.Pro.Picture != null && data.Pro.Picture.Length > 1000)
                 {
-                    imageFileName = "EXIST";
-                    PM_CRUD_PictureBox.Image = ProductManagementForm_CRUD.byteArraytoImage(data.Pro.Picture);
+                    PM_CRUD_PictureBox.Image = byteArraytoImage(data.Pro.Picture);
                 }
                 else
                 {
                     imageFileName = "";
                     PM_CRUD_PictureBox.Image = null;
                 }
+
             }
             else
             {
@@ -306,16 +305,18 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             }
         }
 
-        private static Image? byteArraytoImage(byte[] input) //CONVERT BYTEARRAY TO IMAGE
+        private Image? byteArraytoImage(byte[] input) //CONVERT BYTEARRAY TO IMAGE
         {
             try
             {
                 using var ms = new MemoryStream(input);
-                var createImage = Image.FromStream(ms);
+                Image createImage = Image.FromStream(ms);
+                imageFileName = "EXIST";
                 return createImage;
             }
             catch (Exception)
             {
+                imageFileName = "";
                 return null;
             }
         }

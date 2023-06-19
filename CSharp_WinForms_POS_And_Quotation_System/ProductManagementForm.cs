@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Metrics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -40,20 +41,9 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             this.PM_DataGridView.DefaultCellStyle.Font = new Font("Tahoma", 10f, FontStyle.Regular);
             this.PM_DataGridView.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-            DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
-            imageColumn.Name = "รูปภาพ";
-            imageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Optional: Set the image layout
-            PM_DataGridView.Columns.Add(imageColumn);
-
             this.PM_DataGridView.ClearSelection();
 
             this.PM_ComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-
-            foreach (DataGridViewColumn column in this.PM_DataGridView.Columns)
-            {
-                column.Width += 50;
-            }
-
         }
 
         ///////////////////////////////////////// FORM LOAD /////////////////////////////////////////////////////////////
@@ -66,47 +56,72 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         ///////////////////////////////////////// LOAD DATA ////////////////////////////////////////////////////////////
         private void loadData(string keyword, int cat)
         {
-            PM_DataGridView.DataSource = null; //Clear DataGridView
-            PM_DataGridView.ClearSelection(); //Selected no row
+            PM_DataGridView.DataSource = null; // Clear DataGridView
+            PM_DataGridView.ClearSelection(); // Deselect any rows
 
-            //Add data to DataGridview
-            var data = from i in db.Products
-                       join r in db.ProductCategories on i.Category equals r.Id
-                       where (i.Barcode.Contains(keyword) || i.Name.Contains(keyword)) && (cat == 0 ? true : i.Category == cat)
-                       select new
-                       {
-                           id = i.Id,
-                           //ที่ = TODO
-                           รหัสสินค้า = i.Barcode,
-                           รูปภาพ = ProductManagementForm.ResizeImage(i.Picture, 100, 100),
-                           ชื่อสินค้า = i.Name,
-                           ราคาทุน = i.CostPrice.ToString("#,###,##0", System.Globalization.CultureInfo.InvariantCulture),
-                           ราคาขาย = i.SellingPrice.ToString("#,###,##0", System.Globalization.CultureInfo.InvariantCulture),
-                           จำนวน = i.Quantity,
-                           หน่วยนับ = i.UnitName,
-                           ประเภทสินค้า = r.Name
-                       };
+            // Add data to DataGridView
+            var data = (from i in db.Products
+                        join r in db.ProductCategories on i.Category equals r.Id
+                        where (i.Barcode.Contains(keyword) || i.Name.Contains(keyword)) && (cat == 0 ? true : i.Category == cat)
+                        select new
+                        {
+                            id = i.Id,
+                            รหัสสินค้า = i.Barcode,
+                            ชื่อสินค้า = i.Name,
+                            ราคาทุน = i.CostPrice.ToString("#,###,##0", System.Globalization.CultureInfo.InvariantCulture),
+                            ราคาขาย = i.SellingPrice.ToString("#,###,##0", System.Globalization.CultureInfo.InvariantCulture),
+                            จำนวน = i.Quantity,
+                            หน่วยนับ = i.UnitName,
+                            ประเภทสินค้า = r.Name,
+                            รูปภาพ = (i.Picture != null) && (i.Picture.Length > 1000) ? ProductManagementForm.adjustSizeImage(i.Picture, 100, 100) : null
+                        }).ToList();
+
             if (data != null)
             {
-                PM_DataGridView.DataSource = data.ToList();
-                //PM_DataGridView.Columns[0].Visible = false;
+                // Create a new list with modified objects including auto-incrementing number
+                var modifiedData = data.Select((item, index) => new
+                {
+                    item.id,
+                    ที่ = (index + 1).ToString(),
+                    item.รหัสสินค้า,
+                    item.ชื่อสินค้า,
+                    item.ราคาทุน,
+                    item.ราคาขาย,
+                    item.จำนวน,
+                    item.หน่วยนับ,
+                    item.ประเภทสินค้า,
+                    item.รูปภาพ
+                }).ToList();
+
+                PM_DataGridView.DataSource = modifiedData; // Set the modified data to the DataGridView
+                PM_DataGridView.Columns[0].Visible = false;
+
+                foreach (DataGridViewColumn column in PM_DataGridView.Columns)
+                {
+                    if (column.Index > 1 && column.Index < 9)
+                    {
+                        column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    }
+                }
             }
             else
             {
                 PM_DataGridView.DataSource = null; //Clear DataGridView
                 PM_DataGridView.ClearSelection(); //Selected no row
-            } 
+            }
         }
 
-        private static Image ResizeImage(byte[] imageData, int width, int height)
+        private static Image? adjustSizeImage(byte[] input, int width, int height)
         {
-            if (imageData == null || imageData.Length == 0)
-                return null; // or return a default image if desired
-
-            using (MemoryStream ms = new MemoryStream(imageData))
+            try
             {
+                using var ms = new MemoryStream(input);
                 Image image = Image.FromStream(ms);
                 return new Bitmap(image, width, height);
+            }
+            catch (Exception)
+            {
+                return null;
             }
         }
 
@@ -229,7 +244,5 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             loadCategory();
             loadData("", 0);
         }
-
-
     }
 }
