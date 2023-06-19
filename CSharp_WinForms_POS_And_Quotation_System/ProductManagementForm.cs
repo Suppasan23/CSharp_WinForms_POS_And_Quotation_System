@@ -28,6 +28,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             this.PM_DataGridView.AllowUserToResizeRows = false;
             this.PM_DataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
+            this.PM_DataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
             this.PM_DataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             this.PM_DataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PM_DataGridView.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 10f, FontStyle.Bold);
@@ -35,9 +37,13 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             this.PM_DataGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.PM_DataGridView.EnableHeadersVisualStyles = false;
 
-
             this.PM_DataGridView.DefaultCellStyle.Font = new Font("Tahoma", 10f, FontStyle.Regular);
             this.PM_DataGridView.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
+            imageColumn.Name = "รูปภาพ";
+            imageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Optional: Set the image layout
+            PM_DataGridView.Columns.Add(imageColumn);
 
             this.PM_DataGridView.ClearSelection();
 
@@ -71,8 +77,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                        {
                            id = i.Id,
                            //ที่ = TODO
-                           //รูปภาพ = TODO
                            รหัสสินค้า = i.Barcode,
+                           รูปภาพ = ProductManagementForm.ResizeImage(i.Picture, 100, 100),
                            ชื่อสินค้า = i.Name,
                            ราคาทุน = i.CostPrice.ToString("#,###,##0", System.Globalization.CultureInfo.InvariantCulture),
                            ราคาขาย = i.SellingPrice.ToString("#,###,##0", System.Globalization.CultureInfo.InvariantCulture),
@@ -83,12 +89,24 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             if (data != null)
             {
                 PM_DataGridView.DataSource = data.ToList();
-                PM_DataGridView.Columns[0].Visible = false;
+                //PM_DataGridView.Columns[0].Visible = false;
             }
             else
             {
                 PM_DataGridView.DataSource = null; //Clear DataGridView
                 PM_DataGridView.ClearSelection(); //Selected no row
+            } 
+        }
+
+        private static Image ResizeImage(byte[] imageData, int width, int height)
+        {
+            if (imageData == null || imageData.Length == 0)
+                return null; // or return a default image if desired
+
+            using (MemoryStream ms = new MemoryStream(imageData))
+            {
+                Image image = Image.FromStream(ms);
+                return new Bitmap(image, width, height);
             }
         }
 
