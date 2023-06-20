@@ -15,8 +15,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         public ProductManagementForm_Category()
         {
             InitializeComponent();
-            this.MinimumSize = new Size(300, 430);
-            this.Size = new Size(350, 500);
+            this.MinimumSize = new Size(400, 500);
+            this.Size = new Size(480, 550);
         }
 
         private void ProductManagementForm_Category_Load(object sender, EventArgs e)

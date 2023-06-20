@@ -28,12 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            M_MenuStrip = new MenuStrip();
-            M_FileToolStripMenuItem = new ToolStripMenuItem();
-            M_ExitToolStripMenuItem = new ToolStripMenuItem();
-            M_CategoryToolStripMenuItem = new ToolStripMenuItem();
-            M_HelpToolStripMenuItem = new ToolStripMenuItem();
-            M_ManualToolStripMenuItem = new ToolStripMenuItem();
             M_StatusStrip = new StatusStrip();
             M_ToolStripStatusLabel = new ToolStripStatusLabel();
             toolStrip1 = new ToolStrip();
@@ -47,55 +41,9 @@
             toolStripSeparator4 = new ToolStripSeparator();
             M_ExitToolStripButton = new ToolStripButton();
             toolStripSeparator5 = new ToolStripSeparator();
-            M_MenuStrip.SuspendLayout();
             M_StatusStrip.SuspendLayout();
             toolStrip1.SuspendLayout();
             SuspendLayout();
-            // 
-            // M_MenuStrip
-            // 
-            M_MenuStrip.ImageScalingSize = new Size(20, 20);
-            M_MenuStrip.Items.AddRange(new ToolStripItem[] { M_FileToolStripMenuItem, M_HelpToolStripMenuItem });
-            M_MenuStrip.Location = new Point(0, 0);
-            M_MenuStrip.Name = "M_MenuStrip";
-            M_MenuStrip.Padding = new Padding(7, 2, 0, 2);
-            M_MenuStrip.Size = new Size(1784, 24);
-            M_MenuStrip.TabIndex = 1;
-            M_MenuStrip.Text = "menuStrip1";
-            // 
-            // M_FileToolStripMenuItem
-            // 
-            M_FileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { M_ExitToolStripMenuItem, M_CategoryToolStripMenuItem });
-            M_FileToolStripMenuItem.Name = "M_FileToolStripMenuItem";
-            M_FileToolStripMenuItem.Size = new Size(37, 20);
-            M_FileToolStripMenuItem.Text = "File";
-            // 
-            // M_ExitToolStripMenuItem
-            // 
-            M_ExitToolStripMenuItem.Name = "M_ExitToolStripMenuItem";
-            M_ExitToolStripMenuItem.Size = new Size(162, 22);
-            M_ExitToolStripMenuItem.Text = "Exit";
-            M_ExitToolStripMenuItem.Click += M_ExitToolStripMenuItem_Click;
-            // 
-            // M_CategoryToolStripMenuItem
-            // 
-            M_CategoryToolStripMenuItem.Name = "M_CategoryToolStripMenuItem";
-            M_CategoryToolStripMenuItem.Size = new Size(162, 22);
-            M_CategoryToolStripMenuItem.Text = "จัดการประเภทสินค้า";
-            M_CategoryToolStripMenuItem.Click += M_CategoryToolStripMenuItem_Click;
-            // 
-            // M_HelpToolStripMenuItem
-            // 
-            M_HelpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { M_ManualToolStripMenuItem });
-            M_HelpToolStripMenuItem.Name = "M_HelpToolStripMenuItem";
-            M_HelpToolStripMenuItem.Size = new Size(44, 20);
-            M_HelpToolStripMenuItem.Text = "Help";
-            // 
-            // M_ManualToolStripMenuItem
-            // 
-            M_ManualToolStripMenuItem.Name = "M_ManualToolStripMenuItem";
-            M_ManualToolStripMenuItem.Size = new Size(138, 22);
-            M_ManualToolStripMenuItem.Text = "คู่มือการใช้งาน";
             // 
             // M_StatusStrip
             // 
@@ -119,9 +67,9 @@
             toolStrip1.Dock = DockStyle.Left;
             toolStrip1.ImageScalingSize = new Size(20, 20);
             toolStrip1.Items.AddRange(new ToolStripItem[] { M_ProductManagementToolStripButton, toolStripSeparator1, M_PointOfSaleToolStripButton, toolStripSeparator2, M_CreateQuotationToolStripButton, toolStripSeparator3, M_ArchiveQuotationToolStripButton, toolStripSeparator4, M_ExitToolStripButton, toolStripSeparator5 });
-            toolStrip1.Location = new Point(0, 24);
+            toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(137, 1085);
+            toolStrip1.Size = new Size(137, 1109);
             toolStrip1.TabIndex = 3;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -223,17 +171,13 @@
             ClientSize = new Size(1784, 1131);
             Controls.Add(toolStrip1);
             Controls.Add(M_StatusStrip);
-            Controls.Add(M_MenuStrip);
             Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             IsMdiContainer = true;
-            MainMenuStrip = M_MenuStrip;
             Margin = new Padding(3, 4, 3, 4);
             Name = "MainForm";
             Text = "ร้าน...";
             WindowState = FormWindowState.Maximized;
             Load += MainForm_Load;
-            M_MenuStrip.ResumeLayout(false);
-            M_MenuStrip.PerformLayout();
             M_StatusStrip.ResumeLayout(false);
             M_StatusStrip.PerformLayout();
             toolStrip1.ResumeLayout(false);
@@ -243,11 +187,6 @@
         }
 
         #endregion
-
-        private MenuStrip M_MenuStrip;
-        private ToolStripMenuItem M_FileToolStripMenuItem;
-        private ToolStripMenuItem M_ExitToolStripMenuItem;
-        private ToolStripMenuItem M_HelpToolStripMenuItem;
         private StatusStrip M_StatusStrip;
         private ToolStrip toolStrip1;
         private ToolStripButton M_ProductManagementToolStripButton;
@@ -261,7 +200,5 @@
         private ToolStripButton M_ExitToolStripButton;
         private ToolStripSeparator toolStripSeparator5;
         private ToolStripStatusLabel M_ToolStripStatusLabel;
-        private ToolStripMenuItem M_ManualToolStripMenuItem;
-        private ToolStripMenuItem M_CategoryToolStripMenuItem;
     }
 }

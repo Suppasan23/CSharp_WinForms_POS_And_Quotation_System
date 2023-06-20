@@ -1,4 +1,6 @@
 ﻿using CSharp_WinForms_POS_And_Quotation_System.Models.Db;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.VisualBasic.Devices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,8 +21,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         {
             InitializeComponent();
 
-            this.MinimumSize = new Size(1000, 1000);
-            this.Size = new Size(1180, 1250);
+            this.MinimumSize = new Size(800, 800);
+            this.Size = new Size(1180, 900);
 
             this.PM_DataGridView.ReadOnly = true;
             this.PM_DataGridView.MultiSelect = false;
@@ -28,10 +30,12 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             this.PM_DataGridView.AllowUserToDeleteRows = false;
             this.PM_DataGridView.AllowUserToResizeRows = false;
             this.PM_DataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            this.PM_DataGridView.DefaultCellStyle.SelectionBackColor = Color.LightCyan;
+            this.PM_DataGridView.DefaultCellStyle.SelectionForeColor = Color.Black;
 
             this.PM_DataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
-            this.PM_DataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //this.PM_DataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             this.PM_DataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PM_DataGridView.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 10f, FontStyle.Bold);
             this.PM_DataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.LightSteelBlue;
@@ -94,15 +98,17 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 }).ToList();
 
                 PM_DataGridView.DataSource = modifiedData; // Set the modified data to the DataGridView
-                PM_DataGridView.Columns[0].Visible = false;
 
-                foreach (DataGridViewColumn column in PM_DataGridView.Columns)
-                {
-                    if (column.Index > 1 && column.Index < 9)
-                    {
-                        column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    }
-                }
+                //id, ที่, รหัสสินค้า, ชื่อสินค้า, ราคาทุน, ราคาขาย, จำนวน, หน่วยนับ, ประเภทสินค้า, รูปภาพ
+                PM_DataGridView.Columns[0].Visible = false;
+                PM_DataGridView.Columns[1].Width = 40;
+                PM_DataGridView.Columns[2].Width = 150;
+                PM_DataGridView.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                PM_DataGridView.Columns[4].Width = 100;
+                PM_DataGridView.Columns[5].Width = 100;
+                PM_DataGridView.Columns[6].Width = 100;
+                PM_DataGridView.Columns[7].Width = 100;
+                PM_DataGridView.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             }
             else
             {
@@ -136,6 +142,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
             PM_ComboBox.Items.Add(new { Id = 0, Name = "-ทั้งหมด-" }); // Add Id = 0, Name = "ทั้งหมด" item
             PM_ComboBox.Items.AddRange(data.ToArray());
+            PM_ComboBox.Items.Add(new { Id = -1, Name = "✎" });
+
             PM_ComboBox.ValueMember = "Id";
             PM_ComboBox.DisplayMember = "Name";
             PM_ComboBox.SelectedIndex = 0; // Set the selected index to 0 (the first item)
@@ -174,9 +182,43 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             loadData(keyword, catValue);
         }
 
+        /////////////////////////////// CATEGORY COMBOBOX SELECTION CHANGE //////////////////////////////////////////////////////
+        private void PM_ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dynamic selectedCat = PM_ComboBox.SelectedItem;
+            int catValue = Convert.ToInt32(selectedCat.Id);
 
+            if (catValue != -1)
+            {
+                PM_SearchTextBox.Text = "";
+                loadData("", catValue);
+            }
+            else
+            {
+                PM_ComboBox.SelectedIndex = 0;
+                categoryManagement();
+            }
+        }
 
-        ///////////////////////////////// CRUD ///////////////////////////////////////////////////////////////////////////
+        //////////////////////////// CATEGORY MANAGEMENT ///////////////////////////////////////////////////////////////////////
+        private void categoryManagement()
+        {
+            ProductManagementForm_Category f = new ProductManagementForm_Category();
+            f.StartPosition = FormStartPosition.Manual;
+            // Calculate the center position of the child form
+            int x = this.Left + ((this.Width - f.Width) / 2) + ((f.Width - (f.Width / 8)) / 2 / 2);
+            int y = this.Top + ((this.Height - f.Height) / 2);
+            f.Location = new Point(x, y);
+            f.ShowDialog();  // Use ShowDialog instead of Show to open the form modally
+
+            if (center.isCategoryChanged == true)
+            {
+                loadCategory(); // Refresh the main form after Executed data.
+                loadData("", 0);
+            }
+        }
+
+        ///////////////////////////////// SHOW CRUD ///////////////////////////////////////////////////////////////////////////
         private void CRUD(string whichCRUD, int whichID)
         {
             if (whichCRUD.ToUpper().Equals("EDIT") || whichCRUD.ToUpper().Equals("DELETE"))
@@ -244,5 +286,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             loadCategory();
             loadData("", 0);
         }
+
+
     }
 }

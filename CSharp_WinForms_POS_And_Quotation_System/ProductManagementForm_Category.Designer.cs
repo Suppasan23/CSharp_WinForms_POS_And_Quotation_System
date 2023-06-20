@@ -31,16 +31,22 @@
             PM_C_HeadingLabel = new Label();
             PM_C_DataGridView1 = new DataGridView();
             tableLayoutPanel5 = new TableLayoutPanel();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            PM_C_DeleteLinkLabel = new LinkLabel();
-            label3 = new Label();
-            PM_C_EditLinkLabel = new LinkLabel();
-            label2 = new Label();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            tableLayoutPanel4 = new TableLayoutPanel();
+            label1 = new Label();
+            textBox1 = new TextBox();
+            tableLayoutPanel6 = new TableLayoutPanel();
             PM_C_AddLinkLabel = new LinkLabel();
+            label3 = new Label();
+            label2 = new Label();
+            PM_C_EditLinkLabel = new LinkLabel();
+            PM_C_DeleteLinkLabel = new LinkLabel();
             tableLayoutPanel3 = new TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)PM_C_DataGridView1).BeginInit();
             tableLayoutPanel5.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
+            tableLayoutPanel4.SuspendLayout();
+            tableLayoutPanel6.SuspendLayout();
             SuspendLayout();
             // 
             // PM_C_HeadingLabel
@@ -53,7 +59,7 @@
             PM_C_HeadingLabel.Location = new Point(1, 1);
             PM_C_HeadingLabel.Margin = new Padding(0);
             PM_C_HeadingLabel.Name = "PM_C_HeadingLabel";
-            PM_C_HeadingLabel.Size = new Size(332, 50);
+            PM_C_HeadingLabel.Size = new Size(462, 50);
             PM_C_HeadingLabel.TabIndex = 3;
             PM_C_HeadingLabel.Text = "จัดการประเภทสินค้า";
             PM_C_HeadingLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -63,13 +69,12 @@
             PM_C_DataGridView1.BackgroundColor = SystemColors.Window;
             PM_C_DataGridView1.BorderStyle = BorderStyle.None;
             PM_C_DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tableLayoutPanel5.SetColumnSpan(PM_C_DataGridView1, 5);
             PM_C_DataGridView1.Dock = DockStyle.Fill;
-            PM_C_DataGridView1.Location = new Point(1, 71);
+            PM_C_DataGridView1.Location = new Point(1, 103);
             PM_C_DataGridView1.Margin = new Padding(0);
             PM_C_DataGridView1.Name = "PM_C_DataGridView1";
             PM_C_DataGridView1.RowTemplate.Height = 25;
-            PM_C_DataGridView1.Size = new Size(332, 389);
+            PM_C_DataGridView1.Size = new Size(462, 407);
             PM_C_DataGridView1.TabIndex = 4;
             // 
             // tableLayoutPanel5
@@ -77,117 +82,172 @@
             tableLayoutPanel5.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             tableLayoutPanel5.ColumnCount = 1;
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel5.Controls.Add(tableLayoutPanel1, 0, 1);
-            tableLayoutPanel5.Controls.Add(PM_C_HeadingLabel, 0, 0);
             tableLayoutPanel5.Controls.Add(PM_C_DataGridView1, 0, 2);
+            tableLayoutPanel5.Controls.Add(PM_C_HeadingLabel, 0, 0);
+            tableLayoutPanel5.Controls.Add(tableLayoutPanel2, 0, 1);
             tableLayoutPanel5.Dock = DockStyle.Fill;
             tableLayoutPanel5.Location = new Point(0, 0);
             tableLayoutPanel5.Margin = new Padding(0);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 3;
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 18F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel5.Size = new Size(334, 461);
+            tableLayoutPanel5.Size = new Size(464, 511);
             tableLayoutPanel5.TabIndex = 10;
             // 
-            // tableLayoutPanel1
+            // tableLayoutPanel2
             // 
-            tableLayoutPanel1.ColumnCount = 7;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 6F));
-            tableLayoutPanel1.Controls.Add(PM_C_DeleteLinkLabel, 5, 0);
-            tableLayoutPanel1.Controls.Add(label3, 4, 0);
-            tableLayoutPanel1.Controls.Add(PM_C_EditLinkLabel, 3, 0);
-            tableLayoutPanel1.Controls.Add(label2, 2, 0);
-            tableLayoutPanel1.Controls.Add(PM_C_AddLinkLabel, 1, 0);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(1, 52);
-            tableLayoutPanel1.Margin = new Padding(0);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(332, 18);
-            tableLayoutPanel1.TabIndex = 12;
+            tableLayoutPanel2.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
+            tableLayoutPanel2.ColumnCount = 2;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel2.Controls.Add(tableLayoutPanel4, 0, 0);
+            tableLayoutPanel2.Controls.Add(tableLayoutPanel6, 1, 0);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(1, 52);
+            tableLayoutPanel2.Margin = new Padding(0);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Size = new Size(462, 50);
+            tableLayoutPanel2.TabIndex = 14;
             // 
-            // PM_C_DeleteLinkLabel
+            // tableLayoutPanel4
             // 
-            PM_C_DeleteLinkLabel.Anchor = AnchorStyles.Bottom;
-            PM_C_DeleteLinkLabel.AutoSize = true;
-            PM_C_DeleteLinkLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            PM_C_DeleteLinkLabel.LinkColor = Color.FromArgb(192, 0, 0);
-            PM_C_DeleteLinkLabel.Location = new Point(300, 0);
-            PM_C_DeleteLinkLabel.Margin = new Padding(0);
-            PM_C_DeleteLinkLabel.Name = "PM_C_DeleteLinkLabel";
-            PM_C_DeleteLinkLabel.Size = new Size(26, 18);
-            PM_C_DeleteLinkLabel.TabIndex = 11;
-            PM_C_DeleteLinkLabel.TabStop = true;
-            PM_C_DeleteLinkLabel.Text = "ลบ";
-            PM_C_DeleteLinkLabel.TextAlign = ContentAlignment.BottomCenter;
-            PM_C_DeleteLinkLabel.VisitedLinkColor = Color.FromArgb(192, 0, 0);
+            tableLayoutPanel4.ColumnCount = 1;
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel4.Controls.Add(label1, 0, 0);
+            tableLayoutPanel4.Controls.Add(textBox1, 0, 1);
+            tableLayoutPanel4.Dock = DockStyle.Fill;
+            tableLayoutPanel4.Location = new Point(1, 1);
+            tableLayoutPanel4.Margin = new Padding(0);
+            tableLayoutPanel4.Name = "tableLayoutPanel4";
+            tableLayoutPanel4.RowCount = 2;
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 42F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 58F));
+            tableLayoutPanel4.Size = new Size(299, 48);
+            tableLayoutPanel4.TabIndex = 0;
             // 
-            // label3
+            // label1
             // 
-            label3.Anchor = AnchorStyles.Bottom;
-            label3.AutoSize = true;
-            label3.Font = new Font("Tahoma", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(278, 0);
-            label3.Margin = new Padding(0);
-            label3.Name = "label3";
-            label3.Size = new Size(22, 18);
-            label3.TabIndex = 11;
-            label3.Text = "/";
-            label3.TextAlign = ContentAlignment.BottomCenter;
+            label1.AutoSize = true;
+            label1.Dock = DockStyle.Fill;
+            label1.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(0, 0);
+            label1.Margin = new Padding(0);
+            label1.Name = "label1";
+            label1.Size = new Size(299, 20);
+            label1.TabIndex = 0;
+            label1.Text = "ใส่ชื่อประเภทสินค้า";
+            label1.TextAlign = ContentAlignment.BottomCenter;
             // 
-            // PM_C_EditLinkLabel
+            // textBox1
             // 
-            PM_C_EditLinkLabel.Anchor = AnchorStyles.Bottom;
-            PM_C_EditLinkLabel.AutoSize = true;
-            PM_C_EditLinkLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            PM_C_EditLinkLabel.LinkColor = Color.FromArgb(128, 93, 7);
-            PM_C_EditLinkLabel.Location = new Point(235, 0);
-            PM_C_EditLinkLabel.Margin = new Padding(0);
-            PM_C_EditLinkLabel.Name = "PM_C_EditLinkLabel";
-            PM_C_EditLinkLabel.Size = new Size(43, 18);
-            PM_C_EditLinkLabel.TabIndex = 11;
-            PM_C_EditLinkLabel.TabStop = true;
-            PM_C_EditLinkLabel.Text = "แก้ไข";
-            PM_C_EditLinkLabel.TextAlign = ContentAlignment.BottomCenter;
-            PM_C_EditLinkLabel.VisitedLinkColor = Color.FromArgb(128, 93, 7);
+            textBox1.Dock = DockStyle.Fill;
+            textBox1.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox1.Location = new Point(1, 21);
+            textBox1.Margin = new Padding(1);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(297, 26);
+            textBox1.TabIndex = 13;
+            textBox1.TextAlign = HorizontalAlignment.Right;
             // 
-            // label2
+            // tableLayoutPanel6
             // 
-            label2.Anchor = AnchorStyles.Bottom;
-            label2.AutoSize = true;
-            label2.Font = new Font("Tahoma", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(213, 0);
-            label2.Margin = new Padding(0);
-            label2.Name = "label2";
-            label2.Size = new Size(22, 18);
-            label2.TabIndex = 11;
-            label2.Text = "/";
-            label2.TextAlign = ContentAlignment.BottomCenter;
+            tableLayoutPanel6.ColumnCount = 6;
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 45F));
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 45F));
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 45F));
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel6.Controls.Add(PM_C_AddLinkLabel, 0, 0);
+            tableLayoutPanel6.Controls.Add(label3, 3, 0);
+            tableLayoutPanel6.Controls.Add(label2, 1, 0);
+            tableLayoutPanel6.Controls.Add(PM_C_EditLinkLabel, 2, 0);
+            tableLayoutPanel6.Controls.Add(PM_C_DeleteLinkLabel, 4, 0);
+            tableLayoutPanel6.Location = new Point(301, 1);
+            tableLayoutPanel6.Margin = new Padding(0);
+            tableLayoutPanel6.Name = "tableLayoutPanel6";
+            tableLayoutPanel6.RowCount = 1;
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel6.Size = new Size(160, 46);
+            tableLayoutPanel6.TabIndex = 13;
             // 
             // PM_C_AddLinkLabel
             // 
-            PM_C_AddLinkLabel.Anchor = AnchorStyles.Bottom;
             PM_C_AddLinkLabel.AutoSize = true;
+            PM_C_AddLinkLabel.Dock = DockStyle.Fill;
             PM_C_AddLinkLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             PM_C_AddLinkLabel.LinkColor = Color.Green;
-            PM_C_AddLinkLabel.Location = new Point(180, 0);
+            PM_C_AddLinkLabel.Location = new Point(0, 0);
             PM_C_AddLinkLabel.Margin = new Padding(0);
             PM_C_AddLinkLabel.Name = "PM_C_AddLinkLabel";
-            PM_C_AddLinkLabel.Size = new Size(33, 18);
+            PM_C_AddLinkLabel.Size = new Size(45, 46);
             PM_C_AddLinkLabel.TabIndex = 11;
             PM_C_AddLinkLabel.TabStop = true;
             PM_C_AddLinkLabel.Text = "เพิ่ม";
-            PM_C_AddLinkLabel.TextAlign = ContentAlignment.BottomCenter;
+            PM_C_AddLinkLabel.TextAlign = ContentAlignment.MiddleCenter;
             PM_C_AddLinkLabel.VisitedLinkColor = Color.FromArgb(128, 93, 7);
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Dock = DockStyle.Fill;
+            label3.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(105, 0);
+            label3.Margin = new Padding(0);
+            label3.Name = "label3";
+            label3.Size = new Size(14, 46);
+            label3.TabIndex = 11;
+            label3.Text = "/";
+            label3.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Dock = DockStyle.Fill;
+            label2.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(45, 0);
+            label2.Margin = new Padding(0);
+            label2.Name = "label2";
+            label2.Size = new Size(15, 46);
+            label2.TabIndex = 11;
+            label2.Text = "/";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // PM_C_EditLinkLabel
+            // 
+            PM_C_EditLinkLabel.AutoSize = true;
+            PM_C_EditLinkLabel.Dock = DockStyle.Fill;
+            PM_C_EditLinkLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_C_EditLinkLabel.LinkColor = Color.FromArgb(128, 93, 7);
+            PM_C_EditLinkLabel.Location = new Point(60, 0);
+            PM_C_EditLinkLabel.Margin = new Padding(0);
+            PM_C_EditLinkLabel.Name = "PM_C_EditLinkLabel";
+            PM_C_EditLinkLabel.Size = new Size(45, 46);
+            PM_C_EditLinkLabel.TabIndex = 11;
+            PM_C_EditLinkLabel.TabStop = true;
+            PM_C_EditLinkLabel.Text = "แก้ไข";
+            PM_C_EditLinkLabel.TextAlign = ContentAlignment.MiddleCenter;
+            PM_C_EditLinkLabel.VisitedLinkColor = Color.FromArgb(128, 93, 7);
+            // 
+            // PM_C_DeleteLinkLabel
+            // 
+            PM_C_DeleteLinkLabel.AutoSize = true;
+            PM_C_DeleteLinkLabel.Dock = DockStyle.Fill;
+            PM_C_DeleteLinkLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_C_DeleteLinkLabel.LinkColor = Color.FromArgb(192, 0, 0);
+            PM_C_DeleteLinkLabel.Location = new Point(119, 0);
+            PM_C_DeleteLinkLabel.Margin = new Padding(0);
+            PM_C_DeleteLinkLabel.Name = "PM_C_DeleteLinkLabel";
+            PM_C_DeleteLinkLabel.Size = new Size(45, 46);
+            PM_C_DeleteLinkLabel.TabIndex = 11;
+            PM_C_DeleteLinkLabel.TabStop = true;
+            PM_C_DeleteLinkLabel.Text = "ลบ";
+            PM_C_DeleteLinkLabel.TextAlign = ContentAlignment.MiddleCenter;
+            PM_C_DeleteLinkLabel.VisitedLinkColor = Color.FromArgb(192, 0, 0);
             // 
             // tableLayoutPanel3
             // 
@@ -207,7 +267,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(334, 461);
+            ClientSize = new Size(464, 511);
             Controls.Add(tableLayoutPanel5);
             Name = "ProductManagementForm_Category";
             Text = "Product Category";
@@ -215,8 +275,11 @@
             ((System.ComponentModel.ISupportInitialize)PM_C_DataGridView1).EndInit();
             tableLayoutPanel5.ResumeLayout(false);
             tableLayoutPanel5.PerformLayout();
-            tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel4.ResumeLayout(false);
+            tableLayoutPanel4.PerformLayout();
+            tableLayoutPanel6.ResumeLayout(false);
+            tableLayoutPanel6.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -225,11 +288,15 @@
         private DataGridView PM_C_DataGridView1;
         private TableLayoutPanel tableLayoutPanel3;
         private TableLayoutPanel tableLayoutPanel5;
-        private LinkLabel PM_C_EditLinkLabel;
+        private TableLayoutPanel tableLayoutPanel2;
         private LinkLabel PM_C_DeleteLinkLabel;
-        private Label label2;
         private Label label3;
-        private TableLayoutPanel tableLayoutPanel1;
+        private Label label2;
         private LinkLabel PM_C_AddLinkLabel;
+        private LinkLabel PM_C_EditLinkLabel;
+        private TextBox textBox1;
+        private Label label1;
+        private TableLayoutPanel tableLayoutPanel4;
+        private TableLayoutPanel tableLayoutPanel6;
     }
 }
