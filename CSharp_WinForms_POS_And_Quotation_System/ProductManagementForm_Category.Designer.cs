@@ -33,8 +33,8 @@
             tableLayoutPanel5 = new TableLayoutPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
             tableLayoutPanel4 = new TableLayoutPanel();
-            label1 = new Label();
-            textBox1 = new TextBox();
+            PM_C_Label1 = new Label();
+            PM_C_TextBox1 = new TextBox();
             tableLayoutPanel6 = new TableLayoutPanel();
             PM_C_AddLinkLabel = new LinkLabel();
             label3 = new Label();
@@ -66,7 +66,6 @@
             // 
             // PM_C_DataGridView1
             // 
-            PM_C_DataGridView1.BackgroundColor = SystemColors.Window;
             PM_C_DataGridView1.BorderStyle = BorderStyle.None;
             PM_C_DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             PM_C_DataGridView1.Dock = DockStyle.Fill;
@@ -76,6 +75,7 @@
             PM_C_DataGridView1.RowTemplate.Height = 25;
             PM_C_DataGridView1.Size = new Size(462, 407);
             PM_C_DataGridView1.TabIndex = 4;
+            PM_C_DataGridView1.SelectionChanged += PM_C_DataGridView1_SelectionChanged;
             // 
             // tableLayoutPanel5
             // 
@@ -117,8 +117,8 @@
             // 
             tableLayoutPanel4.ColumnCount = 1;
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel4.Controls.Add(label1, 0, 0);
-            tableLayoutPanel4.Controls.Add(textBox1, 0, 1);
+            tableLayoutPanel4.Controls.Add(PM_C_Label1, 0, 0);
+            tableLayoutPanel4.Controls.Add(PM_C_TextBox1, 0, 1);
             tableLayoutPanel4.Dock = DockStyle.Fill;
             tableLayoutPanel4.Location = new Point(1, 1);
             tableLayoutPanel4.Margin = new Padding(0);
@@ -129,39 +129,40 @@
             tableLayoutPanel4.Size = new Size(299, 48);
             tableLayoutPanel4.TabIndex = 0;
             // 
-            // label1
+            // PM_C_Label1
             // 
-            label1.AutoSize = true;
-            label1.Dock = DockStyle.Fill;
-            label1.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(0, 0);
-            label1.Margin = new Padding(0);
-            label1.Name = "label1";
-            label1.Size = new Size(299, 20);
-            label1.TabIndex = 0;
-            label1.Text = "ใส่ชื่อประเภทสินค้า";
-            label1.TextAlign = ContentAlignment.BottomCenter;
+            PM_C_Label1.AutoSize = true;
+            PM_C_Label1.Dock = DockStyle.Fill;
+            PM_C_Label1.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            PM_C_Label1.Location = new Point(0, 0);
+            PM_C_Label1.Margin = new Padding(0);
+            PM_C_Label1.Name = "PM_C_Label1";
+            PM_C_Label1.Size = new Size(299, 20);
+            PM_C_Label1.TabIndex = 0;
+            PM_C_Label1.Text = "โปรดใส่ชื่อประเภทสินค้า:";
+            PM_C_Label1.TextAlign = ContentAlignment.BottomCenter;
             // 
-            // textBox1
+            // PM_C_TextBox1
             // 
-            textBox1.Dock = DockStyle.Fill;
-            textBox1.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(1, 21);
-            textBox1.Margin = new Padding(1);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(297, 26);
-            textBox1.TabIndex = 13;
-            textBox1.TextAlign = HorizontalAlignment.Right;
+            PM_C_TextBox1.BackColor = Color.LightCyan;
+            PM_C_TextBox1.Dock = DockStyle.Fill;
+            PM_C_TextBox1.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_C_TextBox1.Location = new Point(1, 21);
+            PM_C_TextBox1.Margin = new Padding(1);
+            PM_C_TextBox1.Name = "PM_C_TextBox1";
+            PM_C_TextBox1.Size = new Size(297, 26);
+            PM_C_TextBox1.TabIndex = 13;
+            PM_C_TextBox1.TextAlign = HorizontalAlignment.Center;
             // 
             // tableLayoutPanel6
             // 
-            tableLayoutPanel6.ColumnCount = 6;
-            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 45F));
+            tableLayoutPanel6.ColumnCount = 5;
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
             tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 45F));
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
             tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 45F));
-            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             tableLayoutPanel6.Controls.Add(PM_C_AddLinkLabel, 0, 0);
             tableLayoutPanel6.Controls.Add(label3, 3, 0);
             tableLayoutPanel6.Controls.Add(label2, 1, 0);
@@ -179,12 +180,12 @@
             // 
             PM_C_AddLinkLabel.AutoSize = true;
             PM_C_AddLinkLabel.Dock = DockStyle.Fill;
-            PM_C_AddLinkLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_C_AddLinkLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             PM_C_AddLinkLabel.LinkColor = Color.Green;
             PM_C_AddLinkLabel.Location = new Point(0, 0);
             PM_C_AddLinkLabel.Margin = new Padding(0);
             PM_C_AddLinkLabel.Name = "PM_C_AddLinkLabel";
-            PM_C_AddLinkLabel.Size = new Size(45, 46);
+            PM_C_AddLinkLabel.Size = new Size(39, 46);
             PM_C_AddLinkLabel.TabIndex = 11;
             PM_C_AddLinkLabel.TabStop = true;
             PM_C_AddLinkLabel.Text = "เพิ่ม";
@@ -196,7 +197,7 @@
             label3.AutoSize = true;
             label3.Dock = DockStyle.Fill;
             label3.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(105, 0);
+            label3.Location = new Point(106, 0);
             label3.Margin = new Padding(0);
             label3.Name = "label3";
             label3.Size = new Size(14, 46);
@@ -209,7 +210,7 @@
             label2.AutoSize = true;
             label2.Dock = DockStyle.Fill;
             label2.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(45, 0);
+            label2.Location = new Point(39, 0);
             label2.Margin = new Padding(0);
             label2.Name = "label2";
             label2.Size = new Size(15, 46);
@@ -221,12 +222,12 @@
             // 
             PM_C_EditLinkLabel.AutoSize = true;
             PM_C_EditLinkLabel.Dock = DockStyle.Fill;
-            PM_C_EditLinkLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_C_EditLinkLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             PM_C_EditLinkLabel.LinkColor = Color.FromArgb(128, 93, 7);
-            PM_C_EditLinkLabel.Location = new Point(60, 0);
+            PM_C_EditLinkLabel.Location = new Point(54, 0);
             PM_C_EditLinkLabel.Margin = new Padding(0);
             PM_C_EditLinkLabel.Name = "PM_C_EditLinkLabel";
-            PM_C_EditLinkLabel.Size = new Size(45, 46);
+            PM_C_EditLinkLabel.Size = new Size(52, 46);
             PM_C_EditLinkLabel.TabIndex = 11;
             PM_C_EditLinkLabel.TabStop = true;
             PM_C_EditLinkLabel.Text = "แก้ไข";
@@ -237,12 +238,12 @@
             // 
             PM_C_DeleteLinkLabel.AutoSize = true;
             PM_C_DeleteLinkLabel.Dock = DockStyle.Fill;
-            PM_C_DeleteLinkLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PM_C_DeleteLinkLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             PM_C_DeleteLinkLabel.LinkColor = Color.FromArgb(192, 0, 0);
-            PM_C_DeleteLinkLabel.Location = new Point(119, 0);
+            PM_C_DeleteLinkLabel.Location = new Point(120, 0);
             PM_C_DeleteLinkLabel.Margin = new Padding(0);
             PM_C_DeleteLinkLabel.Name = "PM_C_DeleteLinkLabel";
-            PM_C_DeleteLinkLabel.Size = new Size(45, 46);
+            PM_C_DeleteLinkLabel.Size = new Size(40, 46);
             PM_C_DeleteLinkLabel.TabIndex = 11;
             PM_C_DeleteLinkLabel.TabStop = true;
             PM_C_DeleteLinkLabel.Text = "ลบ";
@@ -294,8 +295,8 @@
         private Label label2;
         private LinkLabel PM_C_AddLinkLabel;
         private LinkLabel PM_C_EditLinkLabel;
-        private TextBox textBox1;
-        private Label label1;
+        private TextBox PM_C_TextBox1;
+        private Label PM_C_Label1;
         private TableLayoutPanel tableLayoutPanel4;
         private TableLayoutPanel tableLayoutPanel6;
     }
