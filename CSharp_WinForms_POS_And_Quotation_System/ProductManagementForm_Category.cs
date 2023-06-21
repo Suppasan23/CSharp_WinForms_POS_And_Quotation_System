@@ -54,6 +54,26 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
         private void loadData()
         {
+            PM_C_Label1.Text = "โปรดเลือกการดำเนินการ:";
+
+            PM_C_TextBox1.Enabled = false;
+            PM_C_TextBox1.ReadOnly = true;
+            PM_C_TextBox1.BackColor = Color.DarkGray;
+
+            PM_C_AddLinkLabel.Visible = true;
+            PM_C_EditLinkLabel.Visible = true;
+            PM_C_DeleteLinkLabel.Visible = true;
+
+            PM_C_AddLinkLabel.Text = "เพิ่ม";
+            PM_C_EditLinkLabel.Text = "แก้ไข";
+            PM_C_DeleteLinkLabel.Text = "ลบ";
+
+            PM_C_SaveLabel.Visible = false;
+            PM_C_CancelLabel.Visible = false;
+
+            PM_C_SaveLabel.Text = "";
+            PM_C_CancelLabel.Text = "";
+
             var data = from i in db.ProductCategories
                        select new { i.Id, i.Name };
 
@@ -72,7 +92,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                     n++;
                 }
 
-                PM_C_DataGridView1.Rows.Add(0, "+", "");
+                PM_C_DataGridView1.Rows.Add(0, "", "");
 
                 //id, ที่, ชื่อประเภทสินค้า
                 PM_C_DataGridView1.Columns[0].Visible = false;
@@ -81,31 +101,137 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             }
         }
 
-        ///////////////////////////////////////////// GataGridView Cell SelectChange , Key up , Key down  /////////////////////////////////////////////
-        private void PM_C_DataGridView1_SelectionChanged(object sender, EventArgs e)
+        ///////////////////////////////////////////// ADD BUTTON CLICK /////////////////////////////////////////////
+        private void PM_C_AddLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            PM_C_Label1.Text = "ตั้งชื่อประเภทสินค้า:";
+
+            PM_C_TextBox1.Enabled = true;
+            PM_C_TextBox1.ReadOnly = false;
+            PM_C_TextBox1.BackColor = Color.LightGreen;
+
+            PM_C_AddLinkLabel.Visible = false;
+            PM_C_EditLinkLabel.Visible = false;
+            PM_C_DeleteLinkLabel.Visible = false;
+
+            PM_C_AddLinkLabel.Text = "";
+            PM_C_EditLinkLabel.Text = "";
+            PM_C_DeleteLinkLabel.Text = "";
+
+            PM_C_SaveLabel.Visible = true;
+            PM_C_CancelLabel.Visible = true;
+
+            PM_C_SaveLabel.Text = "บันทึก";
+            PM_C_CancelLabel.Text = "ยกเลิก";
+
+            PM_C_DataGridView1.ClearSelection();
+            PM_C_DataGridView1.Enabled = false;
+
+            PM_C_TextBox1.Clear();
+
+        }
+
+        ///////////////////////////////////////////// EDIT BUTTON CLICK /////////////////////////////////////////////
+        private void PM_C_EditLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (PM_C_DataGridView1.Rows.Count > 0 && PM_C_DataGridView1.SelectedRows.Count > 0)
             {
                 DataGridViewRow selectedRow = PM_C_DataGridView1.SelectedRows[0];
-                HandleCellSelectChange(selectedRow);
+                int catSelectedID = Convert.ToInt32(selectedRow.Cells[0].Value);
+                string catSelectedName = Convert.ToString(selectedRow.Cells[2].Value);
+
+                PM_C_Label1.Text = "แก้ไขชื่อประเภทสินค้า:";
+
+                PM_C_TextBox1.Enabled = true;
+                PM_C_TextBox1.ReadOnly = false;
+                PM_C_TextBox1.BackColor = Color.Wheat;
+
+                PM_C_AddLinkLabel.Visible = false;
+                PM_C_EditLinkLabel.Visible = false;
+                PM_C_DeleteLinkLabel.Visible = false;
+
+                PM_C_AddLinkLabel.Text = "";
+                PM_C_EditLinkLabel.Text = "";
+                PM_C_DeleteLinkLabel.Text = "";
+
+                PM_C_SaveLabel.Visible = true;
+                PM_C_CancelLabel.Visible = true;
+
+                PM_C_SaveLabel.Text = "บันทึก";
+                PM_C_CancelLabel.Text = "ยกเลิก";
+
+                PM_C_DataGridView1.DefaultCellStyle.SelectionBackColor = Color.Wheat;
+                PM_C_DataGridView1.Enabled = false;
+
+                PM_C_TextBox1.Text = Convert.ToString(catSelectedName);
             }
             else
             {
-                PM_C_TextBox1.Clear();
+                return;
             }
         }
 
-        private void HandleCellSelectChange(DataGridViewRow recieveSelectedRow)
+        ///////////////////////////////////////////// DELETE BUTTON CLICK /////////////////////////////////////////////
+        private void PM_C_DeleteLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            PM_C_TextBox1.Clear();
+            PM_C_Label1.Text = "คุณต้องการลบประเภทสินค้านี้ ใช่หรือไม่:";
 
-            int catSelectedID = Convert.ToInt32(recieveSelectedRow.Cells[0].Value);
-            string catSelectedName = Convert.ToString(recieveSelectedRow.Cells[2].Value);
+            PM_C_TextBox1.Enabled = true;
+            PM_C_TextBox1.ReadOnly = true;
+            PM_C_TextBox1.BackColor = Color.LightCoral;
 
-            PM_C_TextBox1.Text = Convert.ToString(catSelectedName);
+            PM_C_AddLinkLabel.Visible = false;
+            PM_C_EditLinkLabel.Visible = false;
+            PM_C_DeleteLinkLabel.Visible = false;
+
+            PM_C_AddLinkLabel.Text = "";
+            PM_C_EditLinkLabel.Text = "";
+            PM_C_DeleteLinkLabel.Text = "";
+
+            PM_C_SaveLabel.Visible = true;
+            PM_C_CancelLabel.Visible = true;
+
+            PM_C_SaveLabel.Text = "ยืนยัน";
+            PM_C_CancelLabel.Text = "ยกเลิก";
+
+            PM_C_DataGridView1.DefaultCellStyle.SelectionBackColor = Color.LightCoral;
+            PM_C_DataGridView1.Enabled = false;
+        }
+
+        ///////////////////////////////////////////// SAVE BUTTON CLICK  /////////////////////////////////////////////
+        private void PM_C_SaveLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
 
         }
 
+        ///////////////////////////////////////////// CANCEL BUTTON CLICK  /////////////////////////////////////////////
+        private void PM_C_CancelLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            PM_C_Label1.Text = "โปรดเลือกการดำเนินการ:";
+
+            PM_C_TextBox1.Enabled = false;
+            PM_C_TextBox1.ReadOnly = true;
+            PM_C_TextBox1.BackColor = Color.DarkGray;
+
+            PM_C_AddLinkLabel.Visible = true;
+            PM_C_EditLinkLabel.Visible = true;
+            PM_C_DeleteLinkLabel.Visible = true;
+
+            PM_C_AddLinkLabel.Text = "เพิ่ม";
+            PM_C_EditLinkLabel.Text = "แก้ไข";
+            PM_C_DeleteLinkLabel.Text = "ลบ";
+
+            PM_C_SaveLabel.Visible = false;
+            PM_C_CancelLabel.Visible = false;
+
+            PM_C_SaveLabel.Text = "";
+            PM_C_CancelLabel.Text = "";
+
+            PM_C_DataGridView1.DefaultCellStyle.SelectionBackColor = Color.LightCyan;
+            PM_C_DataGridView1.Enabled = true;
+
+            PM_C_TextBox1.Clear();
+        }
 
     }
 }
