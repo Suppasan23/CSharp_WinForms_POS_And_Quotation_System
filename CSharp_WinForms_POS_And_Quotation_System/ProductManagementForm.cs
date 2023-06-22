@@ -211,7 +211,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             f.Location = new Point(x, y);
             f.ShowDialog();  // Use ShowDialog instead of Show to open the form modally
 
-            if (center.isCategoryChanged == true)
+            if (center.isExecuted == true)
             {
                 loadCategory(); // Refresh the main form after Executed data.
                 loadData("", 0);

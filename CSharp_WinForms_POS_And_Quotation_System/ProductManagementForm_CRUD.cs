@@ -336,22 +336,22 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         {
             if (string.IsNullOrEmpty(PM_CRUD_ProductNameTextBox.Text))
             {
-                MessageBox.Show("โปรดระบุชื่อสินค้า", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("โปรดระบุชื่อสินค้า", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else if (PM_CRUD_ProductCostPriceNumericUpDown.Value == 0)
             {
-                MessageBox.Show("โปรดระบุราคาทุน", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("โปรดระบุราคาทุน", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else if (PM_CRUD_ProductSellingPriceNumericUpDown.Value == 0)
             {
-                MessageBox.Show("โปรดระบุราคาขาย", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("โปรดระบุราคาขาย", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else if (PM_CRUD_ProductCategoryComboBox.SelectedItem == null)
             {
-                MessageBox.Show("โปรดเลือกประเภทสินค้า", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("โปรดเลือกประเภทสินค้า", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else
@@ -455,32 +455,32 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         {
             if (PM_CRUD_ProductIdNumericUpDown.Value == 0)
             {
-                MessageBox.Show("ไม่พบ ID", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("ไม่พบ ID", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else if (string.IsNullOrEmpty(PM_CRUD_ProductBarcodeTextBox.Text))
             {
-                MessageBox.Show("ไม่พบรหัสสินค้า", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("ไม่พบรหัสสินค้า", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else if (string.IsNullOrEmpty(PM_CRUD_ProductNameTextBox.Text))
             {
-                MessageBox.Show("โปรดระบุชื่อสินค้า", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("โปรดระบุชื่อสินค้า", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else if (PM_CRUD_ProductCostPriceNumericUpDown.Value == 0)
             {
-                MessageBox.Show("โปรดระบุราคาทุน", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("โปรดระบุราคาทุน", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else if (PM_CRUD_ProductSellingPriceNumericUpDown.Value == 0)
             {
-                MessageBox.Show("โปรดระบุราคาขาย", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("โปรดระบุราคาขาย", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else if (PM_CRUD_ProductCategoryComboBox.SelectedItem == null)
             {
-                MessageBox.Show("โปรดเลือกประเภทสินค้า", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("โปรดเลือกประเภทสินค้า", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else
@@ -556,12 +556,12 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         {
             if (PM_CRUD_ProductIdNumericUpDown.Value == 0)
             {
-                MessageBox.Show("ไม่พบ ID", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("ไม่พบ ID", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else if (string.IsNullOrEmpty(PM_CRUD_ProductBarcodeTextBox.Text))
             {
-                MessageBox.Show("ไม่พบรหัสสินค้า", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("ไม่พบรหัสสินค้า", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else

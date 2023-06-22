@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,6 +16,10 @@ namespace CSharp_WinForms_POS_And_Quotation_System
     {
 
         CsharpWinFormsPosAndQuotationSystemDbContext db = new CsharpWinFormsPosAndQuotationSystemDbContext();
+
+        private int whichOperation = 0; //1=ADD, 2=EDIT, 3=DELETE
+        private int catSelectedID = 0;
+        private string? catSelectedName = "";
 
         public ProductManagementForm_Category()
         {
@@ -49,11 +54,16 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
         private void ProductManagementForm_Category_Load(object sender, EventArgs e)
         {
+            center.isExecuted = false;
             loadData();
         }
 
         private void loadData()
         {
+            whichOperation = 0;
+            catSelectedID = 0;
+            catSelectedName = "";
+
             PM_C_Label1.Text = "โปรดเลือกการดำเนินการ:";
 
             PM_C_TextBox1.Enabled = false;
@@ -74,36 +84,52 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             PM_C_SaveLabel.Text = "";
             PM_C_CancelLabel.Text = "";
 
-            var data = from i in db.ProductCategories
-                       select new { i.Id, i.Name };
+            PM_C_DataGridView1.DefaultCellStyle.SelectionBackColor = Color.LightCyan;
+            PM_C_DataGridView1.Enabled = true;
+
+            PM_C_TextBox1.Clear();
+
+            PM_C_DataGridView1.DataSource = null; //Clear DataGridView
+            PM_C_DataGridView1.ClearSelection(); //Selected no row
+
+
+            var data = (from i in db.ProductCategories
+                        select new
+                        {
+                            Id = i.Id,
+                            ชื่อประเภทสินค้า = i.Name
+                        }).ToList(); ;
 
             if (data != null)
             {
-
-                PM_C_DataGridView1.Columns.Add("id", "id");
-                PM_C_DataGridView1.Columns.Add("No", "ที่");
-                PM_C_DataGridView1.Columns.Add("categoryName", "ชื่อประเภทสินค้า");
-
-                int n = 1;
-
-                foreach (var item in data)
+                var modifiedData = data.Select((item, index) => new
                 {
-                    PM_C_DataGridView1.Rows.Add(item.Id, n, item.Name);
-                    n++;
-                }
+                    item.Id,
+                    ที่ = (index + 1).ToString(),
+                    item.ชื่อประเภทสินค้า
+                }).ToList();
 
-                PM_C_DataGridView1.Rows.Add(0, "", "");
+                PM_C_DataGridView1.DataSource = modifiedData;
 
                 //id, ที่, ชื่อประเภทสินค้า
                 PM_C_DataGridView1.Columns[0].Visible = false;
                 PM_C_DataGridView1.Columns[1].Width = 60;
                 PM_C_DataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
+            else
+            {
+                PM_C_DataGridView1.DataSource = null; //Clear DataGridView
+                PM_C_DataGridView1.ClearSelection(); //Selected no row
+            }
         }
 
         ///////////////////////////////////////////// ADD BUTTON CLICK /////////////////////////////////////////////
         private void PM_C_AddLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            whichOperation = 1;
+            catSelectedID = 0;
+            catSelectedName = "";
+
             PM_C_Label1.Text = "ตั้งชื่อประเภทสินค้า:";
 
             PM_C_TextBox1.Enabled = true;
@@ -128,7 +154,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             PM_C_DataGridView1.Enabled = false;
 
             PM_C_TextBox1.Clear();
-
+            PM_C_TextBox1.Focus();
         }
 
         ///////////////////////////////////////////// EDIT BUTTON CLICK /////////////////////////////////////////////
@@ -136,9 +162,13 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         {
             if (PM_C_DataGridView1.Rows.Count > 0 && PM_C_DataGridView1.SelectedRows.Count > 0)
             {
+                whichOperation = 2;
+
+
                 DataGridViewRow selectedRow = PM_C_DataGridView1.SelectedRows[0];
-                int catSelectedID = Convert.ToInt32(selectedRow.Cells[0].Value);
-                string catSelectedName = Convert.ToString(selectedRow.Cells[2].Value);
+                catSelectedID = Convert.ToInt32(selectedRow.Cells[0].Value);
+                catSelectedName = String.IsNullOrEmpty(selectedRow.Cells[2].Value.ToString()) ? "" : Convert.ToString(selectedRow.Cells[2].Value);
+
 
                 PM_C_Label1.Text = "แก้ไขชื่อประเภทสินค้า:";
 
@@ -163,7 +193,9 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 PM_C_DataGridView1.DefaultCellStyle.SelectionBackColor = Color.Wheat;
                 PM_C_DataGridView1.Enabled = false;
 
-                PM_C_TextBox1.Text = Convert.ToString(catSelectedName);
+                PM_C_TextBox1.Text = catSelectedName;
+                PM_C_TextBox1.Select(catSelectedName.Length, 0);
+                PM_C_TextBox1.Focus();
             }
             else
             {
@@ -174,39 +206,160 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         ///////////////////////////////////////////// DELETE BUTTON CLICK /////////////////////////////////////////////
         private void PM_C_DeleteLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            PM_C_Label1.Text = "คุณต้องการลบประเภทสินค้านี้ ใช่หรือไม่:";
+            if (PM_C_DataGridView1.Rows.Count > 0 && PM_C_DataGridView1.SelectedRows.Count > 0)
+            {
+                whichOperation = 3;
 
-            PM_C_TextBox1.Enabled = true;
-            PM_C_TextBox1.ReadOnly = true;
-            PM_C_TextBox1.BackColor = Color.LightCoral;
+                DataGridViewRow selectedRow = PM_C_DataGridView1.SelectedRows[0];
+                catSelectedID = Convert.ToInt32(selectedRow.Cells[0].Value);
+                catSelectedName = String.IsNullOrEmpty(selectedRow.Cells[2].Value.ToString()) ? "" : Convert.ToString(selectedRow.Cells[2].Value);
 
-            PM_C_AddLinkLabel.Visible = false;
-            PM_C_EditLinkLabel.Visible = false;
-            PM_C_DeleteLinkLabel.Visible = false;
 
-            PM_C_AddLinkLabel.Text = "";
-            PM_C_EditLinkLabel.Text = "";
-            PM_C_DeleteLinkLabel.Text = "";
+                PM_C_Label1.Text = "คุณต้องการลบประเภทสินค้านี้ ใช่หรือไม่:";
 
-            PM_C_SaveLabel.Visible = true;
-            PM_C_CancelLabel.Visible = true;
+                PM_C_TextBox1.Enabled = true;
+                PM_C_TextBox1.ReadOnly = true;
+                PM_C_TextBox1.BackColor = Color.LightCoral;
 
-            PM_C_SaveLabel.Text = "ยืนยัน";
-            PM_C_CancelLabel.Text = "ยกเลิก";
+                PM_C_AddLinkLabel.Visible = false;
+                PM_C_EditLinkLabel.Visible = false;
+                PM_C_DeleteLinkLabel.Visible = false;
 
-            PM_C_DataGridView1.DefaultCellStyle.SelectionBackColor = Color.LightCoral;
-            PM_C_DataGridView1.Enabled = false;
+                PM_C_AddLinkLabel.Text = "";
+                PM_C_EditLinkLabel.Text = "";
+                PM_C_DeleteLinkLabel.Text = "";
+
+                PM_C_SaveLabel.Visible = true;
+                PM_C_CancelLabel.Visible = true;
+
+                PM_C_SaveLabel.Text = "ยืนยัน";
+                PM_C_CancelLabel.Text = "ยกเลิก";
+
+                PM_C_DataGridView1.DefaultCellStyle.SelectionBackColor = Color.LightCoral;
+                PM_C_DataGridView1.Enabled = false;
+
+                PM_C_TextBox1.Text = catSelectedName;
+                PM_C_SaveLabel.Select();
+            }
+            else
+            {
+                return;
+            }
         }
 
         ///////////////////////////////////////////// SAVE BUTTON CLICK  /////////////////////////////////////////////
         private void PM_C_SaveLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
+            switch (whichOperation)
+            {
+                case 1://ADD
+                    addExecute();
+                    break;
+                case 2://EDIT
+                    editExecute();
+                    break;
+                case 3://REMOVE
+                    deleteExecute();
+                    break;
+                case 0:
+                    break;
+                default:
+                    break;
+            }
         }
+
+        private void addExecute() //ADD
+        {
+            if (string.IsNullOrEmpty(PM_C_TextBox1.Text))
+            {
+                MessageBox.Show("โปรดระบุชื่อประเภทสินค้า", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                try
+                {
+                    var tr = db.Database.BeginTransaction();//Transaction control: ADD
+                    ProductCategory A = new ProductCategory();
+
+                    A.Name = PM_C_TextBox1.Text.Trim();
+
+                    db.ProductCategories.Add(A);
+                    db.SaveChanges();
+                    tr.Commit();
+
+                    MessageBox.Show("เพิ่มประเภทสินค้าสำเร็จ", "เพิ่มประเภทสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    center.isExecuted = true;
+                    loadData();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "เพิ่มประเภทสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+        }
+
+        private void editExecute() //EDIT
+        {
+            if (catSelectedName == PM_C_TextBox1.Text.Trim())
+            {
+                return;
+            }
+            else if (string.IsNullOrEmpty(PM_C_TextBox1.Text))
+            {
+                MessageBox.Show("โปรดระบุชื่อประเภทสินค้า", "แก้ไขสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                var E = (from e in db.ProductCategories
+                         where e.Id == catSelectedID
+                         select e).FirstOrDefault();
+
+                if (E != null)
+                {
+                    try
+                    {
+                        var tr = db.Database.BeginTransaction();//Transaction control: EDIT
+
+                        E.Name = PM_C_TextBox1.Text.Trim();
+
+                        db.SaveChanges();
+                        tr.Commit();
+
+                        MessageBox.Show("แก้ไขประเภทสินค้าสำเร็จ", "แก้ไขประเภทสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        center.isExecuted = true;
+                        loadData();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message, "แก้ไขประเภทสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                else
+                {
+                    return;
+                }
+            }
+        }
+
+        private void deleteExecute() //DELETE
+        {
+
+        }
+
 
         ///////////////////////////////////////////// CANCEL BUTTON CLICK  /////////////////////////////////////////////
         private void PM_C_CancelLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            whichOperation = 0;
+            catSelectedID = 0;
+            catSelectedName = "";
+
             PM_C_Label1.Text = "โปรดเลือกการดำเนินการ:";
 
             PM_C_TextBox1.Enabled = false;
@@ -232,6 +385,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
             PM_C_TextBox1.Clear();
         }
-
     }
 }
+
+
+
