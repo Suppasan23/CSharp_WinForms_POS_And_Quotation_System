@@ -286,7 +286,5 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             loadCategory();
             loadData("", 0);
         }
-
-
     }
 }
