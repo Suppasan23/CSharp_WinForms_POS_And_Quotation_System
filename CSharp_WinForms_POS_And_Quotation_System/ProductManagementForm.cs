@@ -54,7 +54,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         private void ProductManagementForm_Load(object sender, EventArgs e)
         {
             loadCategory();
-            loadData("", 0);
+            loadData("", -1);
         }
 
         ///////////////////////////////////////// LOAD DATA ////////////////////////////////////////////////////////////
@@ -66,7 +66,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // Add data to DataGridView
             var data = (from i in db.Products
                         join r in db.ProductCategories on i.Category equals r.Id
-                        where (i.Barcode.Contains(keyword) || i.Name.Contains(keyword)) && (cat == 0 ? true : i.Category == cat)
+                        where (i.Barcode.Contains(keyword) || i.Name.Contains(keyword)) && (cat == -1 ? true : i.Category == cat)
                         select new
                         {
                             id = i.Id,
@@ -109,6 +109,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 PM_DataGridView.Columns[6].Width = 100;
                 PM_DataGridView.Columns[7].Width = 100;
                 PM_DataGridView.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                PM_DataGridView.Columns[9].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             }
             else
             {
@@ -140,14 +141,31 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             var data = from m in db.ProductCategories
                        select new { m.Id, m.Name };
 
-            PM_ComboBox.Items.Add(new { Id = 0, Name = "-ทั้งหมด-" }); // Add Id = 0, Name = "ทั้งหมด" item
-            PM_ComboBox.Items.AddRange(data.ToArray());
-            PM_ComboBox.Items.Add(new { Id = -1, Name = "✎" });
+            if (data.Any())
+            {
+                PM_ComboBox.Items.Add(new { Id = -1, Name = "-ทั้งหมด-" }); // Add Id = -1, Name = "ทั้งหมด" item
 
-            PM_ComboBox.ValueMember = "Id";
-            PM_ComboBox.DisplayMember = "Name";
-            PM_ComboBox.SelectedIndex = 0; // Set the selected index to 0 (the first item)
+                foreach (var i in data)
+                {
+                    if (i.Id > 0)
+                    {
+                        PM_ComboBox.Items.Add(new { i.Id, i.Name });
+                    }
+                }
+
+                PM_ComboBox.Items.Add(new { Id = -2, Name = "✎" }); // Add Id = -2, Name = "✎" (แก้ไข) item
+
+                PM_ComboBox.ValueMember = "Id";
+                PM_ComboBox.DisplayMember = "Name";
+                PM_ComboBox.SelectedIndex = 0; // Set the selected index to 0 (the first item)
+            }
+            else
+            {
+                MessageBox.Show("ไม่สามารถเข้าถึงฐานข้อมูลได้", "จัดการสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
+
 
         ///////////////////////////////////////// SEARCH ////////////////////////////////////////////////////////////////
         private void PM_SearchButton_Click(object sender, EventArgs e)
@@ -183,21 +201,23 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         }
 
         /////////////////////////////// CATEGORY COMBOBOX SELECTION CHANGE //////////////////////////////////////////////////////
+        private int previousSelectedIndex;
         private void PM_ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dynamic selectedCat = PM_ComboBox.SelectedItem;
-            int catValue = Convert.ToInt32(selectedCat.Id);
+            dynamic SelectedItem = PM_ComboBox.SelectedItem;
+            int catValue = Convert.ToInt32(SelectedItem.Id);
 
-            if (catValue != -1)
+            if (catValue != -2)
             {
                 PM_SearchTextBox.Text = "";
                 loadData("", catValue);
             }
             else
             {
-                PM_ComboBox.SelectedIndex = 0;
+                PM_ComboBox.SelectedIndex = previousSelectedIndex;
                 categoryManagement();
             }
+            previousSelectedIndex = PM_ComboBox.SelectedIndex;
         }
 
         //////////////////////////// CATEGORY MANAGEMENT ///////////////////////////////////////////////////////////////////////
@@ -214,7 +234,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             if (center.isExecuted == true)
             {
                 loadCategory(); // Refresh the main form after Executed data.
-                loadData("", 0);
+                loadData("", -1);
             }
         }
 
@@ -230,6 +250,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 }
             }
 
+            int backToSelectedIndex = PM_ComboBox.SelectedIndex;
+
             ProductManagementForm_CRUD f = new ProductManagementForm_CRUD(whichCRUD, whichID);
             f.StartPosition = FormStartPosition.Manual;
             // Calculate the center position of the child form
@@ -240,8 +262,12 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
             if (center.isExecuted == true)
             {
-                loadCategory(); // Refresh the main form after Executed data.
-                loadData("", 0);
+                PM_ComboBox.SelectedIndex = backToSelectedIndex;
+
+                dynamic SelectedItem = PM_ComboBox.SelectedItem;
+                int catValue = Convert.ToInt32(SelectedItem.Id);
+
+                loadData("", catValue);
             }
         }
 
@@ -259,7 +285,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             }
         }
 
-        ///////////////////////////////// ADD BUTTON ///////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////// ADD BUTTON ////////////////////////////////////////////////////////////////////////////
         private void PM_AddButton_Click(object sender, EventArgs e)
         {
             CRUD("ADD", 0);
@@ -284,7 +310,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         {
             PM_SearchTextBox.Clear();
             loadCategory();
-            loadData("", 0);
+            loadData("", -1);
         }
     }
 }

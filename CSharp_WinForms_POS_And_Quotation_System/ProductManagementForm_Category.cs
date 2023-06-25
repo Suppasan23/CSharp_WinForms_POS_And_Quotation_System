@@ -98,7 +98,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                             ชื่อประเภทสินค้า = i.Name
                         }).ToList(); ;
 
-            if (data != null)
+            if (data.Any())
             {
                 var modifiedData = data.Select((item, index) => new
                 {
@@ -109,17 +109,17 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
                 PM_C_DataGridView1.DataSource = modifiedData;
 
-                // Hide the first row
-                PM_C_DataGridView1.ClearSelection();
-                PM_C_DataGridView1.Rows[0].Selected = true;
-                PM_C_DataGridView1.CurrentCell = null;
-                PM_C_DataGridView1.Rows[0].Visible = false;
-
                 // Hide the first column and config the other collumn
                 PM_C_DataGridView1.Columns[0].Visible = false;
                 PM_C_DataGridView1.Columns[1].Width = 60;
                 PM_C_DataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 PM_C_DataGridView1.ClearSelection();
+
+                // Hide the first row
+                PM_C_DataGridView1.ClearSelection();
+                PM_C_DataGridView1.Rows[0].Selected = true;
+                PM_C_DataGridView1.CurrentCell = null;
+                PM_C_DataGridView1.Rows[0].Visible = false;
             }
             else
             {

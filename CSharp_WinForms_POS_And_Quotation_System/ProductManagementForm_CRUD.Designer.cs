@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             tableLayoutPanel5 = new TableLayoutPanel();
-            tableLayoutPanel1 = new TableLayoutPanel();
             PM_CRUD_ProductCategoryComboBox = new ComboBox();
-            PM_CRUD_EditCategoryLinkLabel = new LinkLabel();
             PM_CRUD_HeadingLabel = new Label();
             PM_CRUD_ProductBarcodeLabel = new Label();
             PM_CRUD_ProductNameLabel = new Label();
@@ -60,7 +58,6 @@
             PM_CRUD_ProductSellingPriceNumericUpDown = new NumericUpDown();
             openFileDialog1 = new OpenFileDialog();
             tableLayoutPanel5.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PM_CRUD_ProductQuantityNumericUpDown).BeginInit();
             flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PM_CRUD_ProductIdNumericUpDown).BeginInit();
@@ -77,7 +74,7 @@
             tableLayoutPanel5.ColumnCount = 2;
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 105F));
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel5.Controls.Add(tableLayoutPanel1, 1, 7);
+            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductCategoryComboBox, 1, 7);
             tableLayoutPanel5.Controls.Add(PM_CRUD_HeadingLabel, 0, 0);
             tableLayoutPanel5.Controls.Add(PM_CRUD_ProductBarcodeLabel, 0, 1);
             tableLayoutPanel5.Controls.Add(PM_CRUD_ProductNameLabel, 0, 2);
@@ -110,49 +107,19 @@
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
-            tableLayoutPanel5.Size = new Size(684, 530);
+            tableLayoutPanel5.Size = new Size(784, 641);
             tableLayoutPanel5.TabIndex = 100;
-            // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel1.Controls.Add(PM_CRUD_ProductCategoryComboBox, 0, 0);
-            tableLayoutPanel1.Controls.Add(PM_CRUD_EditCategoryLinkLabel, 1, 0);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(107, 226);
-            tableLayoutPanel1.Margin = new Padding(0);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(576, 28);
-            tableLayoutPanel1.TabIndex = 113;
             // 
             // PM_CRUD_ProductCategoryComboBox
             // 
             PM_CRUD_ProductCategoryComboBox.Dock = DockStyle.Fill;
             PM_CRUD_ProductCategoryComboBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             PM_CRUD_ProductCategoryComboBox.FormattingEnabled = true;
-            PM_CRUD_ProductCategoryComboBox.Location = new Point(3, 3);
+            PM_CRUD_ProductCategoryComboBox.Location = new Point(110, 229);
             PM_CRUD_ProductCategoryComboBox.MaxDropDownItems = 10;
             PM_CRUD_ProductCategoryComboBox.Name = "PM_CRUD_ProductCategoryComboBox";
-            PM_CRUD_ProductCategoryComboBox.Size = new Size(475, 26);
+            PM_CRUD_ProductCategoryComboBox.Size = new Size(670, 26);
             PM_CRUD_ProductCategoryComboBox.TabIndex = 7;
-            // 
-            // PM_CRUD_EditCategoryLinkLabel
-            // 
-            PM_CRUD_EditCategoryLinkLabel.AutoSize = true;
-            PM_CRUD_EditCategoryLinkLabel.Dock = DockStyle.Fill;
-            PM_CRUD_EditCategoryLinkLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            PM_CRUD_EditCategoryLinkLabel.Location = new Point(484, 0);
-            PM_CRUD_EditCategoryLinkLabel.Name = "PM_CRUD_EditCategoryLinkLabel";
-            PM_CRUD_EditCategoryLinkLabel.Size = new Size(89, 28);
-            PM_CRUD_EditCategoryLinkLabel.TabIndex = 109;
-            PM_CRUD_EditCategoryLinkLabel.TabStop = true;
-            PM_CRUD_EditCategoryLinkLabel.Text = "ประเภทสินค้า";
-            PM_CRUD_EditCategoryLinkLabel.TextAlign = ContentAlignment.MiddleCenter;
-            PM_CRUD_EditCategoryLinkLabel.VisitedLinkColor = Color.Blue;
             // 
             // PM_CRUD_HeadingLabel
             // 
@@ -164,7 +131,7 @@
             PM_CRUD_HeadingLabel.Location = new Point(1, 1);
             PM_CRUD_HeadingLabel.Margin = new Padding(0);
             PM_CRUD_HeadingLabel.Name = "PM_CRUD_HeadingLabel";
-            PM_CRUD_HeadingLabel.Size = new Size(682, 50);
+            PM_CRUD_HeadingLabel.Size = new Size(782, 50);
             PM_CRUD_HeadingLabel.TabIndex = 100;
             PM_CRUD_HeadingLabel.Text = "...";
             PM_CRUD_HeadingLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -201,7 +168,7 @@
             PM_CRUD_ProductBarcodeTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             PM_CRUD_ProductBarcodeTextBox.Location = new Point(110, 55);
             PM_CRUD_ProductBarcodeTextBox.Name = "PM_CRUD_ProductBarcodeTextBox";
-            PM_CRUD_ProductBarcodeTextBox.Size = new Size(570, 26);
+            PM_CRUD_ProductBarcodeTextBox.Size = new Size(670, 26);
             PM_CRUD_ProductBarcodeTextBox.TabIndex = 1;
             // 
             // PM_CRUD_ProductQuantityLabel
@@ -243,7 +210,7 @@
             PM_CRUD_ProductNameTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             PM_CRUD_ProductNameTextBox.Location = new Point(110, 84);
             PM_CRUD_ProductNameTextBox.Name = "PM_CRUD_ProductNameTextBox";
-            PM_CRUD_ProductNameTextBox.Size = new Size(570, 26);
+            PM_CRUD_ProductNameTextBox.Size = new Size(670, 26);
             PM_CRUD_ProductNameTextBox.TabIndex = 2;
             // 
             // PM_CRUD_ProductCategoryLabel
@@ -267,7 +234,7 @@
             PM_CRUD_ProductPictureLabel.Location = new Point(4, 258);
             PM_CRUD_ProductPictureLabel.Margin = new Padding(3);
             PM_CRUD_ProductPictureLabel.Name = "PM_CRUD_ProductPictureLabel";
-            PM_CRUD_ProductPictureLabel.Size = new Size(99, 227);
+            PM_CRUD_ProductPictureLabel.Size = new Size(99, 338);
             PM_CRUD_ProductPictureLabel.TabIndex = 108;
             PM_CRUD_ProductPictureLabel.Text = "รูปภาพ:";
             PM_CRUD_ProductPictureLabel.TextAlign = ContentAlignment.TopRight;
@@ -293,18 +260,18 @@
             flowLayoutPanel2.Controls.Add(PM_CRUD_ProductIdNumericUpDown);
             flowLayoutPanel2.Controls.Add(PM_CRUD_ProductIdLabel);
             flowLayoutPanel2.Dock = DockStyle.Fill;
-            flowLayoutPanel2.Location = new Point(1, 489);
+            flowLayoutPanel2.Location = new Point(1, 600);
             flowLayoutPanel2.Margin = new Padding(0);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.RightToLeft = RightToLeft.Yes;
-            flowLayoutPanel2.Size = new Size(682, 40);
+            flowLayoutPanel2.Size = new Size(782, 40);
             flowLayoutPanel2.TabIndex = 120;
             // 
             // PM_CRUD_CancelButton
             // 
             PM_CRUD_CancelButton.Anchor = AnchorStyles.Right;
             PM_CRUD_CancelButton.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            PM_CRUD_CancelButton.Location = new Point(583, 3);
+            PM_CRUD_CancelButton.Location = new Point(683, 3);
             PM_CRUD_CancelButton.Margin = new Padding(3, 3, 1, 3);
             PM_CRUD_CancelButton.Name = "PM_CRUD_CancelButton";
             PM_CRUD_CancelButton.Size = new Size(96, 34);
@@ -317,7 +284,7 @@
             // 
             PM_CRUD_SaveButton.Anchor = AnchorStyles.Right;
             PM_CRUD_SaveButton.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            PM_CRUD_SaveButton.Location = new Point(485, 3);
+            PM_CRUD_SaveButton.Location = new Point(585, 3);
             PM_CRUD_SaveButton.Margin = new Padding(1, 3, 3, 3);
             PM_CRUD_SaveButton.Name = "PM_CRUD_SaveButton";
             PM_CRUD_SaveButton.Size = new Size(96, 34);
@@ -330,7 +297,7 @@
             // 
             PM_CRUD_ProductIdNumericUpDown.Anchor = AnchorStyles.Right;
             PM_CRUD_ProductIdNumericUpDown.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            PM_CRUD_ProductIdNumericUpDown.Location = new Point(427, 7);
+            PM_CRUD_ProductIdNumericUpDown.Location = new Point(527, 7);
             PM_CRUD_ProductIdNumericUpDown.Name = "PM_CRUD_ProductIdNumericUpDown";
             PM_CRUD_ProductIdNumericUpDown.ReadOnly = true;
             PM_CRUD_ProductIdNumericUpDown.RightToLeft = RightToLeft.No;
@@ -342,7 +309,7 @@
             PM_CRUD_ProductIdLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             PM_CRUD_ProductIdLabel.AutoSize = true;
             PM_CRUD_ProductIdLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            PM_CRUD_ProductIdLabel.Location = new Point(392, 11);
+            PM_CRUD_ProductIdLabel.Location = new Point(492, 11);
             PM_CRUD_ProductIdLabel.Margin = new Padding(3);
             PM_CRUD_ProductIdLabel.Name = "PM_CRUD_ProductIdLabel";
             PM_CRUD_ProductIdLabel.Size = new Size(29, 18);
@@ -356,7 +323,7 @@
             flowLayoutPanel1.BorderStyle = BorderStyle.FixedSingle;
             flowLayoutPanel1.Controls.Add(PM_CRUD_PictureBox);
             flowLayoutPanel1.Controls.Add(tableLayoutPanel3);
-            flowLayoutPanel1.Location = new Point(194, 270);
+            flowLayoutPanel1.Location = new Point(244, 326);
             flowLayoutPanel1.Margin = new Padding(0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(402, 202);
@@ -496,15 +463,13 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(684, 530);
+            ClientSize = new Size(784, 641);
             Controls.Add(tableLayoutPanel5);
             Name = "ProductManagementForm_CRUD";
             Text = "ProductManagementForm_CRUD";
             Load += ProductManagementForm_CRUD_Load;
             tableLayoutPanel5.ResumeLayout(false);
             tableLayoutPanel5.PerformLayout();
-            tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PM_CRUD_ProductQuantityNumericUpDown).EndInit();
             flowLayoutPanel2.ResumeLayout(false);
             flowLayoutPanel2.PerformLayout();
@@ -547,10 +512,8 @@
         private LinkLabel PM_CRUD_ChoosePictureLinkLabel;
         private LinkLabel PM_CRUD_DeletePictureLinkLabel;
         private ComboBox PM_CRUD_ProductCategoryComboBox;
-        private LinkLabel PM_CRUD_EditCategoryLinkLabel;
         private FlowLayoutPanel flowLayoutPanel2;
         private FlowLayoutPanel flowLayoutPanel1;
-        private TableLayoutPanel tableLayoutPanel1;
         private OpenFileDialog openFileDialog1;
     }
 }

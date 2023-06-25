@@ -78,16 +78,26 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             PM_CRUD_ProductCategoryComboBox.Enabled = true; //O
             PM_CRUD_PictureBox.Enabled = true; //O
 
-            PM_CRUD_EditCategoryLinkLabel.Enabled = true; //O
             PM_CRUD_ChoosePictureLinkLabel.Enabled = true; //O
             PM_CRUD_DeletePictureLinkLabel.Enabled = true; //O
             PM_CRUD_PictureDescriptionLabel.Enabled = true; //O
 
-            var cat = from m in db.ProductCategories select new { m.Id, m.Name };
-            if (cat != null)
+            var cat = from m in db.ProductCategories
+                      select new { m.Id, m.Name };
+
+            if (cat.Any())
             {
                 //Category show value
-                PM_CRUD_ProductCategoryComboBox.Items.AddRange(cat.ToArray());
+                foreach (var i in cat)
+                {
+                    if (i.Id > 0)
+                    {
+                        PM_CRUD_ProductCategoryComboBox.Items.Add(new { i.Id, i.Name });
+                    }
+                }
+
+                PM_CRUD_ProductCategoryComboBox.Items.Add(new { Id = 0, Name = "(ไม่ระบุ)" }); // Add Id = 0, Name = "(ไม่ระบุ)" item
+
                 PM_CRUD_ProductCategoryComboBox.ValueMember = "Id";
                 PM_CRUD_ProductCategoryComboBox.DisplayMember = "Name";
             }
@@ -120,14 +130,13 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             PM_CRUD_ProductCategoryComboBox.Enabled = true; //O
             PM_CRUD_PictureBox.Enabled = true; //O
 
-            PM_CRUD_EditCategoryLinkLabel.Enabled = true; //O
             PM_CRUD_ChoosePictureLinkLabel.Enabled = true; //O
             PM_CRUD_DeletePictureLinkLabel.Enabled = true; //O
             PM_CRUD_PictureDescriptionLabel.Enabled = true; //O
 
             var data = (from c in db.Products where c.Id == theID select c).FirstOrDefault();
             var cat = from m in db.ProductCategories select new { m.Id, m.Name };
-            if (data != null && cat != null)
+            if (data != null && cat.Any())
             {
                 //ID, Barcode, Name, CostPrice, SellingPrice, Quantity, UnitName show
                 PM_CRUD_ProductIdNumericUpDown.Value = theID; //Read only
@@ -139,8 +148,16 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 PM_CRUD_ProductQuantityNumericUpDown.Value = data.Quantity;
                 PM_CRUD_ProductUnitNameTextBox.Text = String.IsNullOrEmpty(data.UnitName) ? "" : data.UnitName;
 
-                //Category show
-                PM_CRUD_ProductCategoryComboBox.Items.AddRange(cat.ToArray());
+                //Category show value
+                foreach (var i in cat)
+                {
+                    if (i.Id > 0)
+                    {
+                        PM_CRUD_ProductCategoryComboBox.Items.Add(new { i.Id, i.Name });
+                    }
+                }
+
+                PM_CRUD_ProductCategoryComboBox.Items.Add(new { Id = 0, Name = "(ไม่ระบุ)" }); // Add Id = 0, Name = "(ไม่ระบุ)" item
                 PM_CRUD_ProductCategoryComboBox.ValueMember = "Id";
                 PM_CRUD_ProductCategoryComboBox.DisplayMember = "Name";
 
@@ -186,7 +203,6 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             PM_CRUD_ProductQuantityNumericUpDown.ReadOnly = true; //X
             PM_CRUD_ProductUnitNameTextBox.ReadOnly = true; //X
 
-            PM_CRUD_EditCategoryLinkLabel.Enabled = false; //X
             PM_CRUD_ChoosePictureLinkLabel.Enabled = false; //X
             PM_CRUD_DeletePictureLinkLabel.Enabled = false; //X
             PM_CRUD_PictureDescriptionLabel.Enabled = false; //X
