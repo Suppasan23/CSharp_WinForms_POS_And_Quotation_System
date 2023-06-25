@@ -1,4 +1,5 @@
-﻿using CSharp_WinForms_POS_And_Quotation_System.Models.Db;
+﻿
+using CSharp_WinForms_POS_And_Quotation_System.Models.Db;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.VisualBasic.Devices;
 using System;
