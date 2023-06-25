@@ -81,7 +81,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                             รูปภาพ = (i.Picture != null) && (i.Picture.Length > 1000) ? ProductManagementForm.adjustSizeImage(i.Picture, 100, 100) : null
                         }).ToList();
 
-            if (data != null)
+            if (data.Any())
             {
                 // Create a new list with modified objects including auto-incrementing number
                 var modifiedData = data.Select((item, index) => new
@@ -111,11 +111,14 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 PM_DataGridView.Columns[7].Width = 100;
                 PM_DataGridView.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 PM_DataGridView.Columns[9].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
+                PM_ToolStripStatusLabel1.Text = Convert.ToString(data.Count) + " " + "รายการ";
             }
             else
             {
                 PM_DataGridView.DataSource = null; //Clear DataGridView
                 PM_DataGridView.ClearSelection(); //Selected no row
+                PM_ToolStripStatusLabel1.Text = 0 + " " + "รายการ";
             }
         }
 
@@ -312,6 +315,56 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             PM_SearchTextBox.Clear();
             loadCategory();
             loadData("", -1);
+        }
+
+
+        /////////////////////////////////////// RIGHT CLICK COPY TO CLIPBOARD //////////////////////////////////////////////////////////////////
+        private void copyBarcodeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string copyBarcode = copyBarcodeToolStripMenuItem.Text.Replace("Copy ", "").Replace("\"", "");
+
+            if (!string.IsNullOrEmpty(copyBarcode))
+            {
+                Clipboard.SetText(copyBarcode);
+            }
+        }
+
+        private void copyNameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string copyName = copyNameToolStripMenuItem.Text.Replace("Copy ", "").Replace("\"", "");
+
+            if (!string.IsNullOrEmpty(copyName))
+            {
+                Clipboard.SetText(copyName);
+            }
+        }
+
+        private void PM_DataGridView_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0)
+            {
+                PM_DataGridView.Rows[e.RowIndex].Selected = true;
+
+                if (PM_DataGridView.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow rightClickSelectedRow = PM_DataGridView.SelectedRows[0];
+                    string? selectedBarcode = Convert.ToString(rightClickSelectedRow.Cells[2].Value);
+                    string? selectedName = Convert.ToString(rightClickSelectedRow.Cells[3].Value);
+
+                    copyBarcodeToolStripMenuItem.Text = "Copy " + "\"" + selectedBarcode + "\"";
+                    copyNameToolStripMenuItem.Text = "Copy " + "\"" + selectedName + "\"";
+
+                    contextMenuStrip1.Show(Cursor.Position);
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }
