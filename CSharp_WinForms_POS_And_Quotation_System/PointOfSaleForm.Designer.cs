@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PointOfSaleForm));
@@ -65,7 +66,7 @@
             POS_DateTimeLabel = new Label();
             POS_DateTimeTextBox = new TextBox();
             POS_TransactionIDLabel = new Label();
-            POS_TransactionIDTextBox = new TextBox();
+            POS_SaleIDTextBox = new TextBox();
             POS_AddNewSubjectButton = new Button();
             POS_TableLayoutPanel1 = new TableLayoutPanel();
             POS_BarcodeTextBox = new TextBox();
@@ -76,6 +77,7 @@
             POS_HeadingLabel = new Label();
             POS_PrintPreviewDialog = new PrintPreviewDialog();
             POS_PrintDocument = new System.Drawing.Printing.PrintDocument();
+            timer1 = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             POS_Panel2.SuspendLayout();
             POS_CalculatePriceGroupBox.SuspendLayout();
@@ -106,7 +108,7 @@
             // 
             // POS_Panel2
             // 
-            POS_Panel2.BackColor = SystemColors.Control;
+            POS_Panel2.BackColor = SystemColors.ControlLightLight;
             POS_Panel2.Controls.Add(POS_CalculatePriceGroupBox);
             POS_Panel2.Controls.Add(POS_ProductDetailGroupBox);
             POS_Panel2.Controls.Add(POS_TransactionGroupBox);
@@ -129,7 +131,7 @@
             POS_CalculatePriceGroupBox.Controls.Add(POS_TotalAmountTextBox);
             POS_CalculatePriceGroupBox.Controls.Add(POS_TotalAmountLabel);
             POS_CalculatePriceGroupBox.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            POS_CalculatePriceGroupBox.ForeColor = Color.LimeGreen;
+            POS_CalculatePriceGroupBox.ForeColor = Color.ForestGreen;
             POS_CalculatePriceGroupBox.Location = new Point(1007, 48);
             POS_CalculatePriceGroupBox.Name = "POS_CalculatePriceGroupBox";
             POS_CalculatePriceGroupBox.Size = new Size(150, 996);
@@ -140,7 +142,7 @@
             // POS_SaveButton
             // 
             POS_SaveButton.Anchor = AnchorStyles.Bottom;
-            POS_SaveButton.BackColor = Color.DarkGray;
+            POS_SaveButton.BackColor = SystemColors.ControlDark;
             POS_SaveButton.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             POS_SaveButton.ForeColor = Color.Black;
             POS_SaveButton.Image = Properties.Resources.save_24;
@@ -156,7 +158,7 @@
             // 
             // POS_ChangeMoneyTextBox
             // 
-            POS_ChangeMoneyTextBox.BackColor = Color.MistyRose;
+            POS_ChangeMoneyTextBox.BackColor = SystemColors.Control;
             POS_ChangeMoneyTextBox.Font = new Font("Tahoma", 18F, FontStyle.Regular, GraphicsUnit.Point);
             POS_ChangeMoneyTextBox.Location = new Point(6, 227);
             POS_ChangeMoneyTextBox.Name = "POS_ChangeMoneyTextBox";
@@ -177,6 +179,7 @@
             // 
             // POS_ReceiveMoneyTextBox
             // 
+            POS_ReceiveMoneyTextBox.BackColor = SystemColors.Control;
             POS_ReceiveMoneyTextBox.Font = new Font("Tahoma", 18F, FontStyle.Regular, GraphicsUnit.Point);
             POS_ReceiveMoneyTextBox.Location = new Point(6, 141);
             POS_ReceiveMoneyTextBox.Name = "POS_ReceiveMoneyTextBox";
@@ -196,7 +199,7 @@
             // 
             // POS_TotalAmountTextBox
             // 
-            POS_TotalAmountTextBox.BackColor = Color.LightCyan;
+            POS_TotalAmountTextBox.BackColor = SystemColors.Control;
             POS_TotalAmountTextBox.Font = new Font("Tahoma", 18F, FontStyle.Regular, GraphicsUnit.Point);
             POS_TotalAmountTextBox.Location = new Point(6, 55);
             POS_TotalAmountTextBox.Name = "POS_TotalAmountTextBox";
@@ -232,7 +235,7 @@
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            tableLayoutPanel1.BackColor = SystemColors.Control;
+            tableLayoutPanel1.BackColor = SystemColors.ControlLightLight;
             tableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             tableLayoutPanel1.ColumnCount = 9;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 90F));
@@ -283,7 +286,7 @@
             // POS_ProductNameTextBox
             // 
             POS_ProductNameTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            POS_ProductNameTextBox.BackColor = Color.FromArgb(224, 224, 224);
+            POS_ProductNameTextBox.BackColor = SystemColors.Control;
             POS_ProductNameTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             POS_ProductNameTextBox.Location = new Point(0, 5);
             POS_ProductNameTextBox.Margin = new Padding(0);
@@ -291,22 +294,24 @@
             POS_ProductNameTextBox.ReadOnly = true;
             POS_ProductNameTextBox.Size = new Size(670, 26);
             POS_ProductNameTextBox.TabIndex = 8;
+            POS_ProductNameTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // POS_SellingUnitNumericUpDown
             // 
             POS_SellingUnitNumericUpDown.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            POS_SellingUnitNumericUpDown.BackColor = Color.White;
+            POS_SellingUnitNumericUpDown.BackColor = SystemColors.Control;
             POS_SellingUnitNumericUpDown.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             POS_SellingUnitNumericUpDown.Location = new Point(810, 41);
             POS_SellingUnitNumericUpDown.Margin = new Padding(0);
             POS_SellingUnitNumericUpDown.Name = "POS_SellingUnitNumericUpDown";
             POS_SellingUnitNumericUpDown.Size = new Size(133, 30);
             POS_SellingUnitNumericUpDown.TabIndex = 6;
+            POS_SellingUnitNumericUpDown.TextAlign = HorizontalAlignment.Center;
             // 
             // POS_ProductIDTextBox
             // 
             POS_ProductIDTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            POS_ProductIDTextBox.BackColor = Color.FromArgb(224, 224, 224);
+            POS_ProductIDTextBox.BackColor = SystemColors.Control;
             POS_ProductIDTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             POS_ProductIDTextBox.Location = new Point(92, 6);
             POS_ProductIDTextBox.Margin = new Padding(0);
@@ -314,11 +319,12 @@
             POS_ProductIDTextBox.ReadOnly = true;
             POS_ProductIDTextBox.Size = new Size(133, 26);
             POS_ProductIDTextBox.TabIndex = 1;
+            POS_ProductIDTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // POS_CostPriceTextBox
             // 
             POS_CostPriceTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            POS_CostPriceTextBox.BackColor = Color.FromArgb(224, 224, 224);
+            POS_CostPriceTextBox.BackColor = SystemColors.Control;
             POS_CostPriceTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             POS_CostPriceTextBox.Location = new Point(92, 43);
             POS_CostPriceTextBox.Margin = new Padding(0);
@@ -326,11 +332,12 @@
             POS_CostPriceTextBox.ReadOnly = true;
             POS_CostPriceTextBox.Size = new Size(133, 26);
             POS_CostPriceTextBox.TabIndex = 10;
+            POS_CostPriceTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // POS_UnitInStockTextBox
             // 
             POS_UnitInStockTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            POS_UnitInStockTextBox.BackColor = Color.FromArgb(224, 224, 224);
+            POS_UnitInStockTextBox.BackColor = SystemColors.Control;
             POS_UnitInStockTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             POS_UnitInStockTextBox.Location = new Point(570, 43);
             POS_UnitInStockTextBox.Margin = new Padding(0);
@@ -338,6 +345,7 @@
             POS_UnitInStockTextBox.ReadOnly = true;
             POS_UnitInStockTextBox.Size = new Size(133, 26);
             POS_UnitInStockTextBox.TabIndex = 12;
+            POS_UnitInStockTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // POS_DeleteButton
             // 
@@ -356,7 +364,7 @@
             // POS_SellingPriceTextBox
             // 
             POS_SellingPriceTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            POS_SellingPriceTextBox.BackColor = Color.FromArgb(224, 224, 224);
+            POS_SellingPriceTextBox.BackColor = SystemColors.Control;
             POS_SellingPriceTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             POS_SellingPriceTextBox.Location = new Point(313, 43);
             POS_SellingPriceTextBox.Margin = new Padding(0);
@@ -364,6 +372,7 @@
             POS_SellingPriceTextBox.ReadOnly = true;
             POS_SellingPriceTextBox.Size = new Size(133, 26);
             POS_SellingPriceTextBox.TabIndex = 10;
+            POS_SellingPriceTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // POS_ProductIDLabel
             // 
@@ -484,7 +493,7 @@
             // POS_TransactionGroupBox
             // 
             POS_TransactionGroupBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            POS_TransactionGroupBox.BackColor = SystemColors.Control;
+            POS_TransactionGroupBox.BackColor = SystemColors.ControlLightLight;
             POS_TransactionGroupBox.Controls.Add(POS_TableLayoutPanel2);
             POS_TransactionGroupBox.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             POS_TransactionGroupBox.ForeColor = Color.OrangeRed;
@@ -498,10 +507,10 @@
             // POS_TableLayoutPanel2
             // 
             POS_TableLayoutPanel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            POS_TableLayoutPanel2.BackColor = SystemColors.Control;
+            POS_TableLayoutPanel2.BackColor = SystemColors.ControlLightLight;
             POS_TableLayoutPanel2.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             POS_TableLayoutPanel2.ColumnCount = 6;
-            POS_TableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
+            POS_TableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 80F));
             POS_TableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333359F));
             POS_TableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 115F));
             POS_TableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333359F));
@@ -512,7 +521,7 @@
             POS_TableLayoutPanel2.Controls.Add(POS_DateTimeLabel, 0, 0);
             POS_TableLayoutPanel2.Controls.Add(POS_DateTimeTextBox, 1, 0);
             POS_TableLayoutPanel2.Controls.Add(POS_TransactionIDLabel, 2, 0);
-            POS_TableLayoutPanel2.Controls.Add(POS_TransactionIDTextBox, 3, 0);
+            POS_TableLayoutPanel2.Controls.Add(POS_SaleIDTextBox, 3, 0);
             POS_TableLayoutPanel2.Location = new Point(6, 24);
             POS_TableLayoutPanel2.Name = "POS_TableLayoutPanel2";
             POS_TableLayoutPanel2.RowCount = 1;
@@ -526,7 +535,7 @@
             POS_TransactionHistoryLabel.AutoSize = true;
             POS_TransactionHistoryLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             POS_TransactionHistoryLabel.ForeColor = Color.Black;
-            POS_TransactionHistoryLabel.Location = new Point(654, 10);
+            POS_TransactionHistoryLabel.Location = new Point(660, 10);
             POS_TransactionHistoryLabel.Margin = new Padding(0);
             POS_TransactionHistoryLabel.Name = "POS_TransactionHistoryLabel";
             POS_TransactionHistoryLabel.Size = new Size(100, 18);
@@ -537,14 +546,14 @@
             // POS_TransactionHistoryComboBox
             // 
             POS_TransactionHistoryComboBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            POS_TransactionHistoryComboBox.BackColor = Color.FromArgb(224, 224, 224);
+            POS_TransactionHistoryComboBox.BackColor = SystemColors.Control;
             POS_TransactionHistoryComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             POS_TransactionHistoryComboBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             POS_TransactionHistoryComboBox.FormattingEnabled = true;
-            POS_TransactionHistoryComboBox.Location = new Point(755, 6);
+            POS_TransactionHistoryComboBox.Location = new Point(761, 6);
             POS_TransactionHistoryComboBox.Margin = new Padding(0);
             POS_TransactionHistoryComboBox.Name = "POS_TransactionHistoryComboBox";
-            POS_TransactionHistoryComboBox.Size = new Size(228, 26);
+            POS_TransactionHistoryComboBox.Size = new Size(222, 26);
             POS_TransactionHistoryComboBox.TabIndex = 7;
             // 
             // POS_DateTimeLabel
@@ -553,25 +562,26 @@
             POS_DateTimeLabel.AutoSize = true;
             POS_DateTimeLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             POS_DateTimeLabel.ForeColor = Color.Black;
-            POS_DateTimeLabel.Location = new Point(21, 10);
+            POS_DateTimeLabel.Location = new Point(7, 10);
             POS_DateTimeLabel.Margin = new Padding(0);
             POS_DateTimeLabel.Name = "POS_DateTimeLabel";
-            POS_DateTimeLabel.Size = new Size(40, 18);
+            POS_DateTimeLabel.Size = new Size(74, 18);
             POS_DateTimeLabel.TabIndex = 1;
-            POS_DateTimeLabel.Text = "วันที่:";
+            POS_DateTimeLabel.Text = "วันที่/เวลา:";
             POS_DateTimeLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
             // POS_DateTimeTextBox
             // 
             POS_DateTimeTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            POS_DateTimeTextBox.BackColor = Color.FromArgb(224, 224, 224);
+            POS_DateTimeTextBox.BackColor = SystemColors.Control;
             POS_DateTimeTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            POS_DateTimeTextBox.Location = new Point(62, 6);
+            POS_DateTimeTextBox.Location = new Point(82, 6);
             POS_DateTimeTextBox.Margin = new Padding(0);
             POS_DateTimeTextBox.Name = "POS_DateTimeTextBox";
             POS_DateTimeTextBox.ReadOnly = true;
-            POS_DateTimeTextBox.Size = new Size(227, 26);
+            POS_DateTimeTextBox.Size = new Size(220, 26);
             POS_DateTimeTextBox.TabIndex = 1;
+            POS_DateTimeTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // POS_TransactionIDLabel
             // 
@@ -579,7 +589,7 @@
             POS_TransactionIDLabel.AutoSize = true;
             POS_TransactionIDLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             POS_TransactionIDLabel.ForeColor = Color.Black;
-            POS_TransactionIDLabel.Location = new Point(314, 10);
+            POS_TransactionIDLabel.Location = new Point(327, 10);
             POS_TransactionIDLabel.Margin = new Padding(0);
             POS_TransactionIDLabel.Name = "POS_TransactionIDLabel";
             POS_TransactionIDLabel.Size = new Size(91, 18);
@@ -587,17 +597,18 @@
             POS_TransactionIDLabel.Text = "เลขที่ใบเสร็จ:";
             POS_TransactionIDLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // POS_TransactionIDTextBox
+            // POS_SaleIDTextBox
             // 
-            POS_TransactionIDTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            POS_TransactionIDTextBox.BackColor = Color.FromArgb(224, 224, 224);
-            POS_TransactionIDTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            POS_TransactionIDTextBox.Location = new Point(406, 6);
-            POS_TransactionIDTextBox.Margin = new Padding(0);
-            POS_TransactionIDTextBox.Name = "POS_TransactionIDTextBox";
-            POS_TransactionIDTextBox.ReadOnly = true;
-            POS_TransactionIDTextBox.Size = new Size(227, 26);
-            POS_TransactionIDTextBox.TabIndex = 6;
+            POS_SaleIDTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            POS_SaleIDTextBox.BackColor = SystemColors.Control;
+            POS_SaleIDTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            POS_SaleIDTextBox.Location = new Point(419, 6);
+            POS_SaleIDTextBox.Margin = new Padding(0);
+            POS_SaleIDTextBox.Name = "POS_SaleIDTextBox";
+            POS_SaleIDTextBox.ReadOnly = true;
+            POS_SaleIDTextBox.Size = new Size(220, 26);
+            POS_SaleIDTextBox.TabIndex = 6;
+            POS_SaleIDTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // POS_AddNewSubjectButton
             // 
@@ -634,6 +645,7 @@
             // POS_BarcodeTextBox
             // 
             POS_BarcodeTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            POS_BarcodeTextBox.BackColor = SystemColors.Control;
             POS_BarcodeTextBox.Font = new Font("Tahoma", 18F, FontStyle.Regular, GraphicsUnit.Point);
             POS_BarcodeTextBox.Location = new Point(52, 0);
             POS_BarcodeTextBox.Margin = new Padding(0);
@@ -702,6 +714,12 @@
             POS_PrintPreviewDialog.Name = "POS_PrintPreviewDialog";
             POS_PrintPreviewDialog.Visible = false;
             // 
+            // timer1
+            // 
+            timer1.Enabled = true;
+            timer1.Interval = 1000;
+            timer1.Tick += timer1_Tick;
+            // 
             // PointOfSaleForm
             // 
             AutoScaleDimensions = new SizeF(8F, 18F);
@@ -761,7 +779,7 @@
         private Label POS_DateTimeLabel;
         private TextBox POS_DateTimeTextBox;
         private Label POS_TransactionIDLabel;
-        private TextBox POS_TransactionIDTextBox;
+        private TextBox POS_SaleIDTextBox;
         private Button POS_AddNewSubjectButton;
         private TableLayoutPanel POS_TableLayoutPanel1;
         private TextBox POS_BarcodeTextBox;
@@ -785,5 +803,6 @@
         private TableLayoutPanel tableLayoutPanel2;
         private PrintPreviewDialog POS_PrintPreviewDialog;
         private System.Drawing.Printing.PrintDocument POS_PrintDocument;
+        private System.Windows.Forms.Timer timer1;
     }
 }
