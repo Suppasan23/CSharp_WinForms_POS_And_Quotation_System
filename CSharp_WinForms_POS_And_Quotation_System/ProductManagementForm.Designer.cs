@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             PM_PanelBase = new Panel();
             PM_Panel2 = new Panel();
             PM_DataGridView = new DataGridView();
@@ -92,23 +92,23 @@
             PM_DataGridView.AllowUserToAddRows = false;
             PM_DataGridView.AllowUserToDeleteRows = false;
             PM_DataGridView.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            PM_DataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            PM_DataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             PM_DataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = SystemColors.Window;
-            dataGridViewCellStyle4.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            PM_DataGridView.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            PM_DataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             PM_DataGridView.Dock = DockStyle.Fill;
             PM_DataGridView.Location = new Point(0, 42);
             PM_DataGridView.MultiSelect = false;
@@ -117,18 +117,19 @@
             PM_DataGridView.RowHeadersWidth = 51;
             PM_DataGridView.RowTemplate.Height = 25;
             PM_DataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            PM_DataGridView.Size = new Size(1161, 729);
+            PM_DataGridView.Size = new Size(1161, 734);
             PM_DataGridView.TabIndex = 4;
             PM_DataGridView.CellMouseUp += PM_DataGridView_CellMouseUp;
+            PM_DataGridView.KeyDown += PM_DataGridView_KeyDown;
             // 
             // PM_StatusStrip
             // 
             PM_StatusStrip.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             PM_StatusStrip.ImageScalingSize = new Size(20, 20);
             PM_StatusStrip.Items.AddRange(new ToolStripItem[] { PM_ToolStripStatusLabel1 });
-            PM_StatusStrip.Location = new Point(0, 771);
+            PM_StatusStrip.Location = new Point(0, 776);
             PM_StatusStrip.Name = "PM_StatusStrip";
-            PM_StatusStrip.Size = new Size(1161, 28);
+            PM_StatusStrip.Size = new Size(1161, 23);
             PM_StatusStrip.TabIndex = 3;
             PM_StatusStrip.Text = "statusStrip1";
             // 
@@ -136,7 +137,7 @@
             // 
             PM_ToolStripStatusLabel1.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             PM_ToolStripStatusLabel1.Name = "PM_ToolStripStatusLabel1";
-            PM_ToolStripStatusLabel1.Size = new Size(25, 22);
+            PM_ToolStripStatusLabel1.Size = new Size(23, 18);
             PM_ToolStripStatusLabel1.Text = "...";
             // 
             // PM_TableLayoutPanel1
@@ -263,9 +264,9 @@
             // 
             PM_SearchTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             PM_SearchTextBox.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            PM_SearchTextBox.Location = new Point(4, 4);
+            PM_SearchTextBox.Location = new Point(4, 6);
             PM_SearchTextBox.Name = "PM_SearchTextBox";
-            PM_SearchTextBox.Size = new Size(533, 32);
+            PM_SearchTextBox.Size = new Size(533, 27);
             PM_SearchTextBox.TabIndex = 3;
             PM_SearchTextBox.KeyDown += PM_SearchTextBox_KeyDown;
             PM_SearchTextBox.KeyUp += PM_SearchTextBox_KeyUp;
@@ -276,10 +277,10 @@
             PM_ComboBox.BackColor = SystemColors.Control;
             PM_ComboBox.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
             PM_ComboBox.FormattingEnabled = true;
-            PM_ComboBox.Location = new Point(544, 4);
+            PM_ComboBox.Location = new Point(544, 6);
             PM_ComboBox.Name = "PM_ComboBox";
             PM_ComboBox.RightToLeft = RightToLeft.No;
-            PM_ComboBox.Size = new Size(144, 32);
+            PM_ComboBox.Size = new Size(144, 27);
             PM_ComboBox.TabIndex = 4;
             PM_ComboBox.SelectedIndexChanged += PM_ComboBox_SelectedIndexChanged;
             // 
@@ -317,7 +318,7 @@
             PM_HeadingLabel.Location = new Point(9, 10);
             PM_HeadingLabel.Margin = new Padding(0);
             PM_HeadingLabel.Name = "PM_HeadingLabel";
-            PM_HeadingLabel.Size = new Size(219, 48);
+            PM_HeadingLabel.Size = new Size(179, 39);
             PM_HeadingLabel.TabIndex = 1;
             PM_HeadingLabel.Text = "จัดการสินค้า";
             // 
@@ -326,25 +327,25 @@
             contextMenuStrip1.ImageScalingSize = new Size(20, 20);
             contextMenuStrip1.Items.AddRange(new ToolStripItem[] { copyBarcodeToolStripMenuItem, copyNameToolStripMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(129, 52);
+            contextMenuStrip1.Size = new Size(116, 48);
             // 
             // copyBarcodeToolStripMenuItem
             // 
             copyBarcodeToolStripMenuItem.Name = "copyBarcodeToolStripMenuItem";
-            copyBarcodeToolStripMenuItem.Size = new Size(128, 24);
+            copyBarcodeToolStripMenuItem.Size = new Size(115, 22);
             copyBarcodeToolStripMenuItem.Text = "Copy \"\"";
             copyBarcodeToolStripMenuItem.Click += copyBarcodeToolStripMenuItem_Click;
             // 
             // copyNameToolStripMenuItem
             // 
             copyNameToolStripMenuItem.Name = "copyNameToolStripMenuItem";
-            copyNameToolStripMenuItem.Size = new Size(128, 24);
+            copyNameToolStripMenuItem.Size = new Size(115, 22);
             copyNameToolStripMenuItem.Text = "Copy \"\"";
             copyNameToolStripMenuItem.Click += copyNameToolStripMenuItem_Click;
             // 
             // ProductManagementForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 23F);
+            AutoScaleDimensions = new SizeF(8F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1163, 861);
             Controls.Add(PM_PanelBase);

@@ -48,9 +48,11 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
             POS_DataGridView.ClearSelection();
 
+            POS_BarcodeTextBox.MaxLength = 13;
             timer1.Start();
         }
 
+        ////////////////////////////////////////// LOAD /////////////////////////////////////////////////
         private void PointOfSaleForm_Load(object sender, EventArgs e)
         {
             toggleStage = false;
@@ -62,6 +64,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             POS_DateTimeTextBox.Text = DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt");
         }
 
+        /////////////////////////////////// ADD BUTTON CLICK /////////////////////////////////////////////
         private void POS_AddNewSubjectButton_Click(object sender, EventArgs e)
         {
             if (toggleStage)
@@ -212,10 +215,78 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             }
         }
 
+        //////////////////////////////////////////// BARCODE SEARCH 13 DIGIT GOTED//////////////////////////////////////
+        private void POS_BarcodeTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (POS_BarcodeTextBox.Text.Trim().Length == 13)
+            {
+                try
+                {
+                    string getBarcode = POS_BarcodeTextBox.Text.Trim();
+                    bool exists = db.Products.Any(i => i.Barcode == getBarcode); // Quick check if barcode exist in database or not
+
+                    if (exists)
+                    {
+                        addProduct(getBarcode);
+                        POS_BarcodeTextBox.Clear(); // Clear the textbox for the next input
+                    }
+                    else
+                    {
+                        MessageBox.Show("ไม่พบสินค้า", "ขายสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "ขายสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void POS_BarcodeTextBox_DoubleClick(object sender, EventArgs e)
+        {
+            POS_BarcodeTextBox.Clear();
+        }
+
+        private void addProduct(string receiveBarcode)
+        {
+            var data = (from i in db.Products
+                        where i.Barcode.Trim() == receiveBarcode
+                        select new
+                        {
+                            i.Id,
+                            i.Barcode,
+                            i.Name,
+                            i.SellingPrice,
+                            i.Quantity
+                        }).FirstOrDefault();
+
+            if (data != null)//Found
+            {
+                int barcodeExist = -1;
+
+                for (int i = 0; i < POS_DataGridView.Rows.Count; i++) // Loop to find exist barcode
+                {
+                    if (POS_DataGridView.Rows[i].Cells[1].Value != null && POS_DataGridView.Rows[i].Cells[1].Value.ToString() == receiveBarcode.Trim())
+                    {
+                        barcodeExist = i;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+
+            }
+        }
+
+        ////////////////////////////////////////SAVE BUTTON CLICK///////////////////////////////////
         private void POS_SaveButton_Click(object sender, EventArgs e)
         {
 
         }
+
+
     }
 }
 

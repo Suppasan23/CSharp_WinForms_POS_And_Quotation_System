@@ -294,7 +294,7 @@
             POS_ProductNameTextBox.ReadOnly = true;
             POS_ProductNameTextBox.Size = new Size(670, 26);
             POS_ProductNameTextBox.TabIndex = 8;
-            POS_ProductNameTextBox.TextAlign = HorizontalAlignment.Center;
+            POS_ProductNameTextBox.TextAlign = HorizontalAlignment.Right;
             // 
             // POS_SellingUnitNumericUpDown
             // 
@@ -319,7 +319,7 @@
             POS_ProductIDTextBox.ReadOnly = true;
             POS_ProductIDTextBox.Size = new Size(133, 26);
             POS_ProductIDTextBox.TabIndex = 1;
-            POS_ProductIDTextBox.TextAlign = HorizontalAlignment.Center;
+            POS_ProductIDTextBox.TextAlign = HorizontalAlignment.Right;
             // 
             // POS_CostPriceTextBox
             // 
@@ -581,7 +581,7 @@
             POS_DateTimeTextBox.ReadOnly = true;
             POS_DateTimeTextBox.Size = new Size(220, 26);
             POS_DateTimeTextBox.TabIndex = 1;
-            POS_DateTimeTextBox.TextAlign = HorizontalAlignment.Center;
+            POS_DateTimeTextBox.TextAlign = HorizontalAlignment.Right;
             // 
             // POS_TransactionIDLabel
             // 
@@ -608,7 +608,7 @@
             POS_SaleIDTextBox.ReadOnly = true;
             POS_SaleIDTextBox.Size = new Size(220, 26);
             POS_SaleIDTextBox.TabIndex = 6;
-            POS_SaleIDTextBox.TextAlign = HorizontalAlignment.Center;
+            POS_SaleIDTextBox.TextAlign = HorizontalAlignment.Right;
             // 
             // POS_AddNewSubjectButton
             // 
@@ -649,10 +649,14 @@
             POS_BarcodeTextBox.Font = new Font("Tahoma", 18F, FontStyle.Regular, GraphicsUnit.Point);
             POS_BarcodeTextBox.Location = new Point(52, 0);
             POS_BarcodeTextBox.Margin = new Padding(0);
+            POS_BarcodeTextBox.MaxLength = 13;
             POS_BarcodeTextBox.Name = "POS_BarcodeTextBox";
-            POS_BarcodeTextBox.RightToLeft = RightToLeft.Yes;
+            POS_BarcodeTextBox.RightToLeft = RightToLeft.No;
             POS_BarcodeTextBox.Size = new Size(944, 36);
             POS_BarcodeTextBox.TabIndex = 16;
+            POS_BarcodeTextBox.TextAlign = HorizontalAlignment.Right;
+            POS_BarcodeTextBox.TextChanged += POS_BarcodeTextBox_TextChanged;
+            POS_BarcodeTextBox.DoubleClick += POS_BarcodeTextBox_DoubleClick;
             // 
             // POS_PictureBox
             // 

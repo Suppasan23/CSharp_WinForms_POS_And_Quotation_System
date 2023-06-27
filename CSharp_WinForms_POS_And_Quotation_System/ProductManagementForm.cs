@@ -341,30 +341,52 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
         private void PM_DataGridView_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right && e.RowIndex >= 0)
+            if (e.RowIndex >= 0)
             {
                 PM_DataGridView.Rows[e.RowIndex].Selected = true;
 
-                if (PM_DataGridView.SelectedRows.Count > 0)
+                if (e.Button == MouseButtons.Right)
                 {
-                    DataGridViewRow rightClickSelectedRow = PM_DataGridView.SelectedRows[0];
-                    string? selectedBarcode = Convert.ToString(rightClickSelectedRow.Cells[2].Value);
-                    string? selectedName = Convert.ToString(rightClickSelectedRow.Cells[3].Value);
+                    if (PM_DataGridView.SelectedRows.Count > 0)
+                    {
+                        DataGridViewRow rightClickSelectedRow = PM_DataGridView.SelectedRows[0];
+                        string? selectedBarcode = Convert.ToString(rightClickSelectedRow.Cells[2].Value);
+                        string? selectedName = Convert.ToString(rightClickSelectedRow.Cells[3].Value);
 
-                    copyBarcodeToolStripMenuItem.Text = "Copy " + "\"" + selectedBarcode + "\"";
-                    copyNameToolStripMenuItem.Text = "Copy " + "\"" + selectedName + "\"";
+                        copyBarcodeToolStripMenuItem.Text = "Copy \"" + selectedBarcode + "\"";
+                        copyNameToolStripMenuItem.Text = "Copy \"" + selectedName + "\"";
 
-                    contextMenuStrip1.Show(Cursor.Position);
-                }
-                else
-                {
-                    return;
+                        contextMenuStrip1.Show(Cursor.Position);
+                    }
                 }
             }
-            else
+        }
+
+        /////////////////////////////////////// CTRL + C COPY BARCODE TO CLIPBOARD //////////////////////////////////////////////////////////////////
+        private void PM_DataGridView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!(e.Control && e.KeyCode == Keys.C))
             {
                 return;
             }
+
+            if (PM_DataGridView.SelectedRows.Count == 0)
+            {
+                return;
+            }
+
+            e.SuppressKeyPress = true;
+
+            DataGridViewRow selectedRow = PM_DataGridView.SelectedRows[0];
+            string? copyBarcode = selectedRow.Cells[2].Value?.ToString();
+
+            if (string.IsNullOrEmpty(copyBarcode))
+            {
+                return;
+            }
+
+            Clipboard.SetText(copyBarcode);
         }
+
     }
 }
