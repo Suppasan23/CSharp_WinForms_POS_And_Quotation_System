@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
@@ -215,7 +216,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             }
         }
 
-        //////////////////////////////////////////// BARCODE SEARCH 13 DIGIT GOTED//////////////////////////////////////
+        //////////////////////////////////////////// BARCODE SEARCH 13 DIGIT GOTTEN//////////////////////////////////////
         private void POS_BarcodeTextBox_TextChanged(object sender, EventArgs e)
         {
             if (POS_BarcodeTextBox.Text.Trim().Length == 13)
@@ -227,7 +228,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
                     if (exists)
                     {
-                        addProduct(getBarcode);
+                        addProductToSellingList(getBarcode);
                         POS_BarcodeTextBox.Clear(); // Clear the textbox for the next input
                     }
                     else
@@ -248,13 +249,13 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             POS_BarcodeTextBox.Clear();
         }
 
-        private void addProduct(string receiveBarcode)
+        //////////////////////////////////////////// ADD PRODUCT TO SELLING LIST//////////////////////////////////////
+        private void addProductToSellingList(string receiveBarcode)
         {
             var data = (from i in db.Products
                         where i.Barcode.Trim() == receiveBarcode
                         select new
                         {
-                            i.Id,
                             i.Barcode,
                             i.Name,
                             i.SellingPrice,
@@ -273,10 +274,41 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                         break;
                     }
                 }
+
+                if (barcodeExist < 0) // Barcode not exists : Add new row
+                {
+                    string barcode = Convert.ToString(data.Barcode);
+                    string productName = Convert.ToString(data.Name);
+                    int unitQTY = Convert.ToInt32(data.Quantity);
+                    double sellingPrice = Convert.ToDouble(data.SellingPrice);
+                    
+                    int pickQTY = 1;
+
+                    double subTotal = sellingPrice * pickQTY;
+
+                    POS_DataGridView.Rows.Add(barcode, productName, unitQTY, sellingPrice.ToString("#,###,##0"), pickQTY, subTotal.ToString("#,###,##0"));
+                    POS_DataGridView.ClearSelection(); //Selected no row
+                    POS_DataGridView.Rows[POS_DataGridView.Rows.Count - 1].Selected = true; //Selected last row
+                }
+                else // Barcode exists : Stack existing row
+                {
+                    double sellingPrice = Convert.ToDouble(POS_DataGridView.Rows[barcodeExist].Cells[4].Value);
+                    int pickQTY = Convert.ToInt32(POS_DataGridView.Rows[barcodeExist].Cells[5].Value);
+
+                    pickQTY += 1;
+
+                    double subTotal = sellingPrice * pickQTY;
+
+                    POS_DataGridView.Rows[barcodeExist].Cells[5].Value = pickQTY;
+                    POS_DataGridView.Rows[barcodeExist].Cells[6].Value = subTotal.ToString("#,###,##0");
+                    POS_DataGridView.ClearSelection(); //Selected no row
+                    POS_DataGridView.Rows[barcodeExist].Selected = true; //Selected previous row
+                }
             }
             else
             {
-
+                MessageBox.Show("ไม่พบสินค้า", "ขายสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
         }
 
