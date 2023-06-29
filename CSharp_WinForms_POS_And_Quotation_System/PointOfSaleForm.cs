@@ -47,6 +47,27 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             POS_DataGridView.DefaultCellStyle.Font = new Font("Tahoma", 10f, FontStyle.Regular);
             POS_DataGridView.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
+            string[] headerCol = new[] { "ที่", "รหัสสินค้า", "ชื่อสินค้า", "CostPrice", "ราคาขาย", "UnitInStock", "จำนวนที่ซื้อ", "Subtotal" };
+            POS_DataGridView.ColumnCount = headerCol.Length;
+
+            for (var i = 0; i < POS_DataGridView.Columns.Count; i++)
+            {
+                POS_DataGridView.Columns[i].HeaderText = headerCol[i];
+                POS_DataGridView.Columns[i].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                POS_DataGridView.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            }
+
+            //0=ที่, 1=รหัสสินค้า, 2=ชื่อสินค้า, 3=CostPrice, 4=ราคาขาย, 5=UnitInStock, 6=จำนวนที่ซื้อ, 7=Subtotal
+            POS_DataGridView.Columns[0].Width = 40;
+            POS_DataGridView.Columns[1].Width = 150;
+            POS_DataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            POS_DataGridView.Columns[3].Visible = false;
+            POS_DataGridView.Columns[4].Width = 150;
+            POS_DataGridView.Columns[5].Visible = false;
+            POS_DataGridView.Columns[6].Width = 150;
+            POS_DataGridView.Columns[7].Width = 150;
+            POS_DataGridView.Columns[7].DefaultCellStyle.Font = new Font("Tahoma", 10f, FontStyle.Bold);
+
             POS_DataGridView.ClearSelection();
 
             POS_BarcodeTextBox.MaxLength = 13;
@@ -85,6 +106,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             POS_AddNewSubjectButton.Text = "ยกเลิก";
             POS_AddNewSubjectButton.BackColor = Color.Tomato;
 
+            POS_DataGridView.Rows.Clear();
+
             POS_BarcodeTextBox.Clear();
             POS_BarcodeTextBox.ReadOnly = false;
             POS_BarcodeTextBox.BackColor = Color.White;
@@ -98,8 +121,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             POS_TransactionHistoryComboBox.Enabled = false;
             POS_TransactionHistoryComboBox.BackColor = SystemColors.Control;
 
-            POS_ProductIDTextBox.Clear();
-            POS_ProductIDTextBox.ReadOnly = true;
+            POS_ProductBarcodeTextBox.Clear();
+            POS_ProductBarcodeTextBox.ReadOnly = true;
 
             POS_ProductNameTextBox.Clear();
             POS_ProductNameTextBox.ReadOnly = true;
@@ -114,8 +137,9 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             POS_UnitInStockTextBox.ReadOnly = true;
 
             POS_SellingUnitNumericUpDown.Enabled = false;
+            POS_SellingUnitNumericUpDown.ReadOnly = true;
             POS_SellingUnitNumericUpDown.Minimum = 0;
-            POS_SellingUnitNumericUpDown.Maximum = 0;
+            POS_SellingUnitNumericUpDown.Maximum = int.MaxValue;
             POS_SellingUnitNumericUpDown.BackColor = Color.White;
 
             POS_DeleteButton.Enabled = false;
@@ -143,6 +167,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             POS_AddNewSubjectButton.Text = "รายการใหม่...";
             POS_AddNewSubjectButton.BackColor = Color.LightGreen;
 
+            POS_DataGridView.Rows.Clear();
+
             POS_BarcodeTextBox.Clear();
             POS_BarcodeTextBox.ReadOnly = true;
             POS_BarcodeTextBox.BackColor = SystemColors.Control;
@@ -155,8 +181,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             POS_TransactionHistoryComboBox.Enabled = true;
             POS_TransactionHistoryComboBox.BackColor = Color.White;
 
-            POS_ProductIDTextBox.Clear();
-            POS_ProductIDTextBox.ReadOnly = true;
+            POS_ProductBarcodeTextBox.Clear();
+            POS_ProductBarcodeTextBox.ReadOnly = true;
 
             POS_ProductNameTextBox.Clear();
             POS_ProductNameTextBox.ReadOnly = true;
@@ -171,6 +197,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             POS_UnitInStockTextBox.ReadOnly = true;
 
             POS_SellingUnitNumericUpDown.Enabled = false;
+            POS_SellingUnitNumericUpDown.ReadOnly = true;
             POS_SellingUnitNumericUpDown.Minimum = 0;
             POS_SellingUnitNumericUpDown.Maximum = 0;
             POS_SellingUnitNumericUpDown.BackColor = SystemColors.Control;
@@ -230,6 +257,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                     {
                         addProductToSellingList(getBarcode);
                         POS_BarcodeTextBox.Clear(); // Clear the textbox for the next input
+                        POS_BarcodeTextBox.Focus(); // Focus textbox for the next inpt
                     }
                     else
                     {
@@ -247,9 +275,47 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         private void POS_BarcodeTextBox_DoubleClick(object sender, EventArgs e)
         {
             POS_BarcodeTextBox.Clear();
+            POS_BarcodeTextBox.Focus();
         }
 
-        //////////////////////////////////////////// ADD PRODUCT TO SELLING LIST//////////////////////////////////////
+        /////////////////////////////////////////// SHOW PRODUCT LIST TO TEXTBOX /////////////////////////////////////
+        private DataGridViewRow? selectedRow = null;
+
+        private void POS_DataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            selectedRow = null;
+
+            POS_ProductBarcodeTextBox.Clear();
+            POS_ProductNameTextBox.Clear();
+            POS_CostPriceTextBox.Clear();
+            POS_SellingPriceTextBox.Clear();
+            POS_UnitInStockTextBox.Clear();
+
+            POS_SellingUnitNumericUpDown.Enabled = false;
+            POS_SellingUnitNumericUpDown.ReadOnly = true;
+
+            POS_DeleteButton.Enabled = false;
+
+            if (POS_DataGridView.Rows.Count > 0 && POS_DataGridView.SelectedRows.Count > 0)
+            {
+                selectedRow = POS_DataGridView.SelectedRows[0];
+
+                //0=ที่, 1=รหัสสินค้า, 2=ชื่อสินค้า, 3=CostPrice, 4=ราคาขาย, 5=UnitInStock, 6=จำนวนที่ซื้อ, 7=Subtotal
+                POS_ProductBarcodeTextBox.Text = Convert.ToString(selectedRow.Cells[1].Value);
+                POS_ProductNameTextBox.Text = Convert.ToString(selectedRow.Cells[2].Value);
+                POS_CostPriceTextBox.Text = Convert.ToDouble(selectedRow.Cells[3].Value).ToString("#,###,##0");
+                POS_SellingPriceTextBox.Text = Convert.ToDouble(selectedRow.Cells[4].Value).ToString("#,###,##0");
+                POS_UnitInStockTextBox.Text = Convert.ToString(selectedRow.Cells[5].Value);
+
+                POS_SellingUnitNumericUpDown.Enabled = true;
+                POS_SellingUnitNumericUpDown.ReadOnly = false;
+                POS_SellingUnitNumericUpDown.Value = Convert.ToInt32(selectedRow.Cells[6].Value);
+
+                POS_DeleteButton.Enabled = true;
+            }
+        }
+
+        /////////////////////////////////////////// ADD PRODUCT TO SELLING LIST //////////////////////////////////////
         private void addProductToSellingList(string receiveBarcode)
         {
             var data = (from i in db.Products
@@ -258,6 +324,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                         {
                             i.Barcode,
                             i.Name,
+                            i.CostPrice,
                             i.SellingPrice,
                             i.Quantity
                         }).FirstOrDefault();
@@ -277,39 +344,95 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
                 if (barcodeExist < 0) // Barcode not exists : Add new row
                 {
+                    //0=ที่, 1=รหัสสินค้า, 2=ชื่อสินค้า, 3=CostPrice, 4=ราคาขาย, 5=UnitInStock, 6=จำนวนที่ซื้อ, 7=Subtotal
+
+                    int No = POS_DataGridView.Rows.Count + 1;
                     string barcode = Convert.ToString(data.Barcode);
                     string productName = Convert.ToString(data.Name);
-                    int unitQTY = Convert.ToInt32(data.Quantity);
+                    double costPrice = Convert.ToDouble(data.CostPrice);
                     double sellingPrice = Convert.ToDouble(data.SellingPrice);
-                    
+                    int unitInStock = Convert.ToInt32(data.Quantity);
+
                     int pickQTY = 1;
 
                     double subTotal = sellingPrice * pickQTY;
 
-                    POS_DataGridView.Rows.Add(barcode, productName, unitQTY, sellingPrice.ToString("#,###,##0"), pickQTY, subTotal.ToString("#,###,##0"));
+                    POS_DataGridView.Rows.Add(No, barcode, productName, costPrice, sellingPrice.ToString("#,###,##0"), unitInStock, pickQTY, subTotal.ToString("#,###,##0"));
                     POS_DataGridView.ClearSelection(); //Selected no row
                     POS_DataGridView.Rows[POS_DataGridView.Rows.Count - 1].Selected = true; //Selected last row
                 }
                 else // Barcode exists : Stack existing row
                 {
+                    //0=ที่, 1=รหัสสินค้า, 2=ชื่อสินค้า, 3=CostPrice, 4=ราคาขาย, 5=UnitInStock, 6=จำนวนที่ซื้อ, 7=Subtotal
+
                     double sellingPrice = Convert.ToDouble(POS_DataGridView.Rows[barcodeExist].Cells[4].Value);
-                    int pickQTY = Convert.ToInt32(POS_DataGridView.Rows[barcodeExist].Cells[5].Value);
+                    int pickQTY = Convert.ToInt32(POS_DataGridView.Rows[barcodeExist].Cells[6].Value);
 
                     pickQTY += 1;
 
                     double subTotal = sellingPrice * pickQTY;
 
-                    POS_DataGridView.Rows[barcodeExist].Cells[5].Value = pickQTY;
-                    POS_DataGridView.Rows[barcodeExist].Cells[6].Value = subTotal.ToString("#,###,##0");
+                    POS_DataGridView.Rows[barcodeExist].Cells[6].Value = pickQTY;
+                    POS_DataGridView.Rows[barcodeExist].Cells[7].Value = subTotal.ToString("#,###,##0");
                     POS_DataGridView.ClearSelection(); //Selected no row
                     POS_DataGridView.Rows[barcodeExist].Selected = true; //Selected previous row
                 }
+
+                calculateTotalAmount();
             }
             else
             {
                 MessageBox.Show("ไม่พบสินค้า", "ขายสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        ////////////////////////////////////////////Calculate total amount///////////////////////////////////////
+        private void calculateTotalAmount()
+        {
+            if (POS_DataGridView.Rows.Count > 0)
+            {
+                double totalAmount = 0;
+
+                foreach (DataGridViewRow row in POS_DataGridView.Rows)
+                {
+                    totalAmount += Convert.ToDouble(row.Cells[7].Value);
+                }
+
+                POS_TotalAmountTextBox.Text = totalAmount.ToString("#,###,##0");
+            }
+            else
+            {
+                POS_TotalAmountTextBox.Clear();
+                POS_ReceiveMoneyTextBox.Clear();
+                POS_ReceiveMoneyTextBox.Clear();
+            }
+        }
+
+        ////////////////////////////////////NUMERIC UP-DOWN VALUE CHANGE////////////////////////////////
+        private void POS_SellingUnitNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if(selectedRow == null)
+            {
                 return;
             }
+
+            int qtyInRow = Convert.ToInt32(selectedRow.Cells[6].Value);
+            int qtyInTextbox = Convert.ToInt32(POS_SellingUnitNumericUpDown.Value);
+
+            if (qtyInRow == qtyInTextbox)
+            {
+                return;
+            }
+
+            double price = Convert.ToDouble(selectedRow.Cells[4].Value);
+            double subTotal = price * qtyInTextbox;
+
+            //0=ที่, 1=รหัสสินค้า, 2=ชื่อสินค้า, 3=CostPrice, 4=ราคาขาย, 5=UnitInStock, 6=จำนวนที่ซื้อ, 7=Subtotal
+            selectedRow.Cells[6].Value = qtyInTextbox;
+            selectedRow.Cells[7].Value = subTotal.ToString("#,###,##0");
+            selectedRow.Selected = true; //Selected existing row
+
+            calculateTotalAmount();
         }
 
         ////////////////////////////////////////SAVE BUTTON CLICK///////////////////////////////////
@@ -317,8 +440,6 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         {
 
         }
-
-
     }
 }
 

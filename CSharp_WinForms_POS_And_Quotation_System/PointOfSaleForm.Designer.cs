@@ -47,7 +47,7 @@
             tableLayoutPanel2 = new TableLayoutPanel();
             POS_ProductNameTextBox = new TextBox();
             POS_SellingUnitNumericUpDown = new NumericUpDown();
-            POS_ProductIDTextBox = new TextBox();
+            POS_ProductBarcodeTextBox = new TextBox();
             POS_CostPriceTextBox = new TextBox();
             POS_UnitInStockTextBox = new TextBox();
             POS_DeleteButton = new Button();
@@ -165,6 +165,7 @@
             POS_ChangeMoneyTextBox.ReadOnly = true;
             POS_ChangeMoneyTextBox.Size = new Size(138, 36);
             POS_ChangeMoneyTextBox.TabIndex = 18;
+            POS_ChangeMoneyTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // POS_ChangeMoneyLabel
             // 
@@ -185,6 +186,7 @@
             POS_ReceiveMoneyTextBox.Name = "POS_ReceiveMoneyTextBox";
             POS_ReceiveMoneyTextBox.Size = new Size(138, 36);
             POS_ReceiveMoneyTextBox.TabIndex = 16;
+            POS_ReceiveMoneyTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // POS_ReceiveMoneyLabel
             // 
@@ -206,6 +208,7 @@
             POS_TotalAmountTextBox.ReadOnly = true;
             POS_TotalAmountTextBox.Size = new Size(138, 36);
             POS_TotalAmountTextBox.TabIndex = 14;
+            POS_TotalAmountTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // POS_TotalAmountLabel
             // 
@@ -249,7 +252,7 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 36F));
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 3, 0);
             tableLayoutPanel1.Controls.Add(POS_SellingUnitNumericUpDown, 7, 1);
-            tableLayoutPanel1.Controls.Add(POS_ProductIDTextBox, 1, 0);
+            tableLayoutPanel1.Controls.Add(POS_ProductBarcodeTextBox, 1, 0);
             tableLayoutPanel1.Controls.Add(POS_CostPriceTextBox, 1, 1);
             tableLayoutPanel1.Controls.Add(POS_UnitInStockTextBox, 5, 1);
             tableLayoutPanel1.Controls.Add(POS_DeleteButton, 8, 1);
@@ -307,19 +310,20 @@
             POS_SellingUnitNumericUpDown.Size = new Size(133, 30);
             POS_SellingUnitNumericUpDown.TabIndex = 6;
             POS_SellingUnitNumericUpDown.TextAlign = HorizontalAlignment.Center;
+            POS_SellingUnitNumericUpDown.ValueChanged += POS_SellingUnitNumericUpDown_ValueChanged;
             // 
-            // POS_ProductIDTextBox
+            // POS_ProductBarcodeTextBox
             // 
-            POS_ProductIDTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            POS_ProductIDTextBox.BackColor = SystemColors.Control;
-            POS_ProductIDTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            POS_ProductIDTextBox.Location = new Point(92, 6);
-            POS_ProductIDTextBox.Margin = new Padding(0);
-            POS_ProductIDTextBox.Name = "POS_ProductIDTextBox";
-            POS_ProductIDTextBox.ReadOnly = true;
-            POS_ProductIDTextBox.Size = new Size(133, 26);
-            POS_ProductIDTextBox.TabIndex = 1;
-            POS_ProductIDTextBox.TextAlign = HorizontalAlignment.Right;
+            POS_ProductBarcodeTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            POS_ProductBarcodeTextBox.BackColor = SystemColors.Control;
+            POS_ProductBarcodeTextBox.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            POS_ProductBarcodeTextBox.Location = new Point(92, 6);
+            POS_ProductBarcodeTextBox.Margin = new Padding(0);
+            POS_ProductBarcodeTextBox.Name = "POS_ProductBarcodeTextBox";
+            POS_ProductBarcodeTextBox.ReadOnly = true;
+            POS_ProductBarcodeTextBox.Size = new Size(133, 26);
+            POS_ProductBarcodeTextBox.TabIndex = 1;
+            POS_ProductBarcodeTextBox.TextAlign = HorizontalAlignment.Right;
             // 
             // POS_CostPriceTextBox
             // 
@@ -489,6 +493,7 @@
             POS_DataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             POS_DataGridView.Size = new Size(984, 801);
             POS_DataGridView.TabIndex = 10;
+            POS_DataGridView.SelectionChanged += POS_DataGridView_SelectionChanged;
             // 
             // POS_TransactionGroupBox
             // 
@@ -767,7 +772,7 @@
         private GroupBox POS_ProductDetailGroupBox;
         private Label POS_ProductIDLabel;
         private NumericUpDown POS_SellingUnitNumericUpDown;
-        private TextBox POS_ProductIDTextBox;
+        private TextBox POS_ProductBarcodeTextBox;
         private Label POS_SellingUnitLabel;
         private Label POS_ProductNameLabel;
         private TextBox POS_UnitInStockTextBox;
