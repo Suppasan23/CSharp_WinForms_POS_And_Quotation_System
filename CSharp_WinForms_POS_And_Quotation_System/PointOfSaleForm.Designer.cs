@@ -364,6 +364,7 @@
             POS_DeleteButton.TabIndex = 17;
             POS_DeleteButton.Text = "ลบ";
             POS_DeleteButton.UseVisualStyleBackColor = false;
+            POS_DeleteButton.Click += POS_DeleteButton_Click;
             // 
             // POS_SellingPriceTextBox
             // 

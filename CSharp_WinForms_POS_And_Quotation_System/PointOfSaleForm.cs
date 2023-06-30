@@ -278,28 +278,43 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             POS_BarcodeTextBox.Focus();
         }
 
-        /////////////////////////////////////////// SHOW PRODUCT LIST TO TEXTBOX /////////////////////////////////////
+        /////////////////////////////////////////// DATAGRIDVIEW SELETION CHANGE /////////////////////////////////////
         private DataGridViewRow? selectedRow = null;
-
         private void POS_DataGridView_SelectionChanged(object sender, EventArgs e)
         {
-            selectedRow = null;
-
-            POS_ProductBarcodeTextBox.Clear();
-            POS_ProductNameTextBox.Clear();
-            POS_CostPriceTextBox.Clear();
-            POS_SellingPriceTextBox.Clear();
-            POS_UnitInStockTextBox.Clear();
-
-            POS_SellingUnitNumericUpDown.Enabled = false;
-            POS_SellingUnitNumericUpDown.ReadOnly = true;
-
-            POS_DeleteButton.Enabled = false;
-
             if (POS_DataGridView.Rows.Count > 0 && POS_DataGridView.SelectedRows.Count > 0)
             {
                 selectedRow = POS_DataGridView.SelectedRows[0];
+            }
+            else
+            {
+                selectedRow = null;
+            }
 
+            showItemInListToTextbox();
+        }
+
+        /////////////////////////////////////////// SHOW PRODUCT LIST TO TEXTBOX /////////////////////////////////////
+        private void showItemInListToTextbox()
+        {
+            if(selectedRow == null)
+            {
+                POS_ProductBarcodeTextBox.Clear();
+                POS_ProductNameTextBox.Clear();
+                POS_CostPriceTextBox.Clear();
+                POS_SellingPriceTextBox.Clear();
+                POS_UnitInStockTextBox.Clear();
+
+                POS_SellingUnitNumericUpDown.Value = 0;
+                POS_SellingUnitNumericUpDown.Enabled = false;
+                POS_SellingUnitNumericUpDown.ReadOnly = true;
+
+                POS_DeleteButton.Enabled = false;
+                return;
+            }
+
+            if (selectedRow != null)
+            {
                 //0=ที่, 1=รหัสสินค้า, 2=ชื่อสินค้า, 3=CostPrice, 4=ราคาขาย, 5=UnitInStock, 6=จำนวนที่ซื้อ, 7=Subtotal
                 POS_ProductBarcodeTextBox.Text = Convert.ToString(selectedRow.Cells[1].Value);
                 POS_ProductNameTextBox.Text = Convert.ToString(selectedRow.Cells[2].Value);
@@ -312,10 +327,11 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 POS_SellingUnitNumericUpDown.Value = Convert.ToInt32(selectedRow.Cells[6].Value);
 
                 POS_DeleteButton.Enabled = true;
+                return;
             }
         }
 
-        /////////////////////////////////////////// ADD PRODUCT TO SELLING LIST //////////////////////////////////////
+        /////////////////////////////////////////// ADD PRODUCT TO SELLING LIST ////////////////////////////////////////
         private void addProductToSellingList(string receiveBarcode)
         {
             var data = (from i in db.Products
@@ -411,7 +427,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         ////////////////////////////////////NUMERIC UP-DOWN VALUE CHANGE////////////////////////////////
         private void POS_SellingUnitNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            if(selectedRow == null)
+            if (selectedRow == null)
             {
                 return;
             }
@@ -435,11 +451,26 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             calculateTotalAmount();
         }
 
+        ////////////////////////////////////DELETE ITEM LIST BUTTON////////////////////////////////
+        private void POS_DeleteButton_Click(object sender, EventArgs e)
+        {
+            if (selectedRow == null)
+            {
+                return;
+            }
+
+            POS_DataGridView.Rows.Remove(selectedRow);
+            calculateTotalAmount();
+            POS_DataGridView.ClearSelection(); //Selected no row
+        }
+
         ////////////////////////////////////////SAVE BUTTON CLICK///////////////////////////////////
         private void POS_SaveButton_Click(object sender, EventArgs e)
         {
 
         }
+
+
     }
 }
 
