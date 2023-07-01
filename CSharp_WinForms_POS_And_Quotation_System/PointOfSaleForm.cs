@@ -1,5 +1,6 @@
 ﻿using CSharp_WinForms_POS_And_Quotation_System.Models.Db;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -146,15 +147,15 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
             POS_TotalAmountTextBox.Clear();
             POS_TotalAmountTextBox.ReadOnly = true;
-            POS_TotalAmountTextBox.BackColor = Color.LightCyan;
+            POS_TotalAmountTextBox.BackColor = SystemColors.Control;
 
             POS_ReceiveMoneyTextBox.Clear();
             POS_ReceiveMoneyTextBox.ReadOnly = true;
-            POS_ReceiveMoneyTextBox.BackColor = Color.White;
+            POS_ReceiveMoneyTextBox.BackColor = SystemColors.Control;
 
             POS_ChangeMoneyTextBox.Clear();
             POS_ChangeMoneyTextBox.ReadOnly = true;
-            POS_ChangeMoneyTextBox.BackColor = Color.MistyRose;
+            POS_ChangeMoneyTextBox.BackColor = SystemColors.Control;
 
             POS_TransactionHistoryComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
@@ -297,7 +298,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         /////////////////////////////////////////// SHOW PRODUCT LIST TO TEXTBOX /////////////////////////////////////
         private void showItemInListToTextbox()
         {
-            if(selectedRow == null)
+            if (selectedRow == null)
             {
                 POS_ProductBarcodeTextBox.Clear();
                 POS_ProductNameTextBox.Clear();
@@ -402,28 +403,6 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             }
         }
 
-        ////////////////////////////////////////////Calculate total amount///////////////////////////////////////
-        private void calculateTotalAmount()
-        {
-            if (POS_DataGridView.Rows.Count > 0)
-            {
-                double totalAmount = 0;
-
-                foreach (DataGridViewRow row in POS_DataGridView.Rows)
-                {
-                    totalAmount += Convert.ToDouble(row.Cells[7].Value);
-                }
-
-                POS_TotalAmountTextBox.Text = totalAmount.ToString("#,###,##0");
-            }
-            else
-            {
-                POS_TotalAmountTextBox.Clear();
-                POS_ReceiveMoneyTextBox.Clear();
-                POS_ReceiveMoneyTextBox.Clear();
-            }
-        }
-
         ////////////////////////////////////NUMERIC UP-DOWN VALUE CHANGE////////////////////////////////
         private void POS_SellingUnitNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -462,6 +441,99 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             POS_DataGridView.Rows.Remove(selectedRow);
             calculateTotalAmount();
             POS_DataGridView.ClearSelection(); //Selected no row
+        }
+
+        ////////////////////////////////////////////CALCULATE TOTAL AMOUNT///////////////////////////////////////
+        private void calculateTotalAmount()
+        {
+            if (POS_DataGridView.Rows.Count > 0)
+            {
+                double totalAmount = 0;
+
+                foreach (DataGridViewRow row in POS_DataGridView.Rows)
+                {
+                    totalAmount += Convert.ToDouble(row.Cells[7].Value);
+                }
+
+                POS_TotalAmountTextBox.Text = totalAmount.ToString("#,###,##0");
+                POS_TotalAmountTextBox.ReadOnly = true;
+                POS_TotalAmountTextBox.BackColor = Color.LightCyan;
+            }
+            else
+            {
+                POS_TotalAmountTextBox.Clear();
+                POS_TotalAmountTextBox.ReadOnly = true;
+                POS_TotalAmountTextBox.BackColor = SystemColors.Control;
+            }
+        }
+
+        ////////////////////////////////TOTAL AMOUNT TEXTBOX HAS CHANGE////////////////////////////////
+        private void POS_TotalAmountTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(POS_TotalAmountTextBox.Text))
+            {
+                POS_ReceiveMoneyTextBox.Clear();
+                POS_ReceiveMoneyTextBox.ReadOnly = false;
+                POS_ReceiveMoneyTextBox.BackColor = Color.White;
+            }
+            else
+            {
+                POS_ReceiveMoneyTextBox.Clear();
+                POS_ReceiveMoneyTextBox.ReadOnly = true;
+                POS_ReceiveMoneyTextBox.BackColor = SystemColors.Control;
+            }
+        }
+
+        ////////////////////////////////RECEIVE MONEY TEXTBOX HAS CHANGE////////////////////////////////
+        private void POS_ReceiveMoneyTextBox_TextChanged(object sender, EventArgs e)
+        {
+            POS_ReceiveMoneyTextBox.ForeColor = Color.Black;
+            POS_ChangeMoneyTextBox.Clear();
+            POS_ChangeMoneyTextBox.ReadOnly = true;
+            POS_ChangeMoneyTextBox.BackColor = SystemColors.Control;
+        }
+
+        ////////////////////////////////RECEIVE MONEY TEXTBOX ENTER KEYPDOWN////////////////////////////////
+        private void POS_ReceiveMoneyTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (string.IsNullOrEmpty(POS_TotalAmountTextBox.Text) && string.IsNullOrEmpty(POS_ReceiveMoneyTextBox.Text))
+                {
+                    return;
+                }
+
+                if (double.TryParse(POS_TotalAmountTextBox.Text.Trim(), out double totalAmount) && double.TryParse(POS_ReceiveMoneyTextBox.Text.Trim(), out double receiveMoney))
+                {
+                    double changeMoney = receiveMoney - totalAmount;
+                    if (changeMoney >= 0)
+                    {
+                        POS_ChangeMoneyTextBox.Text = changeMoney.ToString("#,###,##0");
+                        POS_ChangeMoneyTextBox.ReadOnly = true;
+                        POS_ChangeMoneyTextBox.BackColor = Color.MistyRose;
+                    }
+                    else
+                    {
+                        POS_ReceiveMoneyTextBox.ForeColor = Color.Red;
+                    }
+                }
+            }
+        }
+
+        ////////////////////////////////CHANGE MONEY TEXTBOX HAS CHANGE////////////////////////////////
+        private void POS_ChangeMoneyTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(POS_ChangeMoneyTextBox.Text))
+            {
+                POS_SaveButton.Enabled = true;
+                POS_SaveButton.BackColor = Color.LimeGreen;
+                POS_SaveButton.Focus();
+            }
+            else
+            {
+                POS_SaveButton.Enabled = false;
+                POS_SaveButton.BackColor = SystemColors.ControlDark;
+            }
         }
 
         ////////////////////////////////////////SAVE BUTTON CLICK///////////////////////////////////
