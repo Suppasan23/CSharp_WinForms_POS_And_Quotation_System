@@ -226,7 +226,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         private string generateSaleID()
         {
             var today = DateTime.Today;
-            string currentDate = today.ToString("ddMMyy");
+            string currentDate = today.ToString("ddMMyyyy");
 
             var data = from s in db.Sales
                        where s.Date.Date.Equals(today)
@@ -235,12 +235,12 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             if (data.Any())
             {
                 int ordinalNumber = data.Count() + 1;
-                return Convert.ToString(currentDate + ordinalNumber.ToString("0000"));
+                return Convert.ToString(currentDate + ordinalNumber.ToString("00000"));
             }
             else
             {
                 int ordinalNumber = 1;
-                return Convert.ToString(currentDate + ordinalNumber.ToString("0000"));
+                return Convert.ToString(currentDate + ordinalNumber.ToString("00000"));
             }
         }
 
@@ -498,6 +498,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         {
             if (e.KeyCode == Keys.Enter)
             {
+                e.SuppressKeyPress = true;
+
                 if (string.IsNullOrEmpty(POS_TotalAmountTextBox.Text) && string.IsNullOrEmpty(POS_ReceiveMoneyTextBox.Text))
                 {
                     return;

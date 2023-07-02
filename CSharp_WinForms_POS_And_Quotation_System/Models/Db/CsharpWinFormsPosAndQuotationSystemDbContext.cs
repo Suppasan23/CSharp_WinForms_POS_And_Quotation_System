@@ -78,7 +78,7 @@ public partial class CsharpWinFormsPosAndQuotationSystemDbContext : DbContext
             entity.ToTable("Sale");
 
             entity.Property(e => e.ReceiptId)
-                .HasMaxLength(10)
+                .HasMaxLength(13)
                 .IsUnicode(false)
                 .IsFixedLength()
                 .HasColumnName("ReceiptID");
@@ -96,7 +96,7 @@ public partial class CsharpWinFormsPosAndQuotationSystemDbContext : DbContext
             entity.Property(e => e.ProductName).HasMaxLength(100);
             entity.Property(e => e.ProductSellingPrice).HasColumnType("money");
             entity.Property(e => e.ReceiptId)
-                .HasMaxLength(10)
+                .HasMaxLength(13)
                 .IsUnicode(false)
                 .IsFixedLength()
                 .HasColumnName("ReceiptID");
