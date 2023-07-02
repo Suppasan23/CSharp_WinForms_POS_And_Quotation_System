@@ -66,8 +66,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
             // Add data to DataGridView
             var data = (from i in db.Products
-                        join r in db.ProductCategories on i.Category equals r.Id
-                        where (i.Barcode.Contains(keyword) || i.Name.Contains(keyword)) && (cat == -1 ? true : i.Category == cat)
+                        join r in db.ProductCategories on i.CategoryId equals r.CategoryId
+                        where (i.Barcode.Contains(keyword) || i.Name.Contains(keyword)) && (cat == -1 ? true : i.CategoryId == cat)
                         select new
                         {
                             id = i.Id,
@@ -143,23 +143,23 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
             // Add ProductCategory to ComboBox
             var data = from m in db.ProductCategories
-                       select new { m.Id, m.Name };
+                       select new { m.CategoryId, m.Name };
 
             if (data.Any())
             {
-                PM_ComboBox.Items.Add(new { Id = -1, Name = "-ทั้งหมด-" }); // Add Id = -1, Name = "ทั้งหมด" item
+                PM_ComboBox.Items.Add(new { CategoryId = -1, Name = "-ทั้งหมด-" }); // Add CategoryId = -1, Name = "ทั้งหมด" item
 
                 foreach (var i in data)
                 {
-                    if (i.Id > 0)
+                    if (i.CategoryId > 0)
                     {
-                        PM_ComboBox.Items.Add(new { i.Id, i.Name });
+                        PM_ComboBox.Items.Add(new { i.CategoryId, i.Name });
                     }
                 }
 
-                PM_ComboBox.Items.Add(new { Id = -2, Name = "✎" }); // Add Id = -2, Name = "✎" (แก้ไข) item
+                PM_ComboBox.Items.Add(new { CategoryId = -2, Name = "✎" }); // Add CategoryId = -2, Name = "✎" (แก้ไข) item
 
-                PM_ComboBox.ValueMember = "Id";
+                PM_ComboBox.ValueMember = "CategoryId";
                 PM_ComboBox.DisplayMember = "Name";
                 PM_ComboBox.SelectedIndex = 0; // Set the selected index to 0 (the first item)
             }
@@ -199,7 +199,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             string keyword = PM_SearchTextBox.Text.Trim() == null ? "" : PM_SearchTextBox.Text.Trim();
 
             dynamic selectedCat = PM_ComboBox.SelectedItem;
-            int catValue = Convert.ToInt32(selectedCat.Id);
+            int catValue = Convert.ToInt32(selectedCat.CategoryId);
 
             loadData(keyword, catValue);
         }
@@ -209,7 +209,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         private void PM_ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             dynamic SelectedItem = PM_ComboBox.SelectedItem;
-            int catValue = Convert.ToInt32(SelectedItem.Id);
+            int catValue = Convert.ToInt32(SelectedItem.CategoryId);
 
             if (catValue != -2)
             {
@@ -269,7 +269,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 PM_ComboBox.SelectedIndex = backToSelectedIndex;
 
                 dynamic SelectedItem = PM_ComboBox.SelectedItem;
-                int catValue = Convert.ToInt32(SelectedItem.Id);
+                int catValue = Convert.ToInt32(SelectedItem.CategoryId);
 
                 loadData("", catValue);
             }

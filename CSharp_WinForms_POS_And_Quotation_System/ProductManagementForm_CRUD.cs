@@ -44,6 +44,10 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
             this.PM_CRUD_ProductCategoryComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
+            this.PM_CRUD_ProductIdLabel.Visible = false;
+            this.PM_CRUD_ProductIdNumericUpDown.Visible = false;
+
+
             this.theCRUD = _whichCRUD;
             this.theID = _whichID;
         }
@@ -83,22 +87,22 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             PM_CRUD_PictureDescriptionLabel.Enabled = true; //O
 
             var cat = from m in db.ProductCategories
-                      select new { m.Id, m.Name };
+                      select new { m.CategoryId, m.Name };
 
             if (cat.Any())
             {
                 //Category show value
                 foreach (var i in cat)
                 {
-                    if (i.Id > 0)
+                    if (i.CategoryId > 0)
                     {
-                        PM_CRUD_ProductCategoryComboBox.Items.Add(new { i.Id, i.Name });
+                        PM_CRUD_ProductCategoryComboBox.Items.Add(new { i.CategoryId, i.Name });
                     }
                 }
 
-                PM_CRUD_ProductCategoryComboBox.Items.Add(new { Id = 0, Name = "(ไม่ระบุ)" }); // Add Id = 0, Name = "(ไม่ระบุ)" item
+                PM_CRUD_ProductCategoryComboBox.Items.Add(new { CategoryId = 0, Name = "(ไม่ระบุ)" }); // Add CategoryId = 0, Name = "(ไม่ระบุ)" item
 
-                PM_CRUD_ProductCategoryComboBox.ValueMember = "Id";
+                PM_CRUD_ProductCategoryComboBox.ValueMember = "CategoryId";
                 PM_CRUD_ProductCategoryComboBox.DisplayMember = "Name";
             }
             else
@@ -135,7 +139,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             PM_CRUD_PictureDescriptionLabel.Enabled = true; //O
 
             var data = (from c in db.Products where c.Id == theID select c).FirstOrDefault();
-            var cat = from m in db.ProductCategories select new { m.Id, m.Name };
+            var cat = from m in db.ProductCategories select new { m.CategoryId, m.Name };
             if (data != null && cat.Any())
             {
                 //ID, Barcode, Name, CostPrice, SellingPrice, Quantity, UnitName show
@@ -151,19 +155,19 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 //Category show value
                 foreach (var i in cat)
                 {
-                    if (i.Id > 0)
+                    if (i.CategoryId > 0)
                     {
-                        PM_CRUD_ProductCategoryComboBox.Items.Add(new { i.Id, i.Name });
+                        PM_CRUD_ProductCategoryComboBox.Items.Add(new { i.CategoryId, i.Name });
                     }
                 }
 
-                PM_CRUD_ProductCategoryComboBox.Items.Add(new { Id = 0, Name = "(ไม่ระบุ)" }); // Add Id = 0, Name = "(ไม่ระบุ)" item
-                PM_CRUD_ProductCategoryComboBox.ValueMember = "Id";
+                PM_CRUD_ProductCategoryComboBox.Items.Add(new { CategoryId = 0, Name = "(ไม่ระบุ)" }); // Add CategoryId = 0, Name = "(ไม่ระบุ)" item
+                PM_CRUD_ProductCategoryComboBox.ValueMember = "CategoryId";
                 PM_CRUD_ProductCategoryComboBox.DisplayMember = "Name";
 
                 foreach (dynamic item in PM_CRUD_ProductCategoryComboBox.Items)//Select current category
                 {
-                    if (item.Id == data.Category)
+                    if (item.CategoryId == data.CategoryId)
                     {
                         PM_CRUD_ProductCategoryComboBox.SelectedIndex = PM_CRUD_ProductCategoryComboBox.Items.IndexOf(item);
                         break;
@@ -208,7 +212,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             PM_CRUD_PictureDescriptionLabel.Enabled = false; //X
 
             var data = (from p in db.Products
-                        join c in db.ProductCategories on p.Category equals c.Id
+                        join c in db.ProductCategories on p.CategoryId equals c.CategoryId
                         where p.Id == theID
                         select new
                         {
@@ -393,7 +397,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                         A.UnitName = PM_CRUD_ProductUnitNameTextBox.Text.Trim();
 
                         dynamic selectedCat = PM_CRUD_ProductCategoryComboBox.SelectedItem;
-                        A.Category = Convert.ToInt32(selectedCat.Id);
+                        A.CategoryId = Convert.ToInt32(selectedCat.CategoryId);
 
                         if (Path.IsPathRooted(imageFileName))
                         {
@@ -519,7 +523,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                         E.UnitName = PM_CRUD_ProductUnitNameTextBox.Text.Trim();
 
                         dynamic selectedCat = PM_CRUD_ProductCategoryComboBox.SelectedItem;
-                        E.Category = Convert.ToInt32(selectedCat.Id);
+                        E.CategoryId = Convert.ToInt32(selectedCat.CategoryId);
 
                         if (Path.IsPathRooted(imageFileName))
                         {

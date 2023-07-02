@@ -5,7 +5,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System.Models.Db;
 
 public partial class ProductCategory
 {
-    public int Id { get; set; }
+    public int CategoryId { get; set; }
 
     public string Name { get; set; } = null!;
 

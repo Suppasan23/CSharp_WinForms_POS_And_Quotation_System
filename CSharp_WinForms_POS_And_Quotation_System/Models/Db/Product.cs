@@ -19,9 +19,9 @@ public partial class Product
 
     public string? UnitName { get; set; }
 
-    public int Category { get; set; }
+    public int CategoryId { get; set; }
 
     public byte[]? Picture { get; set; }
 
-    public virtual ProductCategory CategoryNavigation { get; set; } = null!;
+    public virtual ProductCategory Category { get; set; } = null!;
 }

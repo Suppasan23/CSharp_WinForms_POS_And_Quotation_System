@@ -94,7 +94,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             var data = (from i in db.ProductCategories
                         select new
                         {
-                            Id = i.Id,
+                            CategoryId = i.CategoryId,
                             ชื่อประเภทสินค้า = i.Name
                         }).ToList(); ;
 
@@ -102,7 +102,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             {
                 var modifiedData = data.Select((item, index) => new
                 {
-                    item.Id,
+                    item.CategoryId,
                     ที่ = (index).ToString(),
                     item.ชื่อประเภทสินค้า
                 }).ToList();
@@ -328,7 +328,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             else
             {
                 var E = (from e in db.ProductCategories
-                         where e.Id == catSelectedID
+                         where e.CategoryId == catSelectedID
                          select e).FirstOrDefault();
 
                 if (E != null)
@@ -373,7 +373,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             else
             {
                 var U = from u in db.Products
-                        where u.Category == catSelectedID
+                        where u.CategoryId == catSelectedID
                         select u;
                 if (U.Any())
                 {
@@ -383,7 +383,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
                         foreach (var item in U)
                         {
-                            item.Category = 0;
+                            item.CategoryId = 0;
                         }
 
                         db.SaveChanges();
@@ -405,12 +405,12 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             void deleteProductCategory()
             {
                 var againU = from aU in db.Products
-                             where aU.Category == catSelectedID
+                             where aU.CategoryId == catSelectedID
                              select aU;
                 if (!againU.Any())
                 {
                     var D = (from d in db.ProductCategories
-                             where d.Id == catSelectedID
+                             where d.CategoryId == catSelectedID
                              select d).FirstOrDefault();
                     if (D != null)
                     {

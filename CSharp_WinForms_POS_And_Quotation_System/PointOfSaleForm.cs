@@ -116,7 +116,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             POS_DateTimeTextBox.ReadOnly = true;
 
             POS_SaleIDTextBox.Clear();
-            POS_SaleIDTextBox.Text = generateTransactionID();
+            POS_SaleIDTextBox.Text = generateSaleID();
             POS_SaleIDTextBox.ReadOnly = true;
 
             POS_TransactionHistoryComboBox.Enabled = false;
@@ -223,7 +223,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             POS_SaveButton.BackColor = SystemColors.ControlDark;
         }
 
-        private string generateTransactionID()
+        private string generateSaleID()
         {
             var today = DateTime.Today;
             string currentDate = today.ToString("ddMMyy");
@@ -336,7 +336,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         private void addProductToSellingList(string receiveBarcode)
         {
             var data = (from i in db.Products
-                        where i.Barcode.Trim() == receiveBarcode
+                        where i.Barcode == receiveBarcode
                         select new
                         {
                             i.Barcode,
@@ -536,13 +536,66 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             }
         }
 
-        ////////////////////////////////////////SAVE BUTTON CLICK///////////////////////////////////
+        ////////////////////////////////////////SAVE BUTTON CLICK & KEYDOWN///////////////////////////////////
+        private void POS_SaveButton_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                saveData();
+            }
+        }
         private void POS_SaveButton_Click(object sender, EventArgs e)
         {
-
+            saveData();
         }
+        private void saveData()
+        {
+            try
+            {
+                using var tr = db.Database.BeginTransaction();
+                Sale sale = new Sale();
 
+                sale.ReceiptId = Convert.ToString(POS_SaleIDTextBox.Text);
+                sale.Date = DateTime.Now;
+                sale.Total = Convert.ToDecimal(POS_TotalAmountTextBox.Text);
+                sale.ReceiveMoney = Convert.ToDecimal(POS_ReceiveMoneyTextBox.Text);
+                sale.ChangeMoney = Convert.ToDecimal(POS_ChangeMoneyTextBox.Text);
 
+                db.Sales.Add(sale);//ADD Sale
+
+                foreach (DataGridViewRow row in POS_DataGridView.Rows)
+                {
+                    SaleDetail saleDetail = new SaleDetail();
+
+                    //0=ที่, 1=รหัสสินค้า, 2=ชื่อสินค้า, 3=CostPrice, 4=ราคาขาย, 5=UnitInStock, 6=จำนวนที่ซื้อ, 7=Subtotal
+                    saleDetail.ReceiptId = sale.ReceiptId;
+                    saleDetail.ProductName = Convert.ToString(row.Cells[2].Value) ?? "unknow";
+                    saleDetail.ProductSellingPrice = Convert.ToDecimal(row.Cells[4].Value);
+                    saleDetail.PickQuantity = Convert.ToInt32(row.Cells[6].Value);
+                    saleDetail.SubTotal = Convert.ToDecimal(row.Cells[7].Value);
+
+                    db.SaleDetails.Add(saleDetail);//ADD Sale Detail
+
+                    var data = (from c in db.Products
+                                where c.Barcode == Convert.ToString(row.Cells[1].Value)
+                                select c).FirstOrDefault();
+                    if (data != null)
+                    {
+                        data.Quantity = Convert.ToInt32(data.Quantity - saleDetail.PickQuantity);//Cut Stock Quantity
+                    }
+                }
+
+                db.SaveChanges();
+                tr.Commit();
+
+                MessageBox.Show("บันทึกข้อมูลการขายสำเร็จ!", "บันทึกข้อมูลการขาย", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                POS_AddNewSubjectButton.PerformClick();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "บันทึกข้อมูลการขาย", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
 

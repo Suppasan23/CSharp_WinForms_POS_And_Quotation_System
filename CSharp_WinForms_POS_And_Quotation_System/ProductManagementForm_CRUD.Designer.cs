@@ -303,6 +303,7 @@
             PM_CRUD_ProductIdNumericUpDown.RightToLeft = RightToLeft.No;
             PM_CRUD_ProductIdNumericUpDown.Size = new Size(52, 26);
             PM_CRUD_ProductIdNumericUpDown.TabIndex = 118;
+            PM_CRUD_ProductIdNumericUpDown.Visible = false;
             // 
             // PM_CRUD_ProductIdLabel
             // 
@@ -315,6 +316,7 @@
             PM_CRUD_ProductIdLabel.Size = new Size(29, 18);
             PM_CRUD_ProductIdLabel.TabIndex = 117;
             PM_CRUD_ProductIdLabel.Text = ":ID";
+            PM_CRUD_ProductIdLabel.Visible = false;
             // 
             // flowLayoutPanel1
             // 

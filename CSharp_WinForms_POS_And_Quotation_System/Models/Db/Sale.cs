@@ -14,4 +14,6 @@ public partial class Sale
     public decimal ReceiveMoney { get; set; }
 
     public decimal ChangeMoney { get; set; }
+
+    public virtual ICollection<SaleDetail> SaleDetails { get; set; } = new List<SaleDetail>();
 }

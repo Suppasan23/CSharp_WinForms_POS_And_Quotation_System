@@ -34,7 +34,6 @@ public partial class CsharpWinFormsPosAndQuotationSystemDbContext : DbContext
         }
     }
 
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Product>(entity =>
@@ -47,25 +46,28 @@ public partial class CsharpWinFormsPosAndQuotationSystemDbContext : DbContext
                 .ValueGeneratedOnAdd()
                 .HasColumnName("ID");
             entity.Property(e => e.Barcode)
-                .HasMaxLength(15)
+                .HasMaxLength(13)
                 .IsUnicode(false)
                 .IsFixedLength();
+            entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
             entity.Property(e => e.CostPrice).HasColumnType("money");
             entity.Property(e => e.Name).HasMaxLength(100);
             entity.Property(e => e.SellingPrice).HasColumnType("money");
             entity.Property(e => e.UnitName).HasMaxLength(20);
 
-            entity.HasOne(d => d.CategoryNavigation).WithMany(p => p.Products)
-                .HasForeignKey(d => d.Category)
+            entity.HasOne(d => d.Category).WithMany(p => p.Products)
+                .HasForeignKey(d => d.CategoryId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Product_Product_Category");
         });
 
         modelBuilder.Entity<ProductCategory>(entity =>
         {
+            entity.HasKey(e => e.CategoryId);
+
             entity.ToTable("Product_Category");
 
-            entity.Property(e => e.Id).HasColumnName("ID");
+            entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
             entity.Property(e => e.Name).HasMaxLength(50);
         });
 
@@ -76,34 +78,31 @@ public partial class CsharpWinFormsPosAndQuotationSystemDbContext : DbContext
             entity.ToTable("Sale");
 
             entity.Property(e => e.ReceiptId)
-                .HasMaxLength(15)
+                .HasMaxLength(10)
                 .IsUnicode(false)
                 .IsFixedLength()
                 .HasColumnName("ReceiptID");
             entity.Property(e => e.ChangeMoney).HasColumnType("money");
-            entity.Property(e => e.Date)
-                .HasDefaultValueSql("(getdate())")
-                .HasColumnType("datetime");
+            entity.Property(e => e.Date).HasColumnType("datetime");
             entity.Property(e => e.ReceiveMoney).HasColumnType("money");
             entity.Property(e => e.Total).HasColumnType("money");
         });
 
         modelBuilder.Entity<SaleDetail>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("Sale_Detail");
+            entity.ToTable("Sale_Detail");
 
+            entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.ProductName).HasMaxLength(100);
-            entity.Property(e => e.ProductPrice).HasColumnType("money");
+            entity.Property(e => e.ProductSellingPrice).HasColumnType("money");
             entity.Property(e => e.ReceiptId)
-                .HasMaxLength(15)
+                .HasMaxLength(10)
                 .IsUnicode(false)
                 .IsFixedLength()
                 .HasColumnName("ReceiptID");
             entity.Property(e => e.SubTotal).HasColumnType("money");
 
-            entity.HasOne(d => d.Receipt).WithMany()
+            entity.HasOne(d => d.Receipt).WithMany(p => p.SaleDetails)
                 .HasForeignKey(d => d.ReceiptId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Sale_Detail_Sale");
