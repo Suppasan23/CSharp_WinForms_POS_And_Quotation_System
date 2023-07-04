@@ -72,7 +72,7 @@
             PM_PanelBase.Location = new Point(0, 0);
             PM_PanelBase.Margin = new Padding(3, 4, 3, 4);
             PM_PanelBase.Name = "PM_PanelBase";
-            PM_PanelBase.Size = new Size(1163, 861);
+            PM_PanelBase.Size = new Size(1164, 1211);
             PM_PanelBase.TabIndex = 1;
             // 
             // PM_Panel2
@@ -84,7 +84,7 @@
             PM_Panel2.Location = new Point(0, 60);
             PM_Panel2.Margin = new Padding(3, 4, 3, 4);
             PM_Panel2.Name = "PM_Panel2";
-            PM_Panel2.Size = new Size(1161, 799);
+            PM_Panel2.Size = new Size(1162, 1149);
             PM_Panel2.TabIndex = 1;
             // 
             // PM_DataGridView
@@ -117,7 +117,7 @@
             PM_DataGridView.RowHeadersWidth = 51;
             PM_DataGridView.RowTemplate.Height = 25;
             PM_DataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            PM_DataGridView.Size = new Size(1161, 734);
+            PM_DataGridView.Size = new Size(1162, 1084);
             PM_DataGridView.TabIndex = 4;
             PM_DataGridView.CellMouseUp += PM_DataGridView_CellMouseUp;
             PM_DataGridView.KeyDown += PM_DataGridView_KeyDown;
@@ -127,9 +127,9 @@
             PM_StatusStrip.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             PM_StatusStrip.ImageScalingSize = new Size(20, 20);
             PM_StatusStrip.Items.AddRange(new ToolStripItem[] { PM_ToolStripStatusLabel1 });
-            PM_StatusStrip.Location = new Point(0, 776);
+            PM_StatusStrip.Location = new Point(0, 1126);
             PM_StatusStrip.Name = "PM_StatusStrip";
-            PM_StatusStrip.Size = new Size(1161, 23);
+            PM_StatusStrip.Size = new Size(1162, 23);
             PM_StatusStrip.TabIndex = 3;
             PM_StatusStrip.Text = "statusStrip1";
             // 
@@ -153,7 +153,7 @@
             PM_TableLayoutPanel1.Name = "PM_TableLayoutPanel1";
             PM_TableLayoutPanel1.RowCount = 1;
             PM_TableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            PM_TableLayoutPanel1.Size = new Size(1161, 42);
+            PM_TableLayoutPanel1.Size = new Size(1162, 42);
             PM_TableLayoutPanel1.TabIndex = 2;
             // 
             // PM_TableLayoutPanel3
@@ -167,7 +167,7 @@
             PM_TableLayoutPanel3.Controls.Add(PM_AddButton, 0, 0);
             PM_TableLayoutPanel3.Controls.Add(PM_EditButton, 1, 0);
             PM_TableLayoutPanel3.Dock = DockStyle.Fill;
-            PM_TableLayoutPanel3.Location = new Point(880, 1);
+            PM_TableLayoutPanel3.Location = new Point(881, 1);
             PM_TableLayoutPanel3.Margin = new Padding(0);
             PM_TableLayoutPanel3.Name = "PM_TableLayoutPanel3";
             PM_TableLayoutPanel3.RowCount = 1;
@@ -241,7 +241,7 @@
             PM_TableLayoutPanel2.Name = "PM_TableLayoutPanel2";
             PM_TableLayoutPanel2.RowCount = 1;
             PM_TableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            PM_TableLayoutPanel2.Size = new Size(878, 40);
+            PM_TableLayoutPanel2.Size = new Size(879, 40);
             PM_TableLayoutPanel2.TabIndex = 1;
             // 
             // PM_RefreshButton
@@ -250,7 +250,7 @@
             PM_RefreshButton.BackColor = Color.Azure;
             PM_RefreshButton.Image = Properties.Resources.refresh_2_16;
             PM_RefreshButton.ImageAlign = ContentAlignment.MiddleRight;
-            PM_RefreshButton.Location = new Point(787, 3);
+            PM_RefreshButton.Location = new Point(788, 3);
             PM_RefreshButton.Margin = new Padding(2);
             PM_RefreshButton.Name = "PM_RefreshButton";
             PM_RefreshButton.Size = new Size(88, 34);
@@ -266,7 +266,7 @@
             PM_SearchTextBox.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
             PM_SearchTextBox.Location = new Point(4, 6);
             PM_SearchTextBox.Name = "PM_SearchTextBox";
-            PM_SearchTextBox.Size = new Size(533, 27);
+            PM_SearchTextBox.Size = new Size(534, 27);
             PM_SearchTextBox.TabIndex = 3;
             PM_SearchTextBox.KeyDown += PM_SearchTextBox_KeyDown;
             PM_SearchTextBox.KeyUp += PM_SearchTextBox_KeyUp;
@@ -277,7 +277,7 @@
             PM_ComboBox.BackColor = SystemColors.Control;
             PM_ComboBox.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
             PM_ComboBox.FormattingEnabled = true;
-            PM_ComboBox.Location = new Point(544, 6);
+            PM_ComboBox.Location = new Point(545, 6);
             PM_ComboBox.Name = "PM_ComboBox";
             PM_ComboBox.RightToLeft = RightToLeft.No;
             PM_ComboBox.Size = new Size(144, 27);
@@ -290,7 +290,7 @@
             PM_SearchButton.BackColor = Color.WhiteSmoke;
             PM_SearchButton.Image = Properties.Resources.search_3_16;
             PM_SearchButton.ImageAlign = ContentAlignment.MiddleRight;
-            PM_SearchButton.Location = new Point(694, 3);
+            PM_SearchButton.Location = new Point(695, 3);
             PM_SearchButton.Margin = new Padding(2);
             PM_SearchButton.Name = "PM_SearchButton";
             PM_SearchButton.Size = new Size(88, 34);
@@ -308,7 +308,7 @@
             PM_Panel1.Location = new Point(0, 0);
             PM_Panel1.Margin = new Padding(3, 4, 3, 4);
             PM_Panel1.Name = "PM_Panel1";
-            PM_Panel1.Size = new Size(1161, 60);
+            PM_Panel1.Size = new Size(1162, 60);
             PM_Panel1.TabIndex = 0;
             // 
             // PM_HeadingLabel
@@ -347,7 +347,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1163, 861);
+            ClientSize = new Size(1164, 1211);
             Controls.Add(PM_PanelBase);
             Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(3, 4, 3, 4);

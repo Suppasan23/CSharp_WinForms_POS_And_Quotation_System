@@ -1,5 +1,6 @@
 ﻿using CSharp_WinForms_POS_And_Quotation_System.Models.Db;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -121,6 +122,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
             POS_TransactionHistoryComboBox.Enabled = false;
             POS_TransactionHistoryComboBox.BackColor = SystemColors.Control;
+            POS_TransactionHistoryComboBox.Items.Clear();
 
             POS_ProductBarcodeTextBox.Clear();
             POS_ProductBarcodeTextBox.ReadOnly = true;
@@ -181,6 +183,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
             POS_TransactionHistoryComboBox.Enabled = true;
             POS_TransactionHistoryComboBox.BackColor = Color.White;
+            POS_TransactionHistoryComboBox.Items.AddRange(lastTenSellingHistory());
 
             POS_ProductBarcodeTextBox.Clear();
             POS_ProductBarcodeTextBox.ReadOnly = true;
@@ -242,6 +245,34 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 int ordinalNumber = 1;
                 return Convert.ToString(currentDate + ordinalNumber.ToString("00000"));
             }
+        }
+
+        private object[] lastTenSellingHistory()
+        {
+            var data = (from s in db.Sales
+                        orderby s.Date descending
+                        select new { s.ReceiptId }).Take(10).ToList();
+
+            if (data.Any())
+            {
+                object[] transactionHistoryItems = new object[data.Count];
+
+                for (int i = 0; i < data.Count; i++)
+                {
+                    if (i == 0)
+                    {
+                        transactionHistoryItems[i] = $"ล่าสุด : {data[i].ReceiptId}"; // First item
+                    }
+                    else
+                    {
+                        transactionHistoryItems[i] = $"ที่{i + 1}    : {data[i].ReceiptId}"; // Remaining items
+                    }
+                }
+
+                return transactionHistoryItems;
+            }
+
+            return Array.Empty<object>();
         }
 
         //////////////////////////////////////////// BARCODE SEARCH 13 DIGIT GOTTEN//////////////////////////////////////
@@ -322,6 +353,14 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 POS_CostPriceTextBox.Text = Convert.ToDouble(selectedRow.Cells[3].Value).ToString("#,###,##0");
                 POS_SellingPriceTextBox.Text = Convert.ToDouble(selectedRow.Cells[4].Value).ToString("#,###,##0");
                 POS_UnitInStockTextBox.Text = Convert.ToString(selectedRow.Cells[5].Value);
+                if (Convert.ToInt32(POS_UnitInStockTextBox.Text) > 0)
+                {
+                    POS_UnitInStockTextBox.ForeColor = Color.Black;
+                }
+                else
+                {
+                    POS_UnitInStockTextBox.ForeColor = Color.Red;
+                }
 
                 POS_SellingUnitNumericUpDown.Enabled = true;
                 POS_SellingUnitNumericUpDown.ReadOnly = false;
@@ -669,3 +708,9 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 //    e.Graphics.DrawString("=============================", new Font("tahoma", 10), Brushes.Black, new Point(2, 301));
 
 //}
+
+
+
+
+
+

@@ -22,8 +22,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         {
             InitializeComponent();
 
-            this.MinimumSize = new Size(800, 800);
-            this.Size = new Size(1180, 900);
+            this.MinimumSize = new Size(1000, 1000);
+            this.Size = new Size(1180, 1250);
 
             this.PM_DataGridView.ReadOnly = true;
             this.PM_DataGridView.MultiSelect = false;
@@ -106,6 +106,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                     if (e.ColumnIndex == PM_DataGridView.Columns[6].Index && e.Value != null && Convert.ToInt32(e.Value) <= 0)
                     {
                         e.CellStyle.ForeColor = Color.Red;
+                        e.CellStyle.SelectionForeColor = Color.Red;
                     }
                 };
 
