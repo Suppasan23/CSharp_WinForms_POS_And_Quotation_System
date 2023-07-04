@@ -100,6 +100,15 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
                 PM_DataGridView.DataSource = modifiedData; // Set the modified data to the DataGridView
 
+                // Check if the column is the "Quantity" column and the cell value is less than 0
+                PM_DataGridView.CellFormatting += (sender, e) =>
+                {
+                    if (e.ColumnIndex == PM_DataGridView.Columns[6].Index && e.Value != null && Convert.ToInt32(e.Value) <= 0)
+                    {
+                        e.CellStyle.ForeColor = Color.Red;
+                    }
+                };
+
                 //id, ที่, รหัสสินค้า, ชื่อสินค้า, ราคาทุน, ราคาขาย, จำนวน, หน่วยนับ, ประเภทสินค้า, รูปภาพ
                 PM_DataGridView.Columns[0].Visible = false;
                 PM_DataGridView.Columns[1].Width = 40;
@@ -387,6 +396,5 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
             Clipboard.SetText(copyBarcode);
         }
-
     }
 }
