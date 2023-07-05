@@ -120,9 +120,9 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             POS_SaleIDTextBox.Text = generateSaleID();
             POS_SaleIDTextBox.ReadOnly = true;
 
-            POS_TransactionHistoryComboBox.Enabled = false;
-            POS_TransactionHistoryComboBox.BackColor = SystemColors.Control;
-            POS_TransactionHistoryComboBox.Items.Clear();
+            POS_TransactionHistoryButton.Enabled = false;
+            POS_TransactionHistoryButton.BackColor = SystemColors.Control;
+            LastTenSellingHistory(false);
 
             POS_ProductBarcodeTextBox.Clear();
             POS_ProductBarcodeTextBox.ReadOnly = true;
@@ -159,8 +159,6 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             POS_ChangeMoneyTextBox.ReadOnly = true;
             POS_ChangeMoneyTextBox.BackColor = SystemColors.Control;
 
-            POS_TransactionHistoryComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-
             POS_SaveButton.Enabled = false;
             POS_SaveButton.BackColor = SystemColors.ControlDark;
         }
@@ -181,9 +179,9 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             POS_SaleIDTextBox.Clear();
             POS_SaleIDTextBox.ReadOnly = true;
 
-            POS_TransactionHistoryComboBox.Enabled = true;
-            POS_TransactionHistoryComboBox.BackColor = Color.White;
-            POS_TransactionHistoryComboBox.Items.AddRange(lastTenSellingHistory());
+            POS_TransactionHistoryButton.Enabled = true;
+            POS_TransactionHistoryButton.BackColor = Color.LightGoldenrodYellow;
+            LastTenSellingHistory(true);
 
             POS_ProductBarcodeTextBox.Clear();
             POS_ProductBarcodeTextBox.ReadOnly = true;
@@ -220,8 +218,6 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             POS_ChangeMoneyTextBox.ReadOnly = true;
             POS_ChangeMoneyTextBox.BackColor = SystemColors.Control;
 
-            POS_TransactionHistoryComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-
             POS_SaveButton.Enabled = false;
             POS_SaveButton.BackColor = SystemColors.ControlDark;
         }
@@ -247,32 +243,31 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             }
         }
 
-        private object[] lastTenSellingHistory()
+        private void LastTenSellingHistory(bool state)
         {
-            var data = (from s in db.Sales
-                        orderby s.Date descending
-                        select new { s.ReceiptId }).Take(10).ToList();
-
-            if (data.Any())
+            if(state)
             {
-                object[] transactionHistoryItems = new object[data.Count];
+                var data = (from h in db.Sales
+                            orderby h.Date descending
+                            select new { h.ReceiptId }).Take(10).ToArray();
 
-                for (int i = 0; i < data.Count; i++)
+                if (data.Any())
                 {
-                    if (i == 0)
+                    for (int i = 0; i < data.Length; i++)
                     {
-                        transactionHistoryItems[i] = $"ล่าสุด : {data[i].ReceiptId}"; // First item
-                    }
-                    else
-                    {
-                        transactionHistoryItems[i] = $"ที่{i + 1}    : {data[i].ReceiptId}"; // Remaining items
+                        if (i == 0)
+                        {
+                            contextMenuStrip1.Items.Add($"{data[i].ReceiptId} (ใบเสร็จล่าสุด)");
+                            continue;
+                        }
+                        contextMenuStrip1.Items.Add($"{data[i].ReceiptId} (ใบเสร็จเก่าที่ {i})");
                     }
                 }
-
-                return transactionHistoryItems;
             }
-
-            return Array.Empty<object>();
+            else
+            {
+                contextMenuStrip1.Items.Clear();
+            }
         }
 
         //////////////////////////////////////////// BARCODE SEARCH 13 DIGIT GOTTEN//////////////////////////////////////
@@ -637,8 +632,16 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 MessageBox.Show("Error: " + ex.Message, "บันทึกข้อมูลการขาย", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        ////////////////////////////////////////POS_TRANSACTIONHISTORY BUTTON CLICKED///////////////////////////////////
+        private void POS_TransactionHistoryButton_Click(object sender, EventArgs e)
+        {
+            contextMenuStrip1.Show(Cursor.Position);
+        }
     }
 }
+
+
 
 
 //private void POS_SaveButton_Click(object sender, EventArgs e)
