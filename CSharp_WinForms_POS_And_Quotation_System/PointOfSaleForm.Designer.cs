@@ -78,6 +78,8 @@
             POS_PrintDocument = new System.Drawing.Printing.PrintDocument();
             timer1 = new System.Windows.Forms.Timer(components);
             contextMenuStrip1 = new ContextMenuStrip(components);
+            POS_PrintDialog = new PrintDialog();
+            printDialog1 = new PrintDialog();
             panel1.SuspendLayout();
             POS_Panel2.SuspendLayout();
             POS_CalculatePriceGroupBox.SuspendLayout();
@@ -598,12 +600,15 @@
             POS_TransactionHistoryButton.Dock = DockStyle.Fill;
             POS_TransactionHistoryButton.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             POS_TransactionHistoryButton.ForeColor = Color.Black;
+            POS_TransactionHistoryButton.Image = Properties.Resources.bill_16;
             POS_TransactionHistoryButton.Location = new Point(843, 2);
             POS_TransactionHistoryButton.Margin = new Padding(1);
             POS_TransactionHistoryButton.Name = "POS_TransactionHistoryButton";
             POS_TransactionHistoryButton.Size = new Size(139, 34);
             POS_TransactionHistoryButton.TabIndex = 7;
-            POS_TransactionHistoryButton.Text = "ดู 10 ใบเสร็จล่าสุด";
+            POS_TransactionHistoryButton.Text = "ดูใบเสร็จล่าสุด";
+            POS_TransactionHistoryButton.TextAlign = ContentAlignment.MiddleRight;
+            POS_TransactionHistoryButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             POS_TransactionHistoryButton.UseVisualStyleBackColor = false;
             POS_TransactionHistoryButton.Click += POS_TransactionHistoryButton_Click;
             // 
@@ -715,6 +720,10 @@
             POS_PrintPreviewDialog.Name = "POS_PrintPreviewDialog";
             POS_PrintPreviewDialog.Visible = false;
             // 
+            // POS_PrintDocument
+            // 
+            POS_PrintDocument.PrintPage += POS_PrintDocument_PrintPage;
+            // 
             // timer1
             // 
             timer1.Enabled = true;
@@ -725,6 +734,15 @@
             // 
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(61, 4);
+            contextMenuStrip1.ItemClicked += contextMenuStrip1_ItemClicked;
+            // 
+            // POS_PrintDialog
+            // 
+            POS_PrintDialog.UseEXDialog = true;
+            // 
+            // printDialog1
+            // 
+            printDialog1.UseEXDialog = true;
             // 
             // PointOfSaleForm
             // 
@@ -810,5 +828,7 @@
         private System.Windows.Forms.Timer timer1;
         private Button POS_TransactionHistoryButton;
         private ContextMenuStrip contextMenuStrip1;
+        private PrintDialog POS_PrintDialog;
+        private PrintDialog printDialog1;
     }
 }
