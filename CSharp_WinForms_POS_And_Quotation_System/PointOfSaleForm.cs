@@ -685,6 +685,10 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
         private void POS_PrintPreviewDialog_PrintClick(object sender, EventArgs e)
         {
+            // Open dummyForm just for solve a bug
+            dummyForm d = new dummyForm();
+            d.ShowDialog();
+
             PrintDialog k = new PrintDialog();
             k = POS_PrintDialog;
             k.Document = POS_PrintDocument;
