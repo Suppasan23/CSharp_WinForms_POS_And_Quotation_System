@@ -9,11 +9,14 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Printing;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CSharp_WinForms_POS_And_Quotation_System
 {
@@ -704,20 +707,150 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
         private void POS_PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
-            e.Graphics.DrawString("ร้านธีรภัทร์", new Font("tahoma", 12, FontStyle.Bold), Brushes.Black, new Point(110, 5));
-            //Space = 23
-            e.Graphics.DrawString("20/54, หมู่.2 ถนนกาญจนวนิช", new Font("tahoma", 10), Brushes.Black, new Point(61, 28));//Space = 15
-            e.Graphics.DrawString("ตำบลเขารูปช้าง อำเภอเมืองสงขลา ", new Font("tahoma", 10), Brushes.Black, new Point(48, 43));//Space = 15
-            e.Graphics.DrawString("จังหวัดสงขลา 90000", new Font("tahoma", 10), Brushes.Black, new Point(88, 58));//Space = 15
-            e.Graphics.DrawString("โทรศัพท์ 0-7444-7848", new Font("tahoma", 10), Brushes.Black, new Point(81, 73));//Space = 15
-            //Space = 23
-            e.Graphics.DrawString("เลขที่ใบเสร็จ", new Font("tahoma", 10), Brushes.Black, new Point(5, 96));
-            e.Graphics.DrawString("#" + extractedReceiptId, new Font("tahoma", 10), Brushes.Black, new Point(90, 96));
-            //Space = 23
-            e.Graphics.DrawString("วันที่", new Font("tahoma", 10), Brushes.Black, new Point(5, 111));
-            e.Graphics.DrawString("5 พฤษภาคม 2566", new Font("tahoma", 10), Brushes.Black, new Point(39, 111));
-            e.Graphics.DrawString("เวลา", new Font("tahoma", 10), Brushes.Black, new Point(180, 111));
-            e.Graphics.DrawString("10:35 น.", new Font("tahoma", 10), Brushes.Black, new Point(215, 111));
+            var data = (from i in db.Sales
+                        join q in db.SaleDetails on i.ReceiptId equals q.ReceiptId
+                        where i.ReceiptId == extractedReceiptId
+                        select new 
+                        {   i.ReceiptId, 
+                            i.Date,
+                            i.Total,
+                            i.ReceiveMoney,
+                            i.ChangeMoney,
+                            q.ProductName,
+                            q.ProductSellingPrice,
+                            q.PickQuantity,
+                            q.SubTotal,
+                        }).FirstOrDefault();
+
+            //if(data != null)
+            //{
+            //    e.Graphics.DrawString("ร้านธีรภัทร์", new Font("tahoma", 12, FontStyle.Bold), Brushes.Black, new Point(110, 5));
+            //    //Space = 23
+            //    e.Graphics.DrawString("20/54, หมู่.2 ถนนกาญจนวนิช", new Font("tahoma", 10), Brushes.Black, new Point(61, 28));//Space = 15
+            //    e.Graphics.DrawString("ตำบลเขารูปช้าง อำเภอเมืองสงขลา ", new Font("tahoma", 10), Brushes.Black, new Point(48, 43));//Space = 15
+            //    e.Graphics.DrawString("จังหวัดสงขลา 90000", new Font("tahoma", 10), Brushes.Black, new Point(88, 58));//Space = 15
+            //    e.Graphics.DrawString("โทรศัพท์ 0-7444-7848", new Font("tahoma", 10), Brushes.Black, new Point(81, 73));//Space = 15
+            //    //Space = 23
+            //    e.Graphics.DrawString("เลขที่ใบเสร็จ", new Font("tahoma", 10), Brushes.Black, new Point(5, 96));
+            //    e.Graphics.DrawString("#" + data.ReceiptId, new Font("tahoma", 10), Brushes.Black, new Point(90, 96));
+            //    //Space = 23
+            //    e.Graphics.DrawString("วันที่", new Font("tahoma", 10), Brushes.Black, new Point(5, 111));
+            //    e.Graphics.DrawString(data.Date.ToString("dd MMMM yyyy", new CultureInfo("th-TH")), new Font("tahoma", 10), Brushes.Black, new Point(39, 111));
+            //    e.Graphics.DrawString("เวลา", new Font("tahoma", 10), Brushes.Black, new Point(180, 111));
+            //    e.Graphics.DrawString(data.Date.ToString("HH:mm") + " น.", new Font("tahoma", 10), Brushes.Black, new Point(215, 111));
+            //    //Space = 20
+            //    e.Graphics.DrawString("---------------------------------------------------------", new Font("tahoma", 10), Brushes.Black, new Point(4, 131));//Space = 15
+            //    e.Graphics.DrawString("ใบเสร็จรับเงิน/ใบกำกับภาษีอย่างย่อ", new Font("tahoma", 10), Brushes.Black, new Point(51, 146));//Space = 15
+            //    e.Graphics.DrawString("---------------------------------------------------------", new Font("tahoma", 10), Brushes.Black, new Point(4, 161));//Space = 15
+            //    //Space = 15
+            //    e.Graphics.DrawString("สินค้า", new Font("tahoma", 9, FontStyle.Bold), Brushes.Black, new Point(5, 176));
+            //    e.Graphics.DrawString("ราคา", new Font("tahoma", 9, FontStyle.Bold), Brushes.Black, new Point(100, 176));
+            //    e.Graphics.DrawString("จำนวน", new Font("tahoma", 9, FontStyle.Bold), Brushes.Black, new Point(175, 176));
+            //    e.Graphics.DrawString("เงินรวม", new Font("tahoma", 9, FontStyle.Bold), Brushes.Black, new Point(250, 176));
+            //    //Space = 20
+
+            //    for()
+            //    {
+            //        e.Graphics.DrawString(data.ProductName, new Font("tahoma", 9), Brushes.Black, new Point(5, 196));
+            //        e.Graphics.DrawString(data.ProductSellingPrice.ToString("#,###,##0"), new Font("tahoma", 9), Brushes.Black, new Point(100, 196));
+            //        e.Graphics.DrawString(Convert.ToString(data.PickQuantity), new Font("tahoma", 9), Brushes.Black, new Point(175, 196));
+            //        e.Graphics.DrawString(data.SubTotal.ToString("#,###,##0"), new Font("tahoma", 9), Brushes.Black, new Point(250, 196));
+            //        //Space = 15
+            //    }
+
+            //    e.Graphics.DrawString("---------------------------------------------------------", new Font("tahoma", 10), Brushes.Black, new Point(4, 271));
+            //    //Space = 15
+            //    e.Graphics.DrawString("ยอดสุทธิ", new Font("tahoma", 9, FontStyle.Bold), Brushes.Black, new Point(5, 286));
+            //    e.Graphics.DrawString(data.Total.ToString("#,###,##0"), new Font("tahoma", 9, FontStyle.Bold), Brushes.Black, new Point(250, 286));
+            //    //Space = 15
+            //    e.Graphics.DrawString("=============================", new Font("tahoma", 10), Brushes.Black, new Point(2, 301));
+            //}
+
+            PaperSize paperSize = e.PageSettings.PaperSize;
+
+            float paperWidth = paperSize.Width;
+            //float paperHeight = paperSize.Height;
+
+            Font font12Bold = new Font("tahoma", 12, FontStyle.Bold);
+            Font font10Normal = new Font("Tahoma", 10);
+            Font font9Bold = new Font("tahoma", 9, FontStyle.Bold);
+            Font font9Normal = new Font("Tahoma", 9);
+            Brush brush = Brushes.Black;
+
+            /*===============================HEADER===============================*/
+            string[] head = new string[5]
+            {
+                "ร้านธีรภัทร์",
+                "20/54, หมู่.2 ถนนกาญจนวนิช",
+                "ตำบลเขารูปช้าง อำเภอเมืองสงขลา",
+                "จังหวัดสงขลา 90000",
+                "โทรศัพท์ 0-7444-7848"
+            };
+
+            float[] headStartX = new float[5];
+            {
+                headStartX[0] = (paperWidth - e.Graphics.MeasureString(head[0], font12Bold).Width) / 2;
+                headStartX[1] = (paperWidth - e.Graphics.MeasureString(head[1], font10Normal).Width) / 2;
+                headStartX[2] = (paperWidth - e.Graphics.MeasureString(head[2], font10Normal).Width) / 2;
+                headStartX[3] = (paperWidth - e.Graphics.MeasureString(head[3], font10Normal).Width) / 2;
+                headStartX[4] = (paperWidth - e.Graphics.MeasureString(head[4], font10Normal).Width) / 2;
+            }
+
+            float[] headStartY = new float[5];
+            {
+                headStartY[0] = 5;
+                headStartY[1] = headStartY[0] + 23;
+                headStartY[2] = headStartY[1] + 15;
+                headStartY[3] = headStartY[2] + 15;
+                headStartY[4] = headStartY[3] + 15;
+            }
+
+            e.Graphics.DrawString(head[0], font12Bold, brush, headStartX[0], headStartY[0]);
+            e.Graphics.DrawString(head[1], font10Normal, brush, headStartX[1], headStartY[1]);
+            e.Graphics.DrawString(head[2], font10Normal, brush, headStartX[2], headStartY[2]);
+            e.Graphics.DrawString(head[3], font10Normal, brush, headStartX[3], headStartY[3]);
+            e.Graphics.DrawString(head[4], font10Normal, brush, headStartX[4], headStartY[4]);
+
+            /*===============================RECEIPT AND DATE TIME===============================*/
+
+            string[] receiptAndDateTime = new string[6];
+            {
+                receiptAndDateTime[0] = "เลขที่ใบเสร็จ";
+                receiptAndDateTime[1] = "#" + data.ReceiptId;
+                receiptAndDateTime[2] = "วันที่";
+                receiptAndDateTime[3] = data.Date.ToString("dd MMMM yyyy", new CultureInfo("th-TH"));
+                receiptAndDateTime[4] = "เวลา";
+                receiptAndDateTime[5] = data.Date.ToString("HH:mm") + " น.";
+            }
+
+            float[] receiptAndDateTimeStartX = new float[6];
+            {
+                receiptAndDateTimeStartX[0] = 5;
+                receiptAndDateTimeStartX[1] = receiptAndDateTimeStartX[0] + e.Graphics.MeasureString(receiptAndDateTime[0], font9Bold).Width;
+                receiptAndDateTimeStartX[2] = 5;
+                receiptAndDateTimeStartX[3] = receiptAndDateTimeStartX[2] + e.Graphics.MeasureString(receiptAndDateTime[2], font9Bold).Width;
+                receiptAndDateTimeStartX[5] = paperWidth - e.Graphics.MeasureString(receiptAndDateTime[5], font9Normal).Width - 5;
+                receiptAndDateTimeStartX[4] = paperWidth - 5 - e.Graphics.MeasureString(receiptAndDateTime[4], font9Bold).Width - e.Graphics.MeasureString(receiptAndDateTime[5], font9Normal).Width;
+            }
+
+            float[] receiptAndDateTimeStartY = new float[6];
+            {
+                receiptAndDateTimeStartY[0] = headStartY[4] + 23;
+                receiptAndDateTimeStartY[1] = headStartY[4] + 23;
+                receiptAndDateTimeStartY[2] = receiptAndDateTimeStartY[0] + 15;
+                receiptAndDateTimeStartY[3] = receiptAndDateTimeStartY[0] + 15;
+                receiptAndDateTimeStartY[4] = receiptAndDateTimeStartY[0] + 15;
+                receiptAndDateTimeStartY[5] = receiptAndDateTimeStartY[0] + 15;
+            }
+
+            e.Graphics.DrawString(receiptAndDateTime[0], font9Bold, brush, receiptAndDateTimeStartX[0], receiptAndDateTimeStartY[0]);
+            e.Graphics.DrawString(receiptAndDateTime[1], font9Normal, brush, receiptAndDateTimeStartX[1], receiptAndDateTimeStartY[1]);
+            e.Graphics.DrawString(receiptAndDateTime[2], font9Bold, brush, receiptAndDateTimeStartX[2], receiptAndDateTimeStartY[2]);
+            e.Graphics.DrawString(receiptAndDateTime[3], font9Normal, brush, receiptAndDateTimeStartX[3], receiptAndDateTimeStartY[3]);
+            e.Graphics.DrawString(receiptAndDateTime[4], font9Bold, brush, receiptAndDateTimeStartX[4], receiptAndDateTimeStartY[4]);
+            e.Graphics.DrawString(receiptAndDateTime[5], font9Normal, brush, receiptAndDateTimeStartX[5], receiptAndDateTimeStartY[5]);
+
+            /*===============================WORD SEPARATOR===============================*/
             //Space = 20
             e.Graphics.DrawString("---------------------------------------------------------", new Font("tahoma", 10), Brushes.Black, new Point(4, 131));//Space = 15
             e.Graphics.DrawString("ใบเสร็จรับเงิน/ใบกำกับภาษีอย่างย่อ", new Font("tahoma", 10), Brushes.Black, new Point(51, 146));//Space = 15
@@ -726,7 +859,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             e.Graphics.DrawString("สินค้า", new Font("tahoma", 9, FontStyle.Bold), Brushes.Black, new Point(5, 176));
             e.Graphics.DrawString("ราคา", new Font("tahoma", 9, FontStyle.Bold), Brushes.Black, new Point(100, 176));
             e.Graphics.DrawString("จำนวน", new Font("tahoma", 9, FontStyle.Bold), Brushes.Black, new Point(175, 176));
-            e.Graphics.DrawString("เงินรวม", new Font("tahoma", 9, FontStyle.Bold), Brushes.Black, new Point(250, 176));
+            e.Graphics.DrawString("เงินรวม", new Font("tahoma", 9, FontStyle.Bold), Brushes.Black, new Point(245, 176));
             //Space = 20
             e.Graphics.DrawString("ไม้ถูพื้น", new Font("tahoma", 9), Brushes.Black, new Point(5, 196));
             e.Graphics.DrawString("150", new Font("tahoma", 9), Brushes.Black, new Point(100, 196));
@@ -756,9 +889,15 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             e.Graphics.DrawString("---------------------------------------------------------", new Font("tahoma", 10), Brushes.Black, new Point(4, 271));
             //Space = 15
             e.Graphics.DrawString("ยอดสุทธิ", new Font("tahoma", 9, FontStyle.Bold), Brushes.Black, new Point(5, 286));
-            e.Graphics.DrawString("1,270", new Font("tahoma", 9, FontStyle.Bold), Brushes.Black, new Point(250, 286));
+            string price = "127,000";
+            int xPointPrice = 245 - price.Length;
+            e.Graphics.DrawString(price, new Font("tahoma", 9, FontStyle.Bold), Brushes.Black, new Point(xPointPrice, 286));
             //Space = 15
-            e.Graphics.DrawString("=============================", new Font("tahoma", 10), Brushes.Black, new Point(2, 301));
+            string ReceiveAndChangeMoney = "รับเงิน" + " " + "1300" + " " + "ทอนเงิน" + " " + "30";
+            int xPointReceiveAndChangeMoney = 187 - ReceiveAndChangeMoney.Length;
+            e.Graphics.DrawString(ReceiveAndChangeMoney, new Font("tahoma", 9), Brushes.Black, new Point(xPointReceiveAndChangeMoney, 301));
+            //Space = 15
+            e.Graphics.DrawString("=============================", new Font("tahoma", 10), Brushes.Black, new Point(2, 316));
         }
     }
 }

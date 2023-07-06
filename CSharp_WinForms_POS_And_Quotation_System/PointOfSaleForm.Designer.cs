@@ -79,7 +79,6 @@
             timer1 = new System.Windows.Forms.Timer(components);
             contextMenuStrip1 = new ContextMenuStrip(components);
             POS_PrintDialog = new PrintDialog();
-            printDialog1 = new PrintDialog();
             panel1.SuspendLayout();
             POS_Panel2.SuspendLayout();
             POS_CalculatePriceGroupBox.SuspendLayout();
@@ -732,6 +731,7 @@
             // 
             // contextMenuStrip1
             // 
+            contextMenuStrip1.ImageScalingSize = new Size(20, 20);
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(61, 4);
             contextMenuStrip1.ItemClicked += contextMenuStrip1_ItemClicked;
@@ -739,10 +739,6 @@
             // POS_PrintDialog
             // 
             POS_PrintDialog.UseEXDialog = true;
-            // 
-            // printDialog1
-            // 
-            printDialog1.UseEXDialog = true;
             // 
             // PointOfSaleForm
             // 
@@ -829,6 +825,5 @@
         private Button POS_TransactionHistoryButton;
         private ContextMenuStrip contextMenuStrip1;
         private PrintDialog POS_PrintDialog;
-        private PrintDialog printDialog1;
     }
 }
