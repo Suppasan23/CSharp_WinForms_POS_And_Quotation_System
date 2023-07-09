@@ -658,18 +658,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
             if (extractedReceiptId.Length == 13)
             {
-                var data = (from i in db.Sales
-                            join q in db.SaleDetails on i.ReceiptId equals q.ReceiptId
-                            where i.ReceiptId == extractedReceiptId
-                            select q.ReceiptId).Count();
-
-                using (Graphics graphics = CreateGraphics())
-                {
-                    float paperWidth = 300;
-                    float paperHeight = 250 + (data * graphics.MeasureString("ก", new Font("Tahoma", 9)).Height);
-
-                    POS_PrintDocument.DefaultPageSettings.PaperSize = new PaperSize("Receipt", (int)paperWidth, (int)paperHeight);
-                }
+                POS_PrintDocument.DefaultPageSettings.PaperSize = new PaperSize("Receipt", (int)calculateReceiptSize().Width, (int)calculateReceiptSize().Height);
 
                 // Find the ToolStrip in the PrintPreviewDialog controls
                 ToolStrip toolStrip = (ToolStrip)POS_PrintPreviewDialog.Controls[1];
@@ -696,6 +685,33 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 // Show the PrintPreviewDialog
                 f.ShowDialog();
             }
+        }
+
+        private SizeF calculateReceiptSize()
+        {
+            var data = (from i in db.Sales
+                        join q in db.SaleDetails on i.ReceiptId equals q.ReceiptId
+                        where i.ReceiptId == extractedReceiptId
+                        select q.ReceiptId).Count();
+
+            float paperWidth = 300;
+            float paperHeight = 0;
+
+            paperHeight += 5 + 23 + 15 + 15 + 15;//HEADER
+            paperHeight += 23 + 15; // RECEIPT AND DATE TIME
+            paperHeight += 15 + 15 + 15; //WORD SEPARATOR
+            paperHeight += 15;
+
+            for (int i = 0; i < data; i++)
+            {
+                paperHeight += 15;
+            }
+
+            paperHeight += 15;//ONE LINE SEPARATOR
+            paperHeight += 15 + 18; //TOTAL, RECEIVE & CHANGE
+            paperHeight += 13; //LINE END
+
+            return new SizeF(paperWidth, paperHeight + 20);
         }
 
         private void POS_PrintPreviewDialog_PrintClick(object sender, EventArgs e)
@@ -736,6 +752,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                         }).ToArray();
 
             float paperWidth = 300;
+            float paperHeight = 0;
 
             Font font12Bold = new Font("tahoma", 12, FontStyle.Bold);
             Font font10Normal = new Font("Tahoma", 10);
@@ -829,7 +846,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             /*================================TABLE HEADING===============================*/
             string[] tableHeading = new string[4]
             {
-                "สินค้า", "ราคา", "จำนวน", "เงินรวม"
+            "สินค้า", "ราคา", "จำนวน", "เงินรวม"
             };
 
             float[] tableHeadingX = new float[4];
@@ -879,10 +896,10 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
             for (int i = 0; i < tableData.Length; i++)
             {
-                e.Graphics.DrawString(tableData[i][0], font9Normal, brush, tableDataX[i][0], tableDataY[i]);
-                e.Graphics.DrawString(tableData[i][1], font9Normal, brush, tableDataX[i][1], tableDataY[i]);
-                e.Graphics.DrawString(tableData[i][2], font9Normal, brush, tableDataX[i][2], tableDataY[i]);
-                e.Graphics.DrawString(tableData[i][3], font9Normal, brush, tableDataX[i][3], tableDataY[i]);
+            e.Graphics.DrawString(tableData[i][0], font9Normal, brush, tableDataX[i][0], tableDataY[i]);
+            e.Graphics.DrawString(tableData[i][1], font9Normal, brush, tableDataX[i][1], tableDataY[i]);
+            e.Graphics.DrawString(tableData[i][2], font9Normal, brush, tableDataX[i][2], tableDataY[i]);
+            e.Graphics.DrawString(tableData[i][3], font9Normal, brush, tableDataX[i][3], tableDataY[i]);
             }
 
             /*===============================ONE LINE SEPARATOR====================================*/
@@ -926,7 +943,9 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
             e.Graphics.DrawString(lineSeparator3, font10Normal, brush, lineSeparator3X, lineSeparator3Y);
 
-            POS_PrintDocument.DefaultPageSettings.PaperSize = new PaperSize("Receipt", (int)paperWidth, (int)lineSeparator3Y + 20);
+
+            paperHeight = lineSeparator3Y;
+            POS_PrintDocument.DefaultPageSettings.PaperSize = new PaperSize("Receipt", (int)paperWidth, (int)paperHeight + 20);
         }
     }
 }
