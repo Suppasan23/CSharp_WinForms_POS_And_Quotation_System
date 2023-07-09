@@ -645,7 +645,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         }
 
         //////////////////////////////////////// PRINT RECIPT ///////////////////////////////////
-        string extractedReceiptId;
+        private string extractedReceiptId;
+
         private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             if (e.ClickedItem == null)
@@ -657,7 +658,18 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
             if (extractedReceiptId.Length == 13)
             {
-                //POS_PrintDocument.DefaultPageSettings.PaperSize = new PaperSize("Receipt", 300, 700); //set paper size to Receipt
+                var data = (from i in db.Sales
+                            join q in db.SaleDetails on i.ReceiptId equals q.ReceiptId
+                            where i.ReceiptId == extractedReceiptId
+                            select q.ReceiptId).Count();
+
+                using (Graphics graphics = CreateGraphics())
+                {
+                    float paperWidth = 300;
+                    float paperHeight = 250 + (data * graphics.MeasureString("ก", new Font("Tahoma", 9)).Height);
+
+                    POS_PrintDocument.DefaultPageSettings.PaperSize = new PaperSize("Receipt", (int)paperWidth, (int)paperHeight);
+                }
 
                 // Find the ToolStrip in the PrintPreviewDialog controls
                 ToolStrip toolStrip = (ToolStrip)POS_PrintPreviewDialog.Controls[1];
@@ -724,9 +736,6 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                         }).ToArray();
 
             float paperWidth = 300;
-            float paperHeight = 300 + (data.Length*10);
-
-            POS_PrintDocument.DefaultPageSettings.PaperSize = new PaperSize("Receipt", (int)paperWidth, (int)paperHeight);
 
             Font font12Bold = new Font("tahoma", 12, FontStyle.Bold);
             Font font10Normal = new Font("Tahoma", 10);
@@ -916,6 +925,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             float lineSeparator3Y = conclusionY[1] + 13;
 
             e.Graphics.DrawString(lineSeparator3, font10Normal, brush, lineSeparator3X, lineSeparator3Y);
+
+            POS_PrintDocument.DefaultPageSettings.PaperSize = new PaperSize("Receipt", (int)paperWidth, (int)lineSeparator3Y + 20);
         }
     }
 }
