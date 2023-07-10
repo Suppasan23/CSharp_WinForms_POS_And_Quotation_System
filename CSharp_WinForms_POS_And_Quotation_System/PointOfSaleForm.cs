@@ -637,14 +637,14 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             }
         }
 
-        ////////////////////////////////////////POS_TRANSACTIONHISTORY BUTTON CLICKED///////////////////////////////////
+        //////////////////////////////////////// POS_TRANSACTIONHISTORY BUTTON CLICKED ///////////////////////////////////
         private void POS_TransactionHistoryButton_Click(object sender, EventArgs e)
         {
             contextMenuStrip1.Show(Cursor.Position);
             contextMenuStrip1.Items[0].Font = new Font(contextMenuStrip1.Font, FontStyle.Bold);
         }
 
-        //////////////////////////////////////// PRINT RECIPT ///////////////////////////////////
+        //////////////////////////////////////// PRINT RECIPT ///////////////////////////////////////////////////////////
         private string extractedReceiptId;
 
         private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -656,9 +656,12 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
             extractedReceiptId = e.ClickedItem.Text.Substring(0, 13);
 
-            if (extractedReceiptId.Length == 13)
+            if (extractedReceiptId.Length != 13)
             {
-                POS_PrintDocument.DefaultPageSettings.PaperSize = new PaperSize("Receipt", (int)calculateReceiptSize().Width, (int)calculateReceiptSize().Height);
+                return;
+            }
+
+            POS_PrintDocument.DefaultPageSettings.PaperSize = new PaperSize("Receipt", (int)calculateReceiptSize().Width, (int)calculateReceiptSize().Height);
 
                 // Find the ToolStrip in the PrintPreviewDialog controls
                 ToolStrip toolStrip = (ToolStrip)POS_PrintPreviewDialog.Controls[1];
@@ -684,7 +687,6 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
                 // Show the PrintPreviewDialog
                 f.ShowDialog();
-            }
         }
 
         private SizeF calculateReceiptSize()
@@ -727,6 +729,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             if (k.ShowDialog() == DialogResult.OK)
             {
                 POS_PrintDocument.PrinterSettings = POS_PrintDialog.PrinterSettings;
+
                 POS_PrintDocument.Print();
 
                 POS_PrintPreviewDialog.Close();
@@ -735,6 +738,20 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
         private void POS_PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
+            if (extractedReceiptId.Length != 13)
+            {
+                return;
+            }
+
+            float paperWidth = 300;
+            float paperHeight = 0;
+
+            Font font12Bold = new Font("tahoma", 12, FontStyle.Bold);
+            Font font10Normal = new Font("Tahoma", 10);
+            Font font9Bold = new Font("tahoma", 9, FontStyle.Bold);
+            Font font9Normal = new Font("Tahoma", 9);
+            Brush brush = Brushes.Black;
+
             var data = (from i in db.Sales
                         join q in db.SaleDetails on i.ReceiptId equals q.ReceiptId
                         where i.ReceiptId == extractedReceiptId
@@ -751,201 +768,194 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                             q.SubTotal
                         }).ToArray();
 
-            float paperWidth = 300;
-            float paperHeight = 0;
-
-            Font font12Bold = new Font("tahoma", 12, FontStyle.Bold);
-            Font font10Normal = new Font("Tahoma", 10);
-            Font font9Bold = new Font("tahoma", 9, FontStyle.Bold);
-            Font font9Normal = new Font("Tahoma", 9);
-            Brush brush = Brushes.Black;
-
-            /*===============================HEADER===============================*/
-            string[] head = new string[5]
+            if(data.Any())
             {
+                /*===============================HEADER===============================*/
+                string[] head = new string[5]
+                {
                 "ร้านธีรภัทร์",
                 "20/54, หมู่.2 ถนนกาญจนวนิช",
                 "ตำบลเขารูปช้าง อำเภอเมืองสงขลา",
                 "จังหวัดสงขลา 90000",
                 "โทรศัพท์ 0-7444-7848"
-            };
+                };
 
-            float[] headX = new float[5];
-            headX[0] = 3 + (paperWidth - e.Graphics.MeasureString(head[0], font12Bold).Width) / 2;
-            headX[1] = 3 + (paperWidth - e.Graphics.MeasureString(head[1], font10Normal).Width) / 2;
-            headX[2] = 3 + (paperWidth - e.Graphics.MeasureString(head[2], font10Normal).Width) / 2;
-            headX[3] = 3 + (paperWidth - e.Graphics.MeasureString(head[3], font10Normal).Width) / 2;
-            headX[4] = 3 + (paperWidth - e.Graphics.MeasureString(head[4], font10Normal).Width) / 2;
+                float[] headX = new float[5];
+                headX[0] = 3 + (paperWidth - e.Graphics.MeasureString(head[0], font12Bold).Width) / 2;
+                headX[1] = 3 + (paperWidth - e.Graphics.MeasureString(head[1], font10Normal).Width) / 2;
+                headX[2] = 3 + (paperWidth - e.Graphics.MeasureString(head[2], font10Normal).Width) / 2;
+                headX[3] = 3 + (paperWidth - e.Graphics.MeasureString(head[3], font10Normal).Width) / 2;
+                headX[4] = 3 + (paperWidth - e.Graphics.MeasureString(head[4], font10Normal).Width) / 2;
 
-            float[] headY = new float[5];
-            headY[0] = 5;
-            headY[1] = headY[0] + 23;
-            headY[2] = headY[1] + 15;
-            headY[3] = headY[2] + 15;
-            headY[4] = headY[3] + 15;
+                float[] headY = new float[5];
+                headY[0] = 5;
+                headY[1] = headY[0] + 23;
+                headY[2] = headY[1] + 15;
+                headY[3] = headY[2] + 15;
+                headY[4] = headY[3] + 15;
 
-            e.Graphics.DrawString(head[0], font12Bold, brush, headX[0], headY[0]);
-            e.Graphics.DrawString(head[1], font10Normal, brush, headX[1], headY[1]);
-            e.Graphics.DrawString(head[2], font10Normal, brush, headX[2], headY[2]);
-            e.Graphics.DrawString(head[3], font10Normal, brush, headX[3], headY[3]);
-            e.Graphics.DrawString(head[4], font10Normal, brush, headX[4], headY[4]);
+                e.Graphics.DrawString(head[0], font12Bold, brush, headX[0], headY[0]);
+                e.Graphics.DrawString(head[1], font10Normal, brush, headX[1], headY[1]);
+                e.Graphics.DrawString(head[2], font10Normal, brush, headX[2], headY[2]);
+                e.Graphics.DrawString(head[3], font10Normal, brush, headX[3], headY[3]);
+                e.Graphics.DrawString(head[4], font10Normal, brush, headX[4], headY[4]);
 
-            /*===============================RECEIPT AND DATE TIME===============================*/
-            string[] receiptAndDateTime = new string[6];
-            receiptAndDateTime[0] = "เลขที่ใบเสร็จ";
-            receiptAndDateTime[1] = "#" + data.FirstOrDefault().ReceiptId;
-            receiptAndDateTime[2] = "วันที่";
-            receiptAndDateTime[3] = data.FirstOrDefault().Date.ToString("dd MMMM yyyy", new CultureInfo("th-TH"));
-            receiptAndDateTime[4] = "เวลา";
-            receiptAndDateTime[5] = data.FirstOrDefault().Date.ToString("HH:mm") + " น.";
+                /*===============================RECEIPT AND DATE TIME===============================*/
+                string[] receiptAndDateTime = new string[6];
+                receiptAndDateTime[0] = "เลขที่ใบเสร็จ";
+                receiptAndDateTime[1] = "#" + data.FirstOrDefault().ReceiptId;
+                receiptAndDateTime[2] = "วันที่";
+                receiptAndDateTime[3] = data.FirstOrDefault().Date.ToString("dd MMMM yyyy", new CultureInfo("th-TH"));
+                receiptAndDateTime[4] = "เวลา";
+                receiptAndDateTime[5] = data.FirstOrDefault().Date.ToString("HH:mm") + " น.";
 
-            float[] receiptAndDateTimeX = new float[6];
-            receiptAndDateTimeX[0] = 3;
-            receiptAndDateTimeX[1] = receiptAndDateTimeX[0] + e.Graphics.MeasureString(receiptAndDateTime[0], font9Bold).Width;
-            receiptAndDateTimeX[2] = 3;
-            receiptAndDateTimeX[3] = receiptAndDateTimeX[2] + e.Graphics.MeasureString(receiptAndDateTime[2], font9Bold).Width;
-            receiptAndDateTimeX[4] = paperWidth - e.Graphics.MeasureString(receiptAndDateTime[4], font9Bold).Width - e.Graphics.MeasureString(receiptAndDateTime[5], font9Normal).Width;
-            receiptAndDateTimeX[5] = paperWidth - e.Graphics.MeasureString(receiptAndDateTime[5], font9Normal).Width;
+                float[] receiptAndDateTimeX = new float[6];
+                receiptAndDateTimeX[0] = 3;
+                receiptAndDateTimeX[1] = receiptAndDateTimeX[0] + e.Graphics.MeasureString(receiptAndDateTime[0], font9Bold).Width;
+                receiptAndDateTimeX[2] = 3;
+                receiptAndDateTimeX[3] = receiptAndDateTimeX[2] + e.Graphics.MeasureString(receiptAndDateTime[2], font9Bold).Width;
+                receiptAndDateTimeX[4] = paperWidth - e.Graphics.MeasureString(receiptAndDateTime[4], font9Bold).Width - e.Graphics.MeasureString(receiptAndDateTime[5], font9Normal).Width;
+                receiptAndDateTimeX[5] = paperWidth - e.Graphics.MeasureString(receiptAndDateTime[5], font9Normal).Width;
 
-            float[] receiptAndDateTimeY = new float[6];
-            receiptAndDateTimeY[0] = headY[4] + 23;
-            receiptAndDateTimeY[1] = headY[4] + 23;
-            receiptAndDateTimeY[2] = receiptAndDateTimeY[0] + 15;
-            receiptAndDateTimeY[3] = receiptAndDateTimeY[0] + 15;
-            receiptAndDateTimeY[4] = receiptAndDateTimeY[0] + 15;
-            receiptAndDateTimeY[5] = receiptAndDateTimeY[0] + 15;
+                float[] receiptAndDateTimeY = new float[6];
+                receiptAndDateTimeY[0] = headY[4] + 23;
+                receiptAndDateTimeY[1] = headY[4] + 23;
+                receiptAndDateTimeY[2] = receiptAndDateTimeY[0] + 15;
+                receiptAndDateTimeY[3] = receiptAndDateTimeY[0] + 15;
+                receiptAndDateTimeY[4] = receiptAndDateTimeY[0] + 15;
+                receiptAndDateTimeY[5] = receiptAndDateTimeY[0] + 15;
 
-            e.Graphics.DrawString(receiptAndDateTime[0], font9Bold, brush, receiptAndDateTimeX[0], receiptAndDateTimeY[0]);
-            e.Graphics.DrawString(receiptAndDateTime[1], font9Normal, brush, receiptAndDateTimeX[1], receiptAndDateTimeY[1]);
-            e.Graphics.DrawString(receiptAndDateTime[2], font9Bold, brush, receiptAndDateTimeX[2], receiptAndDateTimeY[2]);
-            e.Graphics.DrawString(receiptAndDateTime[3], font9Normal, brush, receiptAndDateTimeX[3], receiptAndDateTimeY[3]);
-            e.Graphics.DrawString(receiptAndDateTime[4], font9Bold, brush, receiptAndDateTimeX[4], receiptAndDateTimeY[4]);
-            e.Graphics.DrawString(receiptAndDateTime[5], font9Normal, brush, receiptAndDateTimeX[5], receiptAndDateTimeY[5]);
+                e.Graphics.DrawString(receiptAndDateTime[0], font9Bold, brush, receiptAndDateTimeX[0], receiptAndDateTimeY[0]);
+                e.Graphics.DrawString(receiptAndDateTime[1], font9Normal, brush, receiptAndDateTimeX[1], receiptAndDateTimeY[1]);
+                e.Graphics.DrawString(receiptAndDateTime[2], font9Bold, brush, receiptAndDateTimeX[2], receiptAndDateTimeY[2]);
+                e.Graphics.DrawString(receiptAndDateTime[3], font9Normal, brush, receiptAndDateTimeX[3], receiptAndDateTimeY[3]);
+                e.Graphics.DrawString(receiptAndDateTime[4], font9Bold, brush, receiptAndDateTimeX[4], receiptAndDateTimeY[4]);
+                e.Graphics.DrawString(receiptAndDateTime[5], font9Normal, brush, receiptAndDateTimeX[5], receiptAndDateTimeY[5]);
 
-            /*===============================WORD SEPARATOR===============================*/
-            string lineSeparator = "";
-            for (int i = 0; i < paperWidth / 5.2; i++)
-            {
-                lineSeparator += "-";
-            }
-
-            string wordSeparator = "ใบเสร็จรับเงิน/ใบกำกับภาษีอย่างย่อ";
-
-            float lineSeparatorX = 3 + (paperWidth - e.Graphics.MeasureString(lineSeparator, font10Normal).Width) / 2;
-            float wordSeparatorX = 3 + (paperWidth - e.Graphics.MeasureString(wordSeparator, font10Normal).Width) / 2;
-
-            float[] lineAndWordSeparatorY = new float[3];
-            lineAndWordSeparatorY[0] = receiptAndDateTimeY[5] + 15;
-            lineAndWordSeparatorY[1] = lineAndWordSeparatorY[0] + 15;
-            lineAndWordSeparatorY[2] = lineAndWordSeparatorY[1] + 15;
-
-            e.Graphics.DrawString(lineSeparator, font10Normal, brush, lineSeparatorX, lineAndWordSeparatorY[0]);
-            e.Graphics.DrawString(wordSeparator, font10Normal, brush, wordSeparatorX, lineAndWordSeparatorY[1]);
-            e.Graphics.DrawString(lineSeparator, font10Normal, brush, lineSeparatorX, lineAndWordSeparatorY[2]);
-
-            /*================================TABLE HEADING===============================*/
-            string[] tableHeading = new string[4]
-            {
-            "สินค้า", "ราคา", "จำนวน", "เงินรวม"
-            };
-
-            float[] tableHeadingX = new float[4];
-            tableHeadingX[0] = 3;
-            tableHeadingX[1] = paperWidth - (paperWidth / 4 * 2) - e.Graphics.MeasureString(tableHeading[1], font9Bold).Width;
-            tableHeadingX[2] = paperWidth - (paperWidth / 4) - e.Graphics.MeasureString(tableHeading[2], font9Bold).Width;
-            tableHeadingX[3] = paperWidth - e.Graphics.MeasureString(tableHeading[3], font9Bold).Width;
-
-            float tableHeadingY = lineAndWordSeparatorY[2] + 15;
-
-            e.Graphics.DrawString(tableHeading[0], font9Bold, brush, tableHeadingX[0], tableHeadingY);
-            e.Graphics.DrawString(tableHeading[1], font9Bold, brush, tableHeadingX[1], tableHeadingY);
-            e.Graphics.DrawString(tableHeading[2], font9Bold, brush, tableHeadingX[2], tableHeadingY);
-            e.Graphics.DrawString(tableHeading[3], font9Bold, brush, tableHeadingX[3], tableHeadingY);
-
-            /*=================================TABLE DATA=================================*/
-            string[][] tableData = new string[data.Length][];
-            for (int i = 0; i < tableData.Length; i++)
-            {
-                tableData[i] = new string[4];
-                tableData[i][0] = data[i].ProductName;
-                tableData[i][1] = data[i].ProductSellingPrice.ToString("#,###,##0");
-                tableData[i][2] = Convert.ToString(data[i].PickQuantity);
-                tableData[i][3] = data[i].SubTotal.ToString("#,###,##0");
-            }
-
-            float[][] tableDataX = new float[tableData.Length][];
-            for (int i = 0; i < tableDataX.Length; i++)
-            {
-                tableDataX[i] = new float[4];
-                tableDataX[i][0] = 3;
-                tableDataX[i][1] = paperWidth - (paperWidth / 4 * 2) - e.Graphics.MeasureString(tableData[i][1], font9Normal).Width;
-                tableDataX[i][2] = paperWidth - (paperWidth / 4) - e.Graphics.MeasureString(tableData[i][2], font9Normal).Width;
-                tableDataX[i][3] = paperWidth - e.Graphics.MeasureString(tableData[i][3], font9Normal).Width;
-            }
-
-            float[] tableDataY = new float[tableDataX.Length];
-            for (int i = 0; i < tableDataY.Length; i++)
-            {
-                if (i == 0)
+                /*===============================WORD SEPARATOR===============================*/
+                string lineSeparator = "";
+                for (int i = 0; i < paperWidth / 5.2; i++)
                 {
-                    tableDataY[i] = tableHeadingY + 15;
-                    continue;
+                    lineSeparator += "-";
                 }
-                tableDataY[i] = tableDataY[i - 1] + 15;
+
+                string wordSeparator = "ใบเสร็จรับเงิน/ใบกำกับภาษีอย่างย่อ";
+
+                float lineSeparatorX = 3 + (paperWidth - e.Graphics.MeasureString(lineSeparator, font10Normal).Width) / 2;
+                float wordSeparatorX = 3 + (paperWidth - e.Graphics.MeasureString(wordSeparator, font10Normal).Width) / 2;
+
+                float[] lineAndWordSeparatorY = new float[3];
+                lineAndWordSeparatorY[0] = receiptAndDateTimeY[5] + 15;
+                lineAndWordSeparatorY[1] = lineAndWordSeparatorY[0] + 15;
+                lineAndWordSeparatorY[2] = lineAndWordSeparatorY[1] + 15;
+
+                e.Graphics.DrawString(lineSeparator, font10Normal, brush, lineSeparatorX, lineAndWordSeparatorY[0]);
+                e.Graphics.DrawString(wordSeparator, font10Normal, brush, wordSeparatorX, lineAndWordSeparatorY[1]);
+                e.Graphics.DrawString(lineSeparator, font10Normal, brush, lineSeparatorX, lineAndWordSeparatorY[2]);
+
+                /*================================TABLE HEADING===============================*/
+                string[] tableHeading = new string[4]
+                {
+                    "สินค้า", "ราคา", "จำนวน", "เงินรวม"
+                };
+
+                float[] tableHeadingX = new float[4];
+                tableHeadingX[0] = 3;
+                tableHeadingX[1] = paperWidth - (paperWidth / 5 * 2) - e.Graphics.MeasureString(tableHeading[1], font9Bold).Width;
+                tableHeadingX[2] = paperWidth - (paperWidth / 5) - e.Graphics.MeasureString(tableHeading[2], font9Bold).Width;
+                tableHeadingX[3] = paperWidth - e.Graphics.MeasureString(tableHeading[3], font9Bold).Width;
+
+                float tableHeadingY = lineAndWordSeparatorY[2] + 15;
+
+                e.Graphics.DrawString(tableHeading[0], font9Bold, brush, tableHeadingX[0], tableHeadingY);
+                e.Graphics.DrawString(tableHeading[1], font9Bold, brush, tableHeadingX[1], tableHeadingY);
+                e.Graphics.DrawString(tableHeading[2], font9Bold, brush, tableHeadingX[2], tableHeadingY);
+                e.Graphics.DrawString(tableHeading[3], font9Bold, brush, tableHeadingX[3], tableHeadingY);
+
+                /*=================================TABLE DATA=================================*/
+                string[][] tableData = new string[data.Length][];
+                for (int i = 0; i < tableData.Length; i++)
+                {
+                    tableData[i] = new string[4];
+                    tableData[i][0] = data[i].ProductName.Length > 20 ? data[i].ProductName.Substring(0, 20).Trim() + "..." : data[i].ProductName;
+                    tableData[i][1] = data[i].ProductSellingPrice.ToString("#,###,##0");
+                    tableData[i][2] = Convert.ToString(data[i].PickQuantity);
+                    tableData[i][3] = data[i].SubTotal.ToString("#,###,##0");
+                }
+
+                float[][] tableDataX = new float[tableData.Length][];
+                for (int i = 0; i < tableDataX.Length; i++)
+                {
+                    tableDataX[i] = new float[4];
+                    tableDataX[i][0] = 3;
+                    tableDataX[i][1] = paperWidth - (paperWidth / 5 * 2) - e.Graphics.MeasureString(tableData[i][1], font9Normal).Width;
+                    tableDataX[i][2] = paperWidth - (paperWidth / 5) - e.Graphics.MeasureString(tableData[i][2], font9Normal).Width;
+                    tableDataX[i][3] = paperWidth - e.Graphics.MeasureString(tableData[i][3], font9Normal).Width;
+                }
+
+                float[] tableDataY = new float[tableDataX.Length];
+                for (int i = 0; i < tableDataY.Length; i++)
+                {
+                    if (i == 0)
+                    {
+                        tableDataY[i] = tableHeadingY + 15;
+                        continue;
+                    }
+                    tableDataY[i] = tableDataY[i - 1] + 15;
+                }
+
+                for (int i = 0; i < tableData.Length; i++)
+                {
+                    e.Graphics.DrawString(tableData[i][0], font9Normal, brush, tableDataX[i][0], tableDataY[i]);
+                    e.Graphics.DrawString(tableData[i][1], font9Normal, brush, tableDataX[i][1], tableDataY[i]);
+                    e.Graphics.DrawString(tableData[i][2], font9Normal, brush, tableDataX[i][2], tableDataY[i]);
+                    e.Graphics.DrawString(tableData[i][3], font9Normal, brush, tableDataX[i][3], tableDataY[i]);
+                }
+
+                /*===============================ONE LINE SEPARATOR====================================*/
+                string lineSeparator2 = "";
+                for (int i = 0; i < paperWidth / 5.2; i++)
+                {
+                    lineSeparator2 += "-";
+                }
+                float lineSeparator2X = 3 + (paperWidth - e.Graphics.MeasureString(lineSeparator, font10Normal).Width) / 2;
+                float lineSeparator2Y = tableDataY[tableDataY.Length - 1] + 15;
+
+                e.Graphics.DrawString(lineSeparator2, font10Normal, brush, lineSeparator2X, lineSeparator2Y);
+
+                /*================================TOTAL, RECEIVE & CHANGE===============================*/
+                string[] conclusion = new string[3];
+                conclusion[0] = "ยอดสุทธิ";
+                conclusion[1] = data.FirstOrDefault().Total.ToString("#,###,##0");
+                conclusion[2] = "รับเงิน" + " " + data.FirstOrDefault().ReceiveMoney.ToString("#,###,##0") + " " + "ทอนเงิน" + " " + data.FirstOrDefault().ChangeMoney.ToString("#,###,##0");
+
+                float[] conclusionX = new float[3];
+                conclusionX[0] = 3;
+                conclusionX[1] = paperWidth - e.Graphics.MeasureString(conclusion[1], font9Bold).Width;
+                conclusionX[2] = paperWidth - e.Graphics.MeasureString(conclusion[2], font9Normal).Width + 2;
+
+                float[] conclusionY = new float[2];
+                conclusionY[0] = lineSeparator2Y + 15;
+                conclusionY[1] = conclusionY[0] + 18;
+
+                e.Graphics.DrawString(conclusion[0], font9Bold, brush, conclusionX[0], conclusionY[0]);
+                e.Graphics.DrawString(conclusion[1], font9Bold, brush, conclusionX[1], conclusionY[0]);
+                e.Graphics.DrawString(conclusion[2], font9Normal, brush, conclusionX[2], conclusionY[1]);
+
+                /*=====================================LINE END=====================================*/
+                string lineSeparator3 = "";
+                for (int i = 0; i < paperWidth / 10.5; i++)
+                {
+                    lineSeparator3 += "=";
+                }
+                float lineSeparator3X = 4 + (paperWidth - e.Graphics.MeasureString(lineSeparator, font10Normal).Width) / 2;
+                float lineSeparator3Y = conclusionY[1] + 13;
+
+                e.Graphics.DrawString(lineSeparator3, font10Normal, brush, lineSeparator3X, lineSeparator3Y);
+
+                paperHeight = lineSeparator3Y;
+                POS_PrintDocument.DefaultPageSettings.PaperSize = new PaperSize("Receipt", (int)paperWidth, (int)paperHeight + 20);
             }
-
-            for (int i = 0; i < tableData.Length; i++)
-            {
-            e.Graphics.DrawString(tableData[i][0], font9Normal, brush, tableDataX[i][0], tableDataY[i]);
-            e.Graphics.DrawString(tableData[i][1], font9Normal, brush, tableDataX[i][1], tableDataY[i]);
-            e.Graphics.DrawString(tableData[i][2], font9Normal, brush, tableDataX[i][2], tableDataY[i]);
-            e.Graphics.DrawString(tableData[i][3], font9Normal, brush, tableDataX[i][3], tableDataY[i]);
-            }
-
-            /*===============================ONE LINE SEPARATOR====================================*/
-            string lineSeparator2 = "";
-            for (int i = 0; i < paperWidth / 5.2; i++)
-            {
-                lineSeparator2 += "-";
-            }
-            float lineSeparator2X = 3 + (paperWidth - e.Graphics.MeasureString(lineSeparator, font10Normal).Width) / 2;
-            float lineSeparator2Y = tableDataY[tableDataY.Length - 1] + 15;
-
-            e.Graphics.DrawString(lineSeparator2, font10Normal, brush, lineSeparator2X, lineSeparator2Y);
-
-            /*================================TOTAL, RECEIVE & CHANGE===============================*/
-            string[] conclusion = new string[3];
-            conclusion[0] = "ยอดสุทธิ";
-            conclusion[1] = data.FirstOrDefault().Total.ToString("#,###,##0");
-            conclusion[2] = "รับเงิน" + " " + data.FirstOrDefault().ReceiveMoney.ToString("#,###,##0") + " " + "ทอนเงิน" + " " + data.FirstOrDefault().ChangeMoney.ToString("#,###,##0");
-
-            float[] conclusionX = new float[3];
-            conclusionX[0] = 3;
-            conclusionX[1] = paperWidth - e.Graphics.MeasureString(conclusion[1], font9Bold).Width;
-            conclusionX[2] = paperWidth - e.Graphics.MeasureString(conclusion[2], font9Normal).Width + 2;
-
-            float[] conclusionY = new float[2];
-            conclusionY[0] = lineSeparator2Y + 15;
-            conclusionY[1] = conclusionY[0] + 18;
-
-            e.Graphics.DrawString(conclusion[0], font9Bold, brush, conclusionX[0], conclusionY[0]);
-            e.Graphics.DrawString(conclusion[1], font9Bold, brush, conclusionX[1], conclusionY[0]);
-            e.Graphics.DrawString(conclusion[2], font9Normal, brush, conclusionX[2], conclusionY[1]);
-
-            /*=====================================LINE END=====================================*/
-            string lineSeparator3 = "";
-            for (int i = 0; i < paperWidth / 10.5; i++)
-            {
-                lineSeparator3 += "=";
-            }
-            float lineSeparator3X = 4 + (paperWidth - e.Graphics.MeasureString(lineSeparator, font10Normal).Width) / 2;
-            float lineSeparator3Y = conclusionY[1] + 13;
-
-            e.Graphics.DrawString(lineSeparator3, font10Normal, brush, lineSeparator3X, lineSeparator3Y);
-
-
-            paperHeight = lineSeparator3Y;
-            POS_PrintDocument.DefaultPageSettings.PaperSize = new PaperSize("Receipt", (int)paperWidth, (int)paperHeight + 20);
         }
     }
 }
