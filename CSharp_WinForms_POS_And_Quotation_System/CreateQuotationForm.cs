@@ -15,8 +15,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
         public CreateQuotationForm()
         {
             InitializeComponent();
-            this.MinimumSize = new Size(1000, 1000);
-            this.Size = new Size(1180, 1250);
+            this.MinimumSize = new Size(500, 500);
+            this.Size = new Size(1500, 900);
         }
 
         private void CreateQuotationForm_Load(object sender, EventArgs e)
