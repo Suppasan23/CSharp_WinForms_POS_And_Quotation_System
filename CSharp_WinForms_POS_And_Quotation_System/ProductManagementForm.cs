@@ -35,6 +35,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             this.PM_DataGridView.DefaultCellStyle.SelectionForeColor = Color.Black;
 
             this.PM_DataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            this.PM_DataGridView.RowsDefaultCellStyle.Padding = new Padding(5);
 
             //this.PM_DataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             this.PM_DataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;

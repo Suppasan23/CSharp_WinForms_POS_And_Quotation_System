@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            tableLayoutPanel5 = new TableLayoutPanel();
+            PM_CRUD_TableLayoutPanel5 = new TableLayoutPanel();
             PM_CRUD_ProductCategoryComboBox = new ComboBox();
             PM_CRUD_HeadingLabel = new Label();
             PM_CRUD_ProductBarcodeLabel = new Label();
@@ -44,8 +44,6 @@
             flowLayoutPanel2 = new FlowLayoutPanel();
             PM_CRUD_CancelButton = new Button();
             PM_CRUD_SaveButton = new Button();
-            PM_CRUD_ProductIdNumericUpDown = new NumericUpDown();
-            PM_CRUD_ProductIdLabel = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             PM_CRUD_PictureBox = new PictureBox();
             tableLayoutPanel3 = new TableLayoutPanel();
@@ -57,10 +55,9 @@
             PM_CRUD_ProductSellingPriceLabel = new Label();
             PM_CRUD_ProductSellingPriceNumericUpDown = new NumericUpDown();
             openFileDialog1 = new OpenFileDialog();
-            tableLayoutPanel5.SuspendLayout();
+            PM_CRUD_TableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PM_CRUD_ProductQuantityNumericUpDown).BeginInit();
             flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)PM_CRUD_ProductIdNumericUpDown).BeginInit();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PM_CRUD_PictureBox).BeginInit();
             tableLayoutPanel3.SuspendLayout();
@@ -68,47 +65,48 @@
             ((System.ComponentModel.ISupportInitialize)PM_CRUD_ProductSellingPriceNumericUpDown).BeginInit();
             SuspendLayout();
             // 
-            // tableLayoutPanel5
+            // PM_CRUD_TableLayoutPanel5
             // 
-            tableLayoutPanel5.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
-            tableLayoutPanel5.ColumnCount = 2;
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 105F));
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductCategoryComboBox, 1, 7);
-            tableLayoutPanel5.Controls.Add(PM_CRUD_HeadingLabel, 0, 0);
-            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductBarcodeLabel, 0, 1);
-            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductNameLabel, 0, 2);
-            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductBarcodeTextBox, 1, 1);
-            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductQuantityLabel, 0, 5);
-            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductQuantityNumericUpDown, 1, 5);
-            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductUnitNameTextBox, 1, 6);
-            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductNameTextBox, 1, 2);
-            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductCategoryLabel, 0, 7);
-            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductPictureLabel, 0, 8);
-            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductUnitNameLabel, 0, 6);
-            tableLayoutPanel5.Controls.Add(flowLayoutPanel2, 0, 9);
-            tableLayoutPanel5.Controls.Add(flowLayoutPanel1, 1, 8);
-            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductCostPriceNumericUpDown, 1, 3);
-            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductCostPriceLabel, 0, 3);
-            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductSellingPriceLabel, 0, 4);
-            tableLayoutPanel5.Controls.Add(PM_CRUD_ProductSellingPriceNumericUpDown, 1, 4);
-            tableLayoutPanel5.Dock = DockStyle.Fill;
-            tableLayoutPanel5.Location = new Point(0, 0);
-            tableLayoutPanel5.Margin = new Padding(0);
-            tableLayoutPanel5.Name = "tableLayoutPanel5";
-            tableLayoutPanel5.RowCount = 10;
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
-            tableLayoutPanel5.Size = new Size(784, 641);
-            tableLayoutPanel5.TabIndex = 100;
+            PM_CRUD_TableLayoutPanel5.BackColor = Color.GreenYellow;
+            PM_CRUD_TableLayoutPanel5.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
+            PM_CRUD_TableLayoutPanel5.ColumnCount = 2;
+            PM_CRUD_TableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 105F));
+            PM_CRUD_TableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            PM_CRUD_TableLayoutPanel5.Controls.Add(PM_CRUD_ProductCategoryComboBox, 1, 7);
+            PM_CRUD_TableLayoutPanel5.Controls.Add(PM_CRUD_HeadingLabel, 0, 0);
+            PM_CRUD_TableLayoutPanel5.Controls.Add(PM_CRUD_ProductBarcodeLabel, 0, 1);
+            PM_CRUD_TableLayoutPanel5.Controls.Add(PM_CRUD_ProductNameLabel, 0, 2);
+            PM_CRUD_TableLayoutPanel5.Controls.Add(PM_CRUD_ProductBarcodeTextBox, 1, 1);
+            PM_CRUD_TableLayoutPanel5.Controls.Add(PM_CRUD_ProductQuantityLabel, 0, 5);
+            PM_CRUD_TableLayoutPanel5.Controls.Add(PM_CRUD_ProductQuantityNumericUpDown, 1, 5);
+            PM_CRUD_TableLayoutPanel5.Controls.Add(PM_CRUD_ProductUnitNameTextBox, 1, 6);
+            PM_CRUD_TableLayoutPanel5.Controls.Add(PM_CRUD_ProductNameTextBox, 1, 2);
+            PM_CRUD_TableLayoutPanel5.Controls.Add(PM_CRUD_ProductCategoryLabel, 0, 7);
+            PM_CRUD_TableLayoutPanel5.Controls.Add(PM_CRUD_ProductPictureLabel, 0, 8);
+            PM_CRUD_TableLayoutPanel5.Controls.Add(PM_CRUD_ProductUnitNameLabel, 0, 6);
+            PM_CRUD_TableLayoutPanel5.Controls.Add(flowLayoutPanel2, 0, 9);
+            PM_CRUD_TableLayoutPanel5.Controls.Add(flowLayoutPanel1, 1, 8);
+            PM_CRUD_TableLayoutPanel5.Controls.Add(PM_CRUD_ProductCostPriceNumericUpDown, 1, 3);
+            PM_CRUD_TableLayoutPanel5.Controls.Add(PM_CRUD_ProductCostPriceLabel, 0, 3);
+            PM_CRUD_TableLayoutPanel5.Controls.Add(PM_CRUD_ProductSellingPriceLabel, 0, 4);
+            PM_CRUD_TableLayoutPanel5.Controls.Add(PM_CRUD_ProductSellingPriceNumericUpDown, 1, 4);
+            PM_CRUD_TableLayoutPanel5.Dock = DockStyle.Fill;
+            PM_CRUD_TableLayoutPanel5.Location = new Point(0, 0);
+            PM_CRUD_TableLayoutPanel5.Margin = new Padding(0);
+            PM_CRUD_TableLayoutPanel5.Name = "PM_CRUD_TableLayoutPanel5";
+            PM_CRUD_TableLayoutPanel5.RowCount = 10;
+            PM_CRUD_TableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            PM_CRUD_TableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            PM_CRUD_TableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            PM_CRUD_TableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            PM_CRUD_TableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            PM_CRUD_TableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            PM_CRUD_TableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            PM_CRUD_TableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            PM_CRUD_TableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            PM_CRUD_TableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
+            PM_CRUD_TableLayoutPanel5.Size = new Size(784, 641);
+            PM_CRUD_TableLayoutPanel5.TabIndex = 100;
             // 
             // PM_CRUD_ProductCategoryComboBox
             // 
@@ -125,7 +123,7 @@
             // 
             PM_CRUD_HeadingLabel.AutoSize = true;
             PM_CRUD_HeadingLabel.BackColor = SystemColors.InactiveCaption;
-            tableLayoutPanel5.SetColumnSpan(PM_CRUD_HeadingLabel, 2);
+            PM_CRUD_TableLayoutPanel5.SetColumnSpan(PM_CRUD_HeadingLabel, 2);
             PM_CRUD_HeadingLabel.Dock = DockStyle.Fill;
             PM_CRUD_HeadingLabel.Font = new Font("Tahoma", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             PM_CRUD_HeadingLabel.Location = new Point(1, 1);
@@ -189,7 +187,7 @@
             PM_CRUD_ProductQuantityNumericUpDown.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             PM_CRUD_ProductQuantityNumericUpDown.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             PM_CRUD_ProductQuantityNumericUpDown.Location = new Point(110, 171);
-            PM_CRUD_ProductQuantityNumericUpDown.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
+            PM_CRUD_ProductQuantityNumericUpDown.Maximum = new decimal(new int[] { 0, 0, 0, 0 });
             PM_CRUD_ProductQuantityNumericUpDown.Name = "PM_CRUD_ProductQuantityNumericUpDown";
             PM_CRUD_ProductQuantityNumericUpDown.Size = new Size(120, 26);
             PM_CRUD_ProductQuantityNumericUpDown.TabIndex = 5;
@@ -254,11 +252,9 @@
             // 
             // flowLayoutPanel2
             // 
-            tableLayoutPanel5.SetColumnSpan(flowLayoutPanel2, 2);
+            PM_CRUD_TableLayoutPanel5.SetColumnSpan(flowLayoutPanel2, 2);
             flowLayoutPanel2.Controls.Add(PM_CRUD_CancelButton);
             flowLayoutPanel2.Controls.Add(PM_CRUD_SaveButton);
-            flowLayoutPanel2.Controls.Add(PM_CRUD_ProductIdNumericUpDown);
-            flowLayoutPanel2.Controls.Add(PM_CRUD_ProductIdLabel);
             flowLayoutPanel2.Dock = DockStyle.Fill;
             flowLayoutPanel2.Location = new Point(1, 600);
             flowLayoutPanel2.Margin = new Padding(0);
@@ -292,31 +288,6 @@
             PM_CRUD_SaveButton.Text = "...";
             PM_CRUD_SaveButton.UseVisualStyleBackColor = true;
             PM_CRUD_SaveButton.Click += PM_CRUD_SaveButton_Click;
-            // 
-            // PM_CRUD_ProductIdNumericUpDown
-            // 
-            PM_CRUD_ProductIdNumericUpDown.Anchor = AnchorStyles.Right;
-            PM_CRUD_ProductIdNumericUpDown.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            PM_CRUD_ProductIdNumericUpDown.Location = new Point(527, 7);
-            PM_CRUD_ProductIdNumericUpDown.Name = "PM_CRUD_ProductIdNumericUpDown";
-            PM_CRUD_ProductIdNumericUpDown.ReadOnly = true;
-            PM_CRUD_ProductIdNumericUpDown.RightToLeft = RightToLeft.No;
-            PM_CRUD_ProductIdNumericUpDown.Size = new Size(52, 26);
-            PM_CRUD_ProductIdNumericUpDown.TabIndex = 118;
-            PM_CRUD_ProductIdNumericUpDown.Visible = false;
-            // 
-            // PM_CRUD_ProductIdLabel
-            // 
-            PM_CRUD_ProductIdLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            PM_CRUD_ProductIdLabel.AutoSize = true;
-            PM_CRUD_ProductIdLabel.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            PM_CRUD_ProductIdLabel.Location = new Point(492, 11);
-            PM_CRUD_ProductIdLabel.Margin = new Padding(3);
-            PM_CRUD_ProductIdLabel.Name = "PM_CRUD_ProductIdLabel";
-            PM_CRUD_ProductIdLabel.Size = new Size(29, 18);
-            PM_CRUD_ProductIdLabel.TabIndex = 117;
-            PM_CRUD_ProductIdLabel.Text = ":ID";
-            PM_CRUD_ProductIdLabel.Visible = false;
             // 
             // flowLayoutPanel1
             // 
@@ -414,7 +385,7 @@
             PM_CRUD_ProductCostPriceNumericUpDown.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             PM_CRUD_ProductCostPriceNumericUpDown.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             PM_CRUD_ProductCostPriceNumericUpDown.Location = new Point(110, 113);
-            PM_CRUD_ProductCostPriceNumericUpDown.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
+            PM_CRUD_ProductCostPriceNumericUpDown.Maximum = new decimal(new int[] { 0, 0, 0, 0 });
             PM_CRUD_ProductCostPriceNumericUpDown.Name = "PM_CRUD_ProductCostPriceNumericUpDown";
             PM_CRUD_ProductCostPriceNumericUpDown.Size = new Size(120, 26);
             PM_CRUD_ProductCostPriceNumericUpDown.TabIndex = 3;
@@ -451,7 +422,7 @@
             PM_CRUD_ProductSellingPriceNumericUpDown.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             PM_CRUD_ProductSellingPriceNumericUpDown.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             PM_CRUD_ProductSellingPriceNumericUpDown.Location = new Point(110, 142);
-            PM_CRUD_ProductSellingPriceNumericUpDown.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
+            PM_CRUD_ProductSellingPriceNumericUpDown.Maximum = new decimal(new int[] { 0, 0, 0, 0 });
             PM_CRUD_ProductSellingPriceNumericUpDown.Name = "PM_CRUD_ProductSellingPriceNumericUpDown";
             PM_CRUD_ProductSellingPriceNumericUpDown.Size = new Size(120, 26);
             PM_CRUD_ProductSellingPriceNumericUpDown.TabIndex = 4;
@@ -466,16 +437,14 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 641);
-            Controls.Add(tableLayoutPanel5);
+            Controls.Add(PM_CRUD_TableLayoutPanel5);
             Name = "ProductManagementForm_CRUD";
             Text = "ProductManagementForm_CRUD";
             Load += ProductManagementForm_CRUD_Load;
-            tableLayoutPanel5.ResumeLayout(false);
-            tableLayoutPanel5.PerformLayout();
+            PM_CRUD_TableLayoutPanel5.ResumeLayout(false);
+            PM_CRUD_TableLayoutPanel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PM_CRUD_ProductQuantityNumericUpDown).EndInit();
             flowLayoutPanel2.ResumeLayout(false);
-            flowLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)PM_CRUD_ProductIdNumericUpDown).EndInit();
             flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)PM_CRUD_PictureBox).EndInit();
             tableLayoutPanel3.ResumeLayout(false);
@@ -492,7 +461,6 @@
         private Label PM_CRUD_ProductCostPriceLabel;
         private Label PM_CRUD_ProductNameLabel;
         private Label PM_CRUD_ProductBarcodeLabel;
-        private Label PM_CRUD_ProductIdLabel;
         private TextBox PM_CRUD_ProductUnitNameTextBox;
         private Label PM_CRUD_ProductQuantityLabel;
         private Label PM_CRUD_ProductCategoryLabel;
@@ -506,11 +474,10 @@
         private Button PM_CRUD_CancelButton;
         private Label PM_CRUD_ProductPictureLabel;
         private TableLayoutPanel tableLayoutPanel3;
-        private NumericUpDown PM_CRUD_ProductIdNumericUpDown;
         private NumericUpDown PM_CRUD_ProductSellingPriceNumericUpDown;
         private NumericUpDown PM_CRUD_ProductCostPriceNumericUpDown;
         private NumericUpDown PM_CRUD_ProductQuantityNumericUpDown;
-        private TableLayoutPanel tableLayoutPanel5;
+        private TableLayoutPanel PM_CRUD_TableLayoutPanel5;
         private LinkLabel PM_CRUD_ChoosePictureLinkLabel;
         private LinkLabel PM_CRUD_DeletePictureLinkLabel;
         private ComboBox PM_CRUD_ProductCategoryComboBox;

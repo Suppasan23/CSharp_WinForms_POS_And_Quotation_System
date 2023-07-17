@@ -44,8 +44,14 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
             this.PM_CRUD_ProductCategoryComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            this.PM_CRUD_ProductIdLabel.Visible = false;
-            this.PM_CRUD_ProductIdNumericUpDown.Visible = false;
+            this.PM_CRUD_ProductCostPriceNumericUpDown.Maximum = decimal.MaxValue;
+            this.PM_CRUD_ProductCostPriceNumericUpDown.Minimum = decimal.MinValue;
+
+            this.PM_CRUD_ProductSellingPriceNumericUpDown.Maximum = decimal.MaxValue;
+            this.PM_CRUD_ProductSellingPriceNumericUpDown.Minimum = decimal.MinValue;
+
+            this.PM_CRUD_ProductQuantityNumericUpDown.Maximum = decimal.MaxValue;
+            this.PM_CRUD_ProductQuantityNumericUpDown.Minimum = decimal.MinValue;
 
 
             this.theCRUD = _whichCRUD;
@@ -70,8 +76,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             PM_CRUD_SaveButton.Text = "บันทึก";
             PM_CRUD_SaveButton.ForeColor = Color.DarkGreen;
             PM_CRUD_SaveButton.Select();
+            PM_CRUD_TableLayoutPanel5.BackColor = Color.Honeydew;
 
-            PM_CRUD_ProductIdNumericUpDown.ReadOnly = true; //X
             PM_CRUD_ProductBarcodeTextBox.ReadOnly = true; //X
 
             PM_CRUD_ProductNameTextBox.ReadOnly = false; //O
@@ -111,7 +117,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 return;
             }
 
-            //PM_CRUD_ProductIdNumericUpDown.Value = Primary key Generate Auto
+            //ID = Primary key Generate Auto
             PM_CRUD_ProductBarcodeTextBox.Text = "*สร้างอัตโนมัติ";
             imageFileName = "";
             PM_CRUD_PictureBox.Image = null;
@@ -122,8 +128,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             PM_CRUD_SaveButton.Text = "บันทึก";
             PM_CRUD_SaveButton.ForeColor = Color.DarkBlue;
             PM_CRUD_SaveButton.Select();
+            PM_CRUD_TableLayoutPanel5.BackColor = Color.OldLace;
 
-            PM_CRUD_ProductIdNumericUpDown.ReadOnly = true; //X
             PM_CRUD_ProductBarcodeTextBox.ReadOnly = true; //X
 
             PM_CRUD_ProductNameTextBox.ReadOnly = false; //O
@@ -143,7 +149,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             if (data != null && cat.Any())
             {
                 //ID, Barcode, Name, CostPrice, SellingPrice, Quantity, UnitName show
-                PM_CRUD_ProductIdNumericUpDown.Value = theID; //Read only
+                //theID = theID;
                 PM_CRUD_ProductBarcodeTextBox.Text = data.Barcode; //Read only
 
                 PM_CRUD_ProductNameTextBox.Text = data.Name;
@@ -197,8 +203,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             PM_CRUD_SaveButton.Text = "ลบ";
             PM_CRUD_SaveButton.ForeColor = Color.DarkRed;
             PM_CRUD_SaveButton.Select();
+            PM_CRUD_TableLayoutPanel5.BackColor = Color.Silver;
 
-            PM_CRUD_ProductIdNumericUpDown.ReadOnly = true; //X
             PM_CRUD_ProductBarcodeTextBox.ReadOnly = true; //X
 
             PM_CRUD_ProductNameTextBox.ReadOnly = true; //X
@@ -223,7 +229,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             if (data != null)
             {
                 //ID, Barcode, Name, CostPrice, SellingPrice, Quantity, UnitName show
-                PM_CRUD_ProductIdNumericUpDown.Value = theID; //Read only
+                //theID = theID;
                 PM_CRUD_ProductBarcodeTextBox.Text = data.Pro.Barcode; //Read only
 
                 PM_CRUD_ProductNameTextBox.Text = data.Pro.Name; //Read only
@@ -473,7 +479,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
         private void executeEDIT() //EXECUTE EDIT
         {
-            if (PM_CRUD_ProductIdNumericUpDown.Value == 0)
+            if (theID == 0)
             {
                 MessageBox.Show("ไม่พบ ID", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -574,7 +580,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
         private void executeDELETE() //EXECUTE DELETE
         {
-            if (PM_CRUD_ProductIdNumericUpDown.Value == 0)
+            if (theID == 0)
             {
                 MessageBox.Show("ไม่พบ ID", "เพิ่มสินค้า", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

@@ -34,8 +34,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             this.PM_C_DataGridView1.AllowUserToResizeRows = false;
 
             this.PM_C_DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            this.PM_C_DataGridView1.DefaultCellStyle.SelectionBackColor = Color.LightCyan;
-            this.PM_C_DataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black;
+            this.PM_C_DataGridView1.DefaultCellStyle.SelectionBackColor = SystemColors.Highlight;
+            this.PM_C_DataGridView1.DefaultCellStyle.SelectionForeColor = Color.White;
 
             this.PM_C_DataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
@@ -84,7 +84,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             PM_C_SaveLabel.Text = "";
             PM_C_CancelLabel.Text = "";
 
-            PM_C_DataGridView1.DefaultCellStyle.SelectionBackColor = Color.LightCyan;
+            PM_C_DataGridView1.DefaultCellStyle.SelectionBackColor = SystemColors.Highlight;
+            PM_C_DataGridView1.DefaultCellStyle.SelectionForeColor = Color.White;
             PM_C_DataGridView1.Enabled = true;
 
             PM_C_TextBox1.Clear();
@@ -179,7 +180,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
 
                 PM_C_TextBox1.Enabled = true;
                 PM_C_TextBox1.ReadOnly = false;
-                PM_C_TextBox1.BackColor = Color.Wheat;
+                PM_C_TextBox1.BackColor = Color.Tan;
 
                 PM_C_AddLinkLabel.Visible = false;
                 PM_C_EditLinkLabel.Visible = false;
@@ -195,7 +196,8 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 PM_C_SaveLabel.Text = "บันทึก";
                 PM_C_CancelLabel.Text = "ยกเลิก";
 
-                PM_C_DataGridView1.DefaultCellStyle.SelectionBackColor = Color.Wheat;
+                PM_C_DataGridView1.DefaultCellStyle.SelectionBackColor = Color.Tan;
+                PM_C_DataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black;
                 PM_C_DataGridView1.Enabled = false;
 
                 PM_C_TextBox1.Text = catSelectedName;
@@ -241,6 +243,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
                 PM_C_CancelLabel.Text = "ยกเลิก";
 
                 PM_C_DataGridView1.DefaultCellStyle.SelectionBackColor = Color.LightCoral;
+                PM_C_DataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black;
                 PM_C_DataGridView1.Enabled = false;
 
                 PM_C_TextBox1.Text = catSelectedName;

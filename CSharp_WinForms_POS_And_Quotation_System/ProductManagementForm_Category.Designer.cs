@@ -247,6 +247,7 @@
             // PM_C_Label1
             // 
             PM_C_Label1.AutoSize = true;
+            PM_C_Label1.BackColor = SystemColors.Control;
             PM_C_Label1.Dock = DockStyle.Fill;
             PM_C_Label1.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             PM_C_Label1.Location = new Point(0, 0);
