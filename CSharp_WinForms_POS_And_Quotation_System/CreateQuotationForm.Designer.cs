@@ -157,7 +157,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1164, 1131);
+            panel1.Size = new Size(1164, 1061);
             panel1.TabIndex = 0;
             // 
             // CQ_Panel2
@@ -173,7 +173,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_Panel2.Dock = DockStyle.Fill;
             CQ_Panel2.Location = new Point(0, 60);
             CQ_Panel2.Name = "CQ_Panel2";
-            CQ_Panel2.Size = new Size(1162, 1069);
+            CQ_Panel2.Size = new Size(1162, 999);
             CQ_Panel2.TabIndex = 2;
             // 
             // CQ_CancelButton
@@ -181,7 +181,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_CancelButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             CQ_CancelButton.BackColor = Color.FromArgb(255, 221, 221);
             CQ_CancelButton.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            CQ_CancelButton.Location = new Point(1033, 1029);
+            CQ_CancelButton.Location = new Point(1033, 959);
             CQ_CancelButton.Name = "CQ_CancelButton";
             CQ_CancelButton.Size = new Size(120, 35);
             CQ_CancelButton.TabIndex = 9;
@@ -194,7 +194,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_ConfirmButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             CQ_ConfirmButton.BackColor = Color.FromArgb(206, 255, 206);
             CQ_ConfirmButton.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            CQ_ConfirmButton.Location = new Point(907, 1029);
+            CQ_ConfirmButton.Location = new Point(907, 959);
             CQ_ConfirmButton.Name = "CQ_ConfirmButton";
             CQ_ConfirmButton.Size = new Size(120, 35);
             CQ_ConfirmButton.TabIndex = 8;
@@ -248,7 +248,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_ProductDetailsGroupBox.ForeColor = Color.Green;
             CQ_ProductDetailsGroupBox.Location = new Point(8, 366);
             CQ_ProductDetailsGroupBox.Name = "CQ_ProductDetailsGroupBox";
-            CQ_ProductDetailsGroupBox.Size = new Size(1145, 659);
+            CQ_ProductDetailsGroupBox.Size = new Size(1145, 589);
             CQ_ProductDetailsGroupBox.TabIndex = 6;
             CQ_ProductDetailsGroupBox.TabStop = false;
             CQ_ProductDetailsGroupBox.Text = "รายการสินค้า";
@@ -273,7 +273,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_TableLayoutPanel9.Controls.Add(CQ_TotalTextBox, 2, 4);
             CQ_TableLayoutPanel9.Controls.Add(CQ_TableLayoutPanel10, 0, 0);
             CQ_TableLayoutPanel9.Controls.Add(CQ_TotalLetterLabel, 0, 4);
-            CQ_TableLayoutPanel9.Location = new Point(6, 479);
+            CQ_TableLayoutPanel9.Location = new Point(6, 409);
             CQ_TableLayoutPanel9.Name = "CQ_TableLayoutPanel9";
             CQ_TableLayoutPanel9.RowCount = 5;
             CQ_TableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
@@ -497,7 +497,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             CQ_ProductDetailsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             CQ_ProductDetailsDataGridView.RowTemplate.Height = 25;
             CQ_ProductDetailsDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            CQ_ProductDetailsDataGridView.Size = new Size(1133, 448);
+            CQ_ProductDetailsDataGridView.Size = new Size(1133, 378);
             CQ_ProductDetailsDataGridView.TabIndex = 2;
             // 
             // CQ_DataGridViewIdColumn
@@ -1239,7 +1239,7 @@ namespace CSharp_WinForms_POS_And_Quotation_System
             // 
             AutoScaleDimensions = new SizeF(8F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1164, 1131);
+            ClientSize = new Size(1164, 1061);
             Controls.Add(panel1);
             Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(3, 4, 3, 4);
